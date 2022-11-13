@@ -6,3 +6,4 @@
 
 ### Work in Progress:
 - [ ] Count total number of students
+- [ ] Add Firebase Auth to Teachers and Admin

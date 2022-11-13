@@ -39,10 +39,14 @@
                                                 <td><?=$row['lname']; ?></td>
                                                 <td><?=$row['email']; ?></td>
                                                 <td>
-                                                    <a href="edit-student.php?id=<?=$key;?>" class="btn btn-primary btn-sm">Edit</a>
+                                                <button>  
+                                                <a href="edit-student.php?id=<?=$key;?>" class="btn btn-primary btn-sm">Edit</a></button>  
                                                 </td>
                                                 <td>
-                                                    <a href="edit-student.php" class="btn btn-danger btn-sm">Delete</a>
+                                                    <!-- <a href="edit-student.php" class="btn btn-danger btn-sm">Delete</a> -->
+                                                    <form action="code.php" method="post">
+                                                        <button type="submit" class="btn btn-primary" name="delete_button" value="<?=$key?>">Delete</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             <?php

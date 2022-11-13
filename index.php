@@ -1,14 +1,31 @@
-<?php include('includes/header.php');?>
+<?php 
+session_start(); 
+include('includes/header.php');?>
+
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+        <!-- method to show the status from code.php add student status message -->
+         <?php 
+        if(isset($_SESSION['status'])){
+            echo "<h5 class='alert alert-status '>".$_SESSION['status']."</h5>";
+            unset($_SESSION['status']);
+        }
+        ?>
+        <div class="card">
                 <div class="card-header">
                     <h4>
                         ARFUN Crud - Realtime Database
-                        <a href="add-student.php" class="btn btn-primary float-end">Add Students</a></h4>
-                </div>
+                        <a href="manage-student.php" class="btn btn-primary float-end">Manage Student</a>
+                        <a href="add-lesson.php" class="btn btn-primary float-end">Add Lesson</a>
+                        <a href="add-quiz.php" class="btn btn-primary float-end">Add Quiz</a>
+                        <a href="" class="btn btn-danger float-end">Logout</a>
+                        </h4>
+                        <div class="card-body">
+                            
+                        </div>
+                        
             </div>
         </div>
     </div>

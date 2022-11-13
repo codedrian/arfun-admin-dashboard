@@ -2,6 +2,27 @@
 session_start(); 
 include('dbcon.php'); //for database connection
 
+//METHOD to delete student 
+if(isset($_POST['delete_button'])) {
+    $delete_id = $_POST['delete_button'];
+
+    $ref_table = 'students/'.$delete_id;
+    $deleteQuery_Result = $database->getReference($ref_table)->remove();
+
+    if($deleteQuery_Result) {
+    $_SESSION['status'] = "Student deleted succesfully!";
+    header('Location: index.php');
+}else {
+    $_SESSION['status'] = "Unsuccessful to delete";
+    header('Location: index.php');
+    }
+
+}
+
+
+
+
+//METHOD: Method to update the student records
 if(isset($_POST['updateStudent'])) {
     $key = $_POST['key'];
     $first_name = $_POST['first_name'];

@@ -1,3 +1,8 @@
 # arfun-admin-dashboard
-## Work in Progress:
-- []() Add Student
+## Feature:
+### Teacher
+- [x] Add Student, Edit Details, Delete Student
+
+
+### Work in Progress:
+- [ ] Count total number of students

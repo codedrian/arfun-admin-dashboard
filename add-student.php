@@ -23,6 +23,14 @@
                             <label for="email">Email:</label>
                             <input type="email" name="email" class="form-control">
                         </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Section:</label>
+                            <input type="text" name="section" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">LRN Number:</label>
+                            <input type="text" name="lrn_number" class="form-control">
+                        </div>
                         <div class="form-group">
                             <button type="submit" name="save" class="btn btn-primary primary"><a href="manage-student.php"></a>Submit</button>
                         </div>

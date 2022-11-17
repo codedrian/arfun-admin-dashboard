@@ -2,6 +2,26 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-6 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Total Student:
+                        <?php 
+                        include('dbcon.php');
+                        $ref_table = 'students';
+                        $count_student = $database->getReference($ref_table)->getSnapshot()->numChildren();
+                        echo $count_student;
+                        ?>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -18,6 +38,8 @@
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Email Adress</th>
+                                        <th>Section</th>
+                                        <th>LRN Number</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -38,6 +60,8 @@
                                                 <td><?=$row['fname']; ?></td>
                                                 <td><?=$row['lname']; ?></td>
                                                 <td><?=$row['email']; ?></td>
+                                                <td><?=$row['section']; ?></td>
+                                                <td><?=$row['lrn_number']; ?></td>
                                                 <td>
                                                 <button>  
                                                 <a href="edit-student.php?id=<?=$key;?>" class="btn btn-primary btn-sm">Edit</a></button>  

@@ -34,6 +34,14 @@
                             <label for="email">Email:</label>
                             <input type="email" name="email" class="form-control" value="<?=$update_student['email'];?>">
                         </div>
+                        <div class="form-group mb-3">
+                            <label for="section">Section</label>
+                            <input type="text" name="section" class="form-control" value="<?=$update_student['section'];?>">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">LRN Number:</label>
+                            <input type="text" name="lrn_number" class="form-control" value="<?=$update_student['lrn_number'];?>">
+                        </div>
                         <div class="form-group">
                             <button type="submit" name="updateStudent" class="btn btn-primary primary"><a href="manage-student.php"></a>Update</button>
                         </div>

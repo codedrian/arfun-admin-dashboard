@@ -28,11 +28,15 @@ if(isset($_POST['updateStudent'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
+    $section = $_POST['section'];
+    $lrn_number = $_POST['lrn_number'];
 
 $updateData = [
     'fname' => $first_name,
     'lname' => $last_name,
     'email' => $email,
+    'section' => $section,
+    'lrn_number' => $lrn_number
 ];
 
 $ref_table = 'students/'.$key;
@@ -54,11 +58,15 @@ if(isset($_POST['save'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
+    $section = $_POST['section'];
+    $lrn_number = $_POST['lrn_number'];
 
     $postData = [
     'fname' => $first_name,
     'lname' => $last_name,
     'email' => $email,
+    'section' => $section,
+    'lrn_number' => $lrn_number,
 
 ];
 

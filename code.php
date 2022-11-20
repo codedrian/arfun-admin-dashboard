@@ -2,6 +2,37 @@
 session_start(); 
 include('dbcon.php'); //for database connection
 
+//METHOD to add user to database using Firebase User Manaagement
+if(isset($_POST['register_button'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $userProperties = [
+    'email' => $email,
+    'emailVerified' => false,
+    'password' => $password,
+    'firstName' => $first_name,
+    'lastName' => $last_name,
+    'disabled' => false,
+];
+$createdUser = $auth->createUser($userProperties);
+
+if ($createdUser) {
+    $_SESSION['status'] = "User Added Successfully";
+    header('Location: register.php'); 
+    exit();
+}
+else {
+    $_SESSION['status'] = "User Not Added";
+    header('Location: register.php'); 
+    exit();
+}
+}
+
+
+
 //METHOD to delete student 
 if(isset($_POST['delete_button'])) {
     $delete_id = $_POST['delete_button'];

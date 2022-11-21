@@ -26,7 +26,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4>
-                        ARFUN Crud - Realtime Database
+                        ARFUN E-Learning Admin Panel
                         <a href="add-student.php" class="btn btn-primary">Add Student</a>
                         <a href="index.php" class="btn btn-danger float-end">Back</a></h4>
                 </div>

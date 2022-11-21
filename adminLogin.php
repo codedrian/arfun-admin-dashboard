@@ -1,7 +1,15 @@
 <?php 
 include('includes/header.php');
 session_start(); 
+
+if (isset($_SESSION['verified_user_id'])){ //user cant access this when already looged in
+    $_SESSION['status'] = "You are already logged in";
+    header('Location: index.php');
+    exit();
+}
 ?>
+
+
 
 <div class="container">
     <div class="row">
@@ -26,15 +34,15 @@ session_start();
                         Please Login
                 </div>
                 <div class="card-body ">
-                    <form action="code.php" method="POST">
+                    <form action="adminLoginCode.php" method="POST">
                 
                         <div class="form-group mb-3">
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" class="form-control" placeholder="admin@gmail.com">
+                            <label for="email"></label>
+                            <input type="email" name="email" class="form-control" placeholder="Email">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="password">Password:</label>
-                            <input type="text" name="password" class="form-control">
+                            <label for="password"></label>
+                            <input type="text" name="password" class="form-control" placeholder="Password">
                         </div>
                         <div class="form-group">
                             <button type="submit" name="login_button" class="btn btn-primary primary"><a href="index.php"></a>Sign in</button>
@@ -45,5 +53,5 @@ session_start();
         </div>
     </div>
 </div>
-
 <?php include('includes/footer.php');?>
+

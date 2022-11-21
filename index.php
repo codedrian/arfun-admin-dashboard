@@ -1,5 +1,5 @@
 <?php 
-session_start(); 
+include('authentication.php'); 
 include('includes/header.php');?>
 
 
@@ -22,7 +22,6 @@ include('includes/header.php');?>
                         <a href="" class="btn btn-primary float-end">Teachers</a>
                         <a href="add-lesson.php" class="btn btn-primary float-end">Add Lesson</a>
                         <a href="add-quiz.php" class="btn btn-primary float-end">Add Quiz</a>
-                        <a href="" class="btn btn-danger float-end">Logout</a>
                         </h4>
                         <div class="card-body">
                             

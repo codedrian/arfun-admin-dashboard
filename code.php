@@ -2,10 +2,10 @@
 session_start(); 
 include('dbcon.php'); //for database connection
 
-//METHOD to add user to database using Firebase User Manaagement
+//METHOD to add user to database using Firebase User Management
 if(isset($_POST['register_button'])) {
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
+    $first_name = $_POST['f_name'];
+    $last_name = $_POST['l_name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 

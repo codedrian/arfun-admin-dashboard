@@ -1,6 +1,8 @@
 <?php 
+include('authentication.php');
 include('includes/header.php');
-session_start(); 
+
+
 ?>
 
 <div class="container">
@@ -18,17 +20,19 @@ session_start();
                 <div class="card-header">
                     <h4>
                         Add Users
-                        <a href="manage-student.php" class="btn btn-danger float-end">Back</a></h4>
+                        <a href="index.php" class="btn btn-danger float-end">Back</a>
+                    </h4>
+                    
                 </div>
                 <div class="card-body ">
                     <form action="code.php" method="POST">
                         <div class="form-group mb-3">
                             <label for="first_name">First Name:</label>
-                            <input type="text" name="first_name" class="form-control">
+                            <input type="text" name="f_name" class="form-control">
                         </div>
                         <div class="form-group mb-3">
                             <label for="last_name">Last Name:</label>
-                            <input type="text" name="last_name" class="form-control">
+                            <input type="text" name="l_name" class="form-control">
                         </div>
                         <div class="form-group mb-3">
                             <label for="email">Email:</label>
@@ -38,8 +42,8 @@ session_start();
                             <label for="password">Password:</label>
                             <input type="text" name="password" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <button type="submit" name="register_button" class="btn btn-primary primary"><a href="manage-student.php"></a>Sign in</button>
+                        <div class="form-group mb-3">
+                            <button type="submit" name="register_button" class="btn btn-primary ">Sign in</button>
                         </div>
                     </form>
                 </div>

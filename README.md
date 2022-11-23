@@ -3,12 +3,12 @@
 **Feature:**
 ### Teacher
 - [x] Add Student, Edit Details, Delete Student
-- [x] Count total number of students
+- [x] Count total number of students- [ ] - [x] Add Firebase Auth to Teachers and Admin- - [x] Upload Lessons 
 
 **Work in Progress:**
-- [ ] Add Firebase Auth to Teachers and Admin
-- [ ] Upload Lessons 
 - [ ] Create Quiz
+- [ ] Add a custom roles
+- [ ] Improve User Interface
 
 **Technologies Used:**
 - PHP 

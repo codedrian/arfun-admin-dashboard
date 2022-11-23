@@ -3,7 +3,9 @@
 **Feature:**
 ### Teacher
 - [x] Add Student, Edit Details, Delete Student
-- [x] Count total number of students- [ ] - [x] Add Firebase Auth to Teachers and Admin- - [x] Upload Lessons 
+- [x] Count total number of students
+- [x] Add Firebase Auth to Teachers and Admin
+- [x] Upload Lessons 
 
 **Work in Progress:**
 - [ ] Create Quiz

@@ -19,8 +19,8 @@ include('includes/header.php');?>
                         <a href="" class="btn btn-primary float-end">Class</a>
                         <a href="register.php" class="btn btn-primary float-end">Admin Users</a>
                         <a href="manage-student.php" class="btn btn-primary float-end">Students</a>
-                        <a href="" class="btn btn-primary float-end">Teachers</a>
-                        <a href="add-lesson.php" class="btn btn-primary float-end">Add Lesson</a>
+                        <a href="add-teacher.php" class="btn btn-primary float-end">Teachers</a>
+                        <a href="lesson.html" class="btn btn-primary float-end">Add Lesson</a>
                         <a href="add-quiz.php" class="btn btn-primary float-end">Add Quiz</a>
                         </h4>
                         <div class="card-body">

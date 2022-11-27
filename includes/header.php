@@ -11,5 +11,5 @@
     <title>Admin Dashboard</title>
   </head>
   <body>
-    <?php include('navbar.php'); ?>
+    
     <div class="py-4">

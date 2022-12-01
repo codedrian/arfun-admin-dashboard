@@ -73,7 +73,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Quiz
                             </a>
-                            <a class="nav-link collapsed" href="user-list.php">
+                            <a class="nav-link collapsed" href="add-quiz.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 User list
                             </a>
@@ -138,70 +138,69 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-
-        <?php 
-        if(isset($_SESSION['status'])){
-            echo "<h5 class='alert alert-status '>".$_SESSION['status']."</h5>";
-            unset($_SESSION['status']);
-        }
-        ?>
-
-            
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-
-        <?php 
-        if(isset($_SESSION['status'])){
-            echo "<h5 class='alert alert-status '>".$_SESSION['status']."</h5>";
-            unset($_SESSION['status']);
-        }
-        ?>
-
             <div class="card">
                 <div class="card-header">
                     <h4>
-                        Add Teacher
-                        <a href="index.php" class="btn btn-danger float-end">Back</a>
-                    </h4>
-                    
+                        Registered Users
+                        <a href="index.php" class="btn btn-danger float-end">Back</a></h4>
                 </div>
                 <div class="card-body ">
-                    <form action="code.php" method="POST">
-                        <div class="form-group mb-3">
-                            <label for="fullName"">Full Name</label>:</label>
-                            <input type="text" name="fullName"" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="phone">Phone</label>:</label>
-                            <input type="text" name="phone" class="form-control">
-                        </div>
+                    <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Full Name</th>
+                                        <th>Phone</th>
+                                        <th>Email ID</th> 
+                                        <th>Disable/Enable</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <?php
+                                   include('dbcon.php');
+                                   $users = $auth->listUsers();
+
+                                    $i = 1;
+                                    foreach ($users as $user) {
+                                        ?>
+                                <tr>
+                                    <td><?=$i++;?></td>
+                                    <td><?=$user->displayName?></td>
+                                    <td><?=$user->phoneNumber?></td>
+                                    <td><?=$user->email?></td>
+                                    <td>
+                                        <?php
+                                            if ($user->disabled) {
+                                                echo 'Disabled';
+                                            }
+                                            else {
+                                                echo 'Enabled';
+                                            }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <a href="user-edit.php?id=<?=$user->uid;?>" class="btn btn-primary btn-sm">Edit</a>
+                                    </td>
+                                    <td>
+                                                <!-- <a href="user-delete.php" class="btn btn-danger">Delete</a> -->
+                                        <form action="code.php" method="POST">
+                                            <button class="btn btn-danger btn-sm" name="delete_user_button" value="<?=$user->uid;?>">
+                                                        Delete
+                                            </button>
+                                            
+                                        </form>
+                                    </td>
+                                </tr>
+                                        <?php 
+                                    }
+                                   ?>
+                                </tbody>
+                            </table>
                     
-                        <div class="form-group mb-3">
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="password">Password:</label>
-                            <input type="text" name="password" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <button type="submit" name="register_button" class="btn btn-primary ">Sign in</button>
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-
-        </div>
-    </div>
-</div>
         </div>
     </div>
 </div>
@@ -229,15 +228,3 @@
         <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

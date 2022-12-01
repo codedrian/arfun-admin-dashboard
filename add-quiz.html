@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
+<body>
+    <label for="">Question</label>
+    <input type="NameTbox" type="text" oninput="Update(this.value, 'name')"> <br><br>
+
+    <label for="RollTbox">A</label>
+    <input type="text" type="text" oninput="Update(this.value, 'name')"> <br><br>
+
+    <label for="">B</label>
+    <input type="SecTbox" type="text" oninput="Update(this.value, 'name')"> <br><br>
+
+    <label for="">C</label>
+    <input type="GenTbox" type="text" oninput="Update(this.value, 'name')"> <br><br>
+    <hr>
+    <button id="insertBtn">INSERT</button>
+    <button id="updateBtn">UPDATE</button>
+    <button id="deleteBtn">SELECT</button>
+
+
+    
+
+    <script id="MainScript" type="module">
+            import firebase from 'firebase/compat/app';
+            import 'firebase/compat/firestore';
+            import 'firebase/compat/analytics';
+            import 'firebase/compat/auth';
+
+        let NameT = document.getElementById("NameTbox");
+        let RollT = document.getElementById("RollTbox");
+        let SecT = document.getElementById("SecTbox");
+        let GenT = document.getElementById("GenTbox");
+
+        let nameV, rollV, secV, genV;
+
+        function Update (val, type) {
+            if (type=='name') nameV=val;
+            else if(type=='roll') rollV=val;
+            else if (type == 'sec') secV = val;
+            else if(type=='gen') genV=val;
+            
+        }
+
+
+// ===========Configuration===============
+        const firebaseConfig = {
+                apiKey: "AIzaSyD2NHnCMKq75vuFIdzwY_3eDZlfzPorbV0",
+                authDomain: "mynewmain-b15f0.firebaseapp.com",
+                databaseURL: "https://mynewmain-b15f0-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "mynewmain-b15f0",
+                storageBucket: "mynewmain-b15f0.appspot.com",
+                messagingSenderId: "1045380132876",
+                appId: "1:1045380132876:web:a6aa3460d5b72020da7e29",
+                measurementId: "G-5PT4Z3YG3P"
+            };
+
+            const firebaseApp = firebase.initializeApp(firebaseConfig);
+            const db = firebaseApp.firestore();
+
+
+
+// ===========Add document with Auto generated ID======================
+function Add_Doc_WithAutoID(){
+    db.collection("questions").add({
+        Question: nameV,
+        A: rollV,
+        B: secV,
+        C: genV,
+    })
+    .then(function(docRef) {
+        console.error("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    })
+}
+
+// ===========Button Events===============update delete
+document.getElementByID('insertBtn').onclick=function(){
+
+}
+document.getElementByID('updateBtn').onclick = function () {
+
+}
+document.getElementByID('deleteBtn').onclick = function () {
+
+}
+    </script>
+</body>
+</html>
+  
+
+

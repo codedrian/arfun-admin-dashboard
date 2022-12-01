@@ -4,8 +4,8 @@ include('dbcon.php'); //for database connection
 
 //METHOD to add user to database using Firebase User Management
 if(isset($_POST['register_button'])) {
-    $first_name = $_POST['f_name'];
-    $last_name = $_POST['l_name'];
+    $fullName = $_POST['fullName'];
+    $phone = $_POST['phone'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -13,9 +13,8 @@ if(isset($_POST['register_button'])) {
     'email' => $email,
     'emailVerified' => false,
     'password' => $password,
-    'firstName' => $first_name,
-    'lastName' => $last_name,
-    'disabled' => false,
+    'displayName' => $fullName,
+    'phoneNumber' => '+63'.$phone,
 ];
 $createdUser = $auth->createUser($userProperties);
 
@@ -79,6 +78,80 @@ if($updateQuery_result) {
 }else {
     $_SESSION['status'] = "Unsuccessful to update, try again later!";
     header('Location: index.php');
+}
+
+}
+
+//METHOD to delete user record
+if (isset($_POST['delete_user_button'])) {
+    $uid = $_POST['delete_user_button'];
+
+    try {
+        $auth->deleteUser($uid);
+        $_SESSION['status'] = "User deleted succesfully!";
+        header('Location: user-list.php');
+        exit();
+
+    } catch(exception $e) {
+        $_SESSION['status'] = "User not found!";
+        header('Location: user-list.php');
+        exit();
+    }
+
+}
+
+
+
+//METHOD to disable/enable user
+if (isset($_POST['enable_disable_user'])) {
+
+    $disable_enable = $_POST['select_disable_enable'];
+    $uid = $_POST['ena_dis_user_id'];
+
+    if ($disable_enable == "disable") {
+        $updatedUser = $auth->disableUser($uid);
+        $msg = "Account disabled";
+    } else {
+        $updatedUser = $auth->enableUser($uid);
+        $msg = "Account enabled";
+    }
+
+    if($updatedUser) {
+    $_SESSION['status'] = "Something went wrong";
+    header('Location: user-list.php');
+    exit();
+    }   else {
+    $_SESSION['status'] = $msg;
+    header('Location: user-list.php');
+    exit();
+    }
+}
+
+
+
+//METHOD: Method to update the user records
+if(isset($_POST['update_user_button'])) {
+    $displayname = $_POST['fullName'];
+    $phone = $_POST['phone'];
+    
+
+$uid = $_POST['user_id'];
+$properties = [
+    'displayName' => $displayname,
+    'phoneNumber' => $phone,
+];
+
+$updatedUser = $auth->updateUser($uid, $properties);
+
+
+if($updatedUser) {
+    $_SESSION['status'] = "User updated succesfully!";
+    header('Location: user-list.php');
+    exit();
+}else {
+    $_SESSION['status'] = "Unsuccessful to update, try again later!";
+    header('Location: user-list.php');
+    exit();
 }
 
 }

@@ -17,7 +17,7 @@
         ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">ArFun E-Learning</a>
+            <a class="navbar-brand ps-3" href="index.php">ArFun E-Learning</a>
             <!-- Sidebar Toggle-->
             
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -57,7 +57,7 @@
                                 Admin Users  
                             </a>
                             
-                            <a class="nav-link collapsed" href="manage-student.php">
+                            <a class="nav-link collapsed" href="add-student.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Student
                             </a>
@@ -69,9 +69,13 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Lesson
                             </a>
-                            <a class="nav-link collapsed" href="add-quiz.php">
+                            <a class="nav-link collapsed" href="add-quiz.htm">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Quiz
+                            </a>
+                            <a class="nav-link collapsed" href="user-list.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                User list
                             </a>
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
@@ -119,45 +123,37 @@
         }
         ?>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
                         
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        <div class="row mt-4">
+                           <div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-2">
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Total Student:
+                        <?php 
+                        include('dbcon.php');
+                        $ref_table = 'students';
+                        $count_student = $database->getReference($ref_table)->getSnapshot()->numChildren();
+                        echo $count_student;
+                        ?>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
                         </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -181,3 +177,9 @@
         <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>
+
+
+
+
+
+

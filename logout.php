@@ -13,6 +13,6 @@ else {
 }
 
 $_SESSION['status'] = "Logged out successfuly";
-header('Location: adminLogin.php');
+header('Location: adminLogint.php');
 exit();
 ?>

@@ -48,35 +48,33 @@
                         <div class="nav">
                             
                             <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-home fa-lg"></i></div>
                                 Dashboard
                             </a>
                             
                             <a class="nav-link collapsed" href="register.php" > 
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users fa-lg"></i></div>
                                 Admin Users  
                             </a>
                             
-                            <a class="nav-link collapsed" href="add-student.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            <a class="nav-link collapsed" href="add-student.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-graduate fa-lg"></i></div>
                                 Student
                             </a>
                             <a class="nav-link collapsed" href="add-teacher.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher fa-lg"></i></i></div>
                                 Teachers
                             </a>
-                            <a class="nav-link collapsed" href="lesson.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Lesson
-                            </a>
-                            <a class="nav-link collapsed" href="add-quiz.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            
+                            <a class="nav-link collapsed" href="add-quiz.htm">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
                                 Quiz
                             </a>
-                            <a class="nav-link collapsed" href="add-quiz.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            <a class="nav-link collapsed" href="user-list.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-edit fa-lg"></i></div>
                                 User list
                             </a>
+
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">

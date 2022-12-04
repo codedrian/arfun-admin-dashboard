@@ -66,7 +66,7 @@
                                 Teachers
                             </a>
                             
-                            <a class="nav-link collapsed" href="add-quiz.htm">
+                            <a class="nav-link collapsed" href="admin-quiz.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
                                 Quiz
                             </a>

@@ -159,11 +159,11 @@
         }
         ?>
 
-            <div class="card">
+            <div class="card w-50 p-3">
                 <div class="card-header">
                     <h4>
                         Add Teacher
-                        <a href="index.php" class="btn btn-danger float-end">Back</a>
+                        <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a>
                     </h4>
                     
                 </div>
@@ -187,7 +187,7 @@
                             <input type="text" name="password" class="form-control">
                         </div>
                         <div class="form-group mb-3">
-                            <button type="submit" name="register_button" class="btn btn-primary ">Sign in</button>
+                            <button type="submit" name="register_button" class="btn btn-primary ">Add</button>
                         </div>
                     </form>
                 </div>

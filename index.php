@@ -65,7 +65,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher fa-lg"></i></i></div>
                                 Teachers
                             </a>
-                            
+                            <a class="nav-link collapsed" href="lesson.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
+                                Lesson
+                            </a>
                             <a class="nav-link collapsed" href="admin-quiz.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
                                 Quiz
@@ -133,24 +136,6 @@
 </div>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 mb-2">
-            <div class="card">
-                <div class="card-body">
-                    <h4>Total Student:
-                        <?php 
-                        include('dbcon.php');
-                        $ref_table = 'students';
-                        $count_student = $database->getReference($ref_table)->getSnapshot()->numChildren();
-                        echo $count_student;
-                        ?>
-                    </h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
                         </div>
                 </main>

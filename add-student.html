@@ -169,10 +169,7 @@
         </div>
             
             
-            </body>
             
-            </html>
-
 
           </div>
       </main>
@@ -188,6 +185,24 @@
       </footer>
     </div>
   </div>
+
+
+  // to clear input
+  <script>
+    const btn = document.getElementById('submitData');
+
+      btn.addEventListener('click', function handleClick(event) {
+       
+        event.preventDefault();
+
+        const inputs = document.querySelectorAll('#name, #email, #password, #idnum');
+
+        inputs.forEach(input => {
+          input.value = '';
+        });
+      });
+
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>

@@ -46,7 +46,7 @@ function getQuestionTemplate(qid, withDelete = true) {
           <div class="col p-2 d-flex justify-content-center gap-3">
           ${
             withDelete
-              ? `<a class="btn btn-danger" onClick="removeQuestion('${qid}')">
+              ? `<a class="btn btn-danger" role="button" onClick="removeQuestion('${qid}')">
             <div class="d-flex align-items-center justify-content-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     fill="currentColor" class="bi bi-trash me-2"
@@ -61,7 +61,7 @@ function getQuestionTemplate(qid, withDelete = true) {
         </a>`
               : ``
           }
-              <a class="btn btn-primary" onclick="addChoice(this)">
+              <a class="btn btn-primary" role="button" onclick="addChoice(this)">
                   <div class="d-flex align-items-center justify-content-center">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                           fill="currentColor" class="bi bi-plus-circle me-2"

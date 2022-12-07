@@ -54,6 +54,20 @@ var form = document.getElementById("main-form");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  // you can add input validation here
+
+  // disable all fields
+  document.querySelectorAll('input').forEach(inp => {
+    inp.setAttribute('disabled', '');
+  });
+  document.querySelectorAll('[role="button"]').forEach(btn => {
+    console.log(btn)
+    btn.classList.add('disabled');
+  });
+
+  // show button loader
+  document.getElementById("sbm-loader").style.display = "block";
+
   // construct the json payload
   var quizName = document.querySelector("#inp-quiz-name").value;
   var quizInstruction = document.querySelector("#inp-quiz-instruct").value;
@@ -73,7 +87,7 @@ form.addEventListener("submit", function (e) {
       });
 
       // if checked push in answer
-      if (inpGroup.querySelector('#choice').checked) {
+      if (inpGroup.querySelector("#choice").checked) {
         answers.push({
           questionId: questionId,
           answerIdx: cIndex,
@@ -95,10 +109,26 @@ form.addEventListener("submit", function (e) {
     questions: questions,
     answers: answers,
   };
-  
+
+  // save to firestore database
+  db.collection("quizzes")
+    .add(quizDoc)
+    .then((doc) => {
+      var delay = setTimeout(() => {
+        // you can show success dialog here
+        alert("Quiz created.");
+        window.location.reload(true);
+        clearTimeout(delay);
+      }, 1000);
+    })
+    .catch((err) => {
+      console.log("Something went wrong...");
+    })
+    .finally(function () {
+      // stop loader
+      document.getElementById("sbm-loader").style.display = "none";
+    });
 });
-
-
 
 // create guids v4 - base on: https://stackoverflow.com/questions/105034/how-do-i-create-a-guid-uuid
 function uuidv4() {

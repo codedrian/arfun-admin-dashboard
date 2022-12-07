@@ -8,8 +8,9 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <title>Admin</title>
-  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+ <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/student.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -127,7 +128,7 @@
       </nav>
     </div>
     <div id="layoutSidenav_content">
-      <main>
+      <main class="main-content">
        
         <div class="container-fluid px-4">
 
@@ -143,13 +144,14 @@
         
         
           <div class="card w-50 p-3">
+
             <div class="card-header">
               <h4>
                 Add Student
                 <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a>
               </h4>
             </div>
-          <form>
+          <form class="add-body">
             <div class="col-xs-4">
                 <label for="exampleInputPassword1"></label>
                 <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
@@ -164,17 +166,15 @@
               </div>
               <div class="form-group col-xs-4">
                 <label for=""></label>
-                <input type="password" class="form-control" id="idnum" placeholder="Learner Reference Number" name="idnum" required >
+                <input type="text" class="form-control" id="idnum" placeholder="Learner Reference Number" name="idnum" required >
               </div>
   
               <button type="button" class="btn btn-primary registerbtn mt-4 btn-sm" name="submitData" id="submitData">Submit</button>
           </form>
         </div>
-            
-            
-            
-
           </div>
+
+
       </main>
       <footer class="py-4 bg-light mt-auto">
         <div class="container-fluid px-4">
@@ -190,7 +190,7 @@
   </div>
 
 
-  // to clear input
+  <!--- to clear input-->
   <script>
     const btn = document.getElementById('submitData');
 
@@ -213,7 +213,7 @@
   <script src="assets/demo/chart-area-demo.js"></script>
   <script src="assets/demo/chart-bar-demo.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-  <script src="js/datatables-simple-demo.js"></script>
+  <!--<script src="js/datatables-simple-demo.js"></script>-->
 
   <script type="module">
     // Import the functions you need from the SDKs you need
@@ -244,23 +244,22 @@
 
     submitData.addEventListener('click', (e) => {
 
+      var img= "https://img.mensxp.com/media/content/2015/Jan/kindsoffacebookprofilephotoswearesickofseeing1_1420801169.jpg";
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
       var idnum = document.getElementById('idnum').value;
-      
-
-
-
+    
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
           const uid = userCredential.user.uid
           addDoc(collection(db, 'users'), {
+            img: img,
+            name: name,
             email: email,
             idnum: idnum,
-            name: name,
             uid: uid
           })
         })
@@ -273,7 +272,6 @@
         });
 
     });
-
 
   </script>
 </body>

@@ -12,6 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // init db - used on successful upload and delete
 var db = firebase.firestore();
+const lessonCollectionName = 'lessons';
 
 // get dom in variables
 var upload = document.getElementsByClassName('upload')[0];
@@ -80,7 +81,7 @@ hiddenBtn.onchange = function () {
             storageRef.getDownloadURL()
                 .then(function(url) {
                     // add a new lesson document metadata on lessons collection
-                    db.collection('lessons')
+                    db.collection(lessonCollectionName)
                         .add({
                             filename: name,
                             fileUrl: url
@@ -253,11 +254,11 @@ function deleteFile(v){
         var pathSegment = path.split('/');
 
         // get the document with the matching filename and delete it
-        db.collection('lessons')
+        db.collection(lessonCollectionName)
             .where('filename', '==', pathSegment[pathSegment.length - 1])
             .get().then(function(snapshot) {
                 snapshot.docs.forEach(function(doc) {
-                    db.collection('lessons')
+                    db.collection(lessonCollectionName)
                         .doc(doc.id).delete();
                 });
             });

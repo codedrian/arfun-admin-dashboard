@@ -44,6 +44,62 @@ function removeQuestion(qid) {
   }
 }
 
+function getLetter(index) {
+  const code = "a".charCodeAt(0);
+  return String.fromCharCode(code + index);
+}
+
+// form submission
+var form = document.getElementById("main-form");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // construct the json payload
+  var quizName = document.querySelector("#inp-quiz-name").value;
+  var quizInstruction = document.querySelector("#inp-quiz-instruct").value;
+  var questions = {};
+  var answers = [];
+
+  // gather all questions
+  document.querySelectorAll("[data-qid]").forEach((qElement) => {
+    var choices = [];
+    var questionId = uuidv4();
+
+    // evaluate choices
+    qElement.querySelectorAll(".input-group").forEach((inpGroup, cIndex) => {
+      choices.push({
+        letter: getLetter(cIndex),
+        value: inpGroup.querySelector('[type="text"]').value,
+      });
+
+      // if checked push in answer
+      if (inpGroup.querySelector('#choice').checked) {
+        answers.push({
+          questionId: questionId,
+          answerIdx: cIndex,
+        });
+      }
+    });
+
+    // add the new question
+    questions[`${questionId}`] = {
+      question: qElement.querySelector("#inp-question").value,
+      choices: choices,
+    };
+  });
+
+  // bundle document
+  var quizDoc = {
+    title: quizName,
+    instruction: quizInstruction,
+    questions: questions,
+    answers: answers,
+  };
+  
+});
+
+
+
 // create guids v4 - base on: https://stackoverflow.com/questions/105034/how-do-i-create-a-guid-uuid
 function uuidv4() {
   return ([1e7] + 1e3 + 4e3 + 8e3 + 1e11).replace(/[018]/g, (c) =>

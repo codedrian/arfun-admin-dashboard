@@ -9,6 +9,7 @@
         <title>Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/user-edit.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -139,12 +140,12 @@
                 <div class="card-header">
                     <h4>
                         Edit Profile
-                    <a href="user-list.php" class="btn btn-danger float-end">Back</a>
+                        <a href="user-list.php" class="btn btn-danger float-end">Back</a>
                     </h4>
                     
                 </div>
                 <div class="card-body ">
-                    <form action="code.php" method="POST">
+                    <form action="code.php" method="POST" class="formBody">
                         <?php
                         include('dbcon.php');
                         
@@ -157,8 +158,8 @@
                             <input type="hidden" name="user_id" value="<?=$uid;?>">
 
                             <div class="form-group mb-3">
-                            <label for="fullName"">Full Name:</label>
-                            <input type="text" name="fullName""    value="<?=$user->displayName;?>" class="form-control">
+                            <label for="fullName">Full Name:</label>
+                            <input type="text" name="fullName"    value="<?=$user->displayName;?>" class="form-control">
                         </div>
                         <div class="form-group mb-3">
                             <label for="phone">Phone:</label>
@@ -167,6 +168,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <button type="submit" name="update_user_button" class="btn btn-primary btn-sm">Update</button>
+                           
                         </div>
                             <?php
 

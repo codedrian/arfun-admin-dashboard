@@ -7,8 +7,11 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Admin</title>
+        <link href="css/register.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/register.css" rel="stylesheet" />
+
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -153,16 +156,15 @@
             <div class="card">
                 <div class="card-header">
                     <h4>
-                        Add Users
-                        <a href="index.php" class="btn btn-danger float-end">Back</a>
+                        Add Users  
+                        <a href="index.php" class="btn btn-danger float-end">Back</a>   
                     </h4>
-                    
                 </div>
                 <div class="card-body ">
-                    <form action="code.php" method="POST">
+                    <form action="code.php" method="POST" class="formBody">
                         <div class="form-group mb-3">
                             <label for="fullName">Full Name:</label>
-                            <input type="text" name="fullName"" class="form-control">
+                            <input type="text" name="fullName" class="form-control">
                         </div>
                         <div class="form-group mb-3">
                             <label for="phone">Phone:</label>
@@ -177,9 +179,11 @@
                             <input type="text" name="password" class="form-control">
                         </div>
                         <div class="form-group mb-3">
-                            <button type="submit" name="register_button" class="btn btn-primary ">Sign in</button>
+                            <button type="submit" name="register_button" class="btn btn-primary ">Submit</button>
+                           
                         </div>
                     </form>
+                        
                 </div>
             </div>
         </div>
@@ -212,21 +216,3 @@
         <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

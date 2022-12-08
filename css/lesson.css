@@ -1,21 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+header h2{
+    color: #fff;
+    background: #012514;
+    border-radius: 10px;
+}
 body{
-    
-    
     text-align: center;
 }
 
-.upload-area{
-    text-align: left;
+main{
+    position: relative;
+    padding: 20px;
     width: 100%;
-    line-height: 70px;
-    background-color: rgba(0, 255, 106, 0.05); /*  */  
-    border-radius: 8px;
 }
+
+.upload-area{
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background: rgb(4, 110, 78);
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgb(0,0,0,0.1);
+    
+}
+
 .upload{
     /*background-color: green; /* rgba(0, 153, 255) 
-    border: 3px solid green; */
-    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+    border: 3px solid green; 
+    background-image: linear-gradient(to right, #848cfa 0%, #8fd3f4 51%, #84fab0 100%);*/
+    background: rgb(3, 20, 97);
     font-family: 'Noto Sans', sans-serif;
     color: white;
     padding: 8px 20px;
@@ -23,18 +48,23 @@ body{
     cursor: pointer;
     outline: none;
     margin: 0px 45px;
+    position: relative;
+    left: 4%;
+    margin-top: 15px;
+    top: 5px;
 }
+
 .upload:active{
     border-color: white;
 }
 .progress-container{
     display: inline-block;
-    width: 70%;
+    width: 40%;
     border: 2px solid black; 
     height: 30px;
     position: relative;
     top: 13px;
-    padding: 2px;
+    
 }
 .progress{
     width: 0%;
@@ -46,14 +76,19 @@ body{
 }
 .percent{
     display: inline-block;
-    margin-left: 20px;
+    background: rgb(3, 20, 97);
+    color:white;
+    height: 28.5px;
+    width: 50px;
+
+    /*margin-left: 10px;*/
 }
 .controls{
     float: right;
     margin-right: 45px;
 }
 .pause, .resume, .cancel{
-    background-color: green;
+    background-color: rgb(3, 20, 97);
     fill: white;
     padding: 5px;
     margin: 2px;
@@ -69,16 +104,19 @@ body{
     text-align: left;
     padding: 20px;
 }
+
+/*
 h2{
     margin-left: 25px;
-    color: green;   /* rgba(0, 153, 255)*/
+    color: green;   
 }
-h2.white{             /* para sa audio*/
+h2.white{             
     color: white;
 }
-h2.black{              /* para sa video*/
+h2.black{            
     color: white;
 }
+*/
 .all-files ul{
     position: relative;
     left: -15px;
@@ -114,20 +152,19 @@ h2.black{              /* para sa video*/
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border: 1px solid rgba(0, 153, 255, 0.2);
     background-color: white;
-    position: absolute;
+    position: relative;
     height: 75px;
     display: none;
 }
 .expand-container ul li{
     list-style: none;
     font-size: 14px;
-    text-align: left;
+    text-align: center;
     margin: 4px;
-    margin-left: 5px;
-    color: rgba(0, 153, 255);
+    color: black;
     position: relative;
-    left: -40px;
-    top: -10px;
+   /* left: -40px;
+    top: -10px;*/
     cursor: pointer;
 }
 .loader{
@@ -139,4 +176,10 @@ h2.black{              /* para sa video*/
 }
 @keyframes rotate{
     to{transform: rotate(360deg);}
+}
+
+.white h2{
+    font-size: 20px;
+    color: white;
+
 }

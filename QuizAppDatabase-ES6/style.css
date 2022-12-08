@@ -155,7 +155,7 @@ li
     outline: none !important;
     box-shadow: none !important;
 }
-.nxtBtn:hover, .exitBtn:hover, .rstBtn:hover, .startBtn:hover, .adminBtn:hover, ..homeBtn:hover
+.nxtBtn:hover, .exitBtn:hover, .rstBtn:hover, .startBtn:hover, .adminBtn:hover, .homeBtn:hover
 {
     background-color: white !important;
     color: black !important;

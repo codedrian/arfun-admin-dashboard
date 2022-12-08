@@ -134,7 +134,9 @@
 		</div>
 		<div id="layoutSidenav_content">
 			<main>
-				<h1>Upload AR-FUN Lessons</h1>
+				<header>	
+				<h2>Lectures</h2>
+				</header>
 				<div class="upload-area">
 					<button class="upload">Upload</button>
 					<div class="progress-container">
@@ -157,12 +159,8 @@
 						</svg>
 					</div>
 					<input type="file" class="hidden-upload-btn" style="display: none;">
-				</div>
-				<div class="all-files">
-					<h2 class="white">Videos</h2>
-					<ul id="video"></ul>
-					<h2 class="black">Audios</h2>
-					<ul id="audio"></ul>
+				
+				<div class="white">
 					<h2>Files</h2>
 					<ul id="image"></ul>
 				</div>
@@ -175,11 +173,12 @@
 					<!-- Preloader image -->
 					<img class="loader" src="https://aux.iconspalace.com/uploads/11080764221104328263.png" alt="">
 				</div>
+			</div>
+			</main>
 				<!-- firebase sdk -->
 				<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
 				<script src="script.js"></script>
-				</body>
-			</main>
+			
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
 					<div class="d-flex align-items-center justify-content-between small">
@@ -190,7 +189,7 @@
 					</div>
 				</div>
 			</footer>
-		</div>
+
 	</div>
 	<script src="./js/lesson.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

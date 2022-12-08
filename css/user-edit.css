@@ -1,0 +1,73 @@
+.mt-4{
+    position: relative;
+    background: rgb(4, 110, 78);
+    top: 50px;
+    left: 29%;
+    width: 40%;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+ 
+}  
+
+.card-header h4{
+    position: relative;
+    left: 20px;
+    color: #fff;
+}
+
+.formBody{
+        position: relative; 
+        padding: 20px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.377);
+        border-radius: 10px;
+        box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+    }
+
+.formBody button{
+        position: relative;
+        left: 23%;
+        width: 50%;
+        border: none;   
+        background: rgb(3, 20, 97);
+        
+}
+    
+
+.col-md-6{
+        position: relative;
+        background: rgb(4, 110, 78);
+        top: 50px;
+        left: 29%;
+        width: 40%;
+        align-items: center;
+        box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+    
+    }
+.card-header .btn-danger{
+        position: relative;
+        background:  rgb(3, 20, 97);
+        right: 20px;
+        border: none;
+        width: 12%;
+}
+
+.card-body .input-group-text{
+    position: relative;
+    width: 20%;
+    border: none;   
+    background: rgb(3, 20, 97)
+}
+
+.card-header .btn-danger:hover{
+    background:  rgb(5, 116, 190);
+}
+
+.formBody button:hover{
+    background:  rgb(5, 116, 190);
+}
+
+.card-body .input-group-text:hover{
+    background:  rgb(5, 116, 190);
+}

@@ -1,0 +1,25 @@
+.table{
+    border-collapse: collapse;
+    font-size: 15px;
+    min-width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.table-wrapper{
+    overflow-y: scroll;
+    max-height: 400px;
+}
+td{
+    text-align: center;
+}
+
+.table th{
+    position: sticky;
+    top:0px;
+    background:rgb(4, 110, 78);
+    color: #fff;
+}
+.table th,
+.table td{
+    padding:12px 15px;
+}

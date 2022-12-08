@@ -1,13 +1,13 @@
 var questionContainer = document.querySelector(".question-container");
 
+// create default question template
+init();
+
 function init() {
   var tempDiv = document.createElement("div");
   tempDiv.innerHTML = getQuestionTemplate(uuidv4(), false);
   questionContainer.append(tempDiv.firstElementChild);
 }
-
-// create default question template
-init();
 
 // use for adding choice base on questionId
 function addChoice(e) {
@@ -105,7 +105,7 @@ form.addEventListener("submit", function (e) {
   // bundle document
   var quizDoc = {
     title: quizName,
-    instruction: quizInstruction,
+    instructions: quizInstruction,
     questions: questions,
     answers: answers,
   };

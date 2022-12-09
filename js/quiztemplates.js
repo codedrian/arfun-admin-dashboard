@@ -25,7 +25,7 @@ function getChoiceTemplate(qid, isChecked = false, withRemover = false) {
 }
 
 function getQuestionTemplate(qid, withDelete = true) {
-  return `<div class="rounded-3 mt-2 p-4 mb-4 bg-light border border-2 shadow" data-qid="${qid}" border border-dark border-1">
+  return `<div class="rounded-3 mt-2 p-4 mb-4 bg-light border border-2 shadow" data-qid="${qid}">
       <div class="row d-flex flex-column">
           <div class="col mb-3">
               <label for="inp-question" class="form-label h6 mb-3">Question</label>

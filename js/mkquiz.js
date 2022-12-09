@@ -57,12 +57,12 @@ form.addEventListener("submit", function (e) {
   // you can add input validation here
 
   // disable all fields
-  document.querySelectorAll('input').forEach(inp => {
-    inp.setAttribute('disabled', '');
+  document.querySelectorAll("input").forEach((inp) => {
+    inp.setAttribute("disabled", "");
   });
-  document.querySelectorAll('[role="button"]').forEach(btn => {
-    console.log(btn)
-    btn.classList.add('disabled');
+  document.querySelectorAll('[role="button"]').forEach((btn) => {
+    console.log(btn);
+    btn.classList.add("disabled");
   });
 
   // show button loader
@@ -71,13 +71,13 @@ form.addEventListener("submit", function (e) {
   // construct the json payload
   var quizName = document.querySelector("#inp-quiz-name").value;
   var quizInstruction = document.querySelector("#inp-quiz-instruct").value;
-  var questions = {};
+  // var questions = {};
+  var questions = [];
   var answers = [];
 
   // gather all questions
-  document.querySelectorAll("[data-qid]").forEach((qElement) => {
+  document.querySelectorAll("[data-qid]").forEach((qElement, qIndex) => {
     var choices = [];
-    var questionId = uuidv4();
 
     // evaluate choices
     qElement.querySelectorAll(".input-group").forEach((inpGroup, cIndex) => {
@@ -89,17 +89,16 @@ form.addEventListener("submit", function (e) {
       // if checked push in answer
       if (inpGroup.querySelector("#choice").checked) {
         answers.push({
-          questionId: questionId,
+          questionId: qIndex,
           answerIdx: cIndex,
         });
       }
     });
 
-    // add the new question
-    questions[`${questionId}`] = {
+    questions.push({
       question: qElement.querySelector("#inp-question").value,
       choices: choices,
-    };
+    });
   });
 
   // bundle document

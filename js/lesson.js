@@ -10,6 +10,10 @@ const firebaseConfig = {
     measurementId: "G-5PT4Z3YG3P"
   };
 firebase.initializeApp(firebaseConfig);
+// init db - used on successful upload and delete
+var db = firebase.firestore();
+const lessonCollectionName = 'lessons';
+
 // get dom in variables
 var upload = document.getElementsByClassName('upload')[0];
 var hiddenBtn = document.getElementsByClassName('hidden-upload-btn')[0];
@@ -38,6 +42,7 @@ hiddenBtn.onchange = function () {
     var name = file.name.split('.').shift() + Math.floor(Math.random() * 10) + 10 + '.' + file.name.split('.').pop();
     var type = file.type.split('/')[0];
     var path = type + '/' + name;
+
     // now upload
     var storageRef = firebase.storage().ref(path);
     var uploadTask = storageRef.put(file);
@@ -72,6 +77,20 @@ hiddenBtn.onchange = function () {
             console.log(error)
         },
         () => {
+            // Add fileName and fileUrl on FireStore after successful upload
+            storageRef.getDownloadURL()
+                .then(function(url) {
+                    // add a new lesson document metadata on lessons collection
+                    db.collection(lessonCollectionName)
+                        .add({
+                            filename: name,
+                            fileUrl: url
+                        });
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+
             // on successful upload
             var metadata = JSON.parse(localStorage.getItem('uploaded-metadata'));
             metadata.unshift(path);
@@ -223,6 +242,7 @@ function downloadFile(v){
 // now delete file
 function deleteFile(v){
     var path = v.parentElement.getAttribute('data-file-name');
+
     var storageRef = firebase.storage().ref(path);
     // get data from localstorage
     var metadata = JSON.parse(localStorage.getItem('uploaded-metadata'));
@@ -230,6 +250,19 @@ function deleteFile(v){
     expandContainerUl.style.display = 'none';
     loader.style.display = 'block';
     storageRef.delete().then(() => {
+        // remove the document data on lessons collection
+        var pathSegment = path.split('/');
+
+        // get the document with the matching filename and delete it
+        db.collection(lessonCollectionName)
+            .where('filename', '==', pathSegment[pathSegment.length - 1])
+            .get().then(function(snapshot) {
+                snapshot.docs.forEach(function(doc) {
+                    db.collection(lessonCollectionName)
+                        .doc(doc.id).delete();
+                });
+            });
+
         if(index > -1){
             // remove the path index and again save in localstorage
             metadata.splice(index, 1);

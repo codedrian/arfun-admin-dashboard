@@ -69,7 +69,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
                                 Lesson
                             </a>
-                            <a class="nav-link collapsed" href="admin-quiz.html">
+                            <a class="nav-link collapsed" href="create-quiz.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
                                 Quiz
                             </a>

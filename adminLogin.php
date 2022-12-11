@@ -52,26 +52,33 @@ if (isset($_SESSION['verified_user_id'])){ //user cant access this when already 
                                     <div class="card-header bg-success"><h3 class="text-center font-weight-light my-2 ">Login</h3></div>
                                     <div class="card-body ">
                                         <form action="adminLoginCode.php" method="POST">
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" />
-                                                <label for="email">Email address</label>
+                                            <div class="row d-flex flex-column">
+                                                <div class="col">
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" />
+                                                        <label for="email">Email address</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" id="password" name="password" type="password" placeholder="Password" />
+                                                        <label for="password">Password</label>
+                                                    </div>
+                                                </div>
+                                                <div class=" form-check">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+                                                        <label class="form-check-label" for="inputRememberPassword">Remember me</label>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="password" name="password" type="password" placeholder="Password" />
-                                                <label for="password">Password</label>
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
-                                                <button type="submit" name="login_button" class="btn btn-primary primary"><a href="index.php"></a>Sign in</button>
+                                            <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
+                                                    <input class="btn btn-primary w-100" type="submit" name="login_button" value="Sign in"></input>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="#">Forgot password?</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +86,6 @@ if (isset($_SESSION['verified_user_id'])){ //user cant access this when already 
                     </div>
                 </main>
             </div>
-            
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>

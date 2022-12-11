@@ -28,8 +28,6 @@ if (isset($_SESSION['verified_user_id'])){ //user cant access this when already 
     exit();
 }
 ?>
-    
-        
         <?php 
         if(isset($_SESSION['status'])){
             echo "<h5 class='alert alert-status '>".$_SESSION['status']."</h5>";

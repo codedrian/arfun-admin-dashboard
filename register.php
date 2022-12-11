@@ -7,7 +7,6 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Admin</title>
-        <link href="css/register.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/register.css" rel="stylesheet" />
@@ -18,9 +17,10 @@
         <?php 
         include('authentication.php'); 
         ?>
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark"> 
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">ArFun E-Learning</a>
+            <a class="navbar-brand ps-3" href="index.php">
+            <img src="assets/img/logo.png" alt="logo" width="50" height="50" class="logo">ArFun E-Learning</a>
             <!-- Sidebar Toggle-->
             
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -50,35 +50,35 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-home fa-lg"></i></div>
-                                Dashboard
+                        <a class="nav-link" href="index.php">
+                               <i class="fas fa-home fa-lg"></i>
+                                <span> Dashboard</span>
                             </a>
                             
                             <a class="nav-link collapsed" href="register.php" > 
-                                <div class="sb-nav-link-icon"><i class="fas fa-users fa-lg"></i></div>
-                                Admin Users  
+                               <i class="fas fa-users fa-lg"></i>
+                               <span> Admin Users  </span>
                             </a>
                             
                             <a class="nav-link collapsed" href="add-student.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-graduate fa-lg"></i></div>
-                                Student
+                               <i class="fas fa-user-graduate fa-lg"></i>
+                                <span>Student</span>
                             </a>
                             <a class="nav-link collapsed" href="add-teacher.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher fa-lg"></i></i></div>
-                                Teachers
+                                <i class="fas fa-chalkboard-teacher fa-lg"></i>
+                                <span>Teachers</span>
                             </a>
                             <a class="nav-link collapsed" href="lesson.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
-                                Lesson
+                               <i class="fas fa-book-open fa-lg"></i>
+                                <span>Lesson</span>
                             </a>
                             <a class="nav-link collapsed" href="create-quiz.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
-                                Quiz
+                                <i class="fas fa-book-open fa-lg"></i>
+                                <span>Quiz</span>
                             </a>
                             <a class="nav-link collapsed" href="user-list.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-edit fa-lg"></i></div>
-                                User list
+                               <i class="fas fa-user-edit fa-lg"></i>
+                                <span>User list</span>
                             </a>
 
 
@@ -157,7 +157,7 @@
                 <div class="card-header">
                     <h4>
                         Add Users  
-                        <a href="index.php" class="btn btn-danger float-end">Back</a>   
+                        <!-- <a href="index.php" class="btn btn-danger float-end">Back</a>    -->
                     </h4>
                 </div>
                 <div class="card-body ">
@@ -183,11 +183,41 @@
                            
                         </div>
                     </form>
-                        
                 </div>
+                <!-- Admin List table starts here... -->
+                <div class="container mt-3">
+                    <div class="">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Admin List
+                                        <a href="index.php" class="btn btn- danger float-end">Back</a>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </thead>
+                                        <tbody id="tbody1"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Admin list table ends here... -->
+
             </div>
+           
         </div>
     </div>
+
 </div>
         </div>
     </div>
@@ -199,15 +229,15 @@
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">ArFun E-Learning Copyright 2022</div>
-                            <div>
-                                Adrian Gaile
-                            </div>
+                          
                         </div>
                     </div>
                 </footer>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<script src="./js/fetch-admin.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>

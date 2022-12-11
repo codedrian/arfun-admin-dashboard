@@ -1,23 +1,23 @@
+/* add user form design */
+
 .card{
     position: relative;
     background: rgb(4, 110, 78);
-    top: 50px;
-    left: 25%;
-    width: 40%;
+    top: 45px;
+    width: 38%;
     border-radius: 30px;
     align-items: center;
     box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
-}
-
-
-.card-header h4{
+  }
+  
+  
+  .card-header h4{
     position: relative;
     color: #fff;
-    left: 2px;
-
-}
-
-.formBody{
+    text-align:center;
+  }
+  
+  .formBody{
         position: relative;
         padding: 20px;
         width: 100%;
@@ -26,14 +26,14 @@
         box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
         
     }
-.formBody input{
+  .formBody input{
         position: relative;
         left: 16%;
         width: 70%;
         
     }
     
-.formBody .btn{
+  .formBody .btn{
         position: relative;
         left: 18%;
         width: 70%;
@@ -41,22 +41,22 @@
         background: rgb(3, 20, 97);
         
     }
-
-
-label{
+  
+  
+  label{
     font-weight: 50px;
-}
+  }
     
-.card-header a{
+  .card-header a{
         background:  rgb(3, 20, 97);
         border: none;
         width: 12%;
     }
     
-.card-header a:hover{
+  .card-header a:hover{
         background:  rgb(5, 116, 190);
     }
     
-.add-body button:hover{
+  .add-body button:hover{
         background:  rgb(5, 116, 190);
     }

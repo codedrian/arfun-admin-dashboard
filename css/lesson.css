@@ -1,46 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
-
-
-*{
-    margin: 0;
-    padding: 0;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-header h2{
-    color: #fff;
-    background: #012514;
-    border-radius: 10px;
-}
-body{
-    text-align: center;
-}
-
-main{
+h2.title{
+    background-color: #06357A;
+    border: 5px solid rgb(4, 110, 78);
     position: relative;
-    padding: 20px;
-    width: 100%;
-}
-
-.upload-area{
-    margin-top: 15px;
-    width: 100%;
+    text-align: center;
+    max-width: 100%;
+    margin: 10px;
     padding: 10px;
-    background: rgb(4, 110, 78);
     border-radius: 10px;
-    box-shadow: 0 20px 35px rgb(0,0,0,0.1);
-    
+    color: white;
 }
-
+#layoutSidenav_content .upload-area{
+    text-align: left;
+    max-width: 100%;
+    margin: 10px;
+    padding: 5px;
+    max-width: 100%;
+    max-height: 30%;
+    /* line-height: 40px; */
+    background: #ADD8E6; 
+    border: 5px solid rgb(4, 110, 78);/*  */  
+    border-radius: 10px;
+}
 .upload{
     /*background-color: green; /* rgba(0, 153, 255) 
-    border: 3px solid green; 
-    background-image: linear-gradient(to right, #848cfa 0%, #8fd3f4 51%, #84fab0 100%);*/
-    background: rgb(3, 20, 97);
+    border: 3px solid green; */
+    background-color: #06357A;
     font-family: 'Noto Sans', sans-serif;
     color: white;
     padding: 8px 20px;
@@ -48,23 +33,18 @@ main{
     cursor: pointer;
     outline: none;
     margin: 0px 45px;
-    position: relative;
-    left: 4%;
-    margin-top: 15px;
-    top: 5px;
 }
-
 .upload:active{
     border-color: white;
 }
 .progress-container{
     display: inline-block;
-    width: 40%;
+    width: 64%;
     border: 2px solid black; 
     height: 30px;
     position: relative;
     top: 13px;
-    
+    padding: 2px;
 }
 .progress{
     width: 0%;
@@ -76,19 +56,14 @@ main{
 }
 .percent{
     display: inline-block;
-    background: rgb(3, 20, 97);
-    color:white;
-    height: 28.5px;
-    width: 50px;
-
-    /*margin-left: 10px;*/
+    margin-left: 20px;
 }
 .controls{
     float: right;
     margin-right: 45px;
 }
 .pause, .resume, .cancel{
-    background-color: rgb(3, 20, 97);
+    background-color: green;
     fill: white;
     padding: 5px;
     margin: 2px;
@@ -101,22 +76,25 @@ main{
 }
 
 .all-files{
-    text-align: left;
+    text-align: left;   
     padding: 20px;
 }
-
-/*
-h2{
+h2.file{
+    text-align: center;
     margin-left: 25px;
-    color: green;   
+    color: white;  /* rgba(0, 153, 255)*/
+    background-color: #06357A;
+    max-width: 100%;
+    
 }
-h2.white{             
+h2.white{             /* para sa audio*/
     color: white;
+    font-size: 1px;
 }
-h2.black{            
+h2.black{              /* para sa video*/
     color: white;
+    font-size: 1px;
 }
-*/
 .all-files ul{
     position: relative;
     left: -15px;
@@ -151,8 +129,8 @@ h2.black{
     border-radius: 4px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border: 1px solid rgba(0, 153, 255, 0.2);
-    background-color: white;
-    position: relative;
+    background-color: #06357A;
+    position: absolute;
     height: 75px;
     display: none;
 }
@@ -161,10 +139,11 @@ h2.black{
     font-size: 14px;
     text-align: center;
     margin: 4px;
-    color: black;
+    margin-left: 5px;
+    color: white;
     position: relative;
-   /* left: -40px;
-    top: -10px;*/
+    left: -20px;
+    top: -8px;
     cursor: pointer;
 }
 .loader{
@@ -176,10 +155,4 @@ h2.black{
 }
 @keyframes rotate{
     to{transform: rotate(360deg);}
-}
-
-.white h2{
-    font-size: 20px;
-    color: white;
-
 }

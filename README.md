@@ -1,16 +1,18 @@
 # Arfun E-Learning Admin Dasboard #
 
 **Feature:**
+### Admin
+- [x] Add Teacher and View Teacher list
+- [x] Add Student and View Student list 
+- [x] Add Admin and View Admin list 
 ### Teacher
-- [x] Add Student
-- [x] Add Firebase Auth to Teachers, Admin, and Students
 - [x] Upload Lessons 
 - [x] Create quiz
-
+- [x] View student list
 
 **Work in Progress:**
 - [ ] View student's quiz score
-- [ ] Display users data in table
+- [ ] Add Role based login to Admin and Teacher
 - [ ] Improve User Interface
 
 

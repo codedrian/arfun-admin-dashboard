@@ -7,9 +7,20 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Admin</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr    et/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+          <!-- <style> 
+        
+                .body-image{
+                background-image: url('./cornerstonebg.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;  
+                filter: blur(1px);
+                height:40%;
+                }
+            </style> -->
     </head>
     <body class="sb-nav-fixed">
         <?php 
@@ -17,7 +28,9 @@
         ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.php">ArFun E-Learning</a>
+            
+            <a class="navbar-brand ps-3" href="index.php">
+            <img src="assets/img/logo.png" alt="logo" width="56" height="56" class="logo">ArFun E-Learning</a>
             <!-- Sidebar Toggle-->
             
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -48,34 +61,34 @@
                         <div class="nav">
                             
                             <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-home fa-lg"></i></div>
-                                Dashboard
+                               <i class="fas fa-home fa-lg"></i>
+                                <span> Dashboard</span>
                             </a>
                             
                             <a class="nav-link collapsed" href="register.php" > 
-                                <div class="sb-nav-link-icon"><i class="fas fa-users fa-lg"></i></div>
-                                Admin Users  
+                               <i class="fas fa-users fa-lg"></i>
+                               <span> Admin Users  </span>
                             </a>
                             
                             <a class="nav-link collapsed" href="add-student.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-graduate fa-lg"></i></div>
-                                Student
+                               <i class="fas fa-user-graduate fa-lg"></i>
+                                <span>Student</span>
                             </a>
                             <a class="nav-link collapsed" href="add-teacher.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher fa-lg"></i></i></div>
-                                Teachers
+                                <i class="fas fa-chalkboard-teacher fa-lg"></i>
+                                <span>Teachers</span>
                             </a>
                             <a class="nav-link collapsed" href="lesson.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
-                                Lesson
+                               <i class="fas fa-book-open fa-lg"></i>
+                                <span>Lesson</span>
                             </a>
                             <a class="nav-link collapsed" href="create-quiz.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open fa-lg"></i></div>
-                                Quiz
+                                <i class="fas fa-book-open fa-lg"></i>
+                                <span>Quiz</span>
                             </a>
                             <a class="nav-link collapsed" href="user-list.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-edit fa-lg"></i></div>
-                                User list
+                               <i class="fas fa-user-edit fa-lg"></i>
+                                <span>User list</span>
                             </a>
 
 
@@ -105,18 +118,58 @@
                                     </div>
                                 </nav>
                             </div>
-                            
-            
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         
                     </div>
-                </nav>
+                </nav>  
             </div>
+        
+              
+              
+            <!-- <style> 
+        
+                .body-image{
+                background-image: url('./cornerstonebg.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;  
+                filter: blur(1px);
+                height: 100%;
+                
+                }
+            </style> -->
+            
             <div id="layoutSidenav_content">
+               
                 <main>
+                <!-- <div class="body-image"> </div> -->
+                <div class="header-main">
+                    <label><img src="assets/img/schlogo.png" alt="schlogo" width="95" height="95" class="schlogo">
+                    San Jose Del Monte Bulacan Cornerstone College Inc.</label>
+                </div>
+        
+                <div class="school">
+                    <h3>Schoool Overview</h3>
+                    <p> The SJDM Cornerstone College is a non-sectarian higher education 
+                        institution in San Jose Del Monte Bulacan founded in 2004. It is 
+                        accredited by the Technical Education and skill Development Authority (TESDA),
+                        Department of Education (DepEd) and the Commission on Higher Education (CHED).
+                        SJDM Cornerstone College offers programs in pre-school, elementary, junior high school,
+                        senior high and college</p>
+                </div>
+
+                <div class="app">
+                    <h3>About Application</h3>
+                    <p> ARFUN is an e-learning mobile application that contains lessons about the Araling Panlipunan subject. 
+                        The application offers features that can help the students and teachers studying the subject and also 
+                        it will give them greate experience while learning.
+                    </p>
+            </div>
+            
+
                     <?php 
         if(isset($_SESSION['status'])){
             echo "<h5 class='alert alert-status '>".$_SESSION['status']."</h5>";
@@ -128,8 +181,8 @@
                         
                         <div class="row mt-4">
                            <div class="container">
-    <div class="row">
-        <div class="col-md-6 mb-2">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
             
         </div>
     </div>

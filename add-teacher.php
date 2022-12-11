@@ -119,12 +119,7 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <?php 
-        if(isset($_SESSION['status'])){
-            echo "<h5 class='alert alert-status '>".$_SESSION['status']."</h5>";
-            unset($_SESSION['status']);
-        }
-        ?>
+                    
                     <div class="container-fluid px-4">
                         
                         
@@ -145,24 +140,14 @@
     <div class="row">
         <div class="col-md-12">
 
-        <?php 
-        if(isset($_SESSION['status'])){
-            echo "<h5 class='alert alert-status '>".$_SESSION['status']."</h5>";
-            unset($_SESSION['status']);
-        }
-        ?>
+       
 
             
 <div class="container">
     <div class="row">
         <div class="col-md-12">
 
-        <?php 
-        if(isset($_SESSION['status'])){
-            echo "<h5 class='alert alert-status '>".$_SESSION['status']."</h5>";
-            unset($_SESSION['status']);
-        }
-        ?>
+        
 
             <div class="card">
                 <div class="card-header">
@@ -198,6 +183,33 @@
                         </div>
                     </form>
                     </div>
+        <div class="container mt-3">
+          <div class="">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>
+                    Student List
+                    <a href="index.php" class="btn btn-danger float-end">Back</a>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </thead>
+                    <tbody id="tbody1"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
                 </div>
             </div>
         </div>
@@ -218,17 +230,17 @@
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">ArFun E-Learning Copyright 2022</div>
-                            <div>
-                                Adrian Gaile
-                            </div>
+                           
                         </div>
                     </div>
                 </footer>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+
+<script type="module" src="./js/fetch-teacher.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>

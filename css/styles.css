@@ -1212,6 +1212,7 @@ progress {
   .col-md-12 {
     flex: 0 0 auto;
     width: 100%;
+    
   }
 
   .offset-md-0 {
@@ -2747,6 +2748,7 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   align-items: stretch;
   width: 100%;
+  
 }
 .input-group > .form-control, .input-group > .dataTable-input,
 .input-group > .form-select,
@@ -2764,6 +2766,8 @@ textarea.form-control-lg {
 .input-group .btn {
   position: relative;
   z-index: 2;
+  background: rgb(4, 110, 78);
+  border: none;
 }
 .input-group .btn:focus {
   z-index: 3;
@@ -3051,13 +3055,11 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
+  background-color: green;
+  border-color: green;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -3490,6 +3492,8 @@ textarea.form-control-lg {
 }
 
 .btn-link {
+  position: relative;
+  left: 20px;
   font-weight: 400;
   color: #0d6efd;
   text-decoration: underline;
@@ -3786,7 +3790,7 @@ textarea.form-control-lg {
   padding: 0.25rem 1rem;
   clear: both;
   font-weight: 400;
-  color: #212529;
+  color: #fff;
   text-align: inherit;
   text-decoration: none;
   white-space: nowrap;
@@ -4072,10 +4076,17 @@ textarea.form-control-lg {
 .navbar-brand {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
-  margin-right: 1rem;
-  font-size: 1.25rem;
+  /* margin: 10px; */
+  /* font-size: 1.25rem; */
+  text-align: center;
   text-decoration: none;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  width: 50%;
+  border-radius: 10px;
+  /* border: 2px solid #fff; */
+  /* border-color: #06357a; */
+  font-size: 15px;
+  /* background: rgb(4, 110, 78); */
 }
 .navbar-nav {
   display: flex;
@@ -4090,6 +4101,7 @@ textarea.form-control-lg {
 }
 .navbar-nav .dropdown-menu {
   position: static;
+  background: rgb(4, 110, 78);
 }
 
 .navbar-text {
@@ -4533,6 +4545,7 @@ textarea.form-control-lg {
   .card-group {
     display: flex;
     flex-flow: row wrap;
+    
   }
   .card-group > .card {
     flex: 1 0 0%;
@@ -6650,6 +6663,7 @@ textarea.form-control-lg {
 
 .d-none {
   display: none !important;
+  background: rgb(4, 110, 78);
 }
 
 .shadow {
@@ -6850,7 +6864,14 @@ textarea.form-control-lg {
 }
 
 .w-50 {
-  width: 50% !important;
+  width: 35% !important;
+  position: relative;
+  color: #fff;
+  margin: 40px;
+  border-radius: 30px;
+  background: rgb(4, 110, 78);
+  text-align: center;
+  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
 }
 
 .w-75 {
@@ -11240,10 +11261,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: rgb(4, 110, 78);
   z-index: 1037;
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
+
 }
 
 @media (min-width: 992px) {
@@ -11267,6 +11289,7 @@ body {
 }
 .sb-nav-fixed .sb-topnav {
   z-index: 1039;
+  
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
   width: 225px;
@@ -11307,14 +11330,17 @@ body {
 }
 
 .sb-topnav {
+  background: #198754;
   padding-left: 0;
   height: 56px;
   z-index: 1039;
+ 
 }
 .sb-topnav .navbar-brand {
   width: 225px;
   margin: 0;
 }
+
 .sb-topnav.navbar-dark #sidebarToggle {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -11348,6 +11374,8 @@ body {
   padding-bottom: 0.75rem;
   position: relative;
 }
+
+
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
   font-size: 0.9rem;
 }
@@ -11587,3 +11615,171 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+/* Backgrounds */
+
+.sb-sidenav-menu {
+  background: rgb(4, 110, 78);
+  padding: 28px;
+  border:2px solid #fff;
+  border-radius: 10px;
+  margin: 13px;
+}
+
+
+/* side bar */
+
+.nav-link span{
+  margin-left: 15px;
+  color: #fff;
+}
+.nav-link a{
+  color: #345baf;
+}
+
+.nav-link a:hover {
+  background: #345baf;
+}
+
+.nav-link a:hover i{
+  color:#345baf;
+  transition: 0.5s;
+}
+
+/* add student form */
+
+.w-50 .add-body{
+  position: relative;
+  padding: 20px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.377);
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+  
+}
+
+.w-50 .add-body .btn{
+  position: relative;
+  width: 100%;
+  border: none;
+  background: rgb(3, 20, 97);
+  
+}
+
+
+/* app logo */
+
+.logo{
+  border-radius: 50%;
+}
+
+/* background */
+
+/* .body-image{
+  background-image: url('assets/img/cornerstonebg.jpg');
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    }  */
+
+
+/* main header */
+
+.header-main{
+  position: relative;
+  background: #06357a;
+  max-width: 100%;
+  max-height: 100%;  
+  font-weight: bold;
+  font-size: 25px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 15px;  
+  border: 5px solid rgb(4, 110, 78);
+  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+}
+
+.schlogo{
+  border-radius: 50%;
+  
+}
+
+
+
+.header-main label{
+  color: #fff;
+}
+/* 
+main content */
+
+main .school{
+  position: relative;
+  left: 20%;
+  top: 30px;
+  margin: 10px;
+  padding: 20px;
+  width: 60%;
+  max-height: 60%;
+  background: #ADD8E6;
+  border-radius: 15px;
+  border: 5px solid rgb(4, 110, 78);
+  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+}
+
+main .school h3{
+  text-align: center;
+}
+
+
+main .school p{
+  text-align: justify;
+  text-justify: inter-word;
+  color: black;
+}
+
+
+main .app{
+  position: relative;
+  left: 20%;
+  top: 30px;
+  margin: 10px;
+  padding: 20px;
+  width: 60%;
+  max-height: 60%;
+  background: #ADD8E6;
+  border-radius: 15px;
+  border: 5px solid rgb(4, 110, 78);
+  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+}
+
+main .app h3{
+  text-align: center;
+}
+
+
+main .app p{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+
+/* .container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.container .card{
+  float: left;
+} */
+
+
+
+/* register table */
+
+/* .table{
+  float:right;
+} */

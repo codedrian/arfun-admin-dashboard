@@ -1,22 +1,25 @@
+/* add user form design */
+
 .card{
     position: relative;
     background: rgb(4, 110, 78);
-    top: 50px;
-    left: 25%;
-    width: 40%;
+    top: 45px;
+    width: 38%;
     border-radius: 30px;
     align-items: center;
     box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
- 
+  }
   
-}  
-
-h4{
+  
+  
+  .card-header h4{
     position: relative;
     color: #fff;
-}
-
-.body{
+    text-align: center;
+  }
+  
+  
+  .body{
         position: relative;
         padding: 20px;
         width: 100%;
@@ -25,31 +28,37 @@ h4{
         box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
         
     }
-
-.body input{
-    position: relative;
-    left: 16%;
-    width: 70%;
+  .body input{
+        position: relative;
+        left: 16%;
+        width: 70%;
+        
+    }
     
-}
-.body button{
-    position: relative;
-    left: 16.5%;
-    width: 70%;
-    border: none;
-    background: rgb(3, 20, 97);
-}
-
-.card-header a{
-    background:  rgb(3, 20, 97);
-    border: none;
-    width: 12%;
-}
-
-.body a:hover{
-    background:  rgb(5, 116, 190);
-}
-
-.body button:hover{
-    background:  rgb(5, 116, 190);
-}
+  .body .btn{
+        position: relative;
+        left: 18%;
+        width: 70%;
+        border: none;
+        background: rgb(3, 20, 97);
+        
+    }
+  
+  
+  label{
+    font-weight: 50px;
+  }
+    
+  .card-header a{
+        background:  rgb(3, 20, 97);
+        border: none;
+        width: 12%;
+    }
+    
+  .card-header a:hover{
+        background:  rgb(5, 116, 190);
+    }
+    
+  .add-body button:hover{
+        background:  rgb(5, 116, 190);
+    }

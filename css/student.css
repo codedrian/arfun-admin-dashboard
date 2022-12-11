@@ -1,17 +1,17 @@
-.card{
+
+/* .card{
     position: relative;
     background: rgb(4, 110, 78);
-    top: 50px;
-    left: 25%;
-    width: 30%;
+    top: 45px;
+    width: 38%;
     border-radius: 30px;
     align-items: center;
     box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
- 
+  }
   
-}       
 
 .card-header h4{
+    text-align: center;
     color: #fff;
 }
 
@@ -53,5 +53,5 @@
 
 .add-body button:hover{
     background:  rgb(5, 116, 190);
-}
+} */
 

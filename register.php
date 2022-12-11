@@ -184,33 +184,34 @@
                         </div>
                     </form>
                 </div>
-                
+                <!-- Admin List table starts here... -->
                 <div class="container mt-3">
-          <div class="">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4>
-                    Student List
-                    <a href="index.php" class="btn btn-danger float-end">Back</a>
-                  </h4>
+                    <div class="">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Admin List
+                                        <a href="index.php" class="btn btn- danger float-end">Back</a>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </thead>
+                                        <tbody id="tbody1"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <table class="table table-bordered table-striped">
-                    <thead>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>
-                      <th>Edit</th>
-                      <th>Delete</th>
-                    </thead>
-                    <tbody id="tbody1"></tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div
+                <!-- Admin list table ends here... -->
 
             </div>
            

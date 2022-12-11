@@ -10,6 +10,17 @@
         <link href="https://cdn.jsdelivr    et/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+          <!-- <style> 
+        
+                .body-image{
+                background-image: url('./cornerstonebg.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;  
+                filter: blur(1px);
+                height:40%;
+                }
+            </style> -->
     </head>
     <body class="sb-nav-fixed">
         <?php 
@@ -19,7 +30,7 @@
             <!-- Navbar Brand-->
             
             <a class="navbar-brand ps-3" href="index.php">
-            <img src="assets/img/logo.jpg" alt="logo" width="60" height="60" class="logo">ArFun E-Learning</a>
+            <img src="assets/img/logo.png" alt="logo" width="56" height="56" class="logo">ArFun E-Learning</a>
             <!-- Sidebar Toggle-->
             
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -132,14 +143,14 @@
             </style> -->
             
             <div id="layoutSidenav_content">
+               
                 <main>
-                <div class="body-image"> </div>
+                <!-- <div class="body-image"> </div> -->
                 <div class="header-main">
-                    <label><img src="assets/img/schlogo.jpg" alt="schlogo" width="95" height="95" class="schlogo">
+                    <label><img src="assets/img/schlogo.png" alt="schlogo" width="95" height="95" class="schlogo">
                     San Jose Del Monte Bulacan Cornerstone College Inc.</label>
                 </div>
-                
-                
+        
                 <div class="school">
                     <h3>Schoool Overview</h3>
                     <p> The SJDM Cornerstone College is a non-sectarian higher education 
@@ -151,30 +162,13 @@
                 </div>
 
                 <div class="app">
-                    <h3>About App</h3>
-                    <p> ARFUN is an e-learning mobile application that contains information about the Araling Panlipunan
-                        subject. The application build to provide features that teachers and students will definetly enjoy
-                        while learning the AP subject.
+                    <h3>About Application</h3>
+                    <p> ARFUN is an e-learning mobile application that contains lessons about the Araling Panlipunan subject. 
+                        The application offers features that can help the students and teachers studying the subject and also 
+                        it will give them greate experience while learning.
                     </p>
             </div>
-           
-            </main>
-
-                <!-- <style> 
-                    <div class="body-image"></div>
-                    
-                        <div class="content">
-                            <p>Hello</p>
-                        </div>
-        body{
-        background-image: url('./cornerstonebg.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: left;  
-        filter: blur(1px);
-        
-        }
-    </style> -->
+            
 
                     <?php 
         if(isset($_SESSION['status'])){
@@ -187,8 +181,8 @@
                         
                         <div class="row mt-4">
                            <div class="container">
-    <div class="row">
-        <div class="col-md-6 mb-2">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
             
         </div>
     </div>

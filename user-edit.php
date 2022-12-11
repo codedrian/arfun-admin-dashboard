@@ -18,7 +18,8 @@
         ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">ArFun E-Learning</a>
+            <a class="navbar-brand ps-3" href="index.php">
+            <img src="assets/img/logo.png" alt="logo" width="56" height="56" class="logo">ArFun E-Learning</a>
             <!-- Sidebar Toggle-->
             
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -48,35 +49,35 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                        <a class="nav-link" href="index.php">
+                               <i class="fas fa-home fa-lg"></i>
+                                <span> Dashboard</span>
                             </a>
                             
                             <a class="nav-link collapsed" href="register.php" > 
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Admin Users  
+                               <i class="fas fa-users fa-lg"></i>
+                               <span> Admin Users  </span>
                             </a>
                             
-                            <a class="nav-link collapsed" href="manage-student.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Student
+                            <a class="nav-link collapsed" href="add-student.html">
+                               <i class="fas fa-user-graduate fa-lg"></i>
+                                <span>Student</span>
                             </a>
                             <a class="nav-link collapsed" href="add-teacher.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Teachers
+                                <i class="fas fa-chalkboard-teacher fa-lg"></i>
+                                <span>Teachers</span>
                             </a>
                             <a class="nav-link collapsed" href="lesson.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Lesson
+                               <i class="fas fa-book-open fa-lg"></i>
+                                <span>Lesson</span>
                             </a>
-                            <a class="nav-link collapsed" href="add-quiz.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Quiz
+                            <a class="nav-link collapsed" href="create-quiz.html">
+                                <i class="fas fa-book-open fa-lg"></i>
+                                <span>Quiz</span>
                             </a>
                             <a class="nav-link collapsed" href="user-list.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                User list
+                               <i class="fas fa-user-edit fa-lg"></i>
+                                <span>User list</span>
                             </a>
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">

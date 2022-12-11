@@ -2,17 +2,19 @@
 
 **Feature:**
 ### Teacher
-- [x] Add Student, Edit Details, Delete Student
-- [x] Count total number of students
-- [x] Add Firebase Auth to Teachers and Admin
+- [x] Add Student
+- [x] Add Firebase Auth to Teachers, Admin, and Students
 - [x] Upload Lessons 
+- [x] Create quiz
+
 
 **Work in Progress:**
-- [ ] Create Quiz
-- [ ] Add a custom roles
+- [ ] View student's quiz score
+- [ ] Display users data in table
 - [ ] Improve User Interface
-- [ ] hello hahaha
+
 
 **Technologies Used:**
 - PHP 
+- JavaScript
 - Google Firebase

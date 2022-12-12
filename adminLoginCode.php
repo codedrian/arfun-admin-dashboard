@@ -20,9 +20,6 @@ if(isset($_POST['login_button'])){
     try { // to check if the email is in the Firebase Authentication
         $user = $auth->getUserByEmail("$email");
         $uid = 'tArC5gCpbnIdYdsLQaqW';
-        $fetch = $database->getReference("users/{$uid}/role")->getValue();
-
-        echo " Result: " . $fetch;
 
         try {
             $signInResult = $auth->signInWithEmailAndPassword($email, $clearTextPassword);

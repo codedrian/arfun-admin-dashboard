@@ -11,4 +11,6 @@ $factory = (new Factory)
 
 $database = $factory->createDatabase();
 $auth = $factory->createAuth();
+
+$fetchdata = $database->getReference('users')->orderByChild('role')->equalTo('student')->getValue();
 ?>

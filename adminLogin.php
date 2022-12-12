@@ -53,20 +53,20 @@ if (isset($_SESSION['status'])) {
                             </div>
                             <div class="card-body ">
 
-                            <!-- action="adminLoginCode.php" method="POST" -->
+                                <!-- action="adminLoginCode.php" method="POST" -->
                                 <form action="adminLoginCode.php" method="POST">
                                     <div class="row d-flex flex-column">
                                         <div class="col">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="email" name="email" type="email"
-                                                    placeholder="name@example.com" />
+                                                    placeholder="name@example.com" required />
                                                 <label for="email">Email address</label>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="password" name="password"
-                                                    type="password" placeholder="Password" />
+                                                    type="password" placeholder="Password" required />
                                                 <label for="password">Password</label>
                                             </div>
                                         </div>
@@ -96,10 +96,17 @@ if (isset($_SESSION['status'])) {
         </main>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
-<!-- <script src="js/rolelog.js"></script> -->
+<script src="js/rolelog.js"></script>
+
+<script>
+    
+</script>
 
 </body>
 

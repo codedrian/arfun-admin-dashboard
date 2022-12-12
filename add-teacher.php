@@ -131,136 +131,97 @@
         </div>
     </div>
 </div>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-
-       
-
-            
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-
         
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            </div>
+          </div>
+          <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
 
-            <div class="card">
+          </div>
+        </nav>
+      </div>
+      <div id="layoutSidenav_content">
+        <main class="main-content">
+          <div class="container-fluid px-4">
+            <div class="row mt-4">
+              <div class="card w-50 p-3">
                 <div class="card-header">
-                    <h4>
-                        Add Teacher
-                        <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                    </h4>
-                    
+                  <h4>Add Teacher</h4>
                 </div>
-
-                <div class="card-body ">
-                    <form action="code.php" method="POST" class="body">
-                        <div class="form-group mb-3">
-                            <label for="fullName">Full Name</label>:</label>
-                            <input type="text" name="fullName" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="phone">Phone</label>:</label>
-                            <input type="text" name="phone" class="form-control">
-                        </div>
-                    
-                        <div class="form-group mb-3">
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="password">Password:</label>
-                            <input type="text" name="password" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <button type="submit" name="register_button" class="btn btn-primary ">Submit</button>
-                                  
-                        </div>
-                    </form>
+                <form id="main-form" class="add-body" data-type="teacher">
+                  <div class="col-xs-4">
+                    <label for=""></label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Full name" name="fullName"
+                      required>
+                  </div>
+                  <div class="form-group col-xs-4">
+                    <label for=""></label>
+                    <input type="text" class="form-control " id="lastName" aria-describedby="emailHelp"
+                      placeholder="Phone number" name="phone" required>
+                  </div>
+                  <div class="form-group col-xs-4">
+                    <label for=""></label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+                  </div>
+                  <button type="button" class="btn btn-primary registerbtn mt-4 btn-sm" name="register_button"
+                    id="submitData">Submit</button>
+                </form>
+              </div>
+              <!-- Teacher list table starts here... -->
+              <div class="container mt-3">
+                <div class="">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4>
+                          Teacher List
+                          <a href="index.php" class="btn btn-danger float-end">Back</a>
+                        </h4>
+                      </div>
+                      <div class="card-body">
+                        <table class="table table-bordered table-striped">
+                          <thead>
+                            <th>User ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                          </thead>
+                          <tbody id="tbody1">
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-        <div class="container mt-3">
-          <div class="">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4>
-                    Teacher List
-                    <a href="index.php" class="btn btn-danger float-end">Back</a>
-                  </h4>
+                  </div>
                 </div>
-                <div class="card-body">
-                  <table class="table table-bordered table-striped">
-                    <thead>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>
-                      <th>Edit</th>
-                      <th>Delete</th>
-                    </thead>
-                    <tbody id="tbody1"></tbody>
-                  </table>
-                </div>
+              </div>
+              <!-- Teacher list table ends here... -->
+            </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+              <div class="text-muted">ArFun E-Learning Copyright 2022</div>
+              <div>
+
               </div>
             </div>
           </div>
-        </div>
-
-                </div>
-            </div>
-        </div>
+        </footer>
+      </div>
     </div>
-</div>
-
-
-        </div>
-    </div>
-</div>
-        </div>
-    </div>
-</div>
-
-                        </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">ArFun E-Learning Copyright 2022</div>
-                           
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-
-<script type="module" src="./js/fetch-teacher.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
-
-
-
-
-        
-    </body>
+    <script type="module" src="./js/fetch-teacher.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/createuser.js"></script>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

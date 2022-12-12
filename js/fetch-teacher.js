@@ -24,7 +24,7 @@
       stdNo = 0;
       tbody.innerHTML = "";
       TheStudent.forEach((element) => {
-        AddItem(element.firstName, element.lastName, element.email);
+        AddItem(element.uid, element.name, element.email);
       });
     }
 
@@ -45,17 +45,19 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
     //const analytics = getAnalytics(app);
     import {
       getFirestore,
-      doc,
-      getDoc,
       collection,
       getDocs,
-      onSnapshot,
+      query,
+      where
     } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
     const db = getFirestore();
 
     async function GetAllDataOnece() {
-      const querySnapshot = await getDocs(collection(db, "teacher"));
+      const dbRef = collection(db, 'users');
+      const q = query(dbRef, where('role', '==', 'teacher'));
+
+      var querySnapshot = await getDocs(q);
 
       var students = [];
       querySnapshot.forEach((doc) => {

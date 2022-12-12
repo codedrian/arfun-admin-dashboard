@@ -2,11 +2,20 @@
 session_start();
 include('dbcon.php'); //for database connection
 
+function retNoEmailPass() {
+    $_SESSION['status'] = "Login Failed: Please enter email and password";
+    header('Location: adminLogin.php');
+    exit();
+}
 
 //METHOD to check if the button is set or not
 if(isset($_POST['login_button'])){
     $email = $_POST['email'];
     $clearTextPassword = $_POST['password'];
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($clearTextPassword)) {
+        retNoEmailPass();
+    }
 
     try { // to check if the email is in the Firebase Authentication
         $user = $auth->getUserByEmail("$email"); 
@@ -40,17 +49,15 @@ if(isset($_POST['login_button'])){
         }
 
     } catch (\Kreait\Firebase\Exception\Auth\UserNotFound $e) {
-    // echo $e->getMessage();
-    $_SESSION['status'] = "Login Failed: Please enter correct email";
-    header('Location: adminLogin.php');
-    exit();
+        // echo $e->getMessage();
+        $_SESSION['status'] = "Login Failed: Please enter correct email";
+        header('Location: adminLogin.php');
+        exit();
     }
 
 }
 else {
-    $_SESSION['status'] = "Login Failed: Please enter email and password";
-    header('Location: adminLogin.php');
-    exit();
+    retNoEmailPass();
 }
 
 ?>

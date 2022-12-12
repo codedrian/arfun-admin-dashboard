@@ -61,7 +61,6 @@
 
       var students = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         students.push(doc.data());
       });
 

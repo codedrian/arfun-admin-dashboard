@@ -100,3 +100,4 @@
         </div>
     </nav>
 </div>
+<script src="js/location-guard.js"></script>

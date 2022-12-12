@@ -54,7 +54,7 @@ if (isset($_SESSION['status'])) {
                             <div class="card-body ">
 
                                 <!-- action="adminLoginCode.php" method="POST" -->
-                                <form action="adminLoginCode.php" method="POST">
+                                <form >
                                     <div class="row d-flex flex-column">
                                         <div class="col">
                                             <div class="form-floating mb-3">

@@ -8,6 +8,8 @@ function retNoEmailPass() {
     exit();
 }
 
+
+
 //METHOD to check if the button is set or not
 if(isset($_POST['login_button'])){
     $email = $_POST['email'];
@@ -19,7 +21,6 @@ if(isset($_POST['login_button'])){
 
     try { // to check if the email is in the Firebase Authentication
         $user = $auth->getUserByEmail("$email");
-        $uid = 'tArC5gCpbnIdYdsLQaqW';
 
         try {
             $signInResult = $auth->signInWithEmailAndPassword($email, $clearTextPassword);

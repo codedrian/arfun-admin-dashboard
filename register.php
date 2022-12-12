@@ -10,7 +10,7 @@
     <title>Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/register.css" rel="stylesheet" />
+    <!-- <link href="css/register.css" rel="stylesheet" /> -->
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -140,23 +140,19 @@
                     unset($_SESSION['status']);
                 }
                 ?>
-                <div class="container-fluid px-4">
-
+                <div class="container-fluid px-2">
 
                     <div class="row mt-4">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 ">
 
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="container">
                                         <div class="row">
                                             <div class="col-md-12">
 
@@ -167,70 +163,68 @@
                                                 }
                                                 ?>
 
-                                                <div class="card">
+                                                <div class="card w-50 p-3">
                                                     <div class="card-header">
                                                         <h4>
-                                                            Add Users
-                                                            <!-- <a href="index.php" class="btn btn-danger float-end">Back</a>    -->
+                                                            Add Admin
+                                                            <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
                                                         </h4>
                                                     </div>
-                                                    <div class="card-body ">
-                                                        <form id="main-form" class="formBody" data-type="admin">
-                                                            <div class="form-group mb-3">
-                                                                <label for="fullName">Full Name:</label>
-                                                                <input type="text" name="fullName" class="form-control">
-                                                            </div>
-                                                            <div class="form-group mb-3">
-                                                                <label for="phone">Phone:</label>
-                                                                <input type="text" name="phone" class="form-control">
-                                                            </div>
-                                                            <div class="form-group mb-3">
-                                                                <label for="email">Email:</label>
-                                                                <input type="email" name="email" class="form-control">
-                                                            </div>
-                                                            <div class="form-group mb-3">
-                                                                <button type="submit" name="register_button"
-                                                                    class="btn btn-primary ">Submit</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <!-- Admin List table starts here... -->
-                                                    <div class="container mt-3">
-                                                        <div class="">
-                                                            <div class="col-md-12">
-                                                                <div class="card">
-                                                                    <div class="card-header">
-                                                                        <h4>
-                                                                            Admin List
-                                                                            <a href="index.php"
-                                                                                class="btn btn- danger float-end">Back</a>
-                                                                        </h4>
-                                                                    </div>
-                                                                    <div class="card-body">
-                                                                        <table
-                                                                            class="table table-bordered table-striped">
-                                                                            <thead>
-                                                                                <th>User ID</th>
-                                                                                <th>Full Name</th>
-                                                                                <th>Email</th>
-                                                                                <th>Edit</th>
-                                                                                <th>Delete</th>
-                                                                            </thead>
-                                                                            <tbody id="tbody1"></tbody>
-                                                                        </table>
-                                                                    </div>
+                                                    <form id="main-form" class="add-body" data-type="admin">
+                                                        <div class="col-xs-4">
+                                                            <label for="exampleInputPassword1"></label>
+                                                            <input type="text" class="form-control" id="name"
+                                                                placeholder="Full name" name="fullName" required>
+                                                        </div>
+                                                        <div class="form-group col-xs-4">
+                                                            <label for=""></label>
+                                                            <input type="text" class="form-control" id="email"
+                                                                placeholder="Email" name="email" required>
+                                                        </div>
+
+                                                        <div class="form-group col-xs-4">
+                                                            <label for=""></label>
+                                                            <input type="text" class="form-control" id="phone"
+                                                                placeholder="Phone" name="phone" required>
+                                                        </div>
+
+                                                        <button type="button"
+                                                            class="btn btn-primary registerbtn mt-4 btn-sm"
+                                                            name="register_button" id="submitData">Submit</button>
+                                                    </form>
+                                                </div>
+
+
+
+                                                <div class="container mt-3">
+                                                    <div class="">
+                                                        <div class="col-md-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h4>
+                                                                        Admin List
+                                                                        <a href="index.php"
+                                                                            class="btn btn-danger float-end">Back</a>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <table class="table table-bordered table-striped">
+                                                                        <thead>
+                                                                            <th>User ID</th>
+                                                                            <th>Full Name</th>
+                                                                            <th>Email</th>
+                                                                            <th>Edit</th>
+                                                                            <th>Delete</th>
+                                                                        </thead>
+                                                                        <tbody id="tbody1"></tbody>
+                                                                    </table>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Admin list table ends here... -->
-
                                                 </div>
-
                                             </div>
                                         </div>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>

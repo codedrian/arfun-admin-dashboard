@@ -159,7 +159,7 @@
                         Add Users  
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a>    -->
                     </h4>
-                </div>
+                    </div>
                 <div class="card-body ">
                     <form action="code.php" method="POST" class="formBody">
                         <div class="form-group mb-3">
@@ -191,7 +191,7 @@
               <div class="card">
                 <div class="card-header">
                   <h4>
-                    Student List
+                    User List
                     <a href="index.php" class="btn btn-danger float-end">Back</a>
                   </h4>
                 </div>

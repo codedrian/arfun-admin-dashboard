@@ -189,7 +189,7 @@
               <div class="card">
                 <div class="card-header">
                   <h4>
-                    Student List
+                    Teacher List
                     <a href="index.php" class="btn btn-danger float-end">Back</a>
                   </h4>
                 </div>
@@ -245,6 +245,11 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+
+
+
+
+        
     </body>
 </html>
 

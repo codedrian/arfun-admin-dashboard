@@ -8,6 +8,8 @@ function retNoEmailPass() {
     exit();
 }
 
+
+
 //METHOD to check if the button is set or not
 if(isset($_POST['login_button'])){
     $email = $_POST['email'];
@@ -18,7 +20,7 @@ if(isset($_POST['login_button'])){
     }
 
     try { // to check if the email is in the Firebase Authentication
-        $user = $auth->getUserByEmail("$email"); 
+        $user = $auth->getUserByEmail("$email");
 
         try {
             $signInResult = $auth->signInWithEmailAndPassword($email, $clearTextPassword);
@@ -27,13 +29,14 @@ if(isset($_POST['login_button'])){
             try {
                 $verifiedIdToken = $auth->verifyIdToken($idTokenString);
                 $uid = $signInResult->firebaseUserId(); // to get the user id
+                
 
                 $_SESSION['verified_user_id'] = $uid;
                 $_SESSION['idTokenString'] = $idTokenString; //store ID token into session
 
                 $_SESSION['status'] = "Logged in Succesfuly";
-                header('Location: index.php');
-                exit();
+                //header('Location: index.php');
+                //exit();
                 
             } catch (Exception $e) {
                 echo 'The token is invalid: '.$e->getMessage();

@@ -2,22 +2,28 @@
 <html lang="en">
 
 <head>
+    <?php
+    include('locationguard.php');
+    ?>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Create Quiz</title>
+    <title>Arfun | Create Quiz</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
+    <?php
+    include('authentication.php');
+    ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.php">
-        <img src="assets/img/logo.png" alt="logo" width="50" height="50" class="logo">ArFun E-Learning</a>
+            <img src="assets/img/logo.png" alt="logo" width="50" height="50" class="logo">ArFun E-Learning</a>
         <!-- Sidebar Toggle-->
 
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
@@ -48,86 +54,9 @@
         </ul>
     </nav>
     <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-
-                        <a class="nav-link" href="index.php">
-                            <i class="fas fa-home fa-lg"></i>
-                             <span> Dashboard</span>
-                         </a>
-                         
-                         <a class="nav-link collapsed" href="register.php" > 
-                            <i class="fas fa-users fa-lg"></i>
-                            <span> Admin Users  </span>
-                         </a>
-                         
-                         <a class="nav-link collapsed" href="add-student.html">
-                            <i class="fas fa-user-graduate fa-lg"></i>
-                             <span>Student</span>
-                         </a>
-                         <a class="nav-link collapsed" href="add-teacher.php">
-                             <i class="fas fa-chalkboard-teacher fa-lg"></i>
-                             <span>Teachers</span>
-                         </a>
-                         <a class="nav-link collapsed" href="lesson.html">
-                            <i class="fas fa-book-open fa-lg"></i>
-                             <span>Lesson</span>
-                         </a>
-                         <a class="nav-link collapsed" href="create-quiz.html">
-                             <i class="fas fa-book-open fa-lg"></i>
-                             <span>Quiz</span>
-                         </a>
-                         <a class="nav-link collapsed" href="user-list.php">
-                            <i class="fas fa-user-edit fa-lg"></i>
-                             <span>User list</span>
-                         </a>
-
-
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
-                            data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-                                    aria-controls="pagesCollapseAuth">
-                                    Authentication
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                                    data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                        <a class="nav-link" href="register.html">Register</a>
-                                        <a class="nav-link" href="password.html">Forgot Password</a>
-                                    </nav>
-                                </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#pagesCollapseError" aria-expanded="false"
-                                    aria-controls="pagesCollapseError">
-                                    Error
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
-                                    data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">401 Page</a>
-                                        <a class="nav-link" href="404.html">404 Page</a>
-                                        <a class="nav-link" href="500.html">500 Page</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-
-                </div>
-            </nav>
-        </div>
+        <?php
+        include('side-nav.php');
+        ?>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
@@ -191,7 +120,11 @@
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">ArFun E-Learning Copyright 2022</div>
                         <div>
-                            Adrian Gaile
+                            <?php
+                            if (isset($_SESSION['dispName'])) {
+                                echo ucwords($_SESSION['dispName']);
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

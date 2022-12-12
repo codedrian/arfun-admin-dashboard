@@ -61,7 +61,6 @@ form.addEventListener("submit", function (e) {
     inp.setAttribute("disabled", "");
   });
   document.querySelectorAll('[role="button"]').forEach((btn) => {
-    console.log(btn);
     btn.classList.add("disabled");
   });
 

@@ -60,8 +60,6 @@ registerBtn.addEventListener("click", (e) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-
       if (data.status == 201) {
         alert(`New ${type[0].toUpperCase() + type.substring(1)} was added.`);
         location.reload();

@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
+    <?php
+    include('locationguard.php');
+    ?>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Admin</title>
+    <title>Arfun | Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <!-- <link href="css/register.css" rel="stylesheet" /> -->
@@ -53,85 +56,9 @@
         </ul>
     </nav>
     <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-
-                        <a class="nav-link" href="index.php">
-                            <i class="fas fa-home fa-lg"></i>
-                            <span> Dashboard</span>
-                        </a>
-
-                        <a class="nav-link collapsed" href="register.php">
-                            <i class="fas fa-users fa-lg"></i>
-                            <span> Admin Users </span>
-                        </a>
-
-                        <a class="nav-link collapsed" href="add-student.html">
-                            <i class="fas fa-user-graduate fa-lg"></i>
-                            <span>Student</span>
-                        </a>
-                        <a class="nav-link collapsed" href="add-teacher.php">
-                            <i class="fas fa-chalkboard-teacher fa-lg"></i>
-                            <span>Teachers</span>
-                        </a>
-                        <a class="nav-link collapsed" href="lesson.html">
-                            <i class="fas fa-book-open fa-lg"></i>
-                            <span>Lesson</span>
-                        </a>
-                        <a class="nav-link collapsed" href="create-quiz.html">
-                            <i class="fas fa-book-open fa-lg"></i>
-                            <span>Quiz</span>
-                        </a>
-                        <a class="nav-link collapsed" href="user-list.php">
-                            <i class="fas fa-user-edit fa-lg"></i>
-                            <span>User list</span>
-                        </a>
-
-
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
-                            data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-                                    aria-controls="pagesCollapseAuth">
-                                    Authentication
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                                    data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                        <a class="nav-link" href="register.html">Register</a>
-                                        <a class="nav-link" href="password.html">Forgot Password</a>
-                                    </nav>
-                                </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#pagesCollapseError" aria-expanded="false"
-                                    aria-controls="pagesCollapseError">
-                                    Error
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
-                                    data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">401 Page</a>
-                                        <a class="nav-link" href="404.html">404 Page</a>
-                                        <a class="nav-link" href="500.html">500 Page</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                </div>
-            </nav>
-        </div>
+        <?php
+        include('side-nav.php');
+        ?>
         <div id="layoutSidenav_content">
             <main>
                 <?php
@@ -153,78 +80,78 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
 
-                                                <?php
-                                                if (isset($_SESSION['status'])) {
-                                                    echo "<h5 class='alert alert-status '>" . $_SESSION['status'] . "</h5>";
-                                                    unset($_SESSION['status']);
-                                                }
-                                                ?>
+                                            <?php
+                                            if (isset($_SESSION['status'])) {
+                                                echo "<h5 class='alert alert-status '>" . $_SESSION['status'] . "</h5>";
+                                                unset($_SESSION['status']);
+                                            }
+                                            ?>
 
-                                                <div class="card w-50 p-3">
-                                                    <div class="card-header">
-                                                        <h4>
-                                                            Add Admin
-                                                            <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
-                                                        </h4>
-                                                    </div>
-                                                    <form id="main-form" class="add-body" data-type="admin">
-                                                        <div class="col-xs-4">
-                                                            <label for="exampleInputPassword1"></label>
-                                                            <input type="text" class="form-control" id="name"
-                                                                placeholder="Full name" name="fullName" required>
-                                                        </div>
-                                                        <div class="form-group col-xs-4">
-                                                            <label for=""></label>
-                                                            <input type="text" class="form-control" id="email"
-                                                                placeholder="Email" name="email" required>
-                                                        </div>
-
-                                                        <div class="form-group col-xs-4">
-                                                            <label for=""></label>
-                                                            <input type="text" class="form-control" id="phone"
-                                                                placeholder="Phone" name="phone" required>
-                                                        </div>
-
-                                                        <button type="button"
-                                                            class="btn btn-primary registerbtn mt-4 btn-sm"
-                                                            name="register_button" id="submitData">Submit</button>
-                                                    </form>
+                                            <div class="card w-50 p-3">
+                                                <div class="card-header">
+                                                    <h4>
+                                                        Add Admin
+                                                        <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
+                                                    </h4>
                                                 </div>
+                                                <form id="main-form" class="add-body" data-type="admin">
+                                                    <div class="col-xs-4">
+                                                        <label for="exampleInputPassword1"></label>
+                                                        <input type="text" class="form-control" id="name"
+                                                            placeholder="Full name" name="fullName" required>
+                                                    </div>
+                                                    <div class="form-group col-xs-4">
+                                                        <label for=""></label>
+                                                        <input type="text" class="form-control" id="email"
+                                                            placeholder="Email" name="email" required>
+                                                    </div>
+
+                                                    <div class="form-group col-xs-4">
+                                                        <label for=""></label>
+                                                        <input type="text" class="form-control" id="phone"
+                                                            placeholder="Phone" name="phone" required>
+                                                    </div>
+
+                                                    <button type="button"
+                                                        class="btn btn-primary registerbtn mt-4 btn-sm"
+                                                        name="register_button" id="submitData">Submit</button>
+                                                </form>
+                                            </div>
 
 
 
-                                                <div class="container mt-3">
-                                                    <div class="">
-                                                        <div class="col-md-12">
-                                                            <div class="card">
-                                                                <div class="card-header">
-                                                                    <h4>
-                                                                        Admin List
-                                                                        <a href="index.php"
-                                                                            class="btn btn-danger float-end">Back</a>
-                                                                    </h4>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <table class="table table-bordered table-striped">
-                                                                        <thead>
-                                                                            <th>User ID</th>
-                                                                            <th>Full Name</th>
-                                                                            <th>Email</th>
-                                                                            <th>Edit</th>
-                                                                            <th>Delete</th>
-                                                                        </thead>
-                                                                        <tbody id="tbody1"></tbody>
-                                                                    </table>
-                                                                </div>
+                                            <div class="container mt-3">
+                                                <div class="">
+                                                    <div class="col-md-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h4>
+                                                                    Admin List
+                                                                    <a href="index.php"
+                                                                        class="btn btn-danger float-end">Back</a>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <table class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <th>User ID</th>
+                                                                        <th>Full Name</th>
+                                                                        <th>Email</th>
+                                                                        <th>Edit</th>
+                                                                        <th>Delete</th>
+                                                                    </thead>
+                                                                    <tbody id="tbody1"></tbody>
+                                                                </table>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

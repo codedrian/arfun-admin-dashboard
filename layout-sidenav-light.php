@@ -11,6 +11,9 @@
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
+    <?php
+    include('authentication.php');
+    ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
@@ -100,9 +103,13 @@
                             </a>
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
+                    <div class="sb-sidenav-footer d-flex flex-row justify-content-between">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <?php
+                        if (isset($_SESSION['role'])) {
+                            echo '<div class="small">' . ucwords($_SESSION['role']) . '</div>';
+                        }
+                        ?>
                     </div>
                 </nav>
             </div>

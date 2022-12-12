@@ -216,6 +216,7 @@ strong {
 
 small, .small {
   font-size: 0.875em;
+  color: white;
 }
 
 mark, .mark {
@@ -7767,7 +7768,8 @@ textarea.form-control-lg {
 
 .bg-dark {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  /* background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; */
+  background-color: #023020!important;
 }
 
 .bg-black {
@@ -11324,7 +11326,7 @@ body {
   max-width: 20rem;
 }
 
-.nav .nav-link .sb-nav-link-icon,
+.nav .nav-link .sb-nav-link-icon, 
 .sb-sidenav-menu .nav-link .sb-nav-link-icon {
   margin-right: 0.5rem;
 }
@@ -11397,8 +11399,8 @@ body {
 }
 
 .sb-sidenav-dark {
-  background-color: #212529;
-  color: rgba(255, 255, 255, 0.5);
+  background-color: #45625D;
+  /* color: #023020; */
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
   color: rgba(255, 255, 255, 0.25);
@@ -11422,7 +11424,7 @@ body {
   color: #fff;
 }
 .sb-sidenav-dark .sb-sidenav-footer {
-  background-color: #343a40;
+  background-color:#45625D;
 }
 
 .sb-sidenav-light {
@@ -11619,11 +11621,13 @@ body {
 /* Backgrounds */
 
 .sb-sidenav-menu {
-  background: rgb(4, 110, 78);
+  /* background: rgb(4, 110, 78);
+  background: blak; */
   padding: 28px;
-  border:4px solid #06357A;
+  /* border:4px solid #06357A; */
   border-radius: 10px;
-  margin: 13px;
+  /* margin: 13px; */
+  box-shadow: 0 20px 35px rgb(0,0,0,0.1);
 }
 
 
@@ -11654,7 +11658,7 @@ body {
   width: 100%;
   background: rgba(255, 255, 255, 0.377);
   border-radius: 10px;
-  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+  box-shadow: 0 20px 35px rgb(0,0,0,0.1);
   
 }
 
@@ -11673,16 +11677,11 @@ body {
   border-radius: 50%;
 }
 
-/* background */
+
 
 .header-main{
   position: relative;
-  /* top: 15%;
-  left:%; */
-  /* transform: translate(-15%,-40%);
-  background-color: rgb(0, 0, 0); */
   background-color: #06357A;
-  /* z-index: 2; */
   max-height: 100%;  
   font-weight: bold;
   font-size: 25px;
@@ -11691,7 +11690,7 @@ body {
   margin: 10px;
   border-radius: 15px;  
   border: 5px solid rgb(4, 110, 78);
-  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+  box-shadow: 0 20px 35px rgb(0,0,0,0.1);
   
 }
 
@@ -11717,7 +11716,7 @@ main .school{
   background: #ADD8E6;
   border-radius: 15px;
   border: 5px solid rgb(4, 110, 78);
-  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+  box-shadow: 0 20px 35px rgb(0,0,0,0.1);
 }
 
 main .school h3{
@@ -11729,6 +11728,7 @@ main .school p{
   text-align: justify;
   text-justify: inter-word;
   color: black;
+  font-size: 15px;
 }
 
 
@@ -11743,7 +11743,7 @@ main .app{
   background: #ADD8E6;
   border-radius: 15px;
   border: 5px solid rgb(4, 110, 78);
-  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+  box-shadow: 0 20px 35px rgb(0,0,0,0.1);
 }
 
 main .app h3{
@@ -11757,19 +11757,3 @@ main .app p{
 }
 
 
-/* .container{
-  display: flex;
-  justify-content: space-around;
-}
-
-.container .card{
-  float: left;
-} */
-
-
-
-/* register table */
-
-/* .table{
-  float:right;
-} */

@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <?php
+    include('locationguard.php');
+    ?>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,6 +17,9 @@
 </head>
 
 <body class="sb-nav-fixed">
+    <?php
+    include('authentication.php');
+    ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.php">
@@ -115,9 +121,9 @@
                         <div class="text-muted">ArFun E-Learning Copyright 2022</div>
                         <div>
                             <?php
-                                if(isset($_SESSION['dispName'])){
-                                    echo ucwords($_SESSION['dispName']);
-                                }
+                            if (isset($_SESSION['dispName'])) {
+                                echo ucwords($_SESSION['dispName']);
+                            }
                             ?>
                         </div>
                     </div>

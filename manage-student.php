@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <?php
+    include('locationguard.php');
+    ?>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -50,159 +53,159 @@
         </ul>
     </nav>
     <div id="layoutSidenav">
-        <<?php include('side-nav.php'); ?>
-            <div id="layoutSidenav_content">
-                <main>
-                    <?php
-                    if (isset($_SESSION['status'])) {
-                        echo "<h5 class='alert alert-status '>" . $_SESSION['status'] . "</h5>";
-                        unset($_SESSION['status']);
-                    }
-                    ?>
-                    <div class="container-fluid px-4">
+        <?php include('side-nav.php'); ?>
+        <div id="layoutSidenav_content">
+            <main>
+                <?php
+                if (isset($_SESSION['status'])) {
+                    echo "<h5 class='alert alert-status '>" . $_SESSION['status'] . "</h5>";
+                    unset($_SESSION['status']);
+                }
+                ?>
+                <div class="container-fluid px-4">
 
 
-                        <div class="row mt-4">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
+                    <div class="row mt-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
 
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4>Total Student:
+                                                <?php
+                                                include('dbcon.php');
+                                                $ref_table = 'students';
+                                                $count_student = $database->getReference($ref_table)->getSnapshot()->numChildren();
+                                                echo $count_student;
+                                                ?>
+                                            </h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-6 mb-2">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4>Total Student:
-                                                    <?php
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>
+
+                                                <a href="add-student.php" class="btn btn-primary">Add Student</a>
+                                                <a href="index.php" class="btn btn-danger float-end">Back</a>
+                                            </h4>
+                                        </div>
+                                        <div class="card-body ">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Email Adress</th>
+                                                        <th>Section</th>
+                                                        <th>LRN Number</th>
+                                                        <th>Edit</th>
+                                                        <th>Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php //always include db connection
                                                     include('dbcon.php');
                                                     $ref_table = 'students';
-                                                    $count_student = $database->getReference($ref_table)->getSnapshot()->numChildren();
-                                                    echo $count_student;
+                                                    $fetch_students = $database->getReference($ref_table)->getValue();
+
+
+                                                    if ($fetch_students > 0) {
+                                                        $i = 1;
+                                                        foreach ($fetch_students as $key => $row) {
                                                     ?>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>
-
-                                                    <a href="add-student.php" class="btn btn-primary">Add Student</a>
-                                                    <a href="index.php" class="btn btn-danger float-end">Back</a>
-                                                </h4>
-                                            </div>
-                                            <div class="card-body ">
-                                                <table class="table table-bordered table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>No.</th>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Email Adress</th>
-                                                            <th>Section</th>
-                                                            <th>LRN Number</th>
-                                                            <th>Edit</th>
-                                                            <th>Delete</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php //always include db connection
-                                                        include('dbcon.php');
-                                                        $ref_table = 'students';
-                                                        $fetch_students = $database->getReference($ref_table)->getValue();
-
-
-                                                        if ($fetch_students > 0) {
-                                                            $i = 1;
-                                                            foreach ($fetch_students as $key => $row) {
-                                                        ?>
-                                                        <tr>
-                                                            <td>
-                                                                <?= $i++; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $row['fname']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $row['lname']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $row['email']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $row['section']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $row['lrn_number']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <a href="edit-student.php?id=<?= $key; ?>"
-                                                                    class="btn btn-primary">Edit</a>
-                                                            </td>
-                                                            <td>
-                                                                <!-- <a href="edit-student.php" class="btn btn-danger btn-sm">Delete</a> -->
-                                                                <form action="code.php" method="post">
-                                                                    <button type="submit" class="btn btn-primary"
-                                                                        name="delete_button"
-                                                                        value="<?= $key ?>">Delete</button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
-                                                            }
-                                                        } else {
-                                                        ?>
-                                                        <tr>
-                                                            <td colspan="7">No Record Found</td>
-                                                        </tr>
-                                                        <?php
+                                                    <tr>
+                                                        <td>
+                                                            <?= $i++; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $row['fname']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $row['lname']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $row['email']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $row['section']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $row['lrn_number']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <a href="edit-student.php?id=<?= $key; ?>"
+                                                                class="btn btn-primary">Edit</a>
+                                                        </td>
+                                                        <td>
+                                                            <!-- <a href="edit-student.php" class="btn btn-danger btn-sm">Delete</a> -->
+                                                            <form action="code.php" method="post">
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    name="delete_button"
+                                                                    value="<?= $key ?>">Delete</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
                                                         }
+                                                    } else {
+                                                    ?>
+                                                    <tr>
+                                                        <td colspan="7">No Record Found</td>
+                                                    </tr>
+                                                    <?php
+                                                    }
 
-                                                        ?>
+                                                    ?>
 
 
-                                                        <tr>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                    <tr>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">ArFun E-Learning Copyright 2022</div>
-                            <div>
-                                <?php
-                                if (isset($_SESSION['dispName'])) {
-                                    echo ucwords($_SESSION['dispName']);
-                                }
-                                ?>
-                            </div>
+
+
+                    </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">ArFun E-Learning Copyright 2022</div>
+                        <div>
+                            <?php
+                            if (isset($_SESSION['dispName'])) {
+                                echo ucwords($_SESSION['dispName']);
+                            }
+                            ?>
                         </div>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </footer>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>

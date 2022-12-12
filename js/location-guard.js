@@ -1,33 +1,38 @@
-// // prevents explicit access to unauthorized links
-// // this is required for role base access
 
-// var oldLocation = document.location.href;
+window.addEventListener('popstate', function (e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    alert('pop');
+})
 
-// window.addEventListener("load", function () {
+window.addEventListener('load', function (e) {
+  // call an ajax to verify current location
+  var domain = window.location.pathname.substring(
+    0,
+    window.location.pathname.lastIndexOf("/")
+  );
 
-//   var bodyList = document.querySelector("body");
+  var currentLocation = window.location.pathname.substring(
+    window.location.pathname.lastIndexOf("/") + 1
+  );
 
-//   var observer = new MutationObserver(function (mutations) {
-//     mutations.forEach(function (mutation) {
-//       if (oldLocation != document.location.href) {
-//         alert("location chhanged");
-//         // check if location is accessible base on role if not redirect to old location
-//         oldLocation = document.location.href;
-//       }
-//     });
-//   });
+  var roothPath = `${window.location.origin}${domain}`;
 
-//   var config = {
-//     childList: true,
-//     subtree: true,
-//   };
-
-//   observer.observe(bodyList, config);
-// });
-
-// window.addEventListener('haschange', function(e){
-//   console.log(oldLocation);
-//   alert(oldLocation);
-//   e.preventDefault();
-// });
-
+  // reports to the location guard server the current location
+  $.ajax({
+    url: `${roothPath}/js/location-guard.php`,
+    method: "post",
+    data: {
+      location: currentLocation,
+    },
+    success: (res) => {
+      res = JSON.parse(res);
+      if (res.state) {
+        window.location.replace(`${roothPath}/${res.location}`);
+      }
+    },
+    error: (err) => {
+        window.location.replace(`${roothPath}/index.php`);
+    },
+  });
+});

@@ -69,7 +69,6 @@ function getdata() {
       posts.innerHTML = "";
       //get data from firebase
       var data = snapshot.val();
-      console.log(data);
       //now pass this data to our posts div
       //we have to pass our data to for loop to get one by one
       //we are passing the key of that post to delete it from database

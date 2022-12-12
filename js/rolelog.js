@@ -17,7 +17,6 @@ window.addEventListener("DOMContentLoaded", () => {
         cred: cred,
       },
       success: (res) => {
-        console.log(res);
         res = JSON.parse(res);
         location.href = res.location;
       },
@@ -44,8 +43,6 @@ window.addEventListener("DOMContentLoaded", () => {
       email: inpEmail.value,
       password: inpPass.value,
     });
-
-    console.log(payload);
 
     fetch("https://arfun-quiz.vercel.app/api/login", {
       method: "POST",

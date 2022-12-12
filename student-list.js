@@ -29,7 +29,6 @@ getDocs(colRef)
         snapshot.docs.forEach((doc) => { 
             books.push({ ...doc.data(), id: doc.id})
         })
-        console.log(books)
     })
     .catch(err => { 
         console.log(err.message)

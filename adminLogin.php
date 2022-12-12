@@ -54,7 +54,7 @@ if (isset($_SESSION['status'])) {
                             <div class="card-body ">
 
                                 <!-- action="adminLoginCode.php" method="POST" -->
-                                <form >
+                                <form>
                                     <div class="row d-flex flex-column">
                                         <div class="col">
                                             <div class="form-floating mb-3">
@@ -81,8 +81,14 @@ if (isset($_SESSION['status'])) {
                                     </div>
 
                                     <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
-                                        <input class="btn btn-primary w-100" type="submit" name="login_button"
-                                            value="Sign in"></input>
+                                        <button role="button" name="login_button" type="submit" class="btn btn-primary w-100">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <div class="spinner-border spinner-border-sm me-2" role="status"
+                                                    style="display: none;" id="sbm-loader">
+                                                </div>
+                                                <span>Sign in</span>
+                                            </div>
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -105,7 +111,7 @@ if (isset($_SESSION['status'])) {
 <script src="js/rolelog.js"></script>
 
 <script>
-    
+
 </script>
 
 </body>

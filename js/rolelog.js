@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
       method: "post",
       data: {
         name: value,
-        cred: cred
+        cred: cred,
       },
       success: (res) => {
         console.log(res);
@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
         location.href = res.location;
       },
       error: (err) => {
-        console.log(err);
+        location.reload();
       },
     });
   }
@@ -31,9 +31,18 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     e.stopPropagation();
 
+    var inpEmail = document.querySelector('[name="email"]');
+    var inpPass = document.querySelector('[name="password"]');
+    var loader = document.querySelector('[id="sbm-loader"]');
+
+    loader.style.display = 'block';
+    loginBtn.setAttribute("disabled", "");
+    inpEmail.setAttribute("disabled", "");
+    inpPass.setAttribute("disabled", "");
+
     var payload = JSON.stringify({
-      email: document.querySelector('[name="email"]').value,
-      password: document.querySelector('[name="password"]').value,
+      email: inpEmail.value,
+      password: inpPass.value,
     });
 
     console.log(payload);
@@ -59,8 +68,10 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       })
       .catch((error) => {
-        console.log(error);
-        alert("Something went wrong.");
+        location.reload();
+      })
+      .finally(() => {
+        loader.style.display = 'none';
       });
   });
 });

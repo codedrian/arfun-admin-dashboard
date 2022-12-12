@@ -100,9 +100,13 @@
                             </a>
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
+                    <div class="sb-sidenav-footer d-flex flex-row justify-content-between">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <?php
+                        if (isset($_SESSION['role'])) {
+                            echo '<div class="small">' . ucwords($_SESSION['role']) . '</div>';
+                        }
+                        ?>
                     </div>
                 </nav>
             </div>

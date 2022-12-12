@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['verified_user_id'] = $cred['uid'];
             $_SESSION['idTokenString'] = $cred['idTokenString'];
             $_SESSION['role'] = $cred['role'];
+            $_SESSION['dispName'] = $cred['displayName'];
 
             echo json_encode(["location" => 'index.php']);
             exit();

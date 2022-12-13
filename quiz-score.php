@@ -139,7 +139,7 @@
         ///add data table
         var stdNo = 0;
         var tbody = document.getElementById("tbody1")
-        function AddItem(_uid, _dateCompleted, _description, _items, _quizId, _quizTitle, _score) {
+        function AddItem( _uid, _dateCompleted, _description, _items, _quizId, _quizTitle, _score) {
             let trow = document.createElement("tr");
             let td1 = document.createElement("td");
             let td2 = document.createElement("td");
@@ -148,6 +148,7 @@
             let td5 = document.createElement("td");
             let td6 = document.createElement("td");
 
+           
             td2.innerHTML = _uid;
             td3.innerHTML = _dateCompleted;
             td4.innerHTML = _description;
@@ -208,13 +209,29 @@
             addAllItems(students);
         }
 
+        //to retrieve the name of given UID in quizScores to users collection student
+        // const uid = "someUID";
+        // const querySnapshot = await collection(db, "users").where("uid", "==", uid).get();
+
+        // if(querySnapshot.size === 0) {
+        //     alert("No matching documents.");
+        //     return;
+        // }
+
+        // const student =querySnapshot.docs[0].data();
+        // const name = student.name;
+
+
+
+
+
         window.onload = GetAllDataOnece;
 
 
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></>
+        crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>

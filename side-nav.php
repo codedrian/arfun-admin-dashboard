@@ -40,10 +40,12 @@
 
                     <?php
                     if (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
-                        echo '<a class="nav-link collapsed" href="lesson.php">
+                        echo '<a class="nav-link collapsed" 
+                        href="lesson.php">
                         <i class="fas fa-book-open fa-lg"></i>
                         <span>Lesson</span>
                         </a>
+                        
                         <a class="nav-link collapsed" href="create-quiz.php">
                             <i class="fas fa-book-open fa-lg"></i>
                             <span>Quiz</span>
@@ -51,14 +53,7 @@
                     }
                     ?>
 
-                    <?php
-                    if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-                        echo '<a class="nav-link collapsed" href="user-list.php">
-                                <i class="fas fa-user-edit fa-lg"></i>
-                                <span>User list</span>
-                            </a>';
-                    }
-                    ?>
+                   
 
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                         data-bs-parent="#sidenavAccordion">

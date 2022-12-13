@@ -14,8 +14,13 @@
 
                         echo '<a class="nav-link collapsed" href="register.php">
                             <i class="fas fa-users fa-lg"></i>
-                            <span> Admin Users </span>
-                        </a>';
+                            <span> Admin User </span>
+                            </a>';
+
+                            echo '<a class="nav-link collapsed" href="quiz-score.php">
+                            <i class="fas fa-users fa-lg"></i>
+                            <span> Quiz </span>
+                            </a>';
                     }
                     ?>
 

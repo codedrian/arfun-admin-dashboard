@@ -80,11 +80,14 @@ h2.title{
     padding: 20px;
 }
 h2.file{
+    position: relative;
     text-align: center;
-    margin-left: 25px;
+    margin-left: 19px;
+    top:-20%;
     color: white;  /* rgba(0, 153, 255)*/
     background-color: #06357A;
     max-width: 100%;
+    font-size: 25px;
     
 }
 h2.white{             /* para sa audio*/

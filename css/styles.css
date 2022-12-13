@@ -11652,6 +11652,11 @@ body {
 
 /* add student form */
 
+.w-50{
+  position: relative;
+  left:30%;
+}
+
 .w-50 .add-body{
   position: relative;
   padding: 20px;

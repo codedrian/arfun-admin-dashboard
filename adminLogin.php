@@ -16,7 +16,6 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: left;
-
         }
     </style>
 </head>
@@ -26,15 +25,16 @@ session_start();
 if (isset($_SESSION['verified_user_id'])) { //user cant access this when already looged in
     $_SESSION['status'] = "You are already logged in";
     header('Location: index.php');
-    exit();
+    exit(); 
 }
 ?>
 <?php
 if (isset($_SESSION['status'])) {
-    echo "<h5 class='alert alert-status '>" . $_SESSION['status'] . "</h5>";
+    echo "<h5 class='alert alert-status alert-success w-25 ml-5' role='alert' id='message'>" . $_SESSION['status'] . "</h5>";
     unset($_SESSION['status']);
 }
 ?>
+
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
         <main>
@@ -110,8 +110,11 @@ if (isset($_SESSION['status'])) {
 <script src="js/scripts.js"></script>
 <script src="js/rolelog.js"></script>
 
-<script>
-
+<script> //this is for the message to disappear after 3 seconds
+var message = document.getElementById('message');
+message.onclick = setTimeout(function() {
+  message.style.display = 'none';
+}, 3000);
 </script>
 
 </body>

@@ -118,8 +118,7 @@
                           <th>Name</th>
                           <th>Email</th>
                           <th>Learner Reference Number</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
+                          
                         </thead>
                         <tbody id="tbody1"></tbody>
                       </table>

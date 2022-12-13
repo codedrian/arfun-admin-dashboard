@@ -130,8 +130,7 @@
                                                             <div class="card-header">
                                                                 <h4>
                                                                     Admin List
-                                                                    <a href="index.php"
-                                                                        class="btn btn-danger float-end">Back</a>
+                                                        
                                                                 </h4>
                                                             </div>
                                                             <div class="card-body">
@@ -140,9 +139,7 @@
                                                                         <th>User ID</th>
                                                                         <th>Full Name</th>
                                                                         <th>Email</th>
-                                                                        <th>Edit</th>
-                                                                        <th>Delete</th>
-                                                                    </thead>
+                                                                                                                 </thead>
                                                                     <tbody id="tbody1"></tbody>
                                                                 </table>
                                                             </div>

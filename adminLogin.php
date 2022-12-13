@@ -26,7 +26,7 @@ session_start();
 if (isset($_SESSION['verified_user_id'])) { //user cant access this when already looged in
     $_SESSION['status'] = "You are already logged in";
     header('Location: index.php');
-    exit();
+    exit(); 
 }
 ?>
 <?php

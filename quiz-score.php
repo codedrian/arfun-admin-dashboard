@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php
-include('locationguard.php');
-?>
+    
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Arfun | Teacher</title>
+    <title>Arfun | Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <!-- <link href="css/register.css" rel="stylesheet" /> -->
@@ -45,8 +43,8 @@ include('locationguard.php');
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -90,64 +88,32 @@ include('locationguard.php');
                                             }
                                             ?>
 
-                                            <div class="card w-50 p-3">
-                                                <div class="card-header">
-                                                    <h4>
-                                                        Add Teacher
-                                                        <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
-                                                    </h4>
-                                                </div>
-                                                <form id="main-form" class="add-body" data-type="teacher">
-                                                    <div class="col-xs-4">
-                                                        <label for="exampleInputPassword1"></label>
-                                                        <input type="text" class="form-control" id="name"
-                                                            placeholder="Full name" name="fullName" required>
-                                                    </div>
-                                                    <div class="form-group col-xs-4">
-                                                        <label for=""></label>
-                                                        <input type="text" class="form-control" id="email"
-                                                            placeholder="Email" name="email" required>
-                                                    </div>
+    <div class="container mt-3">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Student Score</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                    
+                        <thead>
+                    
+                            <th>Date Completed</th>
+                            <th>Score</th>
+                            <th>Items</th>
+                            <th>Quiz Title</th>
+                           
+                    
+                        </thead>
+                        <tbody id="tbody1"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-                                                    <div class="form-group col-xs-4">
-                                                        <label for=""></label>
-                                                        <input type="text" class="form-control" id="phone"
-                                                            placeholder="Phone" name="phone" required>
-                                                    </div>
-
-                                                    <button type="button"
-                                                        class="btn btn-primary registerbtn mt-4 btn-sm"
-                                                        name="register_button" id="submitData">Submit</button>
-                                                </form>
-                                            </div>
-
-
-
-                                            <div class="container mt-3">
-                                                <div class="">
-                                                    <div class="col-md-12">
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <h4>
-                                                                    Teacher List
-                                                                   
-                                                                </h4>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <table class="table table-bordered table-striped">
-                                                                    <thead>
-                                                                        <th>User ID</th>
-                                                                        <th>Full Name</th>
-                                                                        <th>Email</th>
-                                                                        <th>Edit</th>
-                                                                        <th>Delete</th>
-                                                                    </thead>
-                                                                    <tbody id="tbody1"></tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+    </div>
+                                            
                                             </div>
                                         </div>
                                     </div>
@@ -168,7 +134,83 @@ include('locationguard.php');
         </div>
     </div>
 
-    <script src="./js/fetch-teacher.js" type="module"></script>
+<script type="module">
+        ///add data table
+        var stdNo = 0;
+        var tbody = document.getElementById("tbody1")
+        function AddItem(_dateCompleted, _description, _items, _quizId, _quizTitle, _score) {
+            let trow = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+            let td4 = document.createElement("td");
+            let td5 = document.createElement("td");
+            let td6 = document.createElement("td");
+
+            td1.innerHTML = _dateCompleted;
+            td2.innerHTML = _description;
+            td3.innerHTML = _items;
+            td4.innerHTML = _quizTitle;
+
+
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+            trow.appendChild(td5);
+            trow.appendChild(td6);
+
+
+            tbody.appendChild(trow);
+
+        }
+
+        function addAllItems(TheStudent) {
+            stdNo = 0;
+            tbody.innerHTML = "";
+            TheStudent.forEach(element => {
+                AddItem(element.dateCompleted, element.description, element.items, element.quizId, element.quizTitle, element.score);
+            });
+        }
+
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2NHnCMKq75vuFIdzwY_3eDZlfzPorbV0",
+            authDomain: "mynewmain-b15f0.firebaseapp.com",
+            databaseURL: "https://mynewmain-b15f0-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "mynewmain-b15f0",
+            storageBucket: "mynewmain-b15f0.appspot.com",
+            messagingSenderId: "1045380132876",
+            appId: "1:1045380132876:web:a6aa3460d5b72020da7e29",
+            measurementId: "G-5PT4Z3YG3P"
+        };
+        const app = initializeApp(firebaseConfig);
+        //const analytics = getAnalytics(app);
+        import {
+            getFirestore, doc, getDoc, collection, getDocs, onSnapshot
+        }
+            from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+        const db = getFirestore();
+
+        async function GetAllDataOnece() {
+            const querySnapshot = await getDocs(collection(db, "quizScores"));
+
+            var students = [];
+            querySnapshot.forEach(doc => {
+                students.push(doc.data());
+            });
+
+            addAllItems(students);
+        }
+
+        window.onload = GetAllDataOnece;
+
+
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

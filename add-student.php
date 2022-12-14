@@ -115,7 +115,9 @@
                     <div class="card-body">
                       <table class="table table-bordered table-striped">
                         <thead>
-                          <th>Name</th>
+                          <th>First Name</th>
+                          <th>Middle Name</th>
+                          <th>Last Name</th>
                           <th>Email</th>
                           <th>Learner Reference Number</th>
                           

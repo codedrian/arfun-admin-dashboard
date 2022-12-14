@@ -5,15 +5,23 @@
     function AddItem(_name, _email, _idnum) {
       let trow = document.createElement("tr"); //change trow to tr
       let td1 = document.createElement("td");
+      let td1_1 = document.createElement("td");
+      let td1_2 = document.createElement("td");
       let td2 = document.createElement("td");
       let td3 = document.createElement("td");
 
+      console.log(_name)
+
       // set the text content of each td element to the corresponding argument
-      td1.textContent = _name;
+      td1.textContent = _name.firstName;
+      td1_1.textContent = _name.midName;
+      td1_2.textContent = _name.lastName;
       td2.textContent = _email;
       td3.textContent = _idnum;
 
       trow.appendChild(td1);
+      trow.appendChild(td1_1);
+      trow.appendChild(td1_2);
       trow.appendChild(td2);
       trow.appendChild(td3);
 
@@ -24,7 +32,11 @@
       stdNo = 0;
       tbody.innerHTML = "";
       TheStudent.forEach((element) => {
-        AddItem(element.name, element.email, element.idNum);
+        AddItem({
+          firstName: element.firstName,
+          midName: element.midName,
+          lastName: element.lastName
+        }, element.email, element.idNum);
       });
     }
 
@@ -63,6 +75,8 @@
       querySnapshot.forEach((doc) => {
         students.push(doc.data());
       });
+
+      console.log(students)
 
       addAllItems(students);
     }

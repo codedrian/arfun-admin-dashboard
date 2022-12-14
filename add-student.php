@@ -68,36 +68,51 @@
               </div>
             </div>
 
+            <div class="card w-50 p-3">
+              <div class="card-header">
+                <h4>
+                  Add Student
+                  <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
+                </h4>
+              </div>
+              <form id="main-form" class="add-body" data-type="student">
+                <div class="col-xs-4">
+                  <label for="firstName"></label>
+                  <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName"
+                    required>
+                </div>
+
+                <div class="col-xs-4">
+                  <label for="midName"></label>
+                  <input type="text" class="form-control" id="midName" placeholder="Middle name" name="midName"
+                    required>
+                </div>
+
+                <div class="col-xs-4">
+                  <label for="lastName"></label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName"
+                    required>
+                </div>
+                <div class="form-group col-xs-4">
+                  <label for=""></label>
+                  <input type="text" class="form-control " id="email" aria-describedby="emailHelp" placeholder="Email"
+                    name="email" required>
+                </div>
+                <div class="form-group col-xs-4">
+                  <label for=""></label>
+                  <input type="text" class="form-control" id="idnum" placeholder="Learner Reference Number" name="idNum"
+                    required>
+                </div>
+
+                <button type="button" class="btn btn-primary registerbtn mt-4 btn-sm" name="register_button"
+                  id="submitData">Submit</button>
+              </form>
+            </div>
+
             <?php
 
             if (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
-              echo '<div class="card w-50 p-3">
-                <div class="card-header">
-                  <h4>
-                    Add Student
-                    <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
-                  </h4>
-                </div>
-                <form id="main-form" class="add-body" data-type="student">
-                  <div class="col-xs-4">
-                    <label for="exampleInputPassword1"></label>
-                    <input type="text" class="form-control" id="name" placeholder="Full name" name="fullName" required>
-                  </div>
-                  <div class="form-group col-xs-4">
-                    <label for=""></label>
-                    <input type="text" class="form-control " id="email" aria-describedby="emailHelp" placeholder="Email"
-                      name="email" required>
-                  </div>
-                  <div class="form-group col-xs-4">
-                    <label for=""></label>
-                    <input type="text" class="form-control" id="idnum" placeholder="Learner Reference Number" name="idNum"
-                      required>
-                  </div>
-  
-                  <button type="button" class="btn btn-primary registerbtn mt-4 btn-sm" name="register_button"
-                    id="submitData">Submit</button>
-                </form>
-              </div>';
+              echo '';
             }
             ?>
 
@@ -120,7 +135,7 @@
                           <th>Last Name</th>
                           <th>Email</th>
                           <th>Learner Reference Number</th>
-                          
+
                         </thead>
                         <tbody id="tbody1"></tbody>
                       </table>

@@ -10,8 +10,6 @@
       let td2 = document.createElement("td");
       let td3 = document.createElement("td");
 
-      console.log(_name)
-
       // set the text content of each td element to the corresponding argument
       td1.textContent = _name.firstName;
       td1_1.textContent = _name.midName;
@@ -34,7 +32,7 @@
       TheStudent.forEach((element) => {
         AddItem({
           firstName: element.firstName,
-          midName: element.midName,
+          midName: element.midName == '' ? '-' : element.midName,
           lastName: element.lastName
         }, element.email, element.idNum);
       });
@@ -75,8 +73,6 @@
       querySnapshot.forEach((doc) => {
         students.push(doc.data());
       });
-
-      console.log(students)
 
       addAllItems(students);
     }

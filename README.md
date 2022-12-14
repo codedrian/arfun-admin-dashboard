@@ -9,9 +9,9 @@
 
 
 **Work in Progress:**
-- [ ] View student's quiz score
-- [ ] Display users data in table
-- [ ] Improve User Interface
+- [x] View student's quiz score
+- [x] Display users data in table
+- [x] Improve User Interface
 
 
 **Technologies Used:**

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -31,10 +31,7 @@
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-                    aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                        class="fas fa-search"></i></button>
+               
             </div>
         </form>
         <!-- Navbar-->
@@ -43,9 +40,6 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
                         <hr class="dropdown-divider" />
                     </li>
                     <li><a class="dropdown-item" href="logout.php">Logout</a></li>
@@ -88,70 +82,76 @@
                                             }
                                             ?>
 
-    <div class="container mt-3">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Student Score</h3>
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped">
-                    
-                        <thead>
-                            <th>Name</th>
-                            <th>UID</th>
-                            <th>Date Completed</th>
-                            <th>Score</th>
-                            <th>Items</th>
-                            <th>Quiz Title</th>
-                           
-                    
-                        </thead>
-                        <tbody id="tbody1"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                                            <div class="container mt-3">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h3>Student Score</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <table class="table table-striped">
 
-        
-          </div>
+                                                                <thead>
+                                                                    <th>First Name</th>
+                                                                    <th>Middle Name</th>
+                                                                    <th>Last Name</th>
+                                                                    <th>UID</th>
+                                                                    <th>Date Completed</th>
+                                                                    <th>Score</th>
+                                                                    <th>Items</th>
+                                                                    <th>Quiz Title</th>
 
-    </div>
-                                            
+
+                                                                </thead>
+                                                                <tbody id="tbody1"></tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
+
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-            </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        
-
                     </div>
                 </div>
-            </footer>
+
         </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+
+
+                </div>
+            </div>
+        </footer>
     </div>
-<script type="module" src="js/fetch-uid.js"></script>
-<script type="module">
+    </div>
+    <script type="module" src="js/fetch-uid.js"></script>
+    <script type="module">
         ///add data table
         var stdNo = 0;
         var tbody = document.getElementById("tbody1")
-        function AddItem( _uid, _dateCompleted, _description, _items, _quizId, _quizTitle, _score) {
+        function AddItem(name, _uid, _dateCompleted, _description, _items, _quizId, _quizTitle, _score) {
             let trow = document.createElement("tr");
             let td1 = document.createElement("td");
+            let td1_1 = document.createElement("td");
+            let td1_2 = document.createElement("td");
             let td2 = document.createElement("td");
             let td3 = document.createElement("td");
             let td4 = document.createElement("td");
             let td5 = document.createElement("td");
             let td6 = document.createElement("td");
 
-           
+            td1.innerHTML = name.firstName;
+            td1_1.innerHTML = name.midName;
+            td1_2.innerHTML = name.lastName;
             td2.innerHTML = _uid;
             td3.innerHTML = _dateCompleted;
             td4.innerHTML = _description;
@@ -160,6 +160,8 @@
 
 
             trow.appendChild(td1); //this should conatin the name
+            trow.appendChild(td1_1); //this should conatin the name
+            trow.appendChild(td1_2); //this should conatin the name
             trow.appendChild(td2);
             trow.appendChild(td3);
             trow.appendChild(td4);
@@ -171,11 +173,11 @@
 
         }
 
-        function addAllItems(TheStudent) {
+        function addAllItems(TheStudent, names) {
             stdNo = 0;
             tbody.innerHTML = "";
-            TheStudent.forEach(element => {
-                AddItem(element.uid, element.dateCompleted, element.description, element.items, element.quizId, element.quizTitle, element.score);
+            TheStudent.forEach((element, index) => {
+                AddItem(names[index], element.uid, element.dateCompleted, element.description, element.items, element.quizId, element.quizTitle, element.score);
             });
         }
 
@@ -195,42 +197,69 @@
         const app = initializeApp(firebaseConfig);
         //const analytics = getAnalytics(app);
         import {
-            getFirestore, doc, getDoc, collection, getDocs, onSnapshot
+            getFirestore, doc, getDoc, collection, getDocs, onSnapshot, query, where
         }
             from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
         const db = getFirestore();
 
-        async function GetAllDataOnece() {
-            const querySnapshot = await getDocs(collection(db, "quizScores"));
+        function fetchScoreDataAsync() {
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const querySnapshot = await getDocs(collection(db, "quizScores"));
 
-            var students = [];
-            querySnapshot.forEach(doc => {
-                students.push(doc.data());
-            });
+                    var students = [];
+                    var names = [];
 
-            addAllItems(students);
+                    querySnapshot.forEach(doc => {
+                        students.push(doc.data());
+                    });
+
+                    for(var i = 0; i < students.length; i++){
+                        var student  = students[i];
+
+                        const uid = student.uid;
+
+                        var dbRef = collection(db, 'users');
+                        var q = query(dbRef, where('uid', '==', uid));
+                        var qSnap = await getDocs(q);
+
+                        if (qSnap.size !== 0) {
+
+                            const student = qSnap.docs[0].data();
+                            names.push({
+                                firstName: student.firstName,
+                                midName: student.midName == '' ? '-' : student.midName,
+                                lastName: student.lastName,
+                            });
+                        } else {
+                            // remove invalid quizScore data
+                            student.splice(index, 1);
+                        }
+                    }
+
+                    return resolve({
+                        students: students,
+                        names: names
+                    });
+
+                } catch (error) {
+                    return reject(error);
+                }
+            })
         }
 
-        //to retrieve the name of given UID in quizScores to users collection student
-        // const uid = "someUID";
-        // const querySnapshot = await collection(db, "users").where("uid", "==", uid).get();
+        async function GetAllDataOnece() {
 
-        // if(querySnapshot.size === 0) {
-        //     alert("No matching documents.");
-        //     return;
-        // }
-
-        // const student =querySnapshot.docs[0].data();
-        // const name = student.name;
-
-
-
-
+            fetchScoreDataAsync().then(result => {
+                addAllItems(result.students, result.names);
+            })
+            .catch(error => {
+                alert('Something went wrong.');
+            });
+        }
 
         window.onload = GetAllDataOnece;
-
-
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -241,7 +270,6 @@
     <script src="assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
-    <script src="js/createuser.js"></script>
 </body>
 
 </html>

@@ -2,30 +2,40 @@
 
 var stdNo = 0;
 var tbody = document.getElementById("tbody1");
-function AddItem(_firstName, _lastName, _email) {
+function AddItem(_name, _uid, _email) {
   let trow = document.createElement("tr"); //change trow to tr
   let td1 = document.createElement("td");
+  let td1_1 = document.createElement("td");
+  let td1_2 = document.createElement("td");
   let td2 = document.createElement("td");
   let td3 = document.createElement("td");
 
   // set the text content of each td element to the corresponding argument
-  td1.textContent = _firstName;
-  td2.textContent = _lastName;
+  td1.textContent = _name.firstName;
+  td1_1.textContent = _name.midName;
+  td1_2.textContent = _name.lastName;
+  td2.textContent = _uid;
   td3.textContent = _email;
 
   trow.appendChild(td1);
+  trow.appendChild(td1_1);
+  trow.appendChild(td1_2);
   trow.appendChild(td2);
   trow.appendChild(td3);
 
   tbody.appendChild(trow);
 }
 
-function addAllItems(TheStudent) {
+function addAllItems(TheAdmin) {
   stdNo = 0;
   tbody.innerHTML = "";
-  TheStudent.forEach((element) => {
-    AddItem(element.uid, element.name, element.email);
-  });
+  TheAdmin.forEach((element) => {
+    AddItem({
+      firstName: element.firstName,
+      midName: element.midName == '' ? '-' : element.midName,
+      lastName: element.lastName
+    }, element.uid, element.email);
+  }); 
 }
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";

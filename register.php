@@ -98,10 +98,23 @@
                                                 </div>
                                                 <form id="main-form" class="add-body" data-type="admin">
                                                     <div class="col-xs-4">
-                                                        <label for="exampleInputPassword1"></label>
-                                                        <input type="text" class="form-control" id="name"
-                                                            placeholder="Full name" name="fullName" required>
+                                                        <label for="firstName"></label>
+                                                        <input type="text" class="form-control" id="firstName"
+                                                            placeholder="First name" name="firstName" required>
                                                     </div>
+
+                                                    <div class="col-xs-4">
+                                                        <label for="midName"></label>
+                                                        <input type="text" class="form-control" id="midName"
+                                                            placeholder="Middle name" name="midName" required>
+                                                    </div>
+
+                                                    <div class="col-xs-4">
+                                                        <label for="lastName"></label>
+                                                        <input type="text" class="form-control" id="lastName"
+                                                            placeholder="Last name" name="lastName" required>
+                                                    </div>
+
                                                     <div class="form-group col-xs-4">
                                                         <label for=""></label>
                                                         <input type="text" class="form-control" id="email"
@@ -136,8 +149,10 @@
                                                             <div class="card-body">
                                                                 <table class="table table-bordered table-striped">
                                                                     <thead>
+                                                                        <th>First name</th>
+                                                                        <th>Middle name</th>
+                                                                        <th>Last name</th>
                                                                         <th>User ID</th>
-                                                                        <th>Full Name</th>
                                                                         <th>Email</th>
                                                                                                                  </thead>
                                                                     <tbody id="tbody1"></tbody>

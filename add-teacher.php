@@ -3,8 +3,8 @@
 
 <head>
     <?php
-include('locationguard.php');
-?>
+    include('locationguard.php');
+    ?>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -33,7 +33,7 @@ include('locationguard.php');
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                
+
             </div>
         </form>
         <!-- Navbar-->
@@ -96,9 +96,21 @@ include('locationguard.php');
                                                 </div>
                                                 <form id="main-form" class="add-body" data-type="teacher">
                                                     <div class="col-xs-4">
-                                                        <label for="exampleInputPassword1"></label>
-                                                        <input type="text" class="form-control" id="name"
-                                                            placeholder="Full name" name="fullName" required>
+                                                        <label for="firstName"></label>
+                                                        <input type="text" class="form-control" id="firstName"
+                                                            placeholder="First name" name="firstName" required>
+                                                    </div>
+
+                                                    <div class="col-xs-4">
+                                                        <label for="midName"></label>
+                                                        <input type="text" class="form-control" id="midName"
+                                                            placeholder="Middle name" name="midName" required>
+                                                    </div>
+
+                                                    <div class="col-xs-4">
+                                                        <label for="lastName"></label>
+                                                        <input type="text" class="form-control" id="lastName"
+                                                            placeholder="Last name" name="lastName" required>
                                                     </div>
                                                     <div class="form-group col-xs-4">
                                                         <label for=""></label>
@@ -127,16 +139,18 @@ include('locationguard.php');
                                                             <div class="card-header">
                                                                 <h4>
                                                                     Teacher List
-                                                                   
+
                                                                 </h4>
                                                             </div>
                                                             <div class="card-body">
                                                                 <table class="table table-bordered table-striped">
                                                                     <thead>
+                                                                        <th>First name</th>
+                                                                        <th>Middle name</th>
+                                                                        <th>Last name</th>
                                                                         <th>User ID</th>
-                                                                        <th>Full Name</th>
                                                                         <th>Email</th>
-                                                        </thead>
+                                                                    </thead>
                                                                     <tbody id="tbody1"></tbody>
                                                                 </table>
                                                             </div>

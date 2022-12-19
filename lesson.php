@@ -59,9 +59,9 @@
         include('side-nav.php');
         ?>
 		<div id="layoutSidenav_content">
-			<h2 class="title">Upload Lessons</h2>
-			<div class="upload-area">
-				<button class="upload">Upload</button>
+			
+			<div class="upload-area pt-5">
+				<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>Upload</button>
 				<div class="progress-container">
 					<div class="progress"></div>
 				</div>
@@ -88,7 +88,7 @@
 				<ul id="video"></ul>
 				<h2 class="black">Audios</h2>
 				<ul id="audio"></ul>
-				<h2 class="file">Note: File to be uploaded must be in PDF format</h2>
+				<!-- <h2 class="file">Note: File to be uploaded must be in PDF format</h2> -->
 				<ul id="image"></ul>
 			</div>
 			<div class="expand-container" data-value="0">

@@ -142,8 +142,8 @@
                                                             <div class="card-header">
                                                                 <h4>
                                                                     Admin List
-                                                                    <a href="index.php"
-                                                                        class="btn btn-danger float-end">Back</a>
+                                                                    <!-- <a href="index.php"
+                                                                        class="btn btn-danger float-end">Back</a> -->
                                                                 </h4>
                                                             </div>
                                                             <div class="card-body">

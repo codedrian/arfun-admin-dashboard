@@ -14,17 +14,7 @@
     <link href="https://cdn.jsdelivr    et/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- <style> 
-        
-                .body-image{
-                background-image: url('./cornerstonebg.jpg');
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;  
-                filter: blur(1px);
-                height:40%;
-                }
-            </style> -->
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -100,7 +90,8 @@ SJDM Cornerstone College offers programs in pre-school, elementary, junior high 
 
                 <div class="app">
                     <h3>About Application</h3>
-                    <p>ARFUN is an e-learning mobile application that contains lessons about the Araling Panlipunan subject.The application offers features that can help the students and teachers studying the subject and also it will give them greate experience while learning.
+                    <p>ARFUN is an e-learning mobile application that contains lessons about the Araling Panlipunan subject.The web and mobile applications offers features that
+            can help the students and teachers studying the subject and also it will give them great experience while learning.
                     </p>
                 </div>
             </main>

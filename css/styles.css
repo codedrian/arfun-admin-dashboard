@@ -73,7 +73,10 @@ html,body {
   margin: 0px;
   padding: 0px;
 }
-
+.mx-auto {
+  display: flex;
+  justify-content: center;
+}
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;

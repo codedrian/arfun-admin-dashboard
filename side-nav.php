@@ -48,8 +48,13 @@
                         
                         <a class="nav-link collapsed" href="create-quiz.php">
                             <i class="fas fa-book-open fa-lg"></i>
-                            <span>Quiz</span>
-                        </a>';
+                            <span>Create Quiz</span>
+                        </a>
+                        
+                        <a class="nav-link collapsed" href="quiz-score.php">
+                            <i class="fas fa-users fa-lg"></i>
+                            <span> Quiz Scores</span>
+                            </a>';
                     }
                     ?>
 

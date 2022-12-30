@@ -61,7 +61,8 @@
 		<div id="layoutSidenav_content">
 			
 			<div class="upload-area pt-5">
-				<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>Upload</button>
+				<h4>Note: The files to be uploaded must be in PDF.</h4>
+				<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>    Upload</button>
 				<div class="progress-container">
 					<div class="progress"></div>
 				</div>
@@ -88,7 +89,7 @@
 				<ul id="video"></ul>
 				<h2 class="black">Audios</h2>
 				<ul id="audio"></ul>
-				<!-- <h2 class="file">Note: File to be uploaded must be in PDF format</h2> -->
+				<h2 class="file"><!--Note: Files to be uploaded must be in PDF format--></h2>
 				<ul id="image"></ul>
 			</div>
 			<div class="expand-container" data-value="0">
@@ -103,7 +104,7 @@
 
 			<!-- firebase sdk -->
 			<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-			<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"></script>
+			<!-- <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"></script> -->
 			<script src="script.js"></script>
 
 			<footer class="py-4 bg-light mt-auto">
@@ -126,7 +127,7 @@
 	<script src="./js/lesson.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<!-- <script src="js/scripts.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 	<script src="assets/demo/chart-area-demo.js"></script>
 	<script src="assets/demo/chart-bar-demo.js"></script>

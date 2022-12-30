@@ -93,8 +93,7 @@
                                             <div class="card w-50 p-3">
                                                 <div class="card-header">
                                                     <h4>
-                                                        Add Admin
-                                                        <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
+                                                        Add Admins
                                                     </h4>
                                                 </div>
                                                 <form id="main-form" class="add-body" data-type="admin">
@@ -143,7 +142,8 @@
                                                             <div class="card-header">
                                                                 <h4>
                                                                     Admin List
-                                                        
+                                                                    <!-- <a href="index.php"
+                                                                        class="btn btn-danger float-end">Back</a> -->
                                                                 </h4>
                                                             </div>
                                                             <div class="card-body">

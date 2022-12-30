@@ -61,7 +61,8 @@
 		<div id="layoutSidenav_content">
 			
 			<div class="upload-area pt-5">
-				<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>Upload</button>
+				<h4>Note: The files to be uploaded must be in PDF.</h4>
+				<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>    Upload</button>
 				<div class="progress-container">
 					<div class="progress"></div>
 				</div>
@@ -88,7 +89,7 @@
 				<ul id="video"></ul>
 				<h2 class="black">Audios</h2>
 				<ul id="audio"></ul>
-				<!-- <h2 class="file">Note: File to be uploaded must be in PDF format</h2> -->
+				<h2 class="file"><!--Note: Files to be uploaded must be in PDF format--></h2>
 				<ul id="image"></ul>
 			</div>
 			<div class="expand-container" data-value="0">

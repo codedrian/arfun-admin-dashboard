@@ -186,7 +186,7 @@ if (isset($_SESSION['status'])) {
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="#">Forgot password?</a></div>
+                                        <div class="small"><a href="reset.php">Forgot password?</a></div>
                                     </div>
                                 </div>
                             </div>

@@ -7418,6 +7418,7 @@ textarea.form-control-lg {
 .py-4 {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
+  height:8%;
 }
 
 .py-5 {
@@ -11257,6 +11258,7 @@ body {
   flex-grow: 1;
   min-height: calc(100vh - 56px);
   margin-left: -225px;
+  /* background-color:#c7ddb5; */
 }
 
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
@@ -11719,15 +11721,15 @@ main content */
 
 main .school{
   position: relative;
-  left: 20%;
+  /* left: 20%; */
   /* top: -60%; */
   margin: 10px;
   padding: 20px;
-  width: 60%;
+  /* width: 60%; */
   max-height: 60%;
   background: #ADD8E6;
   border-radius: 15px;
-  border: 5px solid rgb(4, 110, 78);
+  /* border: 5px solid rgb(4, 110, 78); */
   box-shadow: 0 20px 35px rgb(0,0,0,0.1);
 }
 
@@ -11746,15 +11748,15 @@ main .school p{
 
 main .app{
   position: relative;
-  left: 20%;
+  /* left: 20%; */
   /* top: -50%; */
   margin: 10px;
   padding: 20px;
-  width: 60%;
+  /* width: 60%; */
   max-height: 60%;
   background: #ADD8E6;
   border-radius: 15px;
-  border: 5px solid rgb(4, 110, 78);
+  /* border: 5px solid rgb(4, 110, 78); */
   box-shadow: 0 20px 35px rgb(0,0,0,0.1);
 }
 

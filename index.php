@@ -83,9 +83,9 @@
                 <div class="school">
                     <h3>Schoool Overview</h3>
                     <p>The SJDM Cornerstone College is a non-sectarian higher education institution in San Jose Del Monte Bulacan founded in 2004. It is
- accredited by the Technical Education and skill Development Authority (TESDA),
-Department of Education (DepEd) and the Commission on Higher Education (CHED).
-SJDM Cornerstone College offers programs in pre-school, elementary, junior high school,senior high and college</p>
+                        accredited by the Technical Education and skill Development Authority (TESDA),
+                        Department of Education (DepEd) and the Commission on Higher Education (CHED).
+                        SJDM Cornerstone College offers programs in pre-school, elementary, junior high school,senior high and college</p>
                 </div>
 
                 <div class="app">

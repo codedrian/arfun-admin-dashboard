@@ -191,7 +191,7 @@
                             </div>
 
                             <div class="dev-info">
-                                <img src="assets/img/" width="125" height="125">
+                                <img src="./assets/img/groupMembers/adrian.jpg" width="125" height="125">
                                 <p class="name">Singh, Adrian Gaile <br>Back-end Developer</p>
                                 <!-- <p class="role">Role</p> -->
                             </div>

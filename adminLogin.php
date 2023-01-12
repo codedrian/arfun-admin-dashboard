@@ -121,26 +121,23 @@ if (isset($_SESSION['verified_user_id'])) { //user cant access this when already
     exit(); 
 }
 ?>
-<?php
+
+<br><br>
+<div id="layoutAuthentication">
+
+    <?php
 if (isset($_SESSION['status'])) {
     echo "<h5 class='alert alert-status alert-success w-25 ml-5' role='alert' id='message'>" . $_SESSION['status'] . "</h5>";
     unset($_SESSION['status']);
 }
 ?>
-
-<div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-5 float-right ">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <?php
-                                    if (isset($_SESSION['status'])) {
-                                        echo "<h5 class='alert alert-status '>" . $_SESSION['status'] . "</h5>";
-                                        unset($_SESSION['status']);
-                                    }
-                                    ?>
+ 
                                     <div class="card-header bg-success">
                                         <h3 class="text-center font-weight-light my-2 ">Login</h3>
                                     </div>

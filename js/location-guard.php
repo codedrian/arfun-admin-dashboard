@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['location'])) {
     $role = $_SESSION['role'];
 
     // $adminExPaths = array("lesson.php", "create-quiz.php");
-    $adminExPaths = array("index.php", "register.php", "add-student.php", "add-teacher.php", "user-list.php");
+    $adminExPaths = array("index.php", "register.php", "student-list.php", "add-teacher.php", "user-list.php");
     // $teacherExPaths = array("register.php", "add-teacher.php", "user-list.php");
     $teacherExPaths = array("index.php", "add-student.php", "lesson.php", "create-quiz.php");
 

@@ -177,7 +177,15 @@
             stdNo = 0;
             tbody.innerHTML = "";
             TheStudent.forEach((element, index) => {
-                AddItem(names[index], element.uid, element.dateCompleted, element.description, element.items, element.quizId, element.quizTitle, element.score);
+                var dateCompleted = new Date(element.dateCompleted).toLocaleString('en-US', {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                    timeZone: "Asia/Kuala_Lumpur",
+                })
+                AddItem(names[index], element.uid, dateCompleted, element.description, element.items, element.quizId, element.quizTitle, element.score);
             });
         }
 
@@ -210,13 +218,14 @@
 
                     var students = [];
                     var names = [];
+                    var studentsRef = []
 
                     querySnapshot.forEach(doc => {
                         students.push(doc.data());
                     });
 
-                    for(var i = 0; i < students.length; i++){
-                        var student  = students[i];
+                    for (var i = 0; i < students.length; i++) {
+                        var student = students[i];
 
                         const uid = student.uid;
 
@@ -226,20 +235,18 @@
 
                         if (qSnap.size !== 0) {
 
-                            const student = qSnap.docs[0].data();
+                            const studentData = qSnap.docs[0].data();
                             names.push({
-                                firstName: student.firstName,
-                                midName: student.midName == '' ? '-' : student.midName,
-                                lastName: student.lastName,
+                                firstName: studentData.firstName,
+                                midName: studentData.midName == '' ? '-' : studentData.midName,
+                                lastName: studentData.lastName,
                             });
-                        } else {
-                            // remove invalid quizScore data
-                            student.splice(index, 1);
+                            studentsRef.push(student)
                         }
                     }
 
                     return resolve({
-                        students: students,
+                        students: studentsRef,
                         names: names
                     });
 
@@ -254,9 +261,9 @@
             fetchScoreDataAsync().then(result => {
                 addAllItems(result.students, result.names);
             })
-            .catch(error => {
-                alert('Something went wrong.');
-            });
+                .catch(error => {
+                    alert('Something went wrong.');
+                });
         }
 
         window.onload = GetAllDataOnece;

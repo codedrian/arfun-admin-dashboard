@@ -3059,6 +3059,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
+  background: #198754;
+  border: 1px solid green;
 }
 .btn-primary:hover {
   color: #fff;
@@ -3073,16 +3075,16 @@ textarea.form-control-lg {
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0a58ca;
-  border-color: #0a53be;
+  background-color: #198754;
+  border-color: #198754;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.5);
 }
 .btn-primary:disabled, .btn-primary.disabled {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #198754;
+  border-color: #198754;
 }
 
 .btn-secondary {
@@ -3176,33 +3178,33 @@ textarea.form-control-lg {
 }
 
 .btn-warning {
-  color: #000;
-  background-color: #ffc107;
-  border-color: #ffc107;
+  color:#fff;
+  background-color: #198754;
+  border-color: #198754;
 }
 .btn-warning:hover {
-  color: #000;
-  background-color: #ffca2c;
-  border-color: #ffc720;
+  color: #fff;
+  background-color: green;
+  border-color: green;
 }
 .btn-check:focus + .btn-warning, .btn-warning:focus {
-  color: #000;
-  background-color: #ffca2c;
-  border-color: #ffc720;
-  box-shadow: 0 0 0 0.25rem rgba(217, 164, 6, 0.5);
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.5);
 }
 .btn-check:checked + .btn-warning, .btn-check:active + .btn-warning, .btn-warning:active, .btn-warning.active, .show > .btn-warning.dropdown-toggle {
-  color: #000;
-  background-color: #ffcd39;
-  border-color: #ffc720;
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
 }
 .btn-check:checked + .btn-warning:focus, .btn-check:active + .btn-warning:focus, .btn-warning:active:focus, .btn-warning.active:focus, .show > .btn-warning.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.25rem rgba(217, 164, 6, 0.5);
 }
 .btn-warning:disabled, .btn-warning.disabled {
-  color: #000;
-  background-color: #ffc107;
-  border-color: #ffc107;
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
 }
 
 .btn-danger {
@@ -7250,6 +7252,8 @@ textarea.form-control-lg {
 
 .mt-5 {
   margin-top: 3rem !important;
+  left:20%;
+  width:80%;
 }
 
 .mt-auto {
@@ -7417,6 +7421,7 @@ textarea.form-control-lg {
 .py-4 {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
+  height:8%;
 }
 
 .py-5 {
@@ -7746,8 +7751,9 @@ textarea.form-control-lg {
 
 .bg-success {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
-}
+  /* background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important; */
+   background-image:linear-gradient(#0c4128,#0c4128) !important;
+} 
 
 .bg-info {
   --bs-bg-opacity: 1;
@@ -11219,6 +11225,8 @@ textarea.form-control-lg {
 html,
 body {
   height: 100%;
+  margin: none;
+  padding: none;
 }
 
 #layoutAuthentication {
@@ -11253,6 +11261,7 @@ body {
   flex-grow: 1;
   min-height: calc(100vh - 56px);
   margin-left: -225px;
+  /* background-color:#c7ddb5; */
 }
 
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
@@ -11715,15 +11724,15 @@ main content */
 
 main .school{
   position: relative;
-  left: 20%;
+  /* left: 20%; */
   /* top: -60%; */
   margin: 10px;
   padding: 20px;
-  width: 60%;
+  /* width: 60%; */
   max-height: 60%;
   background: #ADD8E6;
   border-radius: 15px;
-  border: 5px solid rgb(4, 110, 78);
+  /* border: 5px solid rgb(4, 110, 78); */
   box-shadow: 0 20px 35px rgb(0,0,0,0.1);
 }
 
@@ -11742,15 +11751,15 @@ main .school p{
 
 main .app{
   position: relative;
-  left: 20%;
+  /* left: 20%; */
   /* top: -50%; */
   margin: 10px;
   padding: 20px;
-  width: 60%;
+  /* width: 60%; */
   max-height: 60%;
   background: #ADD8E6;
   border-radius: 15px;
-  border: 5px solid rgb(4, 110, 78);
+  /* border: 5px solid rgb(4, 110, 78); */
   box-shadow: 0 20px 35px rgb(0,0,0,0.1);
 }
 
@@ -11763,5 +11772,4 @@ main .app p{
   text-align: justify;
   text-justify: inter-word;
 }
-
 

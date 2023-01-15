@@ -16,6 +16,10 @@
                             <i class="fas fa-users fa-lg"></i>
                             <span> Admin User </span>
                             </a>';
+                            echo '<a class="nav-link collapsed" href="student-list.php">
+                            <i class="fas fa-users fa-lg"></i>
+                            <span> Student </span>
+                            </a>';
 
                             echo '<a class="nav-link collapsed" href="quiz-score.php">
                             <i class="fas fa-users fa-lg"></i>
@@ -23,11 +27,11 @@
                             </a>';
                     }
                     ?>
-
-                    <a class="nav-link collapsed" href="add-student.php">
+                    <!-- Both teacher and admin can access this -->
+                    <!-- <a class="nav-link collapsed" href="student-list.php">
                         <i class="fas fa-user-graduate fa-lg"></i>
                         <span>Student</span>
-                    </a>
+                    </a> -->
 
                     <?php
                     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
@@ -40,7 +44,14 @@
 
                     <?php
                     if (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
+                        
                         echo '<a class="nav-link collapsed" 
+                        href="add-student.php">
+                        <i class="fas fa-book-open fa-lg"></i>
+                        <span>Student</span>
+                        </a>
+
+                        <a class="nav-link collapsed" 
                         href="lesson.php">
                         <i class="fas fa-book-open fa-lg"></i>
                         <span>Lesson</span>
@@ -48,8 +59,13 @@
                         
                         <a class="nav-link collapsed" href="create-quiz.php">
                             <i class="fas fa-book-open fa-lg"></i>
-                            <span>Quiz</span>
-                        </a>';
+                            <span>Create Quiz</span>
+                        </a>
+                        
+                        <a class="nav-link collapsed" href="quiz-score.php">
+                            <i class="fas fa-users fa-lg"></i>
+                            <span> Quiz Scores</span>
+                            </a>';
                     }
                     ?>
 

@@ -13,10 +13,10 @@ h2.title{
 #layoutSidenav_content .upload-area{
     text-align: left;
     max-width: 100%;
-    margin: 10px;
-    padding: 5px;
-    max-width: 100%;
-    max-height: 30%;
+    margin: 30px 30px -10px 30px;
+    padding: 10px;   
+    text-align: center;
+    /* max-height: 20%; */
     /* line-height: 40px; */
     background: #ADD8E6; 
     border: 5px solid rgb(4, 110, 78);/*  */  
@@ -34,6 +34,8 @@ h2.title{
     outline: none;
     margin: 0px 45px;
 }
+
+
 .upload:active{
     border-color: white;
 }
@@ -80,11 +82,14 @@ h2.title{
     padding: 20px;
 }
 h2.file{
-    text-align: center;
-    margin-left: 25px;
-    color: white;  /* rgba(0, 153, 255)*/
-    background-color: #06357A;
+    position: relative;
+    /* text-align: center; */
+    margin-left: 19px;
+    top:-30%;
+    color: black;  /* rgba(0, 153, 255)*/
+    /* background-color: #06357A; */
     max-width: 100%;
+    font-size: 25px;
     
 }
 h2.white{             /* para sa audio*/
@@ -101,7 +106,7 @@ h2.black{              /* para sa video*/
 }
 .all-files ul li{
     list-style: none;
-    background-color: green; /* rgba(0, 153, 255)*/
+    background-color: rgb(4, 110, 78); /* rgba(0, 153, 255)*/
     display: inline-block;
     padding: 10px;
     padding-right: 45px;

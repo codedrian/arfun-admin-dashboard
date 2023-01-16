@@ -154,6 +154,7 @@
                                                                         <th>Last name</th>
                                                                         <th>User ID</th>
                                                                         <th>Email</th>
+                                                                        <th>Phone</th>
                                                                                                                  </thead>
                                                                     <tbody id="tbody1"></tbody>
                                                                 </table>

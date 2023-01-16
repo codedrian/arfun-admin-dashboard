@@ -138,7 +138,7 @@
                     <h2>Who we are?</h2>
                         <p>The developers are Bachelor of Science in Information Technology students from Bulacan State University Sarmiento Campus.</p>
                         <div class="dev-info">
-                            <img src="assets/img/" width="125" height="125">
+                            <img src="./assets/img/groupMembers/Ron.jpeg" width="125" height="125">
                             <p class="name">Abacial, Rolando  <br>UI/UX Designer</p>
                         </div>
                         <div class="dev-info">
@@ -149,14 +149,14 @@
                         </div>
 
                         <div class="dev-info">
-                            <img src="" width="125" height="125">
+                            <img src="./assets/img/groupMembers/kurt.jpg" width="125" height="125">
                                 <p class="name">
                                     Francisco, Kurt Russell  
                                     <br>Full Stack Developer</p>
                         </div>
 
                         <div class="dev-info">
-                            <img src="assets/img/" width="125" height="125">
+                            <img src="./assets/img/groupMembers/veronica.jpg" width="125" height="125">
                                 <p class="name">Francisco, Veronica         
                                     <br>Project Leader</p>
                         </div>

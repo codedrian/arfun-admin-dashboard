@@ -2,13 +2,14 @@
 
 var stdNo = 0;
 var tbody = document.getElementById("tbody1");
-function AddItem(_name, _uid, _email) {
+function AddItem(_name, _uid, _email, _phone) {
   let trow = document.createElement("tr"); //change trow to tr
   let td1 = document.createElement("td");
   let td1_1 = document.createElement("td");
   let td1_2 = document.createElement("td");
   let td2 = document.createElement("td");
   let td3 = document.createElement("td");
+  let td4 = document.createElement("td");
 
   // set the text content of each td element to the corresponding argument
   td1.textContent = _name.firstName;
@@ -16,12 +17,14 @@ function AddItem(_name, _uid, _email) {
   td1_2.textContent = _name.lastName;
   td2.textContent = _uid;
   td3.textContent = _email;
+  td4.textContent = _phone;
 
   trow.appendChild(td1);
   trow.appendChild(td1_1);
   trow.appendChild(td1_2);
   trow.appendChild(td2);
   trow.appendChild(td3);
+  trow.appendChild(td4);
 
   tbody.appendChild(trow);
 }
@@ -37,7 +40,8 @@ function addAllItems(TheTeacher) {
         lastName: element.lastName,
       },
       element.uid,
-      element.email
+      element.email,
+      element.phone
     );
   });
 }

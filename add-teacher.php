@@ -117,7 +117,11 @@
                                                         <input type="text" class="form-control" id="email"
                                                             placeholder="Email" name="email" required>
                                                     </div>
-
+ <div class="form-group col-xs-4">
+                                                        <label for=""></label>
+                                                        <input type="text" class="form-control" id="phone"
+                                                            placeholder="Phone" name="phone" required>
+                                                    </div>
 
 
                                                     <button type="button"

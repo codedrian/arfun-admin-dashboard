@@ -179,7 +179,7 @@
                             </div>
 
                             <div class="dev-info">
-                                <img src="assets/img/" width="125" height="125">
+                                <img src="./assets/img/groupMembers/Joy.jpg" width="125" height="125">
                                 <p class="name">Francisco, Kurt Russell  <br>Full Stack Developer</p>
                                 <!-- <p class="role">Role</p> -->
                             </div>

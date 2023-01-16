@@ -22,7 +22,7 @@
                             </a>';
 
                             echo '<a class="nav-link collapsed" href="quiz-score.php">
-                            <i class="fas fa-users fa-lg"></i>
+                            <i class="fas fa-file-text fa-lg"></i>
                             <span> Quiz </span>
                             </a>';
                     }
@@ -47,7 +47,7 @@
                         
                         echo '<a class="nav-link collapsed" 
                         href="add-student.php">
-                        <i class="fas fa-book-open fa-lg"></i>
+                        <i class="fas fa-users fa-lg"></i>
                         <span>Student</span>
                         </a>
 
@@ -58,7 +58,7 @@
                         </a>
                         
                         <a class="nav-link collapsed" href="create-quiz.php">
-                            <i class="fas fa-book-open fa-lg"></i>
+                            <i class="fas fa-file-text fa-lg"></i>
                             <span>Create Quiz</span>
                         </a>
                         

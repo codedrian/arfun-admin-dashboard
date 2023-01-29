@@ -26,6 +26,7 @@
       tbody.appendChild(trow);
     }
 
+    //Add All Data
     function addAllItems(TheStudent) {
       stdNo = 0;
       tbody.innerHTML = "";
@@ -71,7 +72,12 @@
 
       var students = [];
       querySnapshot.forEach((doc) => {
-        students.push(doc.data());
+        //Filter Archived students 
+        //let x = doc.data();
+        if(doc.data().isArchived == "false") {
+          console.log(doc.data());
+          students.push(doc.data());
+        }
       });
 
       addAllItems(students);

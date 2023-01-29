@@ -1,5 +1,6 @@
 function createUser(payload) {
-  return fetch("https://arfun-quiz.vercel.app/api/createuser", {
+  //return fetch("https://arfun-quiz.vercel.app/api/createuser", 
+  return fetch("http://localhost:3000/api/createuser", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -56,6 +57,7 @@ if (registerBtn != null) {
       idNum = document.querySelector('[name="idNum"]');
       idNum.setAttribute("disabled", "");
       payload["idNum"] = idNum.value;
+      payload["isArchived"] = "false";
     }
 
     console.log(payload);

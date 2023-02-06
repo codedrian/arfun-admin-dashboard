@@ -120,6 +120,11 @@
     </div>
   </div>
 
+  <script>
+    var sessionData = <?php echo json_encode($_SESSION);?>;
+  </script>
+  <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+  
   <script type="module" src="js/fetch-student.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>

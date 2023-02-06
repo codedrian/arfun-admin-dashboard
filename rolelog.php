@@ -2,6 +2,8 @@
 
 session_start();
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['name'])) {
     $sessionItem = $_POST["name"];
 
@@ -25,7 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['name'])) {
         exit();
     }
 
+    
     echo json_encode(["location" => 'adminLogin.php']);
     exit();
 }
+
 ?>

@@ -40,6 +40,7 @@
     }
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth , onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
     const firebaseConfig = {
       apiKey: "AIzaSyD2NHnCMKq75vuFIdzwY_3eDZlfzPorbV0",
@@ -67,21 +68,54 @@
     async function GetAllDataOnece() {
       const dbRef = collection(db, 'users');
       const q = query(dbRef, where('role', '==', 'student'));
+      
 
       const querySnapshot = await getDocs(q);
 
+      var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+      sessionData = JSON.parse(sessionData);
+      console.log(sessionData);
+
+      var uidDataSection, teacherUid, role;
+      teacherUid = sessionData.verified_user_id;
+      role = sessionData.role;
+      const r = query(dbRef, where('uid', '==', teacherUid));
+      const qs = await getDocs(r);
+
+      qs.forEach((doc) => {
+        //Put data to uiddatasecition
+        console.log(doc.data());
+        uidDataSection = doc.data().section;
+      });
+
+      /*
+      const r = query(dbRef, where('uid', '==', teacherUid));
+      const querySnapshot2 = await getDocs(r);
+      querySnapshot2.forEach((doc) => {
+        console.log(doc.data());
+        uidDataSection = doc.data().section;
+      });
+
+      */
       var students = [];
       querySnapshot.forEach((doc) => {
-        //Filter Archived students 
-        //let x = doc.data();
-        if(doc.data().isArchived == "false") {
-          console.log(doc.data());
+        if(role == "teacher") {
+          //Filter Archived students 
+          if(doc.data().isArchived == "false") {
+            //After checking for archived, check for section
+              if(doc.data().section == uidDataSection) {
+                console.log(doc.data());
+                students.push(doc.data());
+            }
+          }
+        } else if (role == "admin") {
           students.push(doc.data());
         }
       });
 
       addAllItems(students);
     }
+
 
     window.onload = GetAllDataOnece;
 

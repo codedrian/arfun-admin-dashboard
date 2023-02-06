@@ -42,6 +42,8 @@ hiddenBtn.onchange = function () {
     var name = file.name.split('.').shift() + Math.floor(Math.random() * 10) + 10 + '.' + file.name.split('.').pop();
     var type = file.type.split('/')[0];
     var path = type + '/' + name;
+    //Get the description value
+    var fDesc = document.querySelector(".text-description").value;
 
     // now upload
     var storageRef = firebase.storage().ref(path);
@@ -84,7 +86,9 @@ hiddenBtn.onchange = function () {
                     db.collection(lessonCollectionName)
                         .add({
                             filename: name,
-                            fileUrl: url
+                            fileUrl: url,
+                            //Added File Description
+                            fileDesc: fDesc,
                         });
                 })
                 .catch(function(err) {

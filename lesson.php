@@ -83,6 +83,8 @@
 					</svg>
 				</div>
 				<input type="file" class="hidden-upload-btn" style="display: none;">
+				<br><br>
+				<input type="text" placeholder="Add description before selecting the file" class="text-description">
 			</div>
 			<div class="all-files">
 				<h2 class="white">Videos</h2>

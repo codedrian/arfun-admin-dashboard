@@ -1,6 +1,6 @@
 function createUser(payload) {
   //return fetch("https://arfun-quiz.vercel.app/api/createuser", 
-  return fetch("http://localhost:3000/api/createuser", {
+  return fetch("https://arfun-server.vercel.app/api/createuser", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -25,10 +25,12 @@ if (registerBtn != null) {
     var midName = document.querySelector('[name="midName"]');
     var lastName = document.querySelector('[name="lastName"]');
     var email = document.querySelector('[name="email"]');
+    var section = document.querySelector('[name="section"]');
     firstName.setAttribute("disabled", "");
     midName.setAttribute("disabled", "");
     lastName.setAttribute("disabled", "");
     email.setAttribute("disabled", "");
+    section.setAttribute("disabled", "");
 
     var phone;
     var idNum;
@@ -49,7 +51,7 @@ if (registerBtn != null) {
       payload['midName'] = midName.value;
     }
 
-    if (type == "admin" || type == "teacher") {
+    if (type == "admin") {
       phone = document.querySelector('[name="phone"]');
       phone.setAttribute("disabled", "");
       payload["phone"] = phone.value;
@@ -58,6 +60,12 @@ if (registerBtn != null) {
       idNum.setAttribute("disabled", "");
       payload["idNum"] = idNum.value;
       payload["isArchived"] = "false";
+      payload["section"] = section.value;
+    } else if (type == 'teacher') {
+      phone = document.querySelector('[name="phone"]');
+      phone.setAttribute("disabled", "");
+      payload["phone"] = phone.value;
+      payload["section"] = section.value;
     }
 
     console.log(payload);

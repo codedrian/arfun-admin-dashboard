@@ -103,6 +103,11 @@
                   <input type="text" class="form-control" id="idnum" placeholder="Learner Reference Number" name="idNum"
                     required>
                 </div>
+                <div class="form-group col-xs-4">
+                  <label for=""></label>
+                  <input type="text" class="form-control" id="section" placeholder="Section" name="section"
+                    required>
+                </div>
 
                 <button type="button" class="btn btn-primary registerbtn mt-4 btn-sm" name="register_button"
                   id="submitData">Submit</button>
@@ -135,6 +140,7 @@
                           <th>Last Name</th>
                           <th>Email</th>
                           <th>Learner Reference Number</th>
+                          <th>Section</th>
 
                         </thead>
                         <tbody id="tbody1"></tbody>
@@ -160,6 +166,16 @@
       </footer>
     </div>
   </div>
+
+  <script>
+    var sessionData = <?php echo json_encode($_SESSION);?>;
+  </script>
+  <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+
+  <script>
+    var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+    sessionData = JSON.parse(sessionData);
+  </script>
 
   <script type="module" src="js/fetch-student.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

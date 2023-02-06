@@ -11773,3 +11773,10 @@ main .app p{
   text-justify: inter-word;
 }
 
+
+input.text-description {
+  width: 80%;
+  border-radius: 10px;
+  padding: 1em;
+  overflow-y: auto;
+}

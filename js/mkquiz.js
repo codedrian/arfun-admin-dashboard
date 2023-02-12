@@ -15,7 +15,6 @@ function addChoice(e) {
   var qid =
     e.parentElement.parentElement.parentElement.getAttribute("data-qid");
   var container = document.querySelector(`[data-choice-qid="${qid}"]`);
-  console.log(container);
   var tempDiv = document.createElement("div");
   tempDiv.innerHTML = getChoiceTemplate(qid, false, true);
 
@@ -25,7 +24,6 @@ function addChoiceForEdit(e) {
   var qid =
     e.getAttribute("data-qid");
   var container = document.querySelector(`[data-choice-qid="${qid}"]`);
-  console.log(container);
   var tempDiv = document.createElement("div");
   tempDiv.innerHTML = getChoiceTemplate(qid, false, true);
 

@@ -57,8 +57,6 @@ async function getQuizList() {
 
     querySnapshot.forEach((doc) => {
         //For every quiz data gathered, show on the page
-        console.log(doc.id);
-        console.log(doc.data());
         quizList.push(doc.data());
         quizId.push(doc.id);
     });
@@ -83,7 +81,6 @@ async function renderQuiz(quizId) {
     const docSnap = await getDoc(a);
     const datahook = docSnap.data();
     var i = 0;
-    var z = 0;
 
     if(docSnap.exists()) {
         //Edit the name
@@ -98,26 +95,30 @@ async function renderQuiz(quizId) {
         datahook.questions.forEach((data) =>  {
             arrayOfChild[i].querySelector("#inp-question").value = data.question;
             //Choices
-            console.log(arrayOfChild[i]);
             for (var x = 0; x < data.choices.length - 2; x++) {
                 addChoiceForEdit(arrayOfChild[i]);
             }
-            
-            var arrayOfChoices = document.querySelectorAll("div[data-choice-qid]");
-            //console.log(arrayOfChoices);
-            
-            for(var v = 0; v < data.choices.length; v++) {
-                //arrayChoices[v];
-                console.log(data.choices);
-                console.log(arrayOfChoices);
-                console.log(v);
-                arrayOfChoices[v].children[v].children.querySelector("input[type='text']").value = data.choices[v].value;
-                z++
+            var aocArray = arrayOfChild[i].querySelectorAll("input[placeholder='Choice value']");
+            //console.log(data.choices);
+            for (var l = 0; l < aocArray.length; l++) {
+                //console.log(data.choices[l]);
+                aocArray[l].value = data.choices[l].value;
             }
-            //j = 0;
-            
-            i++;
-        })
+            i++;        
+        });
+        datahook.answers.forEach((data) => {
+            //Show Correct Answer
+            //Get All Radios
+            var radioArray;
+            for (var x = 0; x < 2; x++) {
+                radioArray = arrayOfChild[x].querySelectorAll("#choice");
+                radioArray[data.answerIdx].setAttribute("checked", "checked");
+                console.log(x);
+            }
+            console.log(radioArray);
+            console.log(radioArray[data.answerIdx]);
+            //var radioArray = arrayOfChild[i].querySelectorAll("#choice");
+        }) 
 
     }
 }

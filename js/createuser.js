@@ -61,7 +61,7 @@ if (registerBtn != null) {
       payload["idNum"] = idNum.value;
       payload["isArchived"] = "false";
       payload["section"] = section.value;
-    } else if (type == 'teacher') {
+    } else if (type == "teacher") {
       phone = document.querySelector('[name="phone"]');
       phone.setAttribute("disabled", "");
       payload["phone"] = phone.value;

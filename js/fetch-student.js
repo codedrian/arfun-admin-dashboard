@@ -2,13 +2,14 @@
 
   var stdNo = 0;
     var tbody = document.getElementById("tbody1");
-    function AddItem(_name, _email, _idnum) {
+    function AddItem(_name, _email, _idnum, _section) {
       let trow = document.createElement("tr"); //change trow to tr
       let td1 = document.createElement("td");
       let td1_1 = document.createElement("td");
       let td1_2 = document.createElement("td");
       let td2 = document.createElement("td");
       let td3 = document.createElement("td");
+      let td4 = document.createElement("td");
 
       // set the text content of each td element to the corresponding argument
       td1.textContent = _name.firstName;
@@ -16,12 +17,14 @@
       td1_2.textContent = _name.lastName;
       td2.textContent = _email;
       td3.textContent = _idnum;
+      td4.textContent = _section;
 
       trow.appendChild(td1);
       trow.appendChild(td1_1);
       trow.appendChild(td1_2);
       trow.appendChild(td2);
       trow.appendChild(td3);
+      trow.appendChild(td4);
 
       tbody.appendChild(trow);
     }
@@ -35,12 +38,11 @@
           firstName: element.firstName,
           midName: element.midName == '' ? '-' : element.midName,
           lastName: element.lastName
-        }, element.email, element.idNum);
+        }, element.email, element.idNum, element.section);
       });
     }
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getAuth , onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
     const firebaseConfig = {
       apiKey: "AIzaSyD2NHnCMKq75vuFIdzwY_3eDZlfzPorbV0",

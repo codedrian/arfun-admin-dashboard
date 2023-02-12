@@ -1,3 +1,4 @@
+//Quiz Edit
 var questionContainer = document.querySelector(".question-container");
 
 // create default question template
@@ -14,12 +15,22 @@ function addChoice(e) {
   var qid =
     e.parentElement.parentElement.parentElement.getAttribute("data-qid");
   var container = document.querySelector(`[data-choice-qid="${qid}"]`);
+  console.log(container);
   var tempDiv = document.createElement("div");
   tempDiv.innerHTML = getChoiceTemplate(qid, false, true);
 
   container.append(tempDiv.firstElementChild);
 }
+function addChoiceForEdit(e) {
+  var qid =
+    e.getAttribute("data-qid");
+  var container = document.querySelector(`[data-choice-qid="${qid}"]`);
+  console.log(container);
+  var tempDiv = document.createElement("div");
+  tempDiv.innerHTML = getChoiceTemplate(qid, false, true);
 
+  container.append(tempDiv.firstElementChild);
+}
 function removeChoice(e) {
   var inputGroupParent = e.parentElement;
   if (inputGroupParent.querySelector('[type="radio"]').checked) {
@@ -49,84 +60,6 @@ function getLetter(index) {
   return String.fromCharCode(code + index);
 }
 
-// form submission
-var form = document.getElementById("main-form");
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  // you can add input validation here
-
-  // disable all fields
-  document.querySelectorAll("input").forEach((inp) => {
-    inp.setAttribute("disabled", "");
-  });
-  document.querySelectorAll('[role="button"]').forEach((btn) => {
-    btn.classList.add("disabled");
-  });
-
-  // show button loader
-  document.getElementById("sbm-loader").style.display = "block";
-
-  // construct the json payload
-  var quizName = document.querySelector("#inp-quiz-name").value;
-  var quizInstruction = document.querySelector("#inp-quiz-instruct").value;
-  // var questions = {};
-  var questions = [];
-  var answers = [];
-
-  // gather all questions
-  document.querySelectorAll("[data-qid]").forEach((qElement, qIndex) => {
-    var choices = [];
-
-    // evaluate choices
-    qElement.querySelectorAll(".input-group").forEach((inpGroup, cIndex) => {
-      choices.push({
-        letter: getLetter(cIndex),
-        value: inpGroup.querySelector('[type="text"]').value,
-      });
-
-      // if checked push in answer
-      if (inpGroup.querySelector("#choice").checked) {
-        answers.push({
-          questionId: qIndex,
-          answerIdx: cIndex,
-        });
-      }
-    });
-
-    questions.push({
-      question: qElement.querySelector("#inp-question").value,
-      choices: choices,
-    });
-  });
-
-  // bundle document
-  var quizDoc = {
-    title: quizName,
-    instructions: quizInstruction,
-    questions: questions,
-    answers: answers,
-  };
-
-  // save to firestore database
-  db.collection("quizzes")
-    .add(quizDoc)
-    .then((doc) => {
-      var delay = setTimeout(() => {
-        // you can show success dialog here
-        alert("Quiz created.");
-        window.location.reload(true);
-        clearTimeout(delay);
-      }, 1000);
-    })
-    .catch((err) => {
-      console.log("Something went wrong...");
-    })
-    .finally(function () {
-      // stop loader
-      document.getElementById("sbm-loader").style.display = "none";
-    });
-});
 
 // create guids v4 - base on: https://stackoverflow.com/questions/105034/how-do-i-create-a-guid-uuid
 function uuidv4() {

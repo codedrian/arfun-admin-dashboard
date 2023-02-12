@@ -117,12 +117,17 @@
                                                         <input type="text" class="form-control" id="email"
                                                             placeholder="Email" name="email" required>
                                                     </div>
- <div class="form-group col-xs-4">
+                                                    <div class="form-group col-xs-4">
                                                         <label for=""></label>
                                                         <input type="text" class="form-control" id="phone"
                                                             placeholder="Phone" name="phone" required>
                                                     </div>
 
+                                                    <div class="col-xs-4">
+                                                        <label for="section"></label>
+                                                        <input type="text" class="form-control" id="section"
+                                                            placeholder="Section" name="section" required>
+                                                    </div>
 
                                                     <button type="button"
                                                         class="btn btn-primary registerbtn mt-4 btn-sm"

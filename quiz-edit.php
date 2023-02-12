@@ -13,6 +13,7 @@
     <title>Arfun | Create Quiz</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/quiz-edit.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -30,12 +31,7 @@
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <!-- <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-                    aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                        class="fas fa-search"></i></button>
-            </div> -->
+            
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -43,8 +39,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
+                    
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -61,7 +56,8 @@
             <main>
                 <div class="container-fluid px-4">
                     <div class="container mt-3 d-flex justify-content-center">
-                        <form class="w-100" id="main-form">
+                        <form class="w-100" id="main-form" data-quiz-id="">
+                            <h1>Edit Quiz</h1>
                             <div class="rounded-3 my-4 p-4 bg-light border border-2 shadow ">
                                 <div class="rowd-flex flex-column">
                                     <div class="col">
@@ -114,6 +110,10 @@
                             </div>
                         </form>
                     </div>
+                    <div class="w-100 base">
+                            <p>Test</p>
+                    </div>
+                    <br>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -131,7 +131,6 @@
             </footer>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
@@ -147,8 +146,8 @@
     <script src="./js/frb-config.js"></script>
     <script src="./js/quiztemplates.js"></script>
     <script src="./js/mkquiz.js"></script>
-    <script src="./js/mkquiz-sub.js" type="module"></script>
-    
+    <script src="./js/mkquiz-sub.js"></script>
+    <script src="./js/quiz-edit.js" type="module"></script>
 </body>
 
 </html>

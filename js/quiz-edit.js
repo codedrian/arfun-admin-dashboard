@@ -81,6 +81,7 @@ async function renderQuiz(quizId) {
     const docSnap = await getDoc(a);
     const datahook = docSnap.data();
     var i = 0;
+    var y = 0;
 
     if(docSnap.exists()) {
         //Edit the name
@@ -109,16 +110,25 @@ async function renderQuiz(quizId) {
         datahook.answers.forEach((data) => {
             //Show Correct Answer
             //Get All Radios
-            var radioArray;
-            for (var x = 0; x < 2; x++) {
-                radioArray = arrayOfChild[x].querySelectorAll("#choice");
-                radioArray[data.answerIdx].setAttribute("checked", "checked");
-                console.log(x);
+            var radioArray = [];
+            for (var x = 0; x < arrayOfChild.length; x++) {
+                //console.log(arrayOfChild);
+                radioArray.push(arrayOfChild[x].querySelectorAll("#choice"));
+                
+                console.log(radioArray[x][data.answerIdx]);
             }
-            console.log(radioArray);
-            console.log(radioArray[data.answerIdx]);
+            //console.log(radioArray);
+            //console.log(radioArray);
+            radioArray[y][data.answerIdx].setAttribute("checked", "checked");
+            y++;
             //var radioArray = arrayOfChild[i].querySelectorAll("#choice");
-        }) 
+        });
+        y=0;
+
+        //for (var l = 0; l < datahook.answers.answerIdx.length; l++) {
+        //    var radioArray;
+        //    
+        //}
 
     }
 }

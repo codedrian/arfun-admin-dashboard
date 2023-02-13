@@ -50,6 +50,7 @@ if (registerBtn != null) {
     if(midName.value){
       payload['midName'] = midName.value;
     }
+    var year = new Date().getFullYear();
 
     if (type == "admin") {
       phone = document.querySelector('[name="phone"]');
@@ -60,6 +61,7 @@ if (registerBtn != null) {
       idNum.setAttribute("disabled", "");
       payload["idNum"] = idNum.value;
       payload["isArchived"] = "false";
+      payload["schoolyear"] = String(year);
       payload["section"] = section.value;
     } else if (type == "teacher") {
       phone = document.querySelector('[name="phone"]');
@@ -120,3 +122,5 @@ if (registerBtn != null) {
       });
   });
 }
+
+

@@ -123,12 +123,10 @@ async function renderQuiz(quizId) {
             y++;
             //var radioArray = arrayOfChild[i].querySelectorAll("#choice");
         });
+        
+        //Reset on exit
         y=0;
-
-        //for (var l = 0; l < datahook.answers.answerIdx.length; l++) {
-        //    var radioArray;
-        //    
-        //}
+        i=0;
 
     }
 }

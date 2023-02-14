@@ -158,6 +158,41 @@
         location.reload();
       });
 }
+
+//Add archive all
+document.querySelector("#archive-all").addEventListener("click", async () => {
+  alert("Button Clicked");
+  //Disable archive all
+  document.querySelector("#archive-all").disabled;
+  let a = document.querySelectorAll("[data-email]");
+  console.log(a);
+  for (var l = 0; l < a.length; l++) {
+    //get the doc id first
+    alert("Processed");
+    const dbRef = collection(db, "users");
+    const q = query(dbRef, where("email", "==", a[l].getAttribute("data-email")));
+
+    const qs = await getDocs(q);
+    let studentData;
+    qs.forEach((doc) => {
+      //console.log(doc.id);
+      studentData = doc.id;
+    });
+  
+    console.log(studentData);
+
+    //Start updating the data
+    const docRef = doc(db, "users", studentData);
+    await updateDoc(docRef, {
+      isArchived: "true",
+    }).then(() => {
+      console.log("Student successfully archived!");
+    });
+  }
+  alert("Successfully archived all students");
+  location.reload();
+
+})
     
     window.onload = GetAllDataOnece;
 

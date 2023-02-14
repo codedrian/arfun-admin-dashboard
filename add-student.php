@@ -142,6 +142,7 @@
                           <th>Learner Reference Number</th>
                           <th>Section</th>
                           <th>School Year</th>
+                          <th>Archive</th>
 
                         </thead>
                         <tbody id="tbody1"></tbody>
@@ -151,6 +152,7 @@
                 </div>
               </div>
             </div>
+              <button id="archive-all">Archive All</button>
             <!-- Student list table ends here... -->
           </div>
 

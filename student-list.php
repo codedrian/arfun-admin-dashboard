@@ -106,6 +106,7 @@
                 </div>
               </div>
             </div>
+            <button id="archive-all">Archive All</button>
             <!-- Student list table ends here... -->
           </div>
 

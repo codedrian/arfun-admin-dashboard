@@ -161,7 +161,7 @@
 
 //Add archive all
 document.querySelector("#archive-all").addEventListener("click", async () => {
-  alert("Button Clicked");
+  //alert("Button Clicked");
   //Disable archive all
   document.querySelector("#archive-all").disabled;
   let a = document.querySelectorAll("[data-email]");

@@ -140,7 +140,9 @@
       <select name="section" id="section">
         <option>Select a section</option>
       </select>
+      <input type="text" id="quiz-number" placeholder="Enter Quiz Title" required>
       <button id="submitSectionSort">Sort Data</button>
+      <button id="submitReportSort">Get Class Report</button>
       <button id="resetSectionSort">Reset</button>
       <button id="closeSectionSort">Close</button>
     </div>
@@ -286,6 +288,7 @@
         function fetchSortedScoreDataAsync() {
             return new Promise(async (resolve, reject) => {
                 try {
+                    const sectionSortData = document.querySelector("#section").value;
                     const querySnapshot = await getDocs(collection(db, "quizScores"));
 
                     var students = [];
@@ -297,6 +300,7 @@
                     });
 
                     for (var i = 0; i < students.length; i++) {
+                        //Get the data of the students that have quiz scores
                         var student = students[i];
 
                         const uid = student.uid;
@@ -307,14 +311,17 @@
 
                         if (qSnap.size !== 0) {
 
-                            const studentData = qSnap.docs[0].data();
-                            names.push({
-                                firstName: studentData.firstName,
-                                midName: studentData.midName == '' ? '-' : studentData.midName,
-                                lastName: studentData.lastName,
-                                section: studentData.section,
-                            });
-                            studentsRef.push(student)
+                            //Check for section, to sort-data
+                            if (qSnap.docs[0].data().section == sectionSortData) {
+                                const studentData = qSnap.docs[0].data();
+                                names.push({
+                                    firstName: studentData.firstName,
+                                    midName: studentData.midName == '' ? '-' : studentData.midName,
+                                    lastName: studentData.lastName,
+                                    section: studentData.section,
+                                });
+                                studentsRef.push(student)
+                            }
                         }
                     }
 
@@ -329,6 +336,92 @@
             })
         }
 
+        async function GetAllSortedDataOnece() {
+
+        fetchSortedScoreDataAsync().then(result => {
+                addAllItems(result.students, result.names);
+            })
+            .catch(error => {
+                alert('Something went wrong.');
+                console.log(error);
+            });
+        }
+
+        function fetchClassReportScoreDataAsync() {
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const sectionSortData = document.querySelector("#section").value;
+                    const quizSortData = document.querySelector("#quiz-number").value;
+                    const querySnapshot = await getDocs(collection(db, "quizScores"));
+
+                    if (quizSortData == 0 || quizSortData == undefined) {
+                        alert("Invalid input!");
+                        return false;
+                    }
+
+                    var students = [];
+                    var names = [];
+                    var studentsRef = []
+
+                    querySnapshot.forEach(doc => {
+                        students.push(doc.data());
+                    });
+
+                    for (var i = 0; i < students.length; i++) {
+                        //Get the data of the students that have quiz scores
+                        var student = students[i];
+
+                        const uid = student.uid;
+
+                        var dbRef = collection(db, 'users');
+                        var q = query(dbRef, where('uid', '==', uid));
+                        var qSnap = await getDocs(q);
+
+                        if (qSnap.size !== 0) {
+
+                            //Check for section, to sort-data
+                            if (qSnap.docs[0].data().section == sectionSortData) {
+                                //Check for quiz, to sort-data
+                                if (student.quizTitle == quizSortData) {
+                                    const studentData = qSnap.docs[0].data();
+                                    names.push({
+                                        firstName: studentData.firstName,
+                                        midName: studentData.midName == '' ? '-' : studentData.midName,
+                                        lastName: studentData.lastName,
+                                        section: studentData.section,
+                                    });
+                                    studentsRef.push(student)
+                                }
+                            }
+                        }
+                    }
+                    if (studentsRef == 0) {
+                        alert("No data found");
+                        return false;
+                    }
+
+                    return resolve({
+                        students: studentsRef,
+                        names: names
+                    });
+
+                } catch (error) {
+                    return reject(error);
+                }
+            })
+        }
+
+        async function GetAllClassReportDataOnece() {
+
+        fetchClassReportScoreDataAsync().then(result => {
+                addAllItems(result.students, result.names);
+            })
+            .catch(error => {
+                alert('Something went wrong.');
+                console.log(error);
+            });
+        }
+
         //Add Sort Student
     document.querySelector("#sort-data").addEventListener("click",
       function() {
@@ -340,6 +433,18 @@
         document.querySelector(".floating-window").style.display = 'none';
       }
     );
+    document.querySelector("#submitSectionSort").addEventListener("click", function() {
+        document.querySelector("#tbody1").innerHTML = "";
+        GetAllSortedDataOnece();
+    });
+    document.querySelector("#resetSectionSort").addEventListener("click", function() {
+        document.querySelector("#tbody1").innerHTML = "";
+        GetAllDataOnece();
+    })
+    document.querySelector("#submitReportSort").addEventListener("click", function() {
+        document.querySelector('#tbody1').innerHTML = "";
+        GetAllClassReportDataOnece();
+    })
 
 
         window.onload = GetAllDataOnece;

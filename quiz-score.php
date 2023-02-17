@@ -111,6 +111,8 @@
                                                     </div>
                                                 </div>
                                                 <button id="sort-data">Sort Data</button>
+                                                <div class="download-link"></div>
+                                                <button id="download-table">Download Table Data</button>
                                             </div>
                                             
                                         </div>
@@ -120,8 +122,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="download-link"></div>
-                    <button id="download-table">Download Table Data</button>
                 </div>
 
         </div>

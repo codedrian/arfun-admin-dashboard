@@ -90,7 +90,7 @@
                                                             <h3>Student Score</h3>
                                                         </div>
                                                         <div class="card-body">
-                                                            <table class="table table-striped">
+                                                            <table class="table table-striped" id="dtbq">
 
                                                                 <thead>
                                                                     <th>First Name</th>
@@ -120,6 +120,8 @@
                             </div>
                         </div>
                     </div>
+                    <div class="download-link"></div>
+                    <button id="download-table">Download Table Data</button>
                 </div>
 
         </div>
@@ -451,6 +453,7 @@
 
     </script>
     <script src="js/get-section.js" type="module"></script>
+    <script src="js/convertTableToExcel.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

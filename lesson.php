@@ -97,6 +97,7 @@
 			<div class="expand-container" data-value="0">
 				<ul>
 					<li onclick="openFile(this)">Open</li>
+					<li id="file-desc">Description</li>
 					<li onclick="downloadFile(this)">Download</li>
 					<li onclick="deleteFile(this)">Delete</li>
 				</ul>
@@ -106,7 +107,7 @@
 
 			<!-- firebase sdk -->
 			<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-			<!-- <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"></script> -->
+			<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js" type="module"></script>
 			<script src="script.js"></script>
 
 			<footer class="py-4 bg-light mt-auto">
@@ -126,9 +127,16 @@
 		</div>
 	</div>
 
+	<div class="description">
+		<div class="window">
+			<p>Description: <span id="item-desc"></span><br><button id="close-desc">Close</button></p>
+		</div>
+	</div>
+
 	<script src="./js/lesson.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
+	<script type="module" src="js/getDesc.js"></script>
 	<!-- <script src="js/scripts.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 	<script src="assets/demo/chart-area-demo.js"></script>

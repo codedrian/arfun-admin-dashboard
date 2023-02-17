@@ -105,8 +105,9 @@
                 </div>
                 <div class="form-group col-xs-4">
                   <label for=""></label>
-                  <input type="text" class="form-control" id="section" placeholder="Section" name="section"
-                    required>
+                  <select class="form-control" id="section" name="section" required>
+                      <option value="0">Select a Section</option>
+                  </select>
                 </div>
 
                 <button type="button" class="btn btn-primary registerbtn mt-4 btn-sm" name="register_button"
@@ -181,6 +182,7 @@
   </script>
 
   <script type="module" src="js/fetch-student.js"></script>
+  <script src="./js/get-section.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>

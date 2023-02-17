@@ -13,7 +13,6 @@
   <title>Arfun | Student</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/quiz-edit.css">
   <!-- <link href="css/student.css" rel="stylesheet" /> -->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -69,6 +68,25 @@
               </div>
             </div>
 
+            <div class="card w-50 p-3">
+              <div class="card-header">
+                <h4>
+                  Add Section
+                  <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
+                </h4>
+              </div>
+              <form id="main-form" class="add-body" data-type="section">
+                <div class="form-group col-xs-4">
+                  <label for=""></label>
+                  <input type="text" class="form-control" id="section" placeholder="Section" name="section"
+                    required>
+                </div>
+
+                <button type="button" class="btn btn-primary registerbtn mt-4 btn-sm" name="register_button"
+                  id="submitData">Submit</button>
+              </form>
+            </div>
+
             <?php
 
             if (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
@@ -83,21 +101,15 @@
                   <div class="card">
                     <div class="card-header">
                       <h4>
-                        Student List
+                        Section List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       </h4>
                     </div>
                     <div class="card-body">
                       <table class="table table-bordered table-striped">
                         <thead>
-                          <th>First Name</th>
-                          <th>Middle Name</th>
-                          <th>Last Name</th>
-                          <th>Email</th>
-                          <th>Learner Reference Number</th>
                           <th>Section</th>
-                          <th>School Year</th>
-                          <th>Archive</th>
+                          <th>Number of Students</th>
 
                         </thead>
                         <tbody id="tbody1"></tbody>
@@ -107,8 +119,6 @@
                 </div>
               </div>
             </div>
-            <button id="archive-all">Archive All</button>
-            <button id="sort-data">Sort Data</button>
             <!-- Student list table ends here... -->
           </div>
 
@@ -126,24 +136,18 @@
     </div>
   </div>
 
-  <div class="floating-window">
-    <div class="window">
-      <select name="section" id="section">
-        <option>Select a section</option>
-      </select>
-      <button id="submitSectionSort">Sort Data</button>
-      <button id="resetSectionSort">Reset</button>
-      <button id="closeSectionSort">Close</button>
-    </div>
-  </div>
-
   <script>
     var sessionData = <?php echo json_encode($_SESSION);?>;
   </script>
   <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
-  
-  <script type="module" src="js/fetch-student.js"></script>
-  <script src="./js/get-section.js" type="module"></script>
+
+  <script>
+    var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+    sessionData = JSON.parse(sessionData);
+  </script>
+
+  <script type="module" src="js/fetch-section.js"></script>
+  <script src="js/createsection.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>
@@ -151,7 +155,6 @@
   <script src="assets/demo/chart-area-demo.js"></script>
   <script src="assets/demo/chart-bar-demo.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-  <script src="js/createuser.js"></script>
 </body>
 
 </html>

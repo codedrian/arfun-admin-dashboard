@@ -74,6 +74,7 @@
       where,
       updateDoc,
       doc,
+      addDoc,
     } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
     const db = getFirestore();
@@ -134,6 +135,7 @@
     }
     //Archive students
     async function archiveStudent(e) {
+      alert("Archiving Started");
       var a = e.currentTarget.parentElement.getAttribute("data-email");
 
       //get the doc id first
@@ -161,14 +163,14 @@
 
 //Add archive all
 document.querySelector("#archive-all").addEventListener("click", async () => {
-  //alert("Button Clicked");
+  alert("Archiving started");
   //Disable archive all
-  document.querySelector("#archive-all").disabled;
+  document.querySelector("#archive-all").setAttribute("disabled", "");
   let a = document.querySelectorAll("[data-email]");
   console.log(a);
   for (var l = 0; l < a.length; l++) {
     //get the doc id first
-    alert("Processed");
+    alert("Processed: " + (l+1) + "/" + a.length);
     const dbRef = collection(db, "users");
     const q = query(dbRef, where("email", "==", a[l].getAttribute("data-email")));
 
@@ -196,6 +198,58 @@ document.querySelector("#archive-all").addEventListener("click", async () => {
     
     window.onload = GetAllDataOnece;
 
-
+    /*
+    document.querySelector("#sort-data").onclick = async function() {
+      alert("Clicked");
+      var sectionDb = {section: "7-Summit"};
+      var dbRef2 = collection(db, "sections");
+      const q = query(dbRef2, where("section", "==", "6-Absolute"));
+      const qs = await getDocs(q);
+      qs.forEach(async (doc) => {
+        console.log(doc.data());
+        if (doc.data().section != sectionDb) {
+          await addDoc(dbRef2, sectionDb).then(alert("Sucess"));
+        }
+      });
+    }
+    */
       
 
+    //Add Sort Student
+    document.querySelector("#sort-data").addEventListener("click",
+      function() {
+        document.querySelector(".floating-window").style.display = "block";
+      }
+    );
+    document.querySelector("#closeSectionSort").addEventListener("click",
+      function() {
+        document.querySelector(".floating-window").style.display = 'none';
+      }
+    );
+    document.querySelector("#resetSectionSort").addEventListener('click',
+    function() {
+      document.querySelector("#tbody1").innerHTML = "";
+      GetAllDataOnece();
+    });
+    document.querySelector("#submitSectionSort").addEventListener("click", 
+      async function() {
+        const trmother = document.querySelector("#tbody1");
+        trmother.innerHTML = "";
+        const a = document.querySelector("#section");
+        //order data
+        const dbRef = collection(db, "users");
+        const q = query(dbRef, where('section', '==', a.value));
+        const qs = await getDocs(q);
+
+        var students = [];
+        qs.forEach((doc) => {
+          students.push(doc.data());
+        });
+
+        if (students.length  != 0) {
+          addAllItems(students);
+        } else {
+          alert("No results found.");
+        }
+      }
+    );

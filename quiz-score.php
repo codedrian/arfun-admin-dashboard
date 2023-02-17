@@ -11,6 +11,7 @@
     <title>Arfun | Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/quiz-edit.css" rel="stylesheet" />
     <!-- <link href="css/register.css" rel="stylesheet" /> -->
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -95,6 +96,7 @@
                                                                     <th>First Name</th>
                                                                     <th>Middle Name</th>
                                                                     <th>Last Name</th>
+                                                                    <th>Section</th>
                                                                     <th>UID</th>
                                                                     <th>Date Completed</th>
                                                                     <th>Score</th>
@@ -108,10 +110,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-
+                                                <button id="sort-data">Sort Data</button>
                                             </div>
-
+                                            
                                         </div>
 
                                     </div>
@@ -133,6 +134,18 @@
         </footer>
     </div>
     </div>
+
+    <div class="floating-window">
+    <div class="window">
+      <select name="section" id="section">
+        <option>Select a section</option>
+      </select>
+      <button id="submitSectionSort">Sort Data</button>
+      <button id="resetSectionSort">Reset</button>
+      <button id="closeSectionSort">Close</button>
+    </div>
+  </div>
+
     <script type="module" src="js/fetch-uid.js"></script>
     <script type="module">
         ///add data table
@@ -143,6 +156,7 @@
             let td1 = document.createElement("td");
             let td1_1 = document.createElement("td");
             let td1_2 = document.createElement("td");
+            let td1_3 = document.createElement("td");
             let td2 = document.createElement("td");
             let td3 = document.createElement("td");
             let td4 = document.createElement("td");
@@ -152,6 +166,7 @@
             td1.innerHTML = name.firstName;
             td1_1.innerHTML = name.midName;
             td1_2.innerHTML = name.lastName;
+            td1_3.innerHTML = name.section;
             td2.innerHTML = _uid;
             td3.innerHTML = _dateCompleted;
             td4.innerHTML = _description;
@@ -162,6 +177,7 @@
             trow.appendChild(td1); //this should conatin the name
             trow.appendChild(td1_1); //this should conatin the name
             trow.appendChild(td1_2); //this should conatin the name
+            trow.appendChild(td1_3); //this should conatin the section
             trow.appendChild(td2);
             trow.appendChild(td3);
             trow.appendChild(td4);
@@ -240,6 +256,7 @@
                                 firstName: studentData.firstName,
                                 midName: studentData.midName == '' ? '-' : studentData.midName,
                                 lastName: studentData.lastName,
+                                section: studentData.section,
                             });
                             studentsRef.push(student)
                         }
@@ -266,9 +283,69 @@
                 });
         }
 
+        function fetchSortedScoreDataAsync() {
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const querySnapshot = await getDocs(collection(db, "quizScores"));
+
+                    var students = [];
+                    var names = [];
+                    var studentsRef = []
+
+                    querySnapshot.forEach(doc => {
+                        students.push(doc.data());
+                    });
+
+                    for (var i = 0; i < students.length; i++) {
+                        var student = students[i];
+
+                        const uid = student.uid;
+
+                        var dbRef = collection(db, 'users');
+                        var q = query(dbRef, where('uid', '==', uid));
+                        var qSnap = await getDocs(q);
+
+                        if (qSnap.size !== 0) {
+
+                            const studentData = qSnap.docs[0].data();
+                            names.push({
+                                firstName: studentData.firstName,
+                                midName: studentData.midName == '' ? '-' : studentData.midName,
+                                lastName: studentData.lastName,
+                                section: studentData.section,
+                            });
+                            studentsRef.push(student)
+                        }
+                    }
+
+                    return resolve({
+                        students: studentsRef,
+                        names: names
+                    });
+
+                } catch (error) {
+                    return reject(error);
+                }
+            })
+        }
+
+        //Add Sort Student
+    document.querySelector("#sort-data").addEventListener("click",
+      function() {
+        document.querySelector(".floating-window").style.display = "block";
+      }
+    );
+    document.querySelector("#closeSectionSort").addEventListener("click",
+      function() {
+        document.querySelector(".floating-window").style.display = 'none';
+      }
+    );
+
+
         window.onload = GetAllDataOnece;
 
     </script>
+    <script src="js/get-section.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

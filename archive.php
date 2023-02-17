@@ -13,6 +13,7 @@
   <title>Arfun | Student</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/quiz-edit.css" rel="stylesheet" />
   <!-- <link href="css/student.css" rel="stylesheet" /> -->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -106,6 +107,7 @@
               </div>
             </div>
             <!-- Student list table ends here... -->
+            <button id="sort-data">Sort Data</button>
           </div>
 
       </main>
@@ -122,6 +124,20 @@
     </div>
   </div>
 
+  <div class="floating-window">
+    <div class="window">
+      <select name="section" id="section">
+        <option>Select a section</option>
+      </select>
+      <input type="number" required placeholder="School Year" id="school-year">
+      <button id="submitSectionSort">Sort Data (Section Only)</button>
+      <button id="submitSySort">Sort Data (School Year Only)</button>
+      <button id="submitBothSort">Sort Data (Both)</button>
+      <button id="resetSectionSort">Reset</button>
+      <button id="closeSectionSort">Close</button>
+    </div>
+  </div>
+
   <script>
     var sessionData = <?php echo json_encode($_SESSION);?>;
   </script>
@@ -133,6 +149,7 @@
   </script>
 
   <script type="module" src="js/archive.js"></script>
+  <script type="module" src="js/get-section.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>

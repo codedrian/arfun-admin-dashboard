@@ -134,6 +134,7 @@ async function GetAllDataOnece() {
 
 //Archive students
 async function unArchiveStudent(e) {
+    alert("Unarchving Started");
     var a = e.currentTarget.parentElement.getAttribute("data-email");
 
     //get the doc id first
@@ -162,5 +163,105 @@ async function unArchiveStudent(e) {
 window.onload = GetAllDataOnece;
 
 
-  
+  //Add Sort Student
+  document.querySelector("#sort-data").addEventListener("click",
+  function() {
+    document.querySelector(".floating-window").style.display = "block";
+  }
+);
+document.querySelector("#closeSectionSort").addEventListener("click",
+  function() {
+    document.querySelector(".floating-window").style.display = 'none';
+  }
+);
+document.querySelector("#resetSectionSort").addEventListener('click',
+function() {
+  document.querySelector("#tbody1").innerHTML = "";
+  GetAllDataOnece();
+});
+document.querySelector("#submitSectionSort").addEventListener("click", 
+  async function() {
+    const trmother = document.querySelector("#tbody1");
+    trmother.innerHTML = "";
+    const a = document.querySelector("#section");
+    //order data
+    const dbRef = collection(db, "users");
+    const q = query(dbRef, where('section', '==', a.value));
+    const qs = await getDocs(q);
 
+    var students = [];
+    qs.forEach((doc) => {
+      if (doc.data().isArchived == "true") {
+        students.push(doc.data());
+      }
+    });
+
+    if (students.length  != 0) {
+      addAllItems(students);
+    } else {
+      alert("No results found.");
+    }
+  }
+);
+
+document.querySelector("#submitSySort").addEventListener("click", 
+  async function() {
+    const trmother = document.querySelector("#tbody1");
+    trmother.innerHTML = "";
+    const a = document.querySelector("#school-year");
+    if (a.value == undefined || a.value == 0) {
+      alert("Invalid input.");
+    } else {
+      //order data
+    const dbRef = collection(db, "users");
+    const q = query(dbRef, where('schoolyear', '==', String(a.value)));
+    const qs = await getDocs(q);
+
+    var students = [];
+    qs.forEach((doc) => {
+      if (doc.data().isArchived == "true") {
+        students.push(doc.data());
+      }
+    });
+
+    if (students.length  != 0) {
+      addAllItems(students);
+    } else {
+      alert("No results found.");
+      }
+    }
+  }
+);
+
+document.querySelector("#submitBothSort").addEventListener("click", 
+  async function() {
+    const trmother = document.querySelector("#tbody1");
+    trmother.innerHTML = "";
+    const a = document.querySelector("#school-year");
+    const b = document.querySelector("#section");
+    
+    if(a.value == undefined || a.value == 0) {
+      alert("Invalid input.");
+    } else {
+      //order data
+      const dbRef = collection(db, "users");
+      const q = query(dbRef, where('schoolyear', '==', String(a.value)));
+      const qs = await getDocs(q);
+
+      var students = [];
+      qs.forEach((doc) => {
+        if (doc.data().isArchived == "true") {
+          if(doc.data().section == b.value) {
+            students.push(doc.data());
+          }
+        }
+      });
+
+      if (students.length  != 0) {
+        addAllItems(students);
+      } else {
+        alert("No results found.");
+      }
+    }
+  }
+);

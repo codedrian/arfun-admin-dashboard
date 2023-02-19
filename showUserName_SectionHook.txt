@@ -1,0 +1,18 @@
+<!--Placed on the side of logo-->
+<span id="dispName">User</span>
+
+
+
+<!--Required to section and User Name-->
+<script>
+        var sessionData = <?php echo json_encode($_SESSION);?>;
+    </script>
+    <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+    <div id="section-sdc" data-session-section=""></div>
+    <script>
+        var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+        sessionData = JSON.parse(sessionData);
+    </script>
+
+<script src="js/get-section.js" type="module"></script>
+<script src="js/getCurrentUserData.js" type="module"></script>

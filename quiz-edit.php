@@ -37,7 +37,7 @@
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i> <span id="dispName">User</span></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     
                     <li>
@@ -92,6 +92,19 @@
                                     </div>
                                 </a>
                             </div>
+                            <div class="add-question">
+                                <a class="btn btn-outline-danger w-100 p-2 shadow-sm my-4 rounded-3"
+                                    id="deleteQuiz" role="button">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-plus me-1" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg>
+                                        <span class="fw-bold">Delete Quiz</span>
+                                    </div>
+                                </a>
+                            </div>
                             <div class="d-flex justify-content-end align-items-center">
                                 <button role="button" type="submit" class="btn btn-warning">
                                     <div class="d-flex align-items-center justify-content-center">
@@ -131,6 +144,16 @@
             </footer>
         </div>
     </div>
+
+    <script>
+        var sessionData = <?php echo json_encode($_SESSION);?>;
+    </script>
+    <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+    <div id="section-sdc" data-session-section=""></div>
+    <script>
+        var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+        sessionData = JSON.parse(sessionData);
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
@@ -148,6 +171,7 @@
     <script src="./js/mkquiz.js"></script>
     <script src="./js/mkquiz-sub.js"></script>
     <script src="./js/quiz-edit.js" type="module"></script>
+    <script src="js/getCurrentUserData.js" type="module"></script>
 </body>
 
 </html>

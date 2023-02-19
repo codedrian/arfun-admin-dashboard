@@ -49,9 +49,6 @@ import {
   getDocs,
   query,
   where,
-  updateDoc,
-  doc,
-  addDoc,
   getCountFromServer
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 

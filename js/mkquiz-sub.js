@@ -52,12 +52,16 @@ form.addEventListener("submit", function (e) {
     });
   });
 
+  var uidDataSection = document.querySelector("#section-sdc").getAttribute("data-session-section");
+  
+
   // bundle document
   var quizDoc = {
     title: quizName,
     instructions: quizInstruction,
     questions: questions,
     answers: answers,
+    section: uidDataSection,
   };
 
   // save to firestore database

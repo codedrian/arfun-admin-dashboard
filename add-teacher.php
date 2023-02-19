@@ -155,7 +155,6 @@
                                                                         <th>First name</th>
                                                                         <th>Middle name</th>
                                                                         <th>Last name</th>
-                                                                        <th>User ID</th>
                                                                         <th>Email</th>
                                                                         <th>Phone</th>
                                                                     </thead>
@@ -171,7 +170,8 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="download-link"></div>
+                        <button id="download-table">Download Table Data</button>
                     </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
@@ -188,6 +188,7 @@
     
     <script src="./js/fetch-teacher.js" type="module"></script>
     <script src="./js/get-section.js" type="module"></script>
+    <script src="js/convertTableToExcel.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>

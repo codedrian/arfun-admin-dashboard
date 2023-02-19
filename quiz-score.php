@@ -39,7 +39,7 @@
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i> <span id="dispName">User</span></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <hr class="dropdown-divider" />
                     </li>
@@ -87,10 +87,10 @@
                                                 <div class="col-md-12">
                                                     <div class="card">
                                                         <div class="card-header">
-                                                            <h3>Student Score</h3>
+                                                            <h3>Student Scores</h3>
                                                         </div>
                                                         <div class="card-body">
-                                                            <table class="table table-striped" id="dtbq">
+                                                            <table class="table table-striped">
 
                                                                 <thead>
                                                                     <th>First Name</th>
@@ -106,6 +106,23 @@
 
                                                                 </thead>
                                                                 <tbody id="tbody1"></tbody>
+                                                            </table>
+
+                                                            <h3>Not Taken</h3>
+                                                            <span>Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>
+                                                            <table class="table table-striped">
+
+                                                                <thead>
+                                                                    <th>First Name</th>
+                                                                    <th>Middle Name</th>
+                                                                    <th>Last Name</th>
+                                                                    <th>Section</th>
+                                                                    <th>UID</th>
+                                                                    <th>Quiz Title</th>
+
+
+                                                                </thead>
+                                                                <tbody id="tbody2"></tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -145,10 +162,20 @@
       <input type="text" id="quiz-number" placeholder="Enter Quiz Title" required>
       <button id="submitSectionSort">Sort Data</button>
       <button id="submitReportSort">Get Class Report</button>
+      <button id="loadNt">Load NT</button>
       <button id="resetSectionSort">Reset</button>
       <button id="closeSectionSort">Close</button>
     </div>
   </div>
+  <script>
+        var sessionData = <?php echo json_encode($_SESSION);?>;
+    </script>
+    <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+    <div id="section-sdc" data-session-section=""></div>
+    <script>
+        var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+        sessionData = JSON.parse(sessionData);
+    </script>
 
     <script type="module" src="js/fetch-uid.js"></script>
     <script type="module">
@@ -209,6 +236,47 @@
             });
         }
 
+        ///add data table for not taken
+        var stdNo = 0;
+        var tbody2 = document.getElementById("tbody2");
+        function AddNtItem(name, _quizTitle) {
+            let trow = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td1_1 = document.createElement("td");
+            let td1_2 = document.createElement("td");
+            let td1_3 = document.createElement("td");
+            let td1_4 = document.createElement("td");
+            let td2 = document.createElement("td");
+
+            td1.innerHTML = name.firstName;
+            td1_1.innerHTML = name.midName;
+            td1_2.innerHTML = name.lastName;
+            td1_3.innerHTML = name.section;
+            td1_4.innerHTML = name.uid;
+            td2.innerHTML = _quizTitle;
+
+
+            trow.appendChild(td1); //this should conatin the name
+            trow.appendChild(td1_1); //this should conatin the name
+            trow.appendChild(td1_2); //this should conatin the name
+            trow.appendChild(td1_3); //this should conatin the section
+            trow.appendChild(td1_4);
+            trow.appendChild(td2);
+
+
+            tbody2.appendChild(trow);
+
+        }
+
+        function addAllNtItems(names) {
+            stdNo = 0;
+            tbody2.innerHTML = "";
+            const quizSortData = document.querySelector("#quiz-number").value;
+            names.forEach((element, index) => {
+                AddNtItem(names[index], quizSortData);
+            });
+        }
+
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
@@ -239,12 +307,14 @@
                     var students = [];
                     var names = [];
                     var studentsRef = []
+                    var a = document.querySelector("#section-sdc").getAttribute("data-session-section");
 
                     querySnapshot.forEach(doc => {
                         students.push(doc.data());
                     });
 
                     for (var i = 0; i < students.length; i++) {
+                        //Get the data of the students that have quiz scores
                         var student = students[i];
 
                         const uid = student.uid;
@@ -255,14 +325,17 @@
 
                         if (qSnap.size !== 0) {
 
-                            const studentData = qSnap.docs[0].data();
-                            names.push({
-                                firstName: studentData.firstName,
-                                midName: studentData.midName == '' ? '-' : studentData.midName,
-                                lastName: studentData.lastName,
-                                section: studentData.section,
-                            });
-                            studentsRef.push(student)
+                            //Check for section, to sort-data
+                            if (qSnap.docs[0].data().section == a) {
+                                const studentData = qSnap.docs[0].data();
+                                names.push({
+                                    firstName: studentData.firstName,
+                                    midName: studentData.midName == '' ? '-' : studentData.midName,
+                                    lastName: studentData.lastName,
+                                    section: studentData.section,
+                                });
+                                studentsRef.push(student)
+                            }
                         }
                     }
 
@@ -284,6 +357,7 @@
             })
                 .catch(error => {
                     alert('Something went wrong.');
+                    console.log(error);
                 });
         }
 
@@ -424,6 +498,140 @@
             });
         }
 
+        //Fetch Students that haven't taken the quiz
+        function fetchNtDataAsync() {
+            /*
+            console.log("Fetch Called, Promise")
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const querySnapshot = await getDocs(collection(db, "quizScores"));
+
+                    var students = [];
+                    var names = [];
+                    var studentsRef = []
+                    var sdc = document.querySelector("#section-sdc").getAttribute("data-session-section");
+
+                    querySnapshot.forEach(doc => {
+                        students.push(doc.data());
+                    });
+
+                    for (var i = 0; i < students.length; i++) {
+                        //Get the data of the students that have quiz scores
+                        var student = students[i];
+                        console.log(student);
+
+                        const uid = student.uid;
+
+                        var dbRef = collection(db, 'users');
+                        var q = query(dbRef, where('uid', '!=', uid));
+                        var qSnap = await getDocs(q);
+                        studentsRef.push(student);
+                    }
+                        qSnap.forEach((doc) => {
+                        console.dir(doc.data());
+                        console.log("test");
+                        if (qSnap.size !== 0) {
+                            //Check for section, to sort-data
+                            //console.log(d);
+                            if (doc.data().section == "6-Absolute") {
+                                //Check for quiz, to sort-data
+                                //if (student.quizTitle == quizSortData) {
+                                    const studentData = doc.data();
+                                    names.push({
+                                        firstName: studentData.firstName,
+                                        midName: studentData.midName == '' ? '-' : studentData.midName,
+                                        lastName: studentData.lastName,
+                                        section: studentData.section,
+                                    });
+                                    
+                                //}
+                            }
+                                
+                        }
+                        })
+                    
+
+                    return resolve({
+                        students: studentsRef,
+                        names: names
+                    });
+
+                } catch (error) {
+                    return reject(error);
+                }
+            })*/
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const sectionSortData = document.querySelector("#section-sdc").getAttribute("data-session-section");
+                    const quizSortData = document.querySelector("#quiz-number").value;
+
+                    if (quizSortData == 0 || quizSortData == undefined) {
+                        alert("Invalid input!");
+                        return false;
+                    }
+                    const q = query(collection(db, "quizScores"), where("quizTitle", "==", quizSortData));
+                    const querySnapshot = await getDocs(q);
+
+                    var students = [];
+                    var names = [];
+                    //var studentsRef = []
+                    //Put quiz score data to array for checking
+                    querySnapshot.forEach(doc => {
+                        students.push(doc.data());
+                    });
+                    //Check every single value of student data if a user uid matches
+                    //For every userdata, check if uid exists in quizScores
+                    //Query Data for users
+                    const udRef = collection(db, "users");
+                    const udrQ = query(udRef, where("role", "==", "student"));
+                    const udrQs = await getDocs(udrQ);
+
+                    udrQs.forEach((doc) => {
+                        //Sort out other sections first
+                        if (doc.data().section == sectionSortData) {
+                            //Test if all uids match with quiz score, if yes, do not print name
+                                if(students.some(function(arrVal) {
+                                    return doc.data().uid === arrVal.uid;
+                                }) == false) {
+                                    names.push({
+                                        firstName: doc.data().firstName,
+                                        midName: doc.data().midName == '' ? '-' : doc.data().midName,
+                                        lastName: doc.data().lastName,
+                                        section: doc.data().section,
+                                        uid: doc.data().uid,
+                                    });
+                                }
+                        }
+                    })
+
+                    if (names == 0) {
+                        alert("No data found");
+                        return false;
+                    }
+
+                    return resolve({
+                        names: names
+                    });
+
+                } catch (error) {
+                    return reject(error);
+                }
+            })
+        }
+
+        async function GetAllNtDataOnece() {
+            console.log("Called")
+            fetchNtDataAsync().then(result => {
+                addAllNtItems(result.names);
+            })
+                .catch(error => {
+                    alert('Something went wrong.');
+                    console.log(error);
+                });
+        }
+
+        
+
         //Add Sort Student
     document.querySelector("#sort-data").addEventListener("click",
       function() {
@@ -450,10 +658,14 @@
 
 
         window.onload = GetAllDataOnece;
+        document.querySelector("#loadNt").addEventListener("click", GetAllNtDataOnece);
+
 
     </script>
     <script src="js/get-section.js" type="module"></script>
+    <script src="js/getCurrentUserData.js" type="module"></script>
     <script src="js/convertTableToExcel.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

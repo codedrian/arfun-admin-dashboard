@@ -28,7 +28,17 @@ function exportTableToExcel(tableID, filename = ''){
     }
 }
 
-var a = document.querySelector("#dtbq");
-document.querySelector("#download-table").addEventListener("click", function() {
-    exportTableToExcel(a, prompt("Enter file name"));
-});
+var a = document.querySelectorAll("table");
+
+    document.querySelector("#download-table").addEventListener("click", function() {
+        for (var i = 0; i < a.length; i++) {
+            let x = prompt("Enter file name");
+            if (x === null) {
+                alert("Cancelled");
+            } else {
+                exportTableToExcel(a[i], x);
+                console.log(a[i]);
+            }
+        }
+    });
+    

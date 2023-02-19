@@ -42,7 +42,7 @@
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+          aria-expanded="false"><i class="fas fa-user fa-fw"></i> <span id="dispName">User</span></a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
           <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
@@ -149,7 +149,8 @@
   </script>
 
   <script type="module" src="js/archive.js"></script>
-  <script type="module" src="js/get-section.js"></script>
+  <script src="js/get-section.js" type="module"></script>
+  <script src="js/getCurrentUserData.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>

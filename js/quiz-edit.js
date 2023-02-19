@@ -21,7 +21,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase
       getDoc,
       query,
       where,
-      setDoc,
+      deleteDoc,
       doc,
     } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
@@ -48,8 +48,9 @@ function createList(arrData, arrId) {
 const dbdb = getFirestore();
 //Get the quiz list
 async function getQuizList() {
+    const sectionRef = document.querySelector("#section-sdc").getAttribute("data-session-section");
     const dbRef = collection(dbdb, 'quizzes');
-    const q = query(dbRef);
+    const q = query(dbRef, where('section', '==', sectionRef));
     const quizList = [];
     const quizId = [];
 
@@ -130,3 +131,17 @@ async function renderQuiz(quizId) {
 
     }
 }
+
+async function deleteQuiz() {
+    let mf = document.querySelector("#main-form").getAttribute("data-quiz-id");
+    console.log(mf);
+    const a = doc(dbdb, 'quizzes', mf);
+    
+    if (confirm("Are you sure you want to delete this quiz?")) {
+        await deleteDoc(a);
+        alert("Quiz Deleted.");
+        location.reload();
+    }
+}
+
+document.querySelector("#deleteQuiz").addEventListener("click", deleteQuiz);

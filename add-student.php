@@ -15,6 +15,38 @@
   <link href="css/styles.css" rel="stylesheet" />
   <!-- <link href="css/student.css" rel="stylesheet" /> -->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+  <style>
+     #archive-all{
+          position:relative;
+            left:60%;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:2px;
+            color:white;
+            font-size:18px;
+        }
+
+        #archive-all:hover{
+          background:blue;
+        }
+
+        #download-table{
+            position:relative;
+            left:60%;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:2px;
+            color:white;
+            font-size:18px;
+        }
+        #download-table:hover{
+            background:blue;
+        }
+        
+  </style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -131,6 +163,10 @@
                       <h4>
                         Student List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="archive-all">Archive All</button>
+                      
+                        <button id="download-table">Download Table Data</button>
+                        <div class="download-link"></div>
                       </h4>
                     </div>
                     <div class="card-body">
@@ -153,9 +189,7 @@
                 </div>
               </div>
             </div>
-              <button id="archive-all">Archive All</button>
-              <div class="download-link"></div>
-              <button id="download-table">Download Table Data</button>
+             
             <!-- Student list table ends here... -->
             <br>
           </div>

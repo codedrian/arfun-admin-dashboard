@@ -15,6 +15,39 @@
     <!-- <link href="css/register.css" rel="stylesheet" /> -->
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+    <style>
+         #sort-data{
+          position:relative;
+            left:50%;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:2px;
+            color:white;
+            font-size:18px;
+        } 
+
+        #sort-data:hover{
+          background:blue;
+        }
+
+        
+        #download-table{
+            position:relative;
+            left:50%;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:2px;
+            color:white;
+            font-size:18px;
+        }
+        #download-table:hover{
+            background:blue;
+        }
+        
+    </style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -87,7 +120,12 @@
                                                 <div class="col-md-12">
                                                     <div class="card">
                                                         <div class="card-header">
-                                                            <h3>Student Scores</h3>
+                                                            <h3>Student Scores
+                                                            <button id="sort-data">Sort Data</button>
+                                                           
+                                                            <button id="download-table">Download Table Data</button>
+                                                            <div class="download-link"></div>
+                                                            </h3>
                                                         </div>
                                                         <div class="card-body">
                                                             <table class="table table-striped">
@@ -127,9 +165,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button id="sort-data">Sort Data</button>
-                                                <div class="download-link"></div>
-                                                <button id="download-table">Download Table Data</button>
+                                                
                                             </div>
                                             
                                         </div>

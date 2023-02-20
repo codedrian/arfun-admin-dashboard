@@ -16,6 +16,21 @@
     <!-- <link href="css/register.css" rel="stylesheet" /> -->
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        #download-table{
+            position:relative;
+            left:65%;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:2px;
+            color:white;
+            font-size:18px;
+        }
+        #download-table:hover{
+            background:blue;
+        }
+    </style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -146,6 +161,9 @@
                                                             <div class="card-header">
                                                                 <h4>
                                                                     Teacher List
+                                                                    
+                                                                    <button id="download-table">Download Table Data</button>
+                                                                    <div class="download-link"></div>
 
                                                                 </h4>
                                                             </div>
@@ -170,8 +188,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="download-link"></div>
-                        <button id="download-table">Download Table Data</button>
+                       
                     </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

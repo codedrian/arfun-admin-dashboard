@@ -14,7 +14,31 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-</head>
+
+    <style>
+        #quizzes .view-quiz{
+            position:relative;
+            left:80%;
+            margin:20px 0 0 0;
+        }
+        
+        #quizzes a:link, a:visited{
+            background-color: #06357A;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size:13px;
+            border-radius:3px;
+        }
+
+        #quizzes a:hover, a:active {
+        background-color: blue;
+        }
+
+    </style>
+    </head>
 
 <body class="sb-nav-fixed">
     <?php
@@ -59,8 +83,14 @@
         ?>
         <div id="layoutSidenav_content">
             <main>
+
+            <div id="quizzes">
+                    <a href="quiz-edit.php" class="view-quiz">View Created Quizzes</a>
+                    </div>
+
                 <div class="container-fluid px-4">
                     <div class="container mt-3 d-flex justify-content-center">
+                    
                         <form class="w-100" id="main-form">
                             <div class="rounded-3 my-4 p-4 bg-light border border-2 shadow ">
                                 <div class="rowd-flex flex-column">

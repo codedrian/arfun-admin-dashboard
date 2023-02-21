@@ -30,7 +30,7 @@ var sessionData = document.getElementById("sessionDataContainer").dataset.sessio
 sessionData = JSON.parse(sessionData);
 //console.log(sessionData);
 
-var teacherUid, role;;
+var teacherUid, role;
 teacherUid = sessionData.verified_user_id;
 role = sessionData.role;
 const r = query(dbRef, where('uid', '==', teacherUid));

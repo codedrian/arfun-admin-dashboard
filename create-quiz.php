@@ -159,7 +159,6 @@
     <script src="./js/mkquiz.js"></script>
     <script src="./js/mkquiz-sub.js" type="module"></script>
     <script src="./js/getCurrentUserData.js" type="module"></script>
-    <script src="js/get-section.js" type="module"></script>
     <script src="js/getCurrentUserData.js" type="module"></script>
     
 </body>

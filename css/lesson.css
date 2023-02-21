@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
 h2.title{
     background-color: #06357A;
-    border: 5px solid rgb(4, 110, 78);
+    /* border: 5px solid rgb(4, 110, 78); */
     position: relative;
     text-align: center;
     max-width: 100%;
@@ -18,8 +18,8 @@ h2.title{
     text-align: center;
     /* max-height: 20%; */
     /* line-height: 40px; */
-    background: #ADD8E6; 
-    border: 5px solid rgb(4, 110, 78);/*  */  
+    background: rgb(4, 110, 78); 
+    /* border: 5px solid rgb(4, 110, 78);/*  */   
     border-radius: 10px;
 }
 .upload{
@@ -59,14 +59,15 @@ h2.title{
 .percent{
     display: inline-block;
     margin-left: 20px;
+    color: white;
 }
 .controls{
     float: right;
     margin-right: 45px;
 }
 .pause, .resume, .cancel{
-    background-color: green;
-    fill: white;
+    background-color: lightgreen;
+    fill: rgb(4, 110, 78);
     padding: 5px;
     margin: 2px;
     margin-top: 18px;
@@ -100,6 +101,7 @@ h2.black{              /* para sa video*/
     color: white;
     font-size: 1px;
 }
+
 .all-files ul{
     position: relative;
     left: -15px;
@@ -136,7 +138,7 @@ h2.black{              /* para sa video*/
     border: 1px solid rgba(0, 153, 255, 0.2);
     background-color: #06357A;
     position: absolute;
-    height: 100px;
+    height: 78px;
     display: none;
 }
 .expand-container ul li{
@@ -162,6 +164,11 @@ h2.black{              /* para sa video*/
     to{transform: rotate(360deg);}
 }
 
+
+.text-description{
+    height: 10%;
+}
+
 .description {
     position: fixed;
     top: 0;
@@ -174,11 +181,34 @@ h2.black{              /* para sa video*/
 }
 .description > .window {
     position: fixed;
+    padding: 20px;
     top: 50%;
     left: 57%;
     transform: translate(-50%, -50%);
     width: 500px;
-    height: 800px;
+    height: 150px;
     background-color: #198754;
     z-index: 11;
+    color: white;
+    font-weight: 400;
+    border-radius: 20px;
+}
+
+.description #close-desc{
+    position: relative;
+    top: 35%;
+    left: 85%;
+    border: none;
+    border-radius: 3px;
+    background: #06357A;
+    color: white;
+}
+
+.description #close-desc:hover{
+    background: blue;
+}
+
+h4{
+    color: white;
+    font-weight: 500;
 }

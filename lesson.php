@@ -98,7 +98,7 @@
 				<ul>
 					<li onclick="openFile(this)">Open</li>
 					<li id="file-desc">Description</li>
-					<li onclick="downloadFile(this)">Download</li>
+					<!-- <li onclick="downloadFile(this)">Download</li> -->
 					<li onclick="deleteFile(this)">Delete</li>
 				</ul>
 				<!-- Preloader image -->
@@ -129,7 +129,8 @@
 
 	<div class="description">
 		<div class="window">
-			<p>Description: <span id="item-desc"></span><br><button id="close-desc">Close</button></p>
+			<p>Description: <span id="item-desc"></span><br></p>
+			<button id="close-desc">Close</button>
 		</div>
 	</div>
 

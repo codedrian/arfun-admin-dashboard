@@ -119,7 +119,7 @@
                   <div class="card">
                     <div class="card-header">
                       <h4>
-                        Student List
+                        Students List
                         <button id="sort-data">Sort Data</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       </h4>
                     </div>

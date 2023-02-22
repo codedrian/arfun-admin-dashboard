@@ -46,6 +46,42 @@
         #download-table:hover{
             background:blue;
         }
+
+        /* .window #section{
+            ;
+        }
+
+        .window #quiz-numer{
+            position:relative;
+            left:11%;
+        } */
+
+        .window button{
+          position: relative;
+          background: rgb(3, 20, 97);
+          border: none;
+          color: white;
+          font-weight: 300;
+          border-radius: 3px;
+          margin:4px;
+          /* left:5%; */
+        }
+
+        .window button:hover{
+            background:blue;
+          }
+
+          .window #resetSectionSort{
+            position:relative;
+            left:30%;
+            margin-top:10px;
+          }
+          
+          .window #closeSectionSort{
+            position:relative;
+            left:30%;
+            margin-top:10px;
+          }
         
     </style>
 </head>

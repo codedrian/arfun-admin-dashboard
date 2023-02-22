@@ -42,7 +42,7 @@
 
                         echo '<a class="nav-link collapsed" href="archive.php">
                         <i class="fas fa-archive"></i>
-                        <span>Archives</span>
+                        <span>Archive</span>
                         </a>';
 
 

@@ -206,7 +206,7 @@
                   <div class="card">
                     <div class="card-header">
                       <h4>
-                        Student List
+                        Students List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                      
                       <button id="archive-all">Archive All</button>

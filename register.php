@@ -110,7 +110,7 @@
                                             <div class="card w-50 p-3">
                                                 <div class="card-header">
                                                     <h4>
-                                                        Add Admins
+                                                        Add Admin
                                                     </h4>
                                                 </div>
                                                 <form id="main-form" class="add-body" data-type="admin">
@@ -158,7 +158,7 @@
                                                         <div class="card">
                                                             <div class="card-header">
                                                                 <h4>
-                                                                    Admin List
+                                                                    Admins List
                                                                     <!-- <a href="index.php"
                                                                         class="btn btn-danger float-end">Back</a> -->
                                                                         <div class="download-link"></div>

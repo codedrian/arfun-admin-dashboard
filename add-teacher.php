@@ -160,7 +160,7 @@
                                                         <div class="card">
                                                             <div class="card-header">
                                                                 <h4>
-                                                                    Teacher List
+                                                                    Teachers List
                                                                     
                                                                     <button id="download-table">Download Table Data</button>
                                                                     <div class="download-link"></div>

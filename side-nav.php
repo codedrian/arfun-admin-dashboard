@@ -14,16 +14,16 @@
 
                         echo '<a class="nav-link collapsed" href="register.php">
                             <i class="fas fa-users fa-lg"></i>
-                            <span> Admin User </span>
+                            <span> Add Admin </span>
                             </a>';
                             echo '<a class="nav-link collapsed" href="student-list.php">
                             <i class="fas fa-users fa-lg"></i>
-                            <span> Student </span>
+                            <span> Students </span>
                             </a>';
 
                             echo '<a class="nav-link collapsed" href="quiz-score.php">
                             <i class="fas fa-file-text fa-lg"></i>
-                            <span> Quiz </span>
+                            <span> Quiz Scores</span>
                             </a>';
                     }
                     ?>
@@ -37,8 +37,15 @@
                     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                         echo '<a class="nav-link collapsed" href="add-teacher.php">
                                 <i class="fas fa-chalkboard-teacher fa-lg"></i>
-                                <span>Teachers</span>
+                                <span>Add Teacher</span>
                             </a>';
+
+                        echo '<a class="nav-link collapsed" href="archive.php">
+                        <i class="fas fa-archive"></i>
+                        <span>Archives</span>
+                        </a>';
+
+
                     }
                     ?>
 
@@ -66,6 +73,7 @@
                             <i class="fas fa-users fa-lg"></i>
                             <span> Quiz Scores</span>
                             </a>';
+
                     }
                     ?>
 

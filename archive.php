@@ -16,6 +16,42 @@
   <link href="css/quiz-edit.css" rel="stylesheet" />
   <!-- <link href="css/student.css" rel="stylesheet" /> -->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+  <style>
+  #sort-data{
+          position:relative;
+            left:70%;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:2px;
+            color:white;
+            font-size:18px;
+            width:90px;
+        } 
+
+        #sort-data:hover{
+          background:blue;
+        }
+
+        .window button{
+          position: relative;
+          background: rgb(3, 20, 97);
+          border: none;
+          color: white;
+          font-weight: 300;
+          border-radius: 3px;
+          margin:4px;
+          left:13%;
+        }
+
+        .window button:hover{
+            background:blue;
+          }
+  
+
+</style>
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -84,7 +120,7 @@
                     <div class="card-header">
                       <h4>
                         Student List
-                        <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="sort-data">Sort Data</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       </h4>
                     </div>
                     <div class="card-body">
@@ -107,7 +143,7 @@
               </div>
             </div>
             <!-- Student list table ends here... -->
-            <button id="sort-data">Sort Data</button>
+           
           </div>
 
       </main>

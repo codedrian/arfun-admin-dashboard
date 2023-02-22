@@ -16,15 +16,23 @@
                             <i class="fas fa-users fa-lg"></i>
                             <span> Add Admin </span>
                             </a>';
+
+                            echo '<a class="nav-link collapsed" href="add-teacher.php">
+                            <i class="fas fa-chalkboard-teacher fa-lg"></i>
+                            <span>Add Teacher</span>
+                            </a>';
+
+                            echo '<a class="nav-link collapsed" href="section.php">
+                            <i class="fas fa-section"></i>
+                            <span>Add Section</span>
+                            </a>';
+
                             echo '<a class="nav-link collapsed" href="student-list.php">
                             <i class="fas fa-users fa-lg"></i>
                             <span> Students </span>
                             </a>';
 
-                            echo '<a class="nav-link collapsed" href="quiz-score.php">
-                            <i class="fas fa-file-text fa-lg"></i>
-                            <span> Quiz Scores</span>
-                            </a>';
+                            
                     }
                     ?>
                     <!-- Both teacher and admin can access this -->
@@ -35,10 +43,11 @@
 
                     <?php
                     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-                        echo '<a class="nav-link collapsed" href="add-teacher.php">
-                                <i class="fas fa-chalkboard-teacher fa-lg"></i>
-                                <span>Add Teacher</span>
-                            </a>';
+                       
+                        echo '<a class="nav-link collapsed" href="quiz-score.php">
+                        <i class="fas fa-file-text fa-lg"></i>
+                        <span> Quiz Scores</span>
+                        </a>';
 
                         echo '<a class="nav-link collapsed" href="archive.php">
                         <i class="fas fa-archive"></i>

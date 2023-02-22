@@ -20,8 +20,10 @@
     top: 50%;
     left: 57%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 800px;
+    width: 350px;
+    height: 150px;
     background-color: #198754;
     z-index: 11;
+    border-radius: 4px;
+    padding: 10px;
 }

@@ -63,6 +63,78 @@
         #download-table:hover{
             background:blue;
         }
+
+        
+          #archive-all{
+            position:relative;
+              left:50%;
+              padding:5px;
+              background:rgb(3, 20, 97);
+              border:none;
+              border-radius:2px;
+              color:white;
+              font-size:18px;
+          }
+
+          #archive-all:hover{
+            background:blue;
+          }
+
+        
+
+          #download-table{
+              position:relative;
+              left:50%;
+              padding:5px;
+              background:rgb(3, 20, 97);
+              border:none;
+              border-radius:2px;
+              color:white;
+              font-size:18px;
+          }
+          #download-table:hover{
+              background:blue;
+          }
+
+          #section{
+                position: relative;
+                left:15%;
+                margin:10px;
+          }
+
+          #submitSectionSort{
+            position: relative;
+            margin: 10px;
+            left:15%;
+            
+          }
+
+          #resetSectionSort{
+            position: relative;
+            left:27%;
+            display: block;
+            margin:10px;
+          }
+
+          #closeSectionSort{
+            position: relative;
+            left:50%;
+            top:-34%;
+            margin:10px;
+          }
+
+          .window button{
+            background: rgb(3, 20, 97);
+            border: none;
+            color: white;
+            font-weight: 300;
+            border-radius: 3px;
+          }
+
+          .window button:hover{
+            background:blue;
+          }
+        
         
     </style>
   </style>

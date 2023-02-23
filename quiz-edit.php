@@ -173,6 +173,7 @@
     <script src="./js/mkquiz-sub.js"></script>
     <script src="./js/quiz-edit.js" type="module"></script>
     <script src="js/getCurrentUserData.js" type="module"></script>
+    <script src="js/get-section.js"></script>
 </body>
 
 </html>

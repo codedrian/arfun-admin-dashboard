@@ -19,7 +19,7 @@
     <style>
         #download-table{
             position:relative;
-            left:65%;
+            left:69%;
             padding:5px;
             background:rgb(3, 20, 97);
             border:none;

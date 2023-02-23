@@ -13,9 +13,85 @@
   <title>Arfun | Student</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
-  <link href="css/quiz-edit.css" rel="stylesheet" />
+  <!-- <link href="css/quiz-edit.css" rel="stylesheet" /> -->
   <!-- <link href="css/student.css" rel="stylesheet" /> -->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+  <style>
+    .base {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+}
+
+.floating-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+    display: none;
+   
+}
+.floating-window > .window {
+    position: fixed;
+    top: 50%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 250px;
+    background-color: #198754;
+    z-index: 11;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.window button{
+    position: relative;
+    left:22%;
+    background: rgb(3, 20, 97);
+    border: none;
+    color: white;
+    font-weight: 300;
+    border-radius: 3px;
+    margin:3px;
+  }
+
+  .window button:hover{
+    background:blue;
+  }
+
+.window #uDp{
+  margin:3px;
+
+}
+
+.window span{
+  margin:3px;
+}
+
+.window .progress{
+ height: 3%;
+}
+
+.window .dp{
+  position: relative;
+  left:35%;
+
+}
+
+.add-body #upload-btn{
+    background: rgb(3, 20, 97);
+    border: none;
+    color: white;
+    font-weight: 300;
+    border-radius: 3px;
+    margin:3px;
+}
+  </style>
 </head>
 
 <body class="sb-nav-fixed">

@@ -255,7 +255,7 @@
     var sessionData = <?php echo json_encode($_SESSION);?>;
   </script>
   <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
-
+  <div id="section-sdc" data-session-section=""></div>
   <script>
     var sessionData = document.getElementById("sessionDataContainer").dataset.session;
     sessionData = JSON.parse(sessionData);

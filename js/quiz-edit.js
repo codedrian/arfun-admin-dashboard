@@ -50,6 +50,7 @@ const dbdb = getFirestore();
 async function getQuizList() {
     const sectionRef = document.querySelector("#section-sdc").getAttribute("data-session-section");
     const dbRef = collection(dbdb, 'quizzes');
+    console.log(sectionRef);
     const q = query(dbRef, where('section', '==', sectionRef));
     const quizList = [];
     const quizId = [];
@@ -58,6 +59,7 @@ async function getQuizList() {
 
     querySnapshot.forEach((doc) => {
         //For every quiz data gathered, show on the page
+        console.log(doc.data());
         quizList.push(doc.data());
         quizId.push(doc.id);
     });
@@ -65,7 +67,7 @@ async function getQuizList() {
     createList(quizList, quizId);
 }
 
-getQuizList();
+setTimeout(getQuizList, 1000);
 
 function editQuiz(quizId) {
     let mf = document.querySelector("#main-form");

@@ -3,8 +3,18 @@
     grid-template-rows: auto;
     grid-template-columns: 1fr;
     grid-gap: 1em;
+    /* background-color: #198754;
+    color: white; */
+    padding: 20px;
+    border-radius: 5px;
 }
 
+.base h4, h2{
+    text-align: center;
+}
+.base span{
+    font-size: x-large;
+}
 .floating-window {
     position: fixed;
     top: 0;
@@ -27,3 +37,4 @@
     border-radius: 4px;
     padding: 10px;
 }
+

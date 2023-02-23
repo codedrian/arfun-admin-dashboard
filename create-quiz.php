@@ -18,7 +18,7 @@
     <style>
         #quizzes .view-quiz{
             position:relative;
-            left:80%;
+            left:90%;
             margin:20px 0 0 0;
         }
         
@@ -106,7 +106,7 @@
             <main>
 
             <div id="quizzes">
-                    <a href="quiz-edit.php" class="view-quiz">View Created Quizzes</a>
+                    <a href="quiz-edit.php" class="view-quiz">View Quiz</a>
                     </div>
 
                 <div class="container-fluid px-4">

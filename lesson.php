@@ -106,6 +106,29 @@
 				<img class="loader" src="https://aux.iconspalace.com/uploads/11080764221104328263.png" alt="">
 			</div>
 
+			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+			<script>
+				// Get the button:
+				let mybutton = document.getElementById("myBtn");
+
+				// When the user scrolls down 20px from the top of the document, show the button
+				window.onscroll = function() {scrollFunction()};
+
+				function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					mybutton.style.display = "block";
+				} else {
+					mybutton.style.display = "none";
+				}
+				}
+
+				// When the user clicks on the button, scroll to the top of the document
+				function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0; 
+			}
+			</script>
 			<!-- firebase sdk -->
 			<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
 			<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js" type="module"></script>

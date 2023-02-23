@@ -14,131 +14,8 @@
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/quiz-edit.css">
-  <!-- <link href="css/student.css" rel="stylesheet" /> -->
+  <link href="css/student-list.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
-  <style>
-     
-        #archive-all{
-          position:relative;
-            left:50%;
-            padding:5px;
-            background:rgb(3, 20, 97);
-            border:none;
-            border-radius:2px;
-            color:white;
-            font-size:18px;
-        }
-
-        #archive-all:hover{
-          background:blue;
-        }
-
-        #sort-data{
-          position:relative;
-            left:50%;
-            padding:5px;
-            background:rgb(3, 20, 97);
-            border:none;
-            border-radius:2px;
-            color:white;
-            font-size:18px;
-        } 
-
-        #sort-data:hover{
-          background:blue;
-        }
-
-        
-        #download-table{
-            position:relative;
-            left:50%;
-            padding:5px;
-            background:rgb(3, 20, 97);
-            border:none;
-            border-radius:2px;
-            color:white;
-            font-size:18px;
-        }
-        #download-table:hover{
-            background:blue;
-        }
-
-        
-          #archive-all{
-            position:relative;
-              left:50%;
-              padding:5px;
-              background:rgb(3, 20, 97);
-              border:none;
-              border-radius:2px;
-              color:white;
-              font-size:18px;
-          }
-
-          #archive-all:hover{
-            background:blue;
-          }
-
-        
-
-          #download-table{
-              position:relative;
-              left:50%;
-              padding:5px;
-              background:rgb(3, 20, 97);
-              border:none;
-              border-radius:2px;
-              color:white;
-              font-size:18px;
-          }
-          #download-table:hover{
-              background:blue;
-          }
-
-          #section{
-                position: relative;
-                left:15%;
-                margin:10px;
-          }
-
-          #submitSectionSort{
-            position: relative;
-            margin: 10px;
-            left:15%;
-            
-          }
-
-          #resetSectionSort{
-            position: relative;
-            left:27%;
-            display: block;
-            margin:10px;
-          }
-
-          #closeSectionSort{
-            position: relative;
-            left:50%;
-            top:-34%;
-            margin:10px;
-          }
-
-          .window button{
-            background: rgb(3, 20, 97);
-            border: none;
-            color: white;
-            font-weight: 300;
-            border-radius: 3px;
-          }
-
-          .window button:hover{
-            background:blue;
-          }
-        
-        
-    </style>
-  </style>
-
 </head>
 
 <body class="sb-nav-fixed">
@@ -233,6 +110,29 @@
                         <tbody id="tbody1"></tbody>
                       </table>
                     </div>
+                    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+                    <script>
+                        // Get the button:
+                        let mybutton = document.getElementById("myBtn");
+
+                        // When the user scrolls down 20px from the top of the document, show the button
+                        window.onscroll = function() {scrollFunction()};
+
+                        function scrollFunction() {
+                        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                            mybutton.style.display = "block";
+                        } else {
+                            mybutton.style.display = "none";
+                        }
+                        }
+
+                        // When the user clicks on the button, scroll to the top of the document
+                        function topFunction() {
+                        document.body.scrollTop = 0;
+                        document.documentElement.scrollTop = 0; 
+                    }
+                    </script>
                   </div>
                 </div>
               </div>

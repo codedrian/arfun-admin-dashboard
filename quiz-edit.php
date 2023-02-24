@@ -124,6 +124,7 @@
                         </form>
                     </div>
                     <div class="w-100 base">
+                  
                             <h2>Quizzes</h2>
                             <h4>Note: Click Quiz Name To Edit</h4>
                     </div>

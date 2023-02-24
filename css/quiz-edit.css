@@ -13,7 +13,17 @@
     text-align: center;
 }
 .base span{
+    background: darkgreen;
     font-size: x-large;
+    width: 20%;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    border-radius: 4px;
+}
+
+.base span:hover{
+    background:#198754 ;
 }
 .floating-window {
     position: fixed;

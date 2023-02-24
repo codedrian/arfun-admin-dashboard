@@ -118,7 +118,7 @@
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+          aria-expanded="false"><i class="fas fa-user fa-fw"></i> <span id="dispName">User</span></a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
           <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
@@ -241,7 +241,7 @@
     var sessionData = <?php echo json_encode($_SESSION);?>;
   </script>
   <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
-
+  <div id="section-sdc" data-session-section=""></div>
   <script>
     var sessionData = document.getElementById("sessionDataContainer").dataset.session;
     sessionData = JSON.parse(sessionData);

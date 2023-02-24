@@ -41,8 +41,22 @@ const qs = await getDocs(r);
     //console.log(doc.data());
     console.log(doc.data().section);
     document.querySelector("#section-sdc").setAttribute("data-session-section",  doc.data().section);
+
+    //Replace the inserted session data to database data
+    const sdc = document.getElementById("sessionDataContainer");
+    const sdcData = JSON.parse(sdc.dataset.session);
+
+    //Modify
+    sdcData.dispName = doc.data().firstName + " " + doc.data().midName.charAt(0) + ". " + doc.data().lastName;
+
+    //Update
+    sdc.dataset.session = JSON.stringify(sdcData);
   });
 }
-document.querySelector("#dispName").textContent = sessionData.dispName;
+
+setTimeout(function() {
+  document.querySelector("#dispName").textContent = JSON.parse(document.getElementById("sessionDataContainer").dataset.session).dispName;
+}, 3000);
+
 loadUserData();
 

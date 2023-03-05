@@ -274,7 +274,9 @@
       <select name="section" id="section">
         <option>Select a section</option>
       </select>
-      <input type="text" id="quiz-number" placeholder="Enter Quiz Title" required>
+      <select name="quiz" id="quiz-number">
+        <option>Choose a Quiz</option>
+      </select>
       <button id="submitSectionSort">Sort Data</button>
       <button id="submitReportSort">Get Class Report</button>
       <button id="loadNt">Load NT</button>
@@ -516,6 +518,11 @@
                         }
                     }
 
+                    if (studentsRef.length == 0) {
+                        alert("No data found");
+                        return false;
+                    }
+
                     return resolve({
                         students: studentsRef,
                         names: names
@@ -542,13 +549,8 @@
             return new Promise(async (resolve, reject) => {
                 try {
                     const sectionSortData = document.querySelector("#section").value;
-                    const quizSortData = document.querySelector("#quiz-number").value;
                     const querySnapshot = await getDocs(collection(db, "quizScores"));
-
-                    if (quizSortData == 0 || quizSortData == undefined) {
-                        alert("Invalid input!");
-                        return false;
-                    }
+                    const quizSortData = document.querySelector("#quiz-number").value;
 
                     var students = [];
                     var names = [];
@@ -566,15 +568,19 @@
 
                         var dbRef = collection(db, 'users');
                         var q = query(dbRef, where('uid', '==', uid));
-                        var qSnap = await getDocs(q);
+                        var qSnap = await getDocs(q); //qSnap is user data, not quiz data
 
                         if (qSnap.size !== 0) {
 
                             //Check for section, to sort-data
                             if (qSnap.docs[0].data().section == sectionSortData) {
-                                //Check for quiz, to sort-data
-                                if (student.quizTitle == quizSortData) {
+                                //Check for quiz title if matches
+                                console.log(students[i]);
+                                console.log(students[i].quizTitle);
+                                console.log(quizSortData);
+                                if (students[i].quizTitle == quizSortData) {
                                     const studentData = qSnap.docs[0].data();
+                                    console.log(studentData);
                                     names.push({
                                         firstName: studentData.firstName,
                                         midName: studentData.midName == '' ? '-' : studentData.midName,
@@ -586,7 +592,8 @@
                             }
                         }
                     }
-                    if (studentsRef == 0) {
+
+                    if (studentsRef.length == 0) {
                         alert("No data found");
                         return false;
                     }
@@ -615,66 +622,6 @@
 
         //Fetch Students that haven't taken the quiz
         function fetchNtDataAsync() {
-            /*
-            console.log("Fetch Called, Promise")
-            return new Promise(async (resolve, reject) => {
-                try {
-                    const querySnapshot = await getDocs(collection(db, "quizScores"));
-
-                    var students = [];
-                    var names = [];
-                    var studentsRef = []
-                    var sdc = document.querySelector("#section-sdc").getAttribute("data-session-section");
-
-                    querySnapshot.forEach(doc => {
-                        students.push(doc.data());
-                    });
-
-                    for (var i = 0; i < students.length; i++) {
-                        //Get the data of the students that have quiz scores
-                        var student = students[i];
-                        console.log(student);
-
-                        const uid = student.uid;
-
-                        var dbRef = collection(db, 'users');
-                        var q = query(dbRef, where('uid', '!=', uid));
-                        var qSnap = await getDocs(q);
-                        studentsRef.push(student);
-                    }
-                        qSnap.forEach((doc) => {
-                        console.dir(doc.data());
-                        console.log("test");
-                        if (qSnap.size !== 0) {
-                            //Check for section, to sort-data
-                            //console.log(d);
-                            if (doc.data().section == "6-Absolute") {
-                                //Check for quiz, to sort-data
-                                //if (student.quizTitle == quizSortData) {
-                                    const studentData = doc.data();
-                                    names.push({
-                                        firstName: studentData.firstName,
-                                        midName: studentData.midName == '' ? '-' : studentData.midName,
-                                        lastName: studentData.lastName,
-                                        section: studentData.section,
-                                    });
-                                    
-                                //}
-                            }
-                                
-                        }
-                        })
-                    
-
-                    return resolve({
-                        students: studentsRef,
-                        names: names
-                    });
-
-                } catch (error) {
-                    return reject(error);
-                }
-            })*/
             return new Promise(async (resolve, reject) => {
                 try {
                     const sectionSortData = document.querySelector("#section-sdc").getAttribute("data-session-section");
@@ -775,6 +722,49 @@
         window.onload = GetAllDataOnece;
         document.querySelector("#loadNt").addEventListener("click", GetAllNtDataOnece);
 
+
+        var stdNo = 1;
+        var mainSelect = document.getElementById("quiz-number");
+        function createStartingSelection() {
+            let d0 = document.createElement("option");
+            d0.textContent = "Select a section";
+            d0.value = "undf";
+            mainSelect.appendChild(d0);
+        }
+        function AddSectionSelection(_quiz) {
+            let d1 = document.createElement("option");
+            d1.textContent = _quiz;
+            d1.value = _quiz;
+            mainSelect.append(d1);
+        }
+
+        //Add All Data
+        function addAllQuizSelection(quiz) {
+            stdNo = 0;
+            mainSelect.innerHTML = "";
+            for (var l = 0; l < quiz.length; l++) {
+                AddSectionSelection(quiz[l].title);
+            }
+        }
+
+        async function getQuizSelection() {
+        //For section  
+        const dbRef = collection(db, 'quizzes');
+        const qs = await getDocs(dbRef);
+    
+        var quiz = [];
+        //console.log(qs);
+        qs.forEach(async (doc) => {
+            quiz.push(doc.data());
+        });
+
+
+        //get
+        createStartingSelection();
+        addAllQuizSelection(quiz);
+    }
+
+    getQuizSelection();
 
     </script>
     <script src="js/get-section.js" type="module"></script>

@@ -31,7 +31,7 @@ upload.onclick = function () {
 // also store files path in localstorage or in database for further use
 if(!localStorage.getItem("uploaded-metadata")){
     var metadata = '[]';
-    localStorage.setItem('uploaded-metadata', metadata)
+    localStorage.setItem('uploaded-metadata', metadata);
 }
 
 // get selected file and upload function
@@ -44,6 +44,8 @@ hiddenBtn.onchange = function () {
     var path = type + '/' + name;
     //Get the description value
     var fDesc = document.querySelector(".text-description").value;
+    //Upload section data
+    var sdc = document.getElementById("section-sdc").getAttribute("data-session-section");
 
     // now upload
     var storageRef = firebase.storage().ref(path);
@@ -89,6 +91,7 @@ hiddenBtn.onchange = function () {
                             fileUrl: url,
                             //Added File Description
                             fileDesc: fDesc,
+                            section: sdc,
                         });
                 })
                 .catch(function(err) {
@@ -112,41 +115,86 @@ var expandContainer = document.getElementsByClassName('expand-container')[0];
 var expandContainerUl = document.querySelector('.expand-container ul');
 var loader = document.getElementsByClassName('loader')[0];
 
-window.onload = showFilesList;
+window.onload = function() {setTimeout(showFilesList, 1000)};
 // make a function to show all files list
 function showFilesList(){
+    var a = document.querySelector("#section-sdc").getAttribute("data-session-section");
     // get data from localstorage
     var data = JSON.parse(localStorage.getItem('uploaded-metadata'));
+    console.log(data);
     // refresh all files on function reload
     document.getElementById('video').innerHTML = '';
     document.getElementById('audio').innerHTML = '';
     document.getElementById('image').innerHTML = '';
+    //var fileSdc = [];
+    /*
+    for (var l = 0; l < data.length; l++) {
+        console.log(l);
+        //get file info on server
+        db.collection(lessonCollectionName)
+        .where('filename', '==', data[l].split('/'))
+        .get()
+        .then(function(snapshot) {
+            snapshot.forEach(function(doc) {
+                
+                fileSdc.push(doc.data());
+                console.log(data[l].split('/'));
+            });
+        });
+    }
+    */
+    console.log(a);
     for(var i = 0; i < data.length; i++){
+            
+        //console.log(fileSdc, a++);
+        //test if same section with the current user
+    //if (document.getElementById("section-sdc").getAttribute("data-session-section") == fileSdc[i].section) {
         var folder_name = data[i].split('/')[0];
         var file_name = data[i].split('/')[1];
         var path = data[i];
-        if(folder_name == 'video'){
-            document.getElementById('video').innerHTML += `
-            <li data-name="${path}">
-                <span>${file_name}</span>
-                <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
-            </li>
-            `;
-        }else if(folder_name == 'audio'){
-            document.getElementById('audio').innerHTML += `
-            <li data-name="${path}">
-                <span>${file_name}</span>
-                <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
-            </li>
-            `;
-        }else{
-            document.getElementById('image').innerHTML += `
-            <li data-name="${path}">
-                <span>${file_name}</span>
-                <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
-            </li>
-            `;
-        }
+        console.log(file_name);
+        //Test for same section first before creating the element.
+        //Get data from the server
+        db.collection(lessonCollectionName)
+        .where('filename', '==', file_name)
+        .get()
+        .then(function(sp) {
+            sp.forEach((doc) => {
+                console.log(i);
+                console.log(doc.data());
+                var dfn = doc.data().filename;
+                //Check if matches with currently logged in user
+                if(doc.data().section == a) {
+                    //If match
+                    if(folder_name == 'video'){
+                        document.getElementById('video').innerHTML += `
+                        <li data-name="${path}">
+                            <span>${file_name}</span>
+                            <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
+                        </li>
+                        `;
+                    }else if(folder_name == 'audio'){
+                        document.getElementById('audio').innerHTML += `
+                        <li data-name="${path}">
+                            <span>${file_name}</span>
+                            <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
+                        </li>
+                        `;
+                    }else{
+                        document.getElementById('image').innerHTML += `
+                        <li data-name="${path}">
+                            <span>${dfn}</span>
+                            <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
+                        </li>
+                        `;
+                    }
+                } else {
+                    console.log("Will not print: " + file_name);
+                }
+            });
+        })
+    //}
+        
     }
 }
 

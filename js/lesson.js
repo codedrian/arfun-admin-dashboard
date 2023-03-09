@@ -88,6 +88,7 @@ hiddenBtn.onchange = function () {
                     db.collection(lessonCollectionName)
                         .add({
                             filename: name,
+                            filePath: path,
                             fileUrl: url,
                             //Added File Description
                             fileDesc: fDesc,
@@ -99,14 +100,15 @@ hiddenBtn.onchange = function () {
                 });
 
             // on successful upload
-            var metadata = JSON.parse(localStorage.getItem('uploaded-metadata'));
-            metadata.unshift(path);
-            localStorage.setItem("uploaded-metadata", JSON.stringify(metadata));
+            //var metadata = JSON.parse(localStorage.getItem('uploaded-metadata'));
+            //metadata.unshift(path);
+            //localStorage.setItem("uploaded-metadata", JSON.stringify(metadata));
             percent.innerHTML = 'DONE';
             upload.disabled = false;
             hiddenBtn.value = null;
-            // also refresh list on new upload
-            showFilesList();
+            // also refresh list/page on new upload
+            setTimeout(showFilesList, 3000);
+            
         }
     )
 }
@@ -115,88 +117,60 @@ var expandContainer = document.getElementsByClassName('expand-container')[0];
 var expandContainerUl = document.querySelector('.expand-container ul');
 var loader = document.getElementsByClassName('loader')[0];
 
-window.onload = function() {setTimeout(showFilesList, 1000)};
+window.onload = function() {setTimeout(showFilesList, 3000);};
 // make a function to show all files list
 function showFilesList(){
     var a = document.querySelector("#section-sdc").getAttribute("data-session-section");
-    // get data from localstorage
-    var data = JSON.parse(localStorage.getItem('uploaded-metadata'));
-    console.log(data);
     // refresh all files on function reload
     document.getElementById('video').innerHTML = '';
     document.getElementById('audio').innerHTML = '';
     document.getElementById('image').innerHTML = '';
-    //var fileSdc = [];
-    /*
-    for (var l = 0; l < data.length; l++) {
-        console.log(l);
-        //get file info on server
-        db.collection(lessonCollectionName)
-        .where('filename', '==', data[l].split('/'))
-        .get()
-        .then(function(snapshot) {
-            snapshot.forEach(function(doc) {
-                
-                fileSdc.push(doc.data());
-                console.log(data[l].split('/'));
-            });
-        });
-    }
-    */
     console.log(a);
-    for(var i = 0; i < data.length; i++){
-            
-        //console.log(fileSdc, a++);
-        //test if same section with the current user
-    //if (document.getElementById("section-sdc").getAttribute("data-session-section") == fileSdc[i].section) {
-        var folder_name = data[i].split('/')[0];
-        var file_name = data[i].split('/')[1];
-        var path = data[i];
-        console.log(file_name);
-        //Test for same section first before creating the element.
-        //Get data from the server
+        //Get list of files from the server
         db.collection(lessonCollectionName)
-        .where('filename', '==', file_name)
+        //.where('filename', '==', file_name)
         .get()
         .then(function(sp) {
             sp.forEach((doc) => {
-                console.log(i);
-                console.log(doc.data());
+                //console.log(doc.data());
                 var dfn = doc.data().filename;
+                var dfpth = doc.data().filePath;
+                var dffldr = doc.data().filePath.split('/')[0];
+                //console.log(dfn);
                 //Check if matches with currently logged in user
                 if(doc.data().section == a) {
                     //If match
-                    if(folder_name == 'video'){
+                    if(dffldr == 'video'){
                         document.getElementById('video').innerHTML += `
-                        <li data-name="${path}">
-                            <span>${file_name}</span>
+                        <li data-name="${dfpth}">
+                            <span>${dfn}</span>
                             <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
                         </li>
                         `;
-                    }else if(folder_name == 'audio'){
+                    }else if(dffldr == 'audio'){
                         document.getElementById('audio').innerHTML += `
-                        <li data-name="${path}">
-                            <span>${file_name}</span>
+                        <li data-name="${dfpth}">
+                            <span>${dfn}</span>
                             <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
                         </li>
                         `;
                     }else{
                         document.getElementById('image').innerHTML += `
-                        <li data-name="${path}">
+                        <li data-name="${dfpth}">
                             <span>${dfn}</span>
                             <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
                         </li>
                         `;
                     }
                 } else {
-                    console.log("Will not print: " + file_name);
+                    console.log("Will not print: " + dfn);
                 }
             });
         })
     //}
         
     }
-}
+//}
 
 // now make expand function to open more info
 function expand(v){
@@ -252,6 +226,7 @@ function openFile(v){
     .catch((error) => {
         // if any error
         console.log(error);
+        location.reload();
     })
 }
 
@@ -288,6 +263,7 @@ function downloadFile(v){
     .catch((error) => {
         // if any error
         console.log(error);
+        location.reload();
     })
 }
 
@@ -325,5 +301,6 @@ function deleteFile(v){
         shrink();
     }).catch((error) => {
         console.log(error);
+        location.reload();
     })
 }

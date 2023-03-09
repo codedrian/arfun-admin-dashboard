@@ -56,7 +56,7 @@ const qs = await getDocs(r);
 
 setTimeout(function() {
   document.querySelector("#dispName").textContent = JSON.parse(document.getElementById("sessionDataContainer").dataset.session).dispName;
-}, 1000);
+}, 100);
 
 loadUserData();
 

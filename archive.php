@@ -13,11 +13,63 @@
   <title>Arfun | Student</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
-  <link href="css/quiz-edit.css" rel="stylesheet" />
+  <!-- <link href="css/quiz-edit.css" rel="stylesheet" /> -->
   <!-- <link href="css/student.css" rel="stylesheet" /> -->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
   <style>
+
+.base {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    /* background-color: #198754;
+    color: white; */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.base h4, h2{
+    text-align: center;
+}
+.base span{
+    background: darkgreen;
+    font-size: x-large;
+    width: 20%;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    border-radius: 4px;
+}
+
+.base span:hover{
+    background:#198754 ;
+}
+.floating-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+    display: none;
+}
+.floating-window > .window {
+    position: fixed;
+    top: 50%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 220px;
+    background-color: #198754;
+    z-index: 11;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+
   #sort-data{
           position:relative;
             left:78%;
@@ -41,30 +93,36 @@
           color: white;
           font-weight: 300;
           border-radius: 3px;
-          margin:4px;
-          left:13%;
+          margin: 4px;
+
         }
 
         .window button:hover{
             background:blue;
           }
   
-           
-          #myBtn {
-          display: none;
-          position: fixed;
-          bottom: 20px; 
-          right: 30px; 
-          z-index: 99; 
-          border: none;
-          outline: none; 
-          background-color:rgb(3, 20, 97) ; 
-          color: white; 
-          cursor: pointer; 
-          padding: 15px; 
-          border-radius: 10px;
-          font-size: 18px; 
-          }
+        .window .buttons{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        padding: 20px;
+        }
+
+        #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px; 
+        right: 30px; 
+        z-index: 99; 
+        border: none;
+        outline: none; 
+        background-color:rgb(3, 20, 97) ; 
+        color: white; 
+        cursor: pointer; 
+        padding: 15px; 
+        border-radius: 10px;
+        font-size: 18px; 
+        }
 
         #myBtn:hover {
         background-color: blue; 
@@ -205,15 +263,19 @@
 
   <div class="floating-window">
     <div class="window">
+
       <select name="section" id="section">
         <option>Select a section</option>
       </select>
+
       <input type="number" required placeholder="School Year" id="school-year">
-      <button id="submitSectionSort">Sort Data (Section Only)</button>
-      <button id="submitSySort">Sort Data (School Year Only)</button>
-      <button id="submitBothSort">Sort Data (Both)</button>
-      <button id="resetSectionSort">Reset</button>
-      <button id="closeSectionSort">Close</button>
+      <div class="buttons">
+          <button id="submitSectionSort">Sort Data (Section Only)</button>
+          <button id="submitSySort">Sort Data (School Year Only)</button>
+          <button id="submitBothSort">Sort Data (Both)</button>
+          <button id="resetSectionSort">Reset</button>
+          <button id="closeSectionSort">Close</button>
+      </div>              
     </div>
   </div>
 

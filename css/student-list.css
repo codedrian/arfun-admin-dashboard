@@ -75,13 +75,15 @@
         background:blue;
     }
 
-    #section{
-          position: relative;
-          left:15%;
-          margin:10px;
+
+  
+    .window .sel{
+      display: flex;
+      justify-content: center;
+          margin:7px;
     }
 
-    #submitSectionSort{
+    /* #submitSectionSort{
       position: relative;
       margin: 10px;
       left:15%;
@@ -100,7 +102,7 @@
       left:50%;
       top:-34%;
       margin:10px;
-    }
+    } */
 
     .window button{
       background: rgb(3, 20, 97);
@@ -108,11 +110,20 @@
       color: white;
       font-weight: 300;
       border-radius: 3px;
+      margin: 4px;
     }
 
     .window button:hover{
       background:blue;
     }
+
+    .window .buttons{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      
+      }
+  
 
     
     #myBtn {

@@ -157,12 +157,19 @@
 
   <div class="floating-window">
     <div class="window">
+
+      <div class="sel">
       <select name="section" id="section">
         <option>Select a section</option>
       </select>
-      <button id="submitSectionSort">Sort Data</button>
-      <button id="resetSectionSort">Reset</button>
-      <button id="closeSectionSort">Close</button>
+      </div>
+
+      <div class="buttons">
+          <button id="submitSectionSort">Sort Data</button>
+          <button id="resetSectionSort">Reset</button>
+          <button id="closeSectionSort">Close</button>
+      </div>
+      
     </div>
   </div>
 

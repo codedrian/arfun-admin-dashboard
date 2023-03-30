@@ -56,6 +56,8 @@
             left:11%;
         } */
 
+
+        /* start of Floating Window */
         .window button{
           position: relative;
           background: rgb(3, 20, 97);
@@ -64,6 +66,7 @@
           font-weight: 300;
           border-radius: 3px;
           margin:4px;
+          /* display: flex; */
           /* left:5%; */
         }
 
@@ -71,7 +74,19 @@
             background:blue;
           }
 
-          .window #resetSectionSort{
+        .window .buttons{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        
+        }
+
+        .window .selects{
+        display: flex;
+        justify-content:center;
+        
+        }
+          /* .window #resetSectionSort{
             position:relative;
             left:30%;
             margin-top:10px;
@@ -81,7 +96,9 @@
             position:relative;
             left:30%;
             margin-top:10px;
-          }
+          } */
+
+         /* end of Floating Window */
         
           #myBtn {
           display: none;
@@ -271,17 +288,23 @@
 
     <div class="floating-window">
     <div class="window">
-      <select name="section" id="section">
-        <option>Select a section</option>
-      </select>
-      <select name="quiz" id="quiz-number">
-        <option>Choose a Quiz</option>
-      </select>
-      <button id="submitSectionSort">Sort Data</button>
-      <button id="submitReportSort">Get Class Report</button>
-      <button id="loadNt">Load NT</button>
-      <button id="resetSectionSort">Reset</button>
-      <button id="closeSectionSort">Close</button>
+
+        <div class="selects">
+            <select name="section" id="section">
+                <option>Select a section</option>
+            </select>
+            <select name="quiz" id="quiz-number">
+                <option>Choose a Quiz</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button id="submitSectionSort">Sort Data</button>
+            <button id="submitReportSort">Get Class Report</button>
+            <button id="loadNt">Load NT</button>
+            <button id="resetSectionSort">Reset</button>
+            <button id="closeSectionSort">Close</button>
+        </div>
     </div>
   </div>
   <script>

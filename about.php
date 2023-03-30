@@ -39,6 +39,7 @@
             color: #fff;
             padding:10px;
             opacity:0.9;
+            padding:30px;
         }
         .main-top p{
             text-align: justify;
@@ -55,6 +56,7 @@
             top:120px;
             min-height:50%;
             opacity:0.9;
+            padding:5px;
         }
         
         .main-content .dev-info{
@@ -132,7 +134,7 @@
         <div class="content">
             <div class="main-top">
                 <h2>About ArFun</h2>
-                <p>ARFUN is an e-learning mobile application that contains lessons about the Araling Panlipunan subject. The web and mobile applications offers features that can help the students and teachers studying the subject and also it will give them great experience while learning. </p>
+                <p>ARFUN is a mobile e-learning program that offers lessons on the Araling Panlipunan topic. The web and mobile applications provide features that can assist instructors and students in understanding the material, and they will also enhance their educational experience. </p>
             </div>
                 <div class="main-content">
                     <h2>Who we are?</h2>

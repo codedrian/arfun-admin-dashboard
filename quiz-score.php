@@ -219,7 +219,7 @@
                                                                 <tbody id="tbody1"></tbody>
                                                             </table>
 
-                                                            <h3>Not Taken</h3>
+                                                            <h3>Have Not Answered Yet</h3>
                                                             <span>Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>
                                                             <table class="table table-striped">
 

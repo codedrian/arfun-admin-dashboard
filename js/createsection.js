@@ -1,6 +1,6 @@
 
-import { 
-    doc, 
+import {
+    doc,
     addDoc,
     getFirestore,
     collection,
@@ -40,8 +40,8 @@ var db = getFirestore()
                 const docRef = await addDoc(dbRef, {
                     section: a.value,
                 });
-                alert("Successfulyy Added " + a.value);
-                
+                alert("Successfully Added " + a.value);
+
             }
             location.reload();
         });

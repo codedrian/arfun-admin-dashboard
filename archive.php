@@ -70,63 +70,63 @@
 }
 
 
-  #sort-data{
-          position:relative;
-            left:78%;
-            padding:5px;
-            background:rgb(3, 20, 97);
-            border:none;
-            border-radius:2px;
-            color:white;
-            font-size:18px;
-            width:90px;
-        } 
+#sort-data{
+position:relative;
+left:78%;
+padding:10px;
+background:rgb(3, 20, 97);
+border:none;
+border-radius:10px;
+color:white;
+font-size:18px;
+width:100px;
+} 
 
-        #sort-data:hover{
-          background:blue;
-        }
+#sort-data:hover{
+  background:blue;
+}
 
-        .window button{
-          position: relative;
-          background: rgb(3, 20, 97);
-          border: none;
-          color: white;
-          font-weight: 300;
-          border-radius: 3px;
-          margin: 4px;
+.window button{
+  position: relative;
+  background: rgb(3, 20, 97);
+  border: none;
+  color: white;
+  font-weight: 300;
+  border-radius: 3px;
+  margin: 4px;
 
-        }
+}
 
-        .window button:hover{
-            background:blue;
-          }
-  
-        .window .buttons{
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        padding: 20px;
-        }
+.window button:hover{
+    background:blue;
+  }
 
-        #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px; 
-        right: 30px; 
-        z-index: 99; 
-        border: none;
-        outline: none; 
-        background-color:rgb(3, 20, 97) ; 
-        color: white; 
-        cursor: pointer; 
-        padding: 15px; 
-        border-radius: 10px;
-        font-size: 18px; 
-        }
+.window .buttons{
+display: flex;
+flex: 1;
+justify-content: center;
+padding: 20px;
+}
 
-        #myBtn:hover {
-        background-color: blue; 
-        }
+#myBtn {
+display: none;
+position: fixed;
+bottom: 20px; 
+right: 30px; 
+z-index: 99; 
+border: none;
+outline: none; 
+background-color:rgb(3, 20, 97) ; 
+color: white; 
+cursor: pointer; 
+padding: 15px; 
+border-radius: 10px;
+font-size: 18px; 
+}
+
+#myBtn:hover {
+background-color: blue; 
+}
 </style>
 
 </head>

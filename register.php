@@ -21,10 +21,10 @@
         #download-table{
             position:relative;
             left:83%;
-            padding:5px;
+            padding:10px;
             background:rgb(3, 20, 97);
             border:none;
-            border-radius:2px;
+            border-radius:10px;
             color:white;
             font-size:18px;
         }

@@ -29,8 +29,8 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size:13px;
-            border-radius:3px;
+            font-size:18px;
+            border-radius:10px;
         }
 
         #quizzes a:hover, a:active {
@@ -106,7 +106,7 @@
             <main>
 
             <div id="quizzes">
-                    <a href="quiz-edit.php" class="view-quiz">View Quiz</a>
+                    <a href="quiz-edit.php" class="view-quiz">Quizzes</a>
                     </div>
 
                 <div class="container-fluid px-4">

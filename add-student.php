@@ -17,54 +17,56 @@
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
   <style>
-    #archive-all{
-        position: relative;
-		left: 50%;
-		display: inline-block;
-        padding: 8px 15px;
-        background: rgb(3, 20, 97);
-        border:none;
-        border-radius: 10px;
-        color:white;
-        font-size:18px;
-        }
-        #archive-all:hover{
-          background:blue;
-        }
-        #download-table{
-            position: relative;
-			left: 50%;
-			display: inline-block;
-			padding: 8px 15px;
-			background: rgb(3, 20, 97);
-			border:none;
-			border-radius: 10px;
-			color:white;
-			font-size:18px;
-        }
-        #download-table:hover{
-            background:blue;
-        }
 
-        #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        z-index: 99;
-        border: none;
-        outline: none;
-        background-color:rgb(3, 20, 97) ;
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        border-radius: 10px;
-        font-size: 18px;
-        }
+  #archive-all{
+  position: relative;
+  left: 56%;
+  display: inline-block;
+  padding: 8px 15px;
+  background: rgb(3, 20, 97);
+  border:none;
+  border-radius: 10px;
+  color:white;
+  font-size:18px;
+  }
 
-        #myBtn:hover {
-        background-color: blue;
-        }
+  #archive-all:hover{
+    background:blue;
+  }
+  #download-table{
+      position: relative;
+      left: 56%;
+      display: inline-block;
+      padding: 8px 15px;
+      background: rgb(3, 20, 97);
+      border:none;
+      border-radius: 10px;
+      color:white;
+      font-size:18px;
+  }
+  #download-table:hover{
+      background:blue;
+  }
+
+  #myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color:rgb(3, 20, 97) ;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  }
+
+  #myBtn:hover {
+  background-color: blue;
+  }
   </style>
 </head>
 

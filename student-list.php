@@ -1,3 +1,6 @@
+<?php
+  include('authentication.php');
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +22,7 @@
 </head>
 
 <body class="sb-nav-fixed">
-  <?php
-  include('authentication.php');
-  ?>
+
   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="index.php">
@@ -177,6 +178,7 @@
     var sessionData = <?php echo json_encode($_SESSION);?>;
   </script>
   <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+  <div id="section-sdc" data-session-section=""></div>
   
   <script type="module" src="js/fetch-student.js"></script>
   <script src="js/get-section.js" type="module"></script>

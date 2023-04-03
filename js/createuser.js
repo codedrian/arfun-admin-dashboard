@@ -25,12 +25,10 @@ if (registerBtn != null) {
     var midName = document.querySelector('[name="midName"]');
     var lastName = document.querySelector('[name="lastName"]');
     var email = document.querySelector('[name="email"]');
-    var section = document.querySelector('[name="section"]');
     firstName.setAttribute("disabled", "");
     midName.setAttribute("disabled", "");
     lastName.setAttribute("disabled", "");
     email.setAttribute("disabled", "");
-    section.setAttribute("disabled", "");
 
     var phone;
     var idNum;

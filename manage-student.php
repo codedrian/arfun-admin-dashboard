@@ -1,3 +1,6 @@
+<?php
+    include('authentication.php');
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +20,6 @@
 </head>
 
 <body class="sb-nav-fixed">
-    <?php
-    include('authentication.php');
-    ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.html">ArFun E-Learning</a>

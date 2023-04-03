@@ -7,7 +7,7 @@ function AddItem(_name, _uid, _email, _phone) {
   let td1 = document.createElement("td");
   let td1_1 = document.createElement("td");
   let td1_2 = document.createElement("td");
-  let td2 = document.createElement("td");
+  // let td2 = document.createElement("td");
   let td3 = document.createElement("td");
   let td4 = document.createElement("td");
 

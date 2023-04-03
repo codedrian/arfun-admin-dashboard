@@ -208,7 +208,7 @@
                                                                     <th>Middle Name</th>
                                                                     <th>Last Name</th>
                                                                     <th>Section</th>
-                                                                    <th>UID</th>
+                                                                    <!-- <th>UID</th> -->
                                                                     <th>Date Completed</th>
                                                                     <th>Score</th>
                                                                     <th>Items</th>
@@ -228,7 +228,7 @@
                                                                     <th>Middle Name</th>
                                                                     <th>Last Name</th>
                                                                     <th>Section</th>
-                                                                    <th>UID</th>
+                                                                    <!-- <th>UID</th> -->
                                                                     <th>Quiz Title</th>
 
 
@@ -328,7 +328,7 @@
             let td1_1 = document.createElement("td");
             let td1_2 = document.createElement("td");
             let td1_3 = document.createElement("td");
-            let td2 = document.createElement("td");
+            // let td2 = document.createElement("td");
             let td3 = document.createElement("td");
             let td4 = document.createElement("td");
             let td5 = document.createElement("td");
@@ -338,7 +338,7 @@
             td1_1.innerHTML = name.midName;
             td1_2.innerHTML = name.lastName;
             td1_3.innerHTML = name.section;
-            td2.innerHTML = _uid;
+            // td2.innerHTML = _uid;
             td3.innerHTML = _dateCompleted;
             td4.innerHTML = _description;
             td5.innerHTML = _items;
@@ -349,7 +349,7 @@
             trow.appendChild(td1_1); //this should conatin the name
             trow.appendChild(td1_2); //this should conatin the name
             trow.appendChild(td1_3); //this should conatin the section
-            trow.appendChild(td2);
+            // trow.appendChild(td2);
             trow.appendChild(td3);
             trow.appendChild(td4);
             trow.appendChild(td5);
@@ -392,7 +392,7 @@
             td1_1.innerHTML = name.midName;
             td1_2.innerHTML = name.lastName;
             td1_3.innerHTML = name.section;
-            td1_4.innerHTML = name.uid;
+            // td1_4.innerHTML = name.uid;
             td2.innerHTML = _quizTitle;
 
 
@@ -400,7 +400,7 @@
             trow.appendChild(td1_1); //this should conatin the name
             trow.appendChild(td1_2); //this should conatin the name
             trow.appendChild(td1_3); //this should conatin the section
-            trow.appendChild(td1_4);
+            // trow.appendChild(td1_4);
             trow.appendChild(td2);
 
 

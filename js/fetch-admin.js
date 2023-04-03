@@ -15,14 +15,14 @@ function AddItem(_name, _uid, _email, _phone) {
   td1.textContent = _name.firstName;
   td1_1.textContent = _name.midName;
   td1_2.textContent = _name.lastName;
-  td2.textContent = _uid;
+  // td2.textContent = _uid;
   td3.textContent = _email;
   td4.textContent = _phone;
 
   trow.appendChild(td1);
   trow.appendChild(td1_1);
   trow.appendChild(td1_2);
-  trow.appendChild(td2);
+  // trow.appendChild(td2);
   trow.appendChild(td3);
   trow.appendChild(td4);
 

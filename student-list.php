@@ -19,6 +19,17 @@
   <link rel="stylesheet" href="css/quiz-edit.css">
   <link href="css/student-list.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+  <style>
+      table td:last-child:hover{
+      background-color:lightblue;
+      border-radius: 10px;
+    }
+
+    table td:last-child{
+      cursor:pointer;
+    }
+  </style>
 </head>
 
 <body class="sb-nav-fixed">

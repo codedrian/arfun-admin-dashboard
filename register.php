@@ -174,7 +174,7 @@
                                                                         <th>First name</th>
                                                                         <th>Middle name</th>
                                                                         <th>Last name</th>
-                                                                        <th>User ID</th>
+                                                                        <!-- <th>User ID</th> -->
                                                                         <th>Email</th>
                                                                         <th>Phone</th>
                                                                                                                  </thead>

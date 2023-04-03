@@ -130,6 +130,15 @@ font-size: 18px;
 #myBtn:hover {
 background-color: blue; 
 }
+
+table td:last-child:hover{
+  background-color:lightblue;
+  border-radius: 10px;
+}
+
+table td:last-child{
+  cursor:pointer;
+}
 </style>
 
 </head>

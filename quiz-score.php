@@ -647,7 +647,18 @@
         function fetchNtDataAsync() {
             return new Promise(async (resolve, reject) => {
                 try {
-                    const sectionSortData = document.querySelector("#section-sdc").getAttribute("data-session-section");
+                    let sectionSortData;
+                    let sd = document.getElementById("sessionDataContainer").dataset.session; 
+                    sd = JSON.parse(sd); 
+
+                    if (sd.role = "admin") {
+                        sectionSortData = document.querySelector("#section").value;
+                    } else if (sd.role = "teacher") {
+                        sectionSortData = document.querySelector("#section-sdc").getAttribute("data-session-section");
+                    } else {
+                        let sectionSortData = undefined;
+                        console.log("Error: " + sectionSortData)
+                    }
                     const quizSortData = document.querySelector("#quiz-number").value;
 
                     if (quizSortData == 0 || quizSortData == undefined) {

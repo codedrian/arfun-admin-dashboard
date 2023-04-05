@@ -72,6 +72,7 @@
 html,body {
   margin: 0px;
   padding: 0px;
+  scroll-behavior: smooth;
 }
 .mx-auto {
   display: flex;
@@ -4081,20 +4082,16 @@ textarea.form-control-lg {
   justify-content: space-between;
 }
 .navbar-brand {
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
-  /* margin: 10px; */
-  /* font-size: 1.25rem; */
-  text-align: center;
-  text-decoration: none;
-  /* white-space: nowrap; */
-  width: 50%;
-  border-radius: 10px;
-  /* border: 2px solid #fff; */
-  /* border-color: #06357a; */
-  font-size: 15px;
-  /* background: rgb(4, 110, 78); */
+    font-size: 20px;
+    text-decoration: none;
 }
+
+.navbar-brand a{
+  padding:0;
+  margin:0;
+  display:flex;
+}
+
 .navbar-nav {
   display: flex;
   flex-direction: column;
@@ -11345,15 +11342,20 @@ body {
 }
 
 .sb-topnav {
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  color:white;
   background: #198754;
-  padding-left: 0;
-  height: 56px;
-  z-index: 1039;
- 
+  padding-top: 0;
 }
+
+.sb-topnav li{
+  text-align: center;
+}
+
 .sb-topnav .navbar-brand {
-  width: 225px;
-  margin: 0;
+  font-size: 20px;
 }
 
 .sb-topnav.navbar-dark #sidebarToggle {
@@ -11363,12 +11365,41 @@ body {
   color: #212529;
 }
 
+@media (max-width:450px){
+  .sb-topnav{
+    flex-direction:column;
+    align-items:flex start;
+}
+
+  .sb-topnav ul{
+   justify-content: center;
+    width:100%;
+  }
+
+  .sb-topnav .btn-link{
+    width:100%;
+  }
+
+  main .contents{
+    position: relative;
+    top:90px;
+  }
+
+  .sb-sidenav-menu{
+    position: relative;
+    top: 3rem;
+
+  }
+
+}
+
 .sb-sidenav {
   display: flex;
   flex-direction: column;
   height: 100%;
   flex-wrap: nowrap;
 }
+
 .sb-sidenav .sb-sidenav-menu {
   flex-grow: 1;
 }
@@ -11695,12 +11726,9 @@ body {
   border-radius: 50%;
 }
 
-
-
-.header-main{
+.header-main .sch-name{
   position: relative;
-  background-color: #06357A;
-  max-height: 100%;  
+  background-color: #06357A; 
   font-weight: bold;
   font-size: 25px;
   padding: 10px 15px;
@@ -11709,7 +11737,7 @@ body {
   border-radius: 15px;  
   border: 5px solid rgb(4, 110, 78);
   box-shadow: 0 20px 35px rgb(0,0,0,0.1);
-  
+  width: 97.5%;
 }
 
 .schlogo{

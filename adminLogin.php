@@ -46,7 +46,7 @@ height: 12%;
 <div class="bg-image">
     <nav class="navbar">
         <div class="logo">
-                <img src="assets/img/logo.png" alt="logo" width="56" height="56" class="logo">
+                <img src="assets/img/logo.png" alt="logo" width="56" height="56" class="logo-img">
                 Arfun
         </div>
 

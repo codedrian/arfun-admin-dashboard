@@ -38,7 +38,7 @@ include('authentication.php');
     background-color: rgba(0,0,0,0.8);
     z-index: 10;
     display: none;
-   
+
 }
 .floating-window > .window {
     position: fixed;
@@ -158,37 +158,37 @@ include('authentication.php');
                   <p>Profile Picture</p>
                   <img width="100px" src="" class="dp">
                   <button id="upload-btn" disabled>Upload Photo</button>
-                </div>
+                </div><br>
                 <div class="col-xs-4">
                   <label for="firstName">First Name</label>
                   <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName"
                     required disabled>
-                </div>
+                </div><br>
 
                 <div class="col-xs-4">
                   <label for="midName">Middle Name</label>
                   <input type="text" class="form-control" id="midName" placeholder="Middle name" name="midName"
                     required disabled>
-                </div>
+                </div><br>
 
                 <div class="col-xs-4">
                   <label for="lastName">Last Name</label>
                   <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName"
                     required disabled>
-                </div>
+                </div><br>
                 <div class="col-xs-4">
                   <label for="lastName">Email</label>
                   <input type="text" class="form-control" id="email" placeholder="Email" name="email"
                     required disabled>
-                </div>
+                </div><br>
                 <div class="col-xs-4">
                   <label for="lastName">Mobile Number</label>
                   <input type="number" class="form-control" id="mnos" placeholder="Mobile Number" name="mnos"
                     required disabled>
                 </div>
-                <div class="form-group col-xs-4">
-                  <span class="section">section</span><br>
-                  <span class="uid">uid</span>
+                <div class="form-group col-xs-4"><br>
+                  <span class="section">section</span>
+                  <!-- <span class="uid">uid</span> -->
                 </div>
 
                 <button type="button" class="btn btn-primary submitEdits mt-4 btn-sm" name="submit_edits"
@@ -206,7 +206,7 @@ include('authentication.php');
             ?>
 
             <!-- Student list table starts here... -->
-            
+
           </div>
 
       </main>
@@ -227,7 +227,7 @@ include('authentication.php');
     <div class="window">
       <img src="" width="100px" class="dp">
       <form id="submitFDP" action="javascript:void(0)">
-        <input type="file" name="profilePicture" id="uDp">  
+        <input type="file" name="profilePicture" id="uDp">
         <span class="progress"><span id="upd-bytes">0</span>b/<span id="tt-bytes">0</span>b</span>
         <span id="perc-prog">0%</span>
         <span id="up-status">Waiting</span>

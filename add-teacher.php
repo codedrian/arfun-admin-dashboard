@@ -22,7 +22,6 @@
     <style>
         #download-table{
             position:relative;
-            left:69%;
             padding:10px;
             background:rgb(3, 20, 97);
             border:none;
@@ -125,7 +124,7 @@
                                                 unset($_SESSION['status']);
                                             }
                                             ?>
-
+                                        <div class="form-body">
                                             <div class="card w-50 p-3">
                                                 <div class="card-header">
                                                     <h4>
@@ -175,21 +174,19 @@
                                                         name="register_button" id="submitData">Submit</button>
                                                 </form>
                                             </div>
-
+                                        </div>
 
 
                                             <div class="container mt-3">
                                                 <div class="">
                                                     <div class="col-md-12">
                                                         <div class="card">
-                                                            <div class="card-header">
+                                                            <div class="teach-header">
                                                                 <h4>
                                                                     Teachers List
-                                                                    
-                                                                    <button id="download-table">Download Table Data</button>
-                                                                    <div class="download-link"></div>
-
                                                                 </h4>
+                                                                <button id="download-table">Download Table Data</button>
+                                                                <div class="download-link"></div>
                                                             </div>
                                                             <div class="card-body">
                                                                 <table class="table table-bordered table-striped">

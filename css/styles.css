@@ -3505,10 +3505,11 @@ textarea.form-control-lg {
   font-weight: 400;
   color: #0d6efd;
   text-decoration: underline;
+
 }
-.btn-link:hover {
+/* .btn-link:hover {
   color: #0a58ca;
-}
+} */
 .btn-link:disabled, .btn-link.disabled {
   color: #6c757d;
 }
@@ -6868,14 +6869,31 @@ textarea.form-control-lg {
 }
 
 .w-50 {
-  width: 35% !important;
+  /* width: 35% !important; */
   position: relative;
-  color: #fff;
-  margin: 40px;
+  display:flex;
+  width: 100%;
+  color: black;
+  margin: 60px;
   border-radius: 30px;
-  background: rgb(4, 110, 78);
-  text-align: center;
-  box-shadow: 0 20px 35px rgba(89, 194, 40, 0.1);
+  /* background: rgb(4, 110, 78); */
+  flex-direction: column;
+  align-items: center;
+  /*   */
+}
+
+
+/*responsive Add Form */
+
+@media (max-width:500){
+  .w-50{
+    display: block;
+    width:100%;
+  }
+
+  .w-50 .add-body{
+    width:81%;
+  }
 }
 
 .w-75 {
@@ -7241,15 +7259,17 @@ textarea.form-control-lg {
 }
 
 .mt-3 {
-  margin-top: 1rem !important;
+  margin-top: 2rem !important;
+  align-content: center;
+  width:100%; 
 }
 
 .mt-4 {
-  margin-top: 1.5rem !important;
+ margin-top: 1rem !important;
 }
 
 .mt-5 {
-  margin-top: 3rem !important;
+  margin-top: 2rem !important;
   align-content: center;
   width:100%;
 }
@@ -11696,19 +11716,19 @@ body {
 
 /* add student form */
 
-.w-50{
-  position: relative;
-  left:30%;
+.form-body{
+  display: flex;
+  width: 100%;
 }
+
+
 
 .w-50 .add-body{
   position: relative;
   padding: 20px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.377);
+  background-color: #055160;
   border-radius: 10px;
   box-shadow: 0 20px 35px rgb(0,0,0,0.1);
-  
 }
 
 .w-50 .add-body .btn{
@@ -11719,6 +11739,205 @@ body {
   
 }
 
+
+
+@media (max-width:500) {
+
+    .form-body{
+      flex-direction:column;
+      align-items:flex start;
+    }
+
+    .form-body .w-50{
+      justify-content: center;
+      flex-direction: column;
+      width:50%;
+      padding-top: 0;
+    }
+}
+
+
+
+    .admin-header, .teach-header,  .archive-header,
+     .addStud-header {
+      display:flex;
+      justify-content:space-between;
+      align-items: center;
+      padding-top: 0;
+      
+    }
+
+    .admin-header #download-table, .teach-header #download-table{
+      left:34%;
+    }
+
+    .archive-header #sort-data{
+      left:-1%;
+    }
+
+    .student-header{
+      display:flex;
+      /* justify-content:space-between; */
+      gap: .3rem;
+      align-items: center;
+     
+    }
+
+    .quiz-header{
+      display:flex;
+      gap: .3rem;
+      align-items: center;
+    }
+
+   
+
+
+   
+
+/*table responsive*/
+
+@media (max-width: 500px){
+  
+  .table thead{
+    display: none;
+  }
+
+  .table, .table tbody, .table tr, .table td{
+    display: block;
+    width: 100%;
+  }
+
+  .table tr{
+    margin-bottom: 15px;
+  }
+
+  .table td{
+    text-align: right;
+    padding-left: 50%;
+    position:relative;
+    font-size: 12px;
+  }
+
+
+  /* .table td::before{
+    content: attr("");
+    position: absolute;
+    left:0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  } */
+
+  /* Responsive table Header & buttons*/
+
+  .admin-header, .teach-header, .student-header, .quiz-header,
+  .addStud-header{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .admin-header #download-table, .teach-header #download-table 
+  {
+     justify-content: center;
+     width:70%;
+     margin-bottom: 5px;
+     left: 0;
+     font-size: 18px;
+  } 
+
+  .student-header{
+     margin-top:10%;
+  }
+
+  .quiz-header{
+    margin-top: 30%;
+  }
+
+  .archive-header{
+    margin-top:10%;
+  }
+
+  /* .addStud-header{
+    left:10%;
+  } */
+
+ /* Student List header*/
+  .student-header #download-table{
+     justify-content: center;
+     width:70%;
+     margin-bottom: 4px;
+     left: 0;
+     font-size: 18px;
+  } 
+
+   .student-header #sort-data{
+     justify-content: center;
+     width:70%;
+     margin-bottom: 4px;
+     left: 0;
+     font-size: 18px;
+  } 
+
+   .student-header #archive-all{
+     justify-content: center;
+     width:70%;
+     margin-bottom: 4px;
+     left: 0;
+     font-size: 18px;
+  } 
+
+  /*quiz-header */
+  .quiz-header #download-table{
+    justify-content: center;
+    margin-bottom: 5px;
+    left: 0;
+    font-size: 18px;
+   
+ } 
+  .quiz-header #sort-data{
+    justify-content: center;
+    margin-bottom: 5px;
+    left: 0;
+    font-size: 18px;
+   
+ } 
+
+
+/*archive header */
+ .archive-header #sort-data{
+  justify-content: center;
+  width:30%;
+  margin-bottom: 4px;
+  font-size: 18px;
+} 
+
+/*add Student Header */
+.addStud-header #download-table{
+  justify-content: center;
+  width:70%;
+  margin-bottom: 4px;
+  font-size: 18px;
+
+ }
+
+ .addStud-header #archive-all{
+  justify-content: center;
+  width:70%;
+  margin-bottom: 4px;
+  left: 0;
+  font-size: 18px;
+ 
+ }
+
+  .card #myBtn{
+    display: block;
+    width: 55px;
+  } 
+
+ 
+}
 
 /* app logo */
 

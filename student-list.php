@@ -29,6 +29,26 @@
     table td:last-child{
       cursor:pointer;
     }
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px; 
+        right: 30px; 
+        z-index: 99; 
+        border: none;
+        outline: none; 
+        background-color:rgb(3, 20, 97) ; 
+        color: white; 
+        cursor: pointer; 
+        padding: 15px; 
+        border-radius: 10px;
+        font-size: 18px; 
+        }
+
+        #myBtn:hover {
+        background-color: blue; 
+        }
   </style>
 </head>
 
@@ -91,21 +111,20 @@
 
             <!-- Student list table starts here... -->
             <div class="container mt-3">
-              <div class="">
                 <div class="col-md-12">
                   <div class="card">
-                    <div class="card-header">
+                    <div class="student-header">
                       <h4>
                         Students List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                     
+                      </h4>
                       <button id="archive-all">Archive All</button>
                       <button id="sort-data">Sort Data</button>
                      
                       <button id="download-table">Download Table Data</button>
                       <div class="download-link"></div>
-                      </h4>
                     </div>
+
                     <div class="card-body">
                       <table class="table table-bordered table-striped">
                         <thead>

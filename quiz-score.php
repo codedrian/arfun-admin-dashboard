@@ -190,17 +190,20 @@
                                             ?>
 
                                             <div class="container mt-3">
+                                            <div class="">
                                                 <div class="col-md-12">
+                                              
                                                     <div class="card">
-                                                        <div class="card-header">
+                                                        <div class="quiz-header">
                                                             <h3>Student Scores
+                                                            
+                                                            </h3>
                                                             <button id="sort-data">Sort Data</button>
-                                                           
                                                             <button id="download-table">Download Table Data</button>
                                                             <div class="download-link"></div>
-                                                            </h3>
                                                         </div>
                                                         <div class="card-body">
+                                                        <span>Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>x
                                                             <table class="table table-striped">
 
                                                                 <thead>
@@ -220,7 +223,7 @@
                                                             </table>
 
                                                             <h3>Have Not Answered Yet</h3>
-                                                            <span>Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>
+                                                           
                                                             <table class="table table-striped">
 
                                                                 <thead>
@@ -236,6 +239,7 @@
                                                                 <tbody id="tbody2"></tbody>
                                                             </table>
                                                         </div>
+                                                    
                                                         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
                                                         <script>
@@ -287,25 +291,25 @@
     </div>
 
     <div class="floating-window">
-    <div class="window">
+        <div class="window">
+                                                        
+            <div class="selects">
+                <select name="section" id="section">
+                    <option>Select a section</option>
+                </select>
+                <select name="quiz" id="quiz-number">
+                    <option>Choose a Quiz</option>
+                </select>
+            </div>
 
-        <div class="selects">
-            <select name="section" id="section">
-                <option>Select a section</option>
-            </select>
-            <select name="quiz" id="quiz-number">
-                <option>Choose a Quiz</option>
-            </select>
+            <div class="buttons">
+                <button id="submitSectionSort">Sort Data</button>
+                <button id="submitReportSort">Get Class Report</button>
+                <button id="loadNt">Load NT</button>
+                <button id="resetSectionSort">Reset</button>
+                <button id="closeSectionSort">Close</button>
+            </div>
         </div>
-
-        <div class="buttons">
-            <button id="submitSectionSort">Sort Data</button>
-            <button id="submitReportSort">Get Class Report</button>
-            <button id="loadNt">Load NT</button>
-            <button id="resetSectionSort">Reset</button>
-            <button id="closeSectionSort">Close</button>
-        </div>
-    </div>
   </div>
   <script>
         var sessionData = <?php echo json_encode($_SESSION);?>;

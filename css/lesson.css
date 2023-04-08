@@ -11,7 +11,7 @@ h2.title{
     color: white;
 }
 #layoutSidenav_content .upload-area{
-    text-align: left;
+    /* text-align: left; */
     max-width: 100%;
     margin: 30px 30px -10px 30px;
     padding: 10px;   
@@ -231,3 +231,11 @@ h4{
     #myBtn:hover {
     background-color: blue; 
     }
+
+
+@media (max-width:500){
+    #layoutSidenav_content .upload-area{
+        display: block;
+        margin-top: 30%;
+    }
+}

@@ -23,7 +23,7 @@
 
   #archive-all{
   position: relative;
-  left: 56%;
+  /* left: 56%; */
   display: inline-block;
   padding: 8px 15px;
   background: rgb(3, 20, 97);
@@ -38,7 +38,7 @@
   }
   #download-table{
       position: relative;
-      left: 56%;
+      /* left: 56%; */
       display: inline-block;
       padding: 8px 15px;
       background: rgb(3, 20, 97);
@@ -131,6 +131,7 @@
               </div>
             </div>
 
+          <div class="form-body">
             <div class="card w-50 p-3">
               <div class="card-header">
                 <h4>
@@ -177,6 +178,7 @@
                   id="submitData">Submit</button>
               </form>
             </div>
+            </div>
 
             <?php
 
@@ -190,15 +192,16 @@
               <div class="">
                 <div class="col-md-12">
                   <div class="card">
-                    <div class="card-header">
+                    <div class="addStud-header">
                       <h4>
-                        Student List
+                        Students List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                        <button id="archive-all">Archive All</button>
+                        
+                      </h4>
+                      <button id="archive-all">Archive All</button>
 
                         <button id="download-table">Download Table Data</button>
                         <div class="download-link"></div>
-                      </h4>
                     </div>
                     <div class="card-body">
                       <table class="table table-bordered table-striped">

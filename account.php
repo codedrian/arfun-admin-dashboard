@@ -145,7 +145,7 @@ include('authentication.php');
                 </div>
               </div>
             </div>
-
+        <div class="form-body">
             <div class="card w-50 p-3">
               <div class="card-header">
                 <h4>
@@ -197,6 +197,7 @@ include('authentication.php');
                   id="startEdits">Edit Data</button>
               </div>
             </div>
+          </div>
 
             <?php
 

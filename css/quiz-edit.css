@@ -26,6 +26,7 @@
     background:#198754 ;
 }
 .floating-window {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,15 +37,35 @@
     display: none;
 }
 .floating-window > .window {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
     position: fixed;
     top: 50%;
-    left: 57%;
+    left: 54%;
     transform: translate(-50%, -50%);
     width: 350px;
-    height: 15s0px;
+    height: 150px;
     background-color: #198754;
     z-index: 11;
     border-radius: 4px;
     padding: 10px;
 }
+
+
+
+@media (max-width:500){
+
+ .floating-window{
+
+ }
+
+}
+
+
+
+
+
+
+    
 

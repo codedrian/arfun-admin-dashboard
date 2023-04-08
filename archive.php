@@ -50,6 +50,7 @@
     background:#198754 ;
 }
 .floating-window {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -62,7 +63,7 @@
 .floating-window > .window {
     position: fixed;
     top: 50%;
-    left: 57%;
+    left: 54%;
     transform: translate(-50%, -50%);
     width: 350px;
     height: 220px;
@@ -71,6 +72,13 @@
     border-radius: 4px;
     padding: 10px;
 }
+
+/* @media (max-width:500){
+  .floating-window{
+   flex-direction: column;
+   align-items:center;
+  }
+} */
 
 
 #sort-data{
@@ -83,6 +91,7 @@ border-radius:10px;
 color:white;
 font-size:18px;
 width:100px;
+margin-bottom: 5px;
 } 
 
 #sort-data:hover{
@@ -205,11 +214,12 @@ table td:last-child{
               <div class="">
                 <div class="col-md-12">
                   <div class="card">
-                    <div class="card-header">
+                    <div class="archive-header">
                       <h4>
                         Students List
-                        <button id="sort-data">Sort Data</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                       <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       </h4>
+                      <button id="sort-data">Sort Data</button>
                     </div>
                     <div class="card-body">
                       <table class="table table-bordered table-striped">
@@ -226,6 +236,8 @@ table td:last-child{
                         <tbody id="tbody1"></tbody>
                       </table>
                     </div>
+
+
                     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
                     <script>
@@ -251,6 +263,7 @@ table td:last-child{
                     </script>
                   </div>
                 </div>
+              </div>
               </div>
             </div>
             <!-- Student list table ends here... -->

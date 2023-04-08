@@ -36,21 +36,21 @@
         #myBtn {
         display: none;
         position: fixed;
-        bottom: 20px; 
-        right: 30px; 
-        z-index: 99; 
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
         border: none;
-        outline: none; 
-        background-color:rgb(3, 20, 97) ; 
-        color: white; 
-        cursor: pointer; 
-        padding: 15px; 
+        outline: none;
+        background-color:rgb(3, 20, 97) ;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
         border-radius: 10px;
-        font-size: 18px; 
+        font-size: 18px;
         }
 
         #myBtn:hover {
-        background-color: blue; 
+        background-color: blue;
         }
     </style>
 </head>
@@ -85,7 +85,7 @@
                         <a class="dropdown-item" href="account.php">Edit Account</a>
                         <a class="dropdown-item" href="logout.php">Logout</a>
                     </li>
-                    
+
                 </ul>
             </li>
         </ul>
@@ -184,6 +184,10 @@
                                                             <div class="teach-header">
                                                                 <h4>
                                                                     Teachers List
+                                                                    
+                                                                    <button id="download-table">Download Table Data</button>
+                                                                    <div class="download-link"></div>
+
                                                                 </h4>
                                                                 <button id="download-table">Download Table Data</button>
                                                                 <div class="download-link"></div>
@@ -196,6 +200,7 @@
                                                                         <th>Last name</th>
                                                                         <th>Email</th>
                                                                         <th>Phone</th>
+                                                                        <th>Section</th>
                                                                     </thead>
                                                                     <tbody id="tbody1"></tbody>
                                                                 </table>
@@ -220,7 +225,7 @@
                                                                 // When the user clicks on the button, scroll to the top of the document
                                                                 function topFunction() {
                                                                 document.body.scrollTop = 0;
-                                                                document.documentElement.scrollTop = 0; 
+                                                                document.documentElement.scrollTop = 0;
                                                             }
                                                             </script>
                                                         </div>
@@ -232,7 +237,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
@@ -246,11 +251,16 @@
         </div>
     </div>
 
-    
+    <script>
+    var sessionData = <?php echo json_encode($_SESSION);?>;
+    </script>
+    <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+
+    <div id="section-sdc" data-session-section=""></div>
     <script src="./js/fetch-teacher.js" type="module"></script>
     <script src="./js/get-section.js" type="module"></script>
     <script src="js/convertTableToExcel.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

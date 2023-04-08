@@ -184,10 +184,6 @@
                                                             <div class="teach-header">
                                                                 <h4>
                                                                     Teachers List
-                                                                    
-                                                                    <button id="download-table">Download Table Data</button>
-                                                                    <div class="download-link"></div>
-
                                                                 </h4>
                                                                 <button id="download-table">Download Table Data</button>
                                                                 <div class="download-link"></div>

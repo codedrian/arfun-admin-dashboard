@@ -11,17 +11,15 @@ h2.title{
     color: white;
 }
 #layoutSidenav_content .upload-area{
-    /* text-align: left; */
     max-width: 100%;
-    margin: 30px 30px -10px 30px;
+    margin:40px;
     padding: 10px;   
     text-align: center;
-    /* max-height: 20%; */
-    /* line-height: 40px; */
     background: rgb(4, 110, 78); 
-    /* border: 5px solid rgb(4, 110, 78);/*  */   
     border-radius: 10px;
+    /* position:relative; */
 }
+
 .upload{
     /*background-color: green; /* rgba(0, 153, 255) 
     border: 3px solid green; */
@@ -232,10 +230,30 @@ h4{
     background-color: blue; 
     }
 
-
-@media (max-width:500){
-    #layoutSidenav_content .upload-area{
-        display: block;
-        margin-top: 30%;
+    .wrapper .upload-area{
+        display:flex;
+        position:relative;
+        left:50%;
+        margin:20px 0 0 0;
+        margin:40px;
+        padding: 10px;   
+        text-align: center;
+        /* max-height: 20%; */
+        /* line-height: 40px; */
+        background: rgb(4, 110, 78); 
+        /* border: 5px solid rgb(4, 110, 78);/*  */   
+        border-radius: 10px;
     }
-}
+
+    /* @media (max-width:500px){
+        .wrapper {
+            flex-direction:column;
+            align-items:flex start;
+        }
+
+        .wrapper .upload-area{
+            justify-content: center;
+            flex-direction: column;
+            margin-top:60%;
+        }
+    } */

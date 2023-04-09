@@ -303,8 +303,8 @@
             </div>
 
             <div class="buttons">
-                <button id="submitSectionSort">Sort Data</button>
-                <button id="submitReportSort">Get Class Report</button>
+                <button id="submitSectionSort">Sort Data (Section) </button>
+                <button id="submitReportSort">Sort Data (Section & Quiz Name)</button>
                 <button id="loadNt">Load NT</button>
                 <button id="resetSectionSort">Reset</button>
                 <button id="closeSectionSort">Close</button>

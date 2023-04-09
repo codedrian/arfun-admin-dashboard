@@ -20,6 +20,7 @@
 
     <style>
         #quizzes .view-quiz{
+            display:flex;
             position:relative;
             left:90%;
             margin:20px 0 0 0;
@@ -38,6 +39,23 @@
 
         #quizzes a:hover, a:active {
         background-color: blue;
+        }
+
+        @media (max-width:500px){
+            #quizzes {
+                flex-direction:column;
+                align-items:flex start;
+            }
+
+            #quizzes .view-quiz{
+                justify-content: center;
+                flex-direction: column;
+                width:30%;
+                padding-top: 0;
+                margin-top:30%;
+                margin-bottom:0;
+                left:9%;
+            }
         }
 
         #myBtn {

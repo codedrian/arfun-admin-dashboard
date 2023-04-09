@@ -61,7 +61,8 @@
         include('side-nav.php');
         ?>
 		<div id="layoutSidenav_content">
-			
+		
+		<div class="wrappper">
 			<div class="upload-area pt-5">
 				<h4>Note: The files to be uploaded must be in PDF.</h4>
 				<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>    Upload</button>
@@ -106,7 +107,7 @@
 				<!-- Preloader image -->
 				<img class="loader" src="https://aux.iconspalace.com/uploads/11080764221104328263.png" alt="">
 			</div>
-
+			</div>
 			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 			<script>

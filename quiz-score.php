@@ -134,7 +134,7 @@
 
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
+        <!-- Navbar Se -->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
                
@@ -302,14 +302,14 @@
                 </select>
             </div>
 
-            <div class="buttons">
-                <button id="submitSectionSort">Sort Data (Section) </button>
-                <button id="submitReportSort">Sort Data (Section & Quiz Name)</button>
-                <button id="loadNt">Load NT</button>
-                <button id="resetSectionSort">Reset</button>
-                <button id="closeSectionSort">Close</button>
-            </div>
+        <div class="buttons">
+            <button id="submitSectionSort">Show all the quiz score of section</button>
+            <button id="submitReportSort">Sort Data by Quiz</button>
+            <button id="loadNt">Load Haven't answered</button>
+            <button id="resetSectionSort">Reset</button>
+            <button id="closeSectionSort">Close</button>
         </div>
+    </div>
   </div>
   <script>
         var sessionData = <?php echo json_encode($_SESSION);?>;
@@ -508,52 +508,104 @@
         function fetchSortedScoreDataAsync() {
             return new Promise(async (resolve, reject) => {
                 try {
-                    const sectionSortData = document.querySelector("#section").value;
-                    const querySnapshot = await getDocs(collection(db, "quizScores"));
+                    let sect = document.querySelector("#section-sdc").getAttribute("data-session-section");
 
-                    var students = [];
-                    var names = [];
-                    var studentsRef = []
+                    var sd = document.getElementById("sessionDataContainer").dataset.session;
+                    sd = JSON.parse(sd);
+                    if (sd.role == "teacher") {
+                        const sectionSortData = sect;
+                        const querySnapshot = await getDocs(collection(db, "quizScores"));
 
-                    querySnapshot.forEach(doc => {
-                        students.push(doc.data());
-                    });
+                        var students = [];
+                        var names = [];
+                        var studentsRef = []
 
-                    for (var i = 0; i < students.length; i++) {
-                        //Get the data of the students that have quiz scores
-                        var student = students[i];
+                        querySnapshot.forEach(doc => {
+                            students.push(doc.data());
+                        });
 
-                        const uid = student.uid;
+                        for (var i = 0; i < students.length; i++) {
+                            //Get the data of the students that have quiz scores
+                                var student = students[i];
+                                const uid = student.uid;
 
-                        var dbRef = collection(db, 'users');
-                        var q = query(dbRef, where('uid', '==', uid));
-                        var qSnap = await getDocs(q);
+                                var dbRef = collection(db, 'users');
+                                var q = query(dbRef, where('uid', '==', uid));
+                                var qSnap = await getDocs(q);
 
-                        if (qSnap.size !== 0) {
+                                if (qSnap.size !== 0) {
 
-                            //Check for section, to sort-data
-                            if (qSnap.docs[0].data().section == sectionSortData) {
-                                const studentData = qSnap.docs[0].data();
-                                names.push({
-                                    firstName: studentData.firstName,
-                                    midName: studentData.midName == '' ? '-' : studentData.midName,
-                                    lastName: studentData.lastName,
-                                    section: studentData.section,
-                                });
-                                studentsRef.push(student)
+                                    //Check for section, to sort-data
+                                    if (qSnap.docs[0].data().section == sectionSortData) {
+                                        const studentData = qSnap.docs[0].data();
+                                        names.push({
+                                            firstName: studentData.firstName,
+                                            midName: studentData.midName == '' ? '-' : studentData.midName,
+                                            lastName: studentData.lastName,
+                                            section: studentData.section,
+                                        });
+                                        studentsRef.push(student)
+                                    }
+                                }
+                            }
+
+                            if (studentsRef.length == 0) {
+                                alert("No data found");
+                                return false;
+                            }
+
+                            return resolve({
+                                students: studentsRef,
+                                names: names
+                            });
+                    } else if (sd.role == "admin") {
+                        const sectionSortData = document.querySelector("#section").value;
+                        const querySnapshot = await getDocs(collection(db, "quizScores"));
+
+                        var students = [];
+                        var names = [];
+                        var studentsRef = []
+
+                        querySnapshot.forEach(doc => {
+                            students.push(doc.data());
+                        });
+
+                        for (var i = 0; i < students.length; i++) {
+                            //Get the data of the students that have quiz scores
+                            var student = students[i];
+
+                            const uid = student.uid;
+
+                            var dbRef = collection(db, 'users');
+                            var q = query(dbRef, where('uid', '==', uid));
+                            var qSnap = await getDocs(q);
+
+                            if (qSnap.size !== 0) {
+
+                                //Check for section, to sort-data
+                                if (qSnap.docs[0].data().section == sectionSortData) {
+                                    const studentData = qSnap.docs[0].data();
+                                    names.push({
+                                        firstName: studentData.firstName,
+                                        midName: studentData.midName == '' ? '-' : studentData.midName,
+                                        lastName: studentData.lastName,
+                                        section: studentData.section,
+                                    });
+                                    studentsRef.push(student)
+                                }
                             }
                         }
-                    }
 
-                    if (studentsRef.length == 0) {
-                        alert("No data found");
-                        return false;
-                    }
+                        if (studentsRef.length == 0) {
+                            alert("No data found");
+                            return false;
+                        }
 
-                    return resolve({
-                        students: studentsRef,
-                        names: names
-                    });
+                        return resolve({
+                            students: studentsRef,
+                            names: names
+                        });
+                    }
 
                 } catch (error) {
                     return reject(error);
@@ -572,63 +624,124 @@
             });
         }
 
+        // Fetch data with quiz name sorting
         function fetchClassReportScoreDataAsync() {
             return new Promise(async (resolve, reject) => {
                 try {
-                    const sectionSortData = document.querySelector("#section").value;
-                    const querySnapshot = await getDocs(collection(db, "quizScores"));
-                    const quizSortData = document.querySelector("#quiz-number").value;
+                    var sd = document.getElementById("sessionDataContainer").dataset.session;
+                    sd = JSON.parse(sd);
+                    let sect = document.querySelector("#section-sdc").getAttribute("data-session-section");
+                    if (sd.role == "teacher") {
+                        const sectionSortData = sect;
+                        const querySnapshot = await getDocs(collection(db, "quizScores"));
+                        const quizSortData = document.querySelector("#quiz-number").value;
 
-                    var students = [];
-                    var names = [];
-                    var studentsRef = []
+                        var students = [];
+                        var names = [];
+                        var studentsRef = []
 
-                    querySnapshot.forEach(doc => {
-                        students.push(doc.data());
-                    });
+                        querySnapshot.forEach(doc => {
+                            students.push(doc.data());
+                        });
 
-                    for (var i = 0; i < students.length; i++) {
-                        //Get the data of the students that have quiz scores
-                        var student = students[i];
+                        for (var i = 0; i < students.length; i++) {
+                            //Get the data of the students that have quiz scores
+                            var student = students[i];
 
-                        const uid = student.uid;
+                            const uid = student.uid;
 
-                        var dbRef = collection(db, 'users');
-                        var q = query(dbRef, where('uid', '==', uid));
-                        var qSnap = await getDocs(q); //qSnap is user data, not quiz data
+                            var dbRef = collection(db, 'users');
+                            var q = query(dbRef, where('uid', '==', uid));
+                            var qSnap = await getDocs(q); //qSnap is user data, not quiz data
 
-                        if (qSnap.size !== 0) {
+                            if (qSnap.size !== 0) {
 
-                            //Check for section, to sort-data
-                            if (qSnap.docs[0].data().section == sectionSortData) {
-                                //Check for quiz title if matches
-                                console.log(students[i]);
-                                console.log(students[i].quizTitle);
-                                console.log(quizSortData);
-                                if (students[i].quizTitle == quizSortData) {
-                                    const studentData = qSnap.docs[0].data();
-                                    console.log(studentData);
-                                    names.push({
-                                        firstName: studentData.firstName,
-                                        midName: studentData.midName == '' ? '-' : studentData.midName,
-                                        lastName: studentData.lastName,
-                                        section: studentData.section,
-                                    });
-                                    studentsRef.push(student)
+                                //Check for section, to sort-data
+                                if (qSnap.docs[0].data().section == sectionSortData) {
+                                    //Check for quiz title if matches
+                                    console.log(students[i]);
+                                    console.log(students[i].quizTitle);
+                                    console.log(quizSortData);
+                                    if (students[i].quizTitle == quizSortData) {
+                                        const studentData = qSnap.docs[0].data();
+                                        console.log(studentData);
+                                        names.push({
+                                            firstName: studentData.firstName,
+                                            midName: studentData.midName == '' ? '-' : studentData.midName,
+                                            lastName: studentData.lastName,
+                                            section: studentData.section,
+                                        });
+                                        studentsRef.push(student)
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    if (studentsRef.length == 0) {
-                        alert("No data found");
-                        return false;
-                    }
+                        if (studentsRef.length == 0) {
+                            alert("No data found");
+                            return false;
+                        }
 
-                    return resolve({
-                        students: studentsRef,
-                        names: names
-                    });
+                        return resolve({
+                            students: studentsRef,
+                            names: names
+                        });
+                    } else if (sd.role == "admin") {
+                        const sectionSortData = document.querySelector("#section").value;
+                        const querySnapshot = await getDocs(collection(db, "quizScores"));
+                        const quizSortData = document.querySelector("#quiz-number").value;
+
+                        var students = [];
+                        var names = [];
+                        var studentsRef = []
+
+                        querySnapshot.forEach(doc => {
+                            students.push(doc.data());
+                        });
+
+                        for (var i = 0; i < students.length; i++) {
+                            //Get the data of the students that have quiz scores
+                            var student = students[i];
+
+                            const uid = student.uid;
+
+                            var dbRef = collection(db, 'users');
+                            var q = query(dbRef, where('uid', '==', uid));
+                            var qSnap = await getDocs(q); //qSnap is user data, not quiz data
+
+                            if (qSnap.size !== 0) {
+
+                                //Check for section, to sort-data
+                                if (qSnap.docs[0].data().section == sectionSortData) {
+                                    //Check for quiz title if matches
+                                    console.log(students[i]);
+                                    console.log(students[i].quizTitle);
+                                    console.log(quizSortData);
+                                    if (students[i].quizTitle == quizSortData) {
+                                        const studentData = qSnap.docs[0].data();
+                                        console.log(studentData);
+                                        names.push({
+                                            firstName: studentData.firstName,
+                                            midName: studentData.midName == '' ? '-' : studentData.midName,
+                                            lastName: studentData.lastName,
+                                            section: studentData.section,
+                                        });
+                                        studentsRef.push(student)
+                                    }
+                                }
+                            }
+                        }
+
+                        if (studentsRef.length == 0) {
+                            alert("No data found");
+                            return false;
+                        }
+
+                        return resolve({
+                            students: studentsRef,
+                            names: names
+                        });
+                    }
 
                 } catch (error) {
                     return reject(error);
@@ -654,10 +767,14 @@
                     let sectionSortData;
                     let sd = document.getElementById("sessionDataContainer").dataset.session; 
                     sd = JSON.parse(sd); 
-
-                    if (sd.role = "admin") {
+                    console.log(sd.role);
+                    if (sd.role == "admin") {
+                        // const sec_sel = document.querySelector("#section");
+                        // if (document.body.contains(sec_sel)){
+                            
+                        // } 
                         sectionSortData = document.querySelector("#section").value;
-                    } else if (sd.role = "teacher") {
+                    } else if (sd.role == "teacher") {
                         sectionSortData = document.querySelector("#section-sdc").getAttribute("data-session-section");
                     } else {
                         let sectionSortData = undefined;
@@ -743,10 +860,21 @@
         document.querySelector(".floating-window").style.display = 'none';
       }
     );
-    document.querySelector("#submitSectionSort").addEventListener("click", function() {
+    if (sessionData.role == "admin") {
+        const sss = document.querySelector("#submitSectionSort");
+        const ss = document.querySelector("#section");
+        ss.style.display = "block";
+        sss.style.display = "flex";
+        sss.addEventListener("click", function() {
         document.querySelector("#tbody1").innerHTML = "";
         GetAllSortedDataOnece();
     });
+    } else if (sessionData.role == "teacher") {
+        const sss = document.querySelector("#submitSectionSort");
+        sss.style.display = "none";
+        const ss = document.querySelector("#section");
+        ss.style.display = "none";
+    }
     document.querySelector("#resetSectionSort").addEventListener("click", function() {
         document.querySelector("#tbody1").innerHTML = "";
         GetAllDataOnece();

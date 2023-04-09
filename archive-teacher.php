@@ -16,41 +16,140 @@
   <title>Arfun | Student</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/quiz-edit.css">
-  <link href="css/student-list.css" rel="stylesheet" />
+  <!-- <link href="css/quiz-edit.css" rel="stylesheet" /> -->
+  <!-- <link href="css/student.css" rel="stylesheet" /> -->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
   <style>
-      table td:last-child:hover{
-      background-color:lightblue;
-      border-radius: 10px;
-    }
 
-    table td:last-child{
-      cursor:pointer;
-    }
+.base {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    /* background-color: #198754;
+    color: white; */
+    padding: 20px;
+    border-radius: 5px;
+}
 
-    #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px; 
-        right: 30px; 
-        z-index: 99; 
-        border: none;
-        outline: none; 
-        background-color:rgb(3, 20, 97) ; 
-        color: white; 
-        cursor: pointer; 
-        padding: 15px; 
-        border-radius: 10px;
-        font-size: 18px; 
-        }
+.base h4, h2{
+    text-align: center;
+}
+.base span{
+    background: darkgreen;
+    font-size: x-large;
+    width: 20%;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    border-radius: 4px;
+}
 
-        #myBtn:hover {
-        background-color: blue; 
-        }
+.base span:hover{
+    background:#198754 ;
+}
+.floating-window {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+    display: none;
+}
+.floating-window > .window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 200px;
+    background-color: #198754;
+    z-index: 11;
+    border-radius: 4px;
+    padding: 10px;
+}
 
-  .arch-status {
+/* @media (max-width:500){
+  .floating-window{
+   flex-direction: column;
+   align-items:center;
+  }
+} */
+
+
+#sort-data{
+position:relative;
+left:78%;
+padding:10px;
+background:rgb(3, 20, 97);
+border:none;
+border-radius:10px;
+color:white;
+font-size:18px;
+width:100px;
+margin-bottom: 5px;
+} 
+
+#sort-data:hover{
+  background:blue;
+}
+
+.window button{
+  position: relative;
+  background: rgb(3, 20, 97);
+  border: none;
+  color: white;
+  font-weight: 300;
+  border-radius: 3px;
+  margin: 4px;
+
+}
+
+.window button:hover{
+    background:blue;
+  }
+
+.window .buttons{
+display: flex;
+flex: 1;
+justify-content: center;
+padding: 20px;
+}
+
+#myBtn {
+display: none;
+position: fixed;
+bottom: 20px; 
+right: 30px; 
+z-index: 99; 
+border: none;
+outline: none; 
+background-color:rgb(3, 20, 97) ; 
+color: white; 
+cursor: pointer; 
+padding: 15px; 
+border-radius: 10px;
+font-size: 18px; 
+}
+
+#myBtn:hover {
+background-color: blue; 
+}
+
+table td:last-child:hover{
+  background-color:lightblue;
+  border-radius: 10px;
+}
+
+table td:last-child{
+  cursor:pointer;
+}
+
+.arch-status {
     position: fixed;
     bottom: 3%;
     right: 3%;
@@ -58,9 +157,9 @@
     background-color: #bababa;
     color: black;
     display: none;
-    z-index: 50;
   }
-  </style>
+</style>
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -122,23 +221,20 @@
 
             <!-- Student list table starts here... -->
             <div class="container mt-3">
+              <div class="">
                 <div class="col-md-12">
                   <div class="card">
-                    <div class="student-header">
+                    <div class="archive-header">
                       <h4>
                         Students List
-                        <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      </h4>
-                      <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="archive-all">Archive All</button>
+                       <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                       </h4>
+                        <button id="unarchive">Unarchive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                      
                       <button id="sort-data">Sort Data</button>
-                     
-                      <button id="download-table">Download Table Data</button>
-                      <div class="download-link"></div>
                     </div>
-
                     <div class="card-body">
                       <table class="table table-bordered table-striped">
                         <thead>
@@ -146,15 +242,14 @@
                           <th>Middle Name</th>
                           <th>Last Name</th>
                           <th>Email</th>
-                          <th>Learner Reference Number</th>
                           <th>Section</th>
-                          <th>School Year</th>
-                          <th>Archive</th>
 
                         </thead>
                         <tbody id="tbody1"></tbody>
                       </table>
                     </div>
+
+
                     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
                     <script>
@@ -181,9 +276,10 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
-            
             <!-- Student list table ends here... -->
+           
           </div>
 
       </main>
@@ -200,41 +296,43 @@
     </div>
   </div>
 
+  <!-- Add archiving status -->
+  <div class="arch-status">
+    <p>Unarchiving started!</p>
+    <span class="as">Unarchived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
+  </div>
+
   <div class="floating-window">
     <div class="window">
 
-      <div class="sel">
       <select name="section" id="section">
         <option>Select a section</option>
       </select>
-      </div>
 
+      <input type="number" required placeholder="School Year" id="school-year">
       <div class="buttons">
-          <button id="submitSectionSort">Sort Data</button>
+          <button id="submitSectionSort">Sort Data (Section Only)</button>
+          <button id="submitSySort">Sort Data (School Year Only)</button>
+          <button id="submitBothSort">Sort Data (Both)</button>
           <button id="resetSectionSort">Reset</button>
           <button id="closeSectionSort">Close</button>
-      </div>
-      
+      </div>              
     </div>
   </div>
-
-  
 
   <script>
     var sessionData = <?php echo json_encode($_SESSION);?>;
   </script>
   <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
   <div id="section-sdc" data-session-section=""></div>
-  <!-- Add archiving status -->
-  <div class="arch-status">
-    <p>Archiving started!</p>
-    <span class="as">Archived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
-  </div>
-  
-  <script type="module" src="js/fetch-student.js"></script>
+  <script>
+    var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+    sessionData = JSON.parse(sessionData);
+  </script>
+
+  <script type="module" src="js/archive-teacher.js"></script>
   <script src="js/get-section.js" type="module"></script>
   <script src="js/getCurrentUserData.js" type="module"></script>
-  <script src="js/convertTableToExcel.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>

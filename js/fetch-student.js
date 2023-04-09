@@ -12,6 +12,7 @@
       let td4 = document.createElement("td");
       let td5 = document.createElement("td");
       let td6 = document.createElement("td");
+      let td6_cb = document.createElement("input");
 
       // set the text content of each td element to the corresponding argument
       td1.textContent = _name.firstName;
@@ -21,8 +22,11 @@
       td3.textContent = _idnum;
       td4.textContent = _section;
       td5.textContent = _schoolyear;
-      td6.textContent = 'Archive';
-      td6.addEventListener("click", archiveStudent, false);
+      // td6.textContent = 'Archive';
+      // td6.addEventListener("click", archiveStudent, false);
+      td6_cb.setAttribute("type","checkbox");
+      td6_cb.setAttribute("value", _email);
+      td6_cb.setAttribute("class", "cb-arc");
       
 
       trow.setAttribute("data-email", _email);
@@ -34,6 +38,7 @@
       trow.appendChild(td4);
       trow.appendChild(td5);
       trow.appendChild(td6);
+      td6.appendChild(td6_cb);
 
       tbody.appendChild(trow);
     }
@@ -135,12 +140,12 @@
     }
     //Archive students
     async function archiveStudent(e) {
-      alert("Archiving Started");
-      var a = e.currentTarget.parentElement.getAttribute("data-email");
+      //alert("Archiving Started");
+      //var a = e.currentTarget.parentElement.getAttribute("data-email");
 
       //get the doc id first
       const dbRef = collection(db, "users");
-      const q = query(dbRef, where("email", "==", a));
+      const q = query(dbRef, where("email", "==", e));
 
       const qs = await getDocs(q);
       let studentData;
@@ -156,21 +161,80 @@
       await updateDoc(docRef, {
         isArchived: "true",
       }).then(() => {
-        alert("Student successfully archived!");
-        location.reload();
+        console.log("Student with email " + e + " successfully archived!");
       });
 }
 
+function totalNosOfCheckedCB() {
+  let cbs = document.querySelectorAll(".cb-arc");
+  let counter = 0;
+  
+  for (var i = 0; i < cbs.length; i++) {
+    if (cbs[i].checked == true) {
+      counter++;
+    }
+  }
+  return counter;
+}
+
+//Multi-Archive
+function multiArchive() {
+  let cbs = document.querySelectorAll(".cb-arc");
+  let cbs_tnc = totalNosOfCheckedCB();
+  let cbs_tnc_con = 1;
+  let ap = document.querySelector(".as-proc");
+  console.log(cbs_tnc);
+
+  if(cbs_tnc == 0) {
+    alert("Nothing to archive");
+  } else {
+    alert("Archving Started");
+    document.querySelector(".arch-status").style.display = "block";
+    document.querySelector(".as-total").innerHTML = cbs_tnc;
+    for(var i = 0; i < cbs.length; i++) {
+      if(cbs[i].checked == true) {
+        archiveStudent(cbs[i].value);
+        ap.innerHTML = cbs_tnc_con++;
+      }
+    }
+    alert("Successfully archived all selected students!");
+    location.reload();
+  }
+}
+
+//Select all
+function selectAllCB() {
+  var a = document.querySelectorAll(".cb-arc");
+  for(var i = 0; i < a.length; i++) {
+    a[i].checked = true;
+  }
+}
+function deselectAllCB() {
+  var a = document.querySelectorAll(".cb-arc");
+  for(var i = 0; i < a.length; i++) {
+    a[i].checked = false;
+  }
+}
+document.querySelector("#select-all").addEventListener("click", selectAllCB);
+document.querySelector("#deselect-all").addEventListener("click", deselectAllCB);
+
+document.querySelector("#archive").addEventListener("click", multiArchive);
+
 //Add archive all
 document.querySelector("#archive-all").addEventListener("click", async () => {
-  alert("Archiving started");
+  const as = document.querySelector(".arch-status");
+  const asp = document.querySelector(".as-proc");
+  const ast = document.querySelector(".as-total");
+  as.style.display = "block";
   //Disable archive all
   document.querySelector("#archive-all").setAttribute("disabled", "");
   let a = document.querySelectorAll("[data-email]");
   console.log(a);
   for (var l = 0; l < a.length; l++) {
     //get the doc id first
-    alert("Processed: " + (l+1) + "/" + a.length);
+    //alert("Processed: " + (l+1) + "/" + a.length);
+    asp.innerHTML = l+1;
+    ast.innerHTML = a.length;
     const dbRef = collection(db, "users");
     const q = query(dbRef, where("email", "==", a[l].getAttribute("data-email")));
 
@@ -216,40 +280,44 @@ document.querySelector("#archive-all").addEventListener("click", async () => {
       
 
     //Add Sort Student
-    document.querySelector("#sort-data").addEventListener("click",
-      function() {
-        document.querySelector(".floating-window").style.display = "block";
-      }
-    );
-    document.querySelector("#closeSectionSort").addEventListener("click",
-      function() {
-        document.querySelector(".floating-window").style.display = 'none';
-      }
-    );
-    document.querySelector("#resetSectionSort").addEventListener('click',
-    function() {
-      document.querySelector("#tbody1").innerHTML = "";
-      GetAllDataOnece();
-    });
-    document.querySelector("#submitSectionSort").addEventListener("click", 
-      async function() {
-        const trmother = document.querySelector("#tbody1");
-        trmother.innerHTML = "";
-        const a = document.querySelector("#section");
-        //order data
-        const dbRef = collection(db, "users");
-        const q = query(dbRef, where('section', '==', a.value));
-        const qs = await getDocs(q);
-
-        var students = [];
-        qs.forEach((doc) => {
-          students.push(doc.data());
-        });
-
-        if (students.length  != 0) {
-          addAllItems(students);
-        } else {
-          alert("No results found.");
+    if (document.body.contains(document.getElementById("sort-data"))) {
+        document.querySelector("#sort-data").addEventListener("click",
+        function() {
+          document.querySelector(".floating-window").style.display = "block";
         }
-      }
-    );
+      );
+        document.querySelector("#closeSectionSort").addEventListener("click",
+        function() {
+          document.querySelector(".floating-window").style.display = 'none';
+        }
+      );
+      document.querySelector("#resetSectionSort").addEventListener('click',
+      function() {
+        document.querySelector("#tbody1").innerHTML = "";
+        GetAllDataOnece();
+      });
+      document.querySelector("#submitSectionSort").addEventListener("click", 
+        async function() {
+          const trmother = document.querySelector("#tbody1");
+          trmother.innerHTML = "";
+          const a = document.querySelector("#section");
+          //order data
+          const dbRef = collection(db, "users");
+          const q = query(dbRef, where('section', '==', a.value));
+          const qs = await getDocs(q);
+
+          var students = [];
+          qs.forEach((doc) => {
+            if(doc.data().isArchived == "false") {
+              students.push(doc.data());
+            }
+          });
+
+          if (students.length  != 0) {
+            addAllItems(students);
+          } else {
+            alert("No results found.");
+          }
+        }
+      );
+    }

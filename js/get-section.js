@@ -52,9 +52,6 @@ async function getSectionsSelection() {
   //For section  
     const dbRef = collection(db, 'sections');
     const qs = await getDocs(dbRef);
-    
-    
-
     var sections = [];
     //console.log(qs);
     qs.forEach(async (doc) => {
@@ -65,6 +62,21 @@ async function getSectionsSelection() {
     //get
     createStartingSelection();
     addAllSectionSelection(sections);
+    setDefaultSection();
 }
 
 getSectionsSelection();
+
+// Set the default student reg to current sec of prof
+function setDefaultSection() {
+  const a = document.querySelectorAll("option");
+  setTimeout(function() {
+    const b = document.querySelector("#section-sdc").getAttribute("data-session-section");
+
+    for(var i = 0; i < a.length; i++) {
+      if (a[i].value == b) {
+        a[i].setAttribute("selected", "");
+      }
+    }
+  }, 300);
+}

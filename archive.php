@@ -148,6 +148,16 @@ table td:last-child:hover{
 table td:last-child{
   cursor:pointer;
 }
+
+.arch-status {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    padding: 1em;
+    background-color: #bababa;
+    color: black;
+    display: none;
+  }
 </style>
 
 </head>
@@ -218,7 +228,11 @@ table td:last-child{
                       <h4>
                         Students List
                        <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      </h4>
+                       </h4>
+                        <button id="unarchive">Unarchive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                      
                       <button id="sort-data">Sort Data</button>
                     </div>
                     <div class="card-body">
@@ -284,6 +298,12 @@ table td:last-child{
     </div>
   </div>
 
+  <!-- Add archiving status -->
+  <div class="arch-status">
+    <p>Unarchiving started!</p>
+    <span class="as">Unarchived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
+  </div>
+
   <div class="floating-window">
     <div class="window">
 
@@ -306,7 +326,7 @@ table td:last-child{
     var sessionData = <?php echo json_encode($_SESSION);?>;
   </script>
   <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
-
+  <div id="section-sdc" data-session-section=""></div>
   <script>
     var sessionData = document.getElementById("sessionDataContainer").dataset.session;
     sessionData = JSON.parse(sessionData);

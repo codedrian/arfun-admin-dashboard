@@ -66,6 +66,7 @@ if (registerBtn != null) {
       phone.setAttribute("disabled", "");
       payload["phone"] = phone.value;
       payload["section"] = section.value;
+      payload["isArchived"] = "false";
     }
 
     console.log(payload);

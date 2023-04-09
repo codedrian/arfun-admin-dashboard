@@ -11819,7 +11819,7 @@ body {
   }
 
 
-  /* .table td::before{
+  .table td::before{
     content: attr("");
     position: absolute;
     left:0;
@@ -11828,7 +11828,7 @@ body {
     font-size: 15px;
     font-weight: bold;
     text-align: left;
-  } */
+  }
 
   /* Responsive table Header & buttons*/
 
@@ -11901,6 +11901,7 @@ body {
     margin-bottom: 5px;
     left: 0;
     font-size: 18px;
+    width:64%;
    
  } 
 

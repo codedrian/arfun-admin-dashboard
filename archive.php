@@ -63,10 +63,10 @@
 .floating-window > .window {
     position: fixed;
     top: 50%;
-    left: 54%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 350px;
-    height: 220px;
+    height: 200px;
     background-color: #198754;
     z-index: 11;
     border-radius: 4px;

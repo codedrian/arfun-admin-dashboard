@@ -11909,7 +11909,7 @@ body {
 /*archive header */
  .archive-header #sort-data{
   justify-content: center;
-  width:30%;
+  width:40%;
   margin-bottom: 4px;
   font-size: 18px;
 } 

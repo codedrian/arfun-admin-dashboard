@@ -29,6 +29,7 @@
             border-radius:10px;
             color:white;
             font-size:18px;
+            left:35%;
         }
         #download-table:hover{
             background:blue;
@@ -132,9 +133,9 @@
                                         
                                             <div class="card w-50 p-3">
                                                 <div class="card-header">
-                                                    <h4>
+                                                    <h3>
                                                         Add Admin
-                                                    </h4>
+                                                    </h3>
                                                 </div>
                                                 <form id="main-form" class="add-body" data-type="admin">
                                                     <div class="col-xs-4">
@@ -181,12 +182,12 @@
                                                     <div class="col-md-12">
                                                         <div class="card">
                                                             <div class="admin-header">
-                                                                <h4>
+                                                                <h3>
                                                                     Admins List
                                                                     <!-- <a href="index.php"
                                                                         class="btn btn-danger float-end">Back</a> -->
                             
-                                                                </h4>
+                                                                </h3>
                                                                 <button id="download-table">Download Table Data</button>
                                                                 <div class="download-link"></div>
 

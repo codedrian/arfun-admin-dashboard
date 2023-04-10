@@ -21,14 +21,14 @@
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
   <style>
-      table td:last-child:hover{
+      /* table td:last-child:hover{
       background-color:lightblue;
       border-radius: 10px;
     }
 
     table td:last-child{
       cursor:pointer;
-    }
+    } */
 
     #myBtn {
         display: none;
@@ -125,18 +125,19 @@
                 <div class="col-md-12">
                   <div class="card">
                     <div class="student-header">
-                      <h4>
+                      <h3>
                         Students List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      </h4>
+                      </h3>
+                      
                       <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       <button id="archive-all">Archive All</button>
                       <button id="sort-data">Sort Data</button>
-                     
                       <button id="download-table">Download Table Data</button>
                       <div class="download-link"></div>
+                    
                     </div>
 
                     <div class="card-body">

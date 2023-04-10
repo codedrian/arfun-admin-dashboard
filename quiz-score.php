@@ -195,7 +195,7 @@
                                               
                                                     <div class="card">
                                                         <div class="quiz-header">
-                                                            <h3>Student Scores
+                                                            <h3>Quizzes Scores
                                                             
                                                             </h3>
                                                             <button id="sort-data">Sort Data</button>
@@ -203,7 +203,7 @@
                                                             <div class="download-link"></div>
                                                         </div>
                                                         <div class="card-body">
-                                                        <span>Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>x
+                                                        <span>Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>
                                                             <table class="table table-striped">
 
                                                                 <thead>

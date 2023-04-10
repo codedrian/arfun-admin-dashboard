@@ -97,10 +97,10 @@
           <div class="form-body">
             <div class="card w-50 p-3">
               <div class="card-header">
-                <h4>
+                <h3>
                   Add Section
                   <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
-                </h4>
+                </h3>
               </div>
               <form id="main-form" class="add-body" data-type="section">
                 <div class="form-group col-xs-4">

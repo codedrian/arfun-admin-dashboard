@@ -80,8 +80,17 @@
   }
 } */
 
-
-#sort-data{
+.archive-header button{
+position:relative;
+padding:5px;
+background:rgb(3, 20, 97);
+border:none;
+border-radius:10px;
+color:white;
+font-size:18px;
+margin-bottom: 5px;
+}
+/* #sort-data{
 position:relative;
 left:78%;
 padding:10px;
@@ -92,7 +101,7 @@ color:white;
 font-size:18px;
 width:100px;
 margin-bottom: 5px;
-} 
+}  */
 
 #sort-data:hover{
   background:blue;
@@ -140,10 +149,10 @@ font-size: 18px;
 background-color: blue; 
 }
 
-table td:last-child:hover{
+/* table td:last-child:hover{
   background-color:lightblue;
   border-radius: 10px;
-}
+} */
 
 table td:last-child{
   cursor:pointer;
@@ -225,10 +234,10 @@ table td:last-child{
                 <div class="col-md-12">
                   <div class="card">
                     <div class="archive-header">
-                      <h4>
-                        Students List
+                      <h3>
+                        Archived Accounts
                        <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                       </h4>
+                       </h3>
                         <button id="unarchive">Unarchive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                         <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                         <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->

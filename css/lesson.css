@@ -11,13 +11,31 @@ h2.title{
     color: white;
 }
 #layoutSidenav_content .upload-area{
-    max-width: 100%;
-    margin:40px;
-    padding: 10px;   
+    display:block;
+    width: 100%;
+    /* margin:40px; */
+    /* padding: 10px;    */
     text-align: center;
-    background: rgb(4, 110, 78); 
-    border-radius: 10px;
-    /* position:relative; */
+    top:0;
+    
+    /* border-radius: 10px; */
+    position:relative;
+}
+
+.upload-area .wrapper{
+       background: rgb(4, 110, 78);
+       margin-left:30px;
+       margin-right: 30px;
+       margin-top:30px;
+       padding:10px; 
+       border-radius: 10px;
+       height: 100%;
+       width: 95%;
+}
+
+.upload-area input{
+    width:50%;
+    height: 25%;
 }
 
 .upload{
@@ -37,6 +55,7 @@ h2.title{
 .upload:active{
     border-color: white;
 }
+
 .progress-container{
     display: inline-block;
     width: 64%;
@@ -163,9 +182,10 @@ h2.black{              /* para sa video*/
 }
 
 
-.text-description{
-    height: 10%;
-}
+/* .text-description{
+    width: 40%;
+    height: 5%;
+} */
 
 .description {
     position: fixed;
@@ -181,9 +201,9 @@ h2.black{              /* para sa video*/
     position: fixed;
     padding: 20px;
     top: 50%;
-    left: 57%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
+    width: 280px;
     height: 150px;
     background-color: #198754;
     z-index: 11;
@@ -230,7 +250,7 @@ h4{
     background-color: blue; 
     }
 
-    .wrapper .upload-area{
+    /* .wrapper .upload-area{
         display:flex;
         position:relative;
         left:50%;
@@ -238,14 +258,12 @@ h4{
         margin:40px;
         padding: 10px;   
         text-align: center;
-        /* max-height: 20%; */
-        /* line-height: 40px; */
-        background: rgb(4, 110, 78); 
-        /* border: 5px solid rgb(4, 110, 78);/*  */   
+
+        
         border-radius: 10px;
     }
 
-    /* @media (max-width:500px){
+    @media (max-width:500px){
         .wrapper {
             flex-direction:column;
             align-items:flex start;

@@ -20,7 +20,21 @@
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <style>
-        #download-table{
+
+        .teach-header button{
+            position:relative;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:10px;
+            color:white;
+            font-size:18px;
+        }
+
+        .teach-header button:hover{
+            background-color:blue;
+        }
+        /* #download-table{
             position:relative;
             padding:10px;
             background:rgb(3, 20, 97);
@@ -31,7 +45,7 @@
         }
         #download-table:hover{
             background:blue;
-        }
+        } */
 
         #myBtn {
         display: none;
@@ -137,10 +151,10 @@
                                         <div class="form-body">
                                             <div class="card w-50 p-3">
                                                 <div class="card-header">
-                                                    <h4>
+                                                    <h3>
                                                         Add Teacher
                                                         <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
-                                                    </h4>
+                                                    </h3>
                                                 </div>
                                                 <form id="main-form" class="add-body" data-type="teacher">
                                                     <div class="col-xs-4">
@@ -192,9 +206,9 @@
                                                     <div class="col-md-12">
                                                         <div class="card">
                                                             <div class="teach-header">
-                                                                <h4>
+                                                                <h3>
                                                                     Teachers List
-                                                                </h4>
+                                                                </h3>
                                                                 <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                                                                 <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                                                                 <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->

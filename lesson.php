@@ -62,14 +62,15 @@
         ?>
 		<div id="layoutSidenav_content">
 		
-		<div class="wrappper">
+		
 			<div class="upload-area pt-5">
-				<h4>Note: The files to be uploaded must be in PDF.</h4>
-				<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>    Upload</button>
-				<div class="progress-container">
-					<div class="progress"></div>
-				</div>
-				<div class="percent">0%</div>
+				<div class="wrapper">
+					<h4>Note: The files to be uploaded must be in PDF.</h4>
+					<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>    Upload</button>
+					<div class="progress-container">
+						<div class="progress"></div>
+					</div>
+					<div class="percent">0%</div>
 				<div class="controls">
 					<svg class="pause" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
 						<path d="M0 0h24v24H0V0z" fill="none" />
@@ -88,7 +89,9 @@
 				<input type="file" class="hidden-upload-btn" style="display: none;">
 				<br><br>
 				<input type="text" placeholder="Add description before selecting the file" class="text-description">
+				</div>
 			</div>
+		
 			<div class="all-files">
 				<h2 class="white">Videos</h2>
 				<ul id="video"></ul>
@@ -107,7 +110,7 @@
 				<!-- Preloader image -->
 				<img class="loader" src="https://aux.iconspalace.com/uploads/11080764221104328263.png" alt="">
 			</div>
-			</div>
+		
 			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 			<script>

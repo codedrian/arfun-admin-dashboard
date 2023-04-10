@@ -21,9 +21,20 @@
 
   <style>
 
+.addStud-header button{
+  position: relative;
+  display: inline-block;
+  padding: 8px 15px;
+  background: rgb(3, 20, 97);
+  border:none;
+  border-radius: 10px;
+  color:white;
+  font-size:18px;
+}
+
+/* 
   #archive-all{
   position: relative;
-  /* left: 56%; */
   display: inline-block;
   padding: 8px 15px;
   background: rgb(3, 20, 97);
@@ -37,19 +48,18 @@
     background:blue;
   }
   #download-table{
-      position: relative;
-      /* left: 56%; */
-      display: inline-block;
-      padding: 8px 15px;
-      background: rgb(3, 20, 97);
-      border:none;
-      border-radius: 10px;
-      color:white;
-      font-size:18px;
+  position: relative;
+  display: inline-block;
+  padding: 8px 15px;
+  background: rgb(3, 20, 97);
+  border:none;
+  border-radius: 10px;
+  color:white;
+  font-size:18px;
   }
   #download-table:hover{
       background:blue;
-  }
+  } */
 
   #myBtn {
   display: none;
@@ -71,10 +81,10 @@
   background-color: blue;
   }
 
-  table td:last-child:hover{
+  /* table td:last-child:hover{
   background-color:lightblue;
   border-radius: 10px;
-  }
+  } */
 
   table td:last-child{
     cursor:pointer;
@@ -144,10 +154,10 @@
           <div class="form-body">
             <div class="card w-50 p-3">
               <div class="card-header">
-                <h4>
+                <h3>
                   Add Student
                   <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
-                </h4>
+                </h3>
               </div>
               <form id="main-form" class="add-body" data-type="student">
                 <div class="col-xs-4">
@@ -203,11 +213,11 @@
                 <div class="col-md-12">
                   <div class="card">
                     <div class="addStud-header">
-                      <h4>
+                      <h3>
                         Students List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                         
-                      </h4>
+                      </h3>
                         <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                         <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                         <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->

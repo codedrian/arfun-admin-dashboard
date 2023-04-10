@@ -1,4 +1,18 @@
-#archive-all{
+.student-header button{
+  position:relative;
+  padding:5px;
+  background:rgb(3, 20, 97);
+  border:none;
+  border-radius:10px;
+  color:white;
+  font-size:18px;
+  }
+
+  .student-header button:hover{
+    background-color: blue;
+  }
+
+/* #archive-all{
     position:relative;
       left:50%;
       padding:10px;
@@ -73,7 +87,7 @@
     }
     #download-table:hover{
         background:blue;
-    }
+    } */
 
 
   

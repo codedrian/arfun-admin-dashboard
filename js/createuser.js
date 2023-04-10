@@ -54,6 +54,7 @@ if (registerBtn != null) {
       phone = document.querySelector('[name="phone"]');
       phone.setAttribute("disabled", "");
       payload["phone"] = phone.value;
+      payload["isArchived"] = "false";
     } else if (type == "student") {
       idNum = document.querySelector('[name="idNum"]');
       idNum.setAttribute("disabled", "");

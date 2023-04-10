@@ -164,9 +164,21 @@ async function unArchiveStudent(e) {
       isArchived: "false",
     }).then(() => {
       console.log("Student with email" + e + " successfully unarchived!");
+      counter_asd++;
+      updateCounter(counter_asd);
     });
 }
 
+function updateCounter(n) {
+  let ap = document.querySelector(".as-proc");
+  ap.innerHTML = n;
+
+  //Test if ready for reload
+  if (totalNosOfCheckedCB() == n) {
+    alert("Successfully archived all selected students!");
+    location.reload();
+  }
+}
 window.onload = GetAllDataOnece;
 
 function totalNosOfCheckedCB() {
@@ -185,8 +197,7 @@ function totalNosOfCheckedCB() {
 function multiUnArchive() {
   let cbs = document.querySelectorAll(".cb-arc");
   let cbs_tnc = totalNosOfCheckedCB();
-  let cbs_tnc_con = 1;
-  let ap = document.querySelector(".as-proc");
+
   console.log(cbs_tnc);
 
   if(cbs_tnc == 0) {
@@ -198,11 +209,8 @@ function multiUnArchive() {
     for(var i = 0; i < cbs.length; i++) {
       if(cbs[i].checked == true) {
         unArchiveStudent(cbs[i].value);
-        ap.innerHTML = cbs_tnc_con++;
       }
     }
-    alert("Successfully unarchived all selected students!");
-    setTimeout(function() {location.reload()}, 1000);
   }
 }
 

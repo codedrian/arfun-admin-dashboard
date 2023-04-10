@@ -53,8 +53,8 @@ if (registerBtn != null) {
     if (type == "admin") {
       phone = document.querySelector('[name="phone"]');
       phone.setAttribute("disabled", "");
-      payload["phone"] = phone.value;
       payload["isArchived"] = "false";
+      payload["phone"] = phone.value;
     } else if (type == "student") {
       idNum = document.querySelector('[name="idNum"]');
       idNum.setAttribute("disabled", "");

@@ -128,7 +128,7 @@ function updateCounter(n) {
   //Test if ready for reload
   if (totalNosOfCheckedCB() == n) {
     alert("Successfully archived all selected admins!");
-    location.reload();
+    //location.reload();
   }
 }
 
@@ -148,8 +148,7 @@ function totalNosOfCheckedCB() {
 function multiArchive() {
   let cbs = document.querySelectorAll(".cb-arc");
   let cbs_tnc = totalNosOfCheckedCB();
-  let cbs_tnc_con = 1;
-  let ap = document.querySelector(".as-proc");
+
   console.log(cbs_tnc);
 
   if(cbs_tnc == 0) {
@@ -163,8 +162,6 @@ function multiArchive() {
         archiveStudent(cbs[i].value);
       }
     }
-    alert("Successfully archived all selected teachers!");
-    location.reload();
   }
 }
 

@@ -32,6 +32,11 @@
                             <span> Students </span>
                             </a>';
 
+                            echo '<a class="nav-link collapsed" href="archive-teacher.php">
+                            <i class="fas fa-archive"></i>
+                            <span>Archive (Teacher Accounts)</span>
+                            </a>';
+
                             
                     }
                     ?>
@@ -51,8 +56,13 @@
 
                         echo '<a class="nav-link collapsed" href="archive.php">
                         <i class="fas fa-archive"></i>
-                        <span>Archive</span>
+                        <span>Archive (Student Accounts)</span>
                         </a>';
+
+                        // echo '<a class="nav-link collapsed" href="archive-teacher.php">
+                        // <i class="fas fa-archive"></i>
+                        // <span>Archive (Teachers"'" Accounts)</span>
+                        // </a>';
 
 
                     }

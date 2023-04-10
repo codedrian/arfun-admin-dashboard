@@ -32,7 +32,7 @@
   font-size:18px;
 }
 
-/* 
+/*
   #archive-all{
   position: relative;
   display: inline-block;
@@ -99,6 +99,47 @@
     color: black;
     display: none;
   }
+
+.table-responsive table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-responsive thead, .table-responsive tbody, .table-responsive th, .table-responsive td, .table-responsive tr {
+  display: table-row;
+}
+
+.table-responsive th, .table-responsive td {
+  width: auto;
+  display: table-cell;
+  vertical-align: top;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+  padding: 8px;
+  min-width: 150px; /* Add min-width for columns */
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.table-responsive th::before {
+  content: attr(data-th);
+  position: absolute;
+  left: 0;
+  top: -32px;
+  background-color: #f8f9fa;
+  font-weight: bold;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  padding: 8px;
+}
+
+
   </style>
 </head>
 
@@ -216,7 +257,7 @@
                       <h3>
                         Students List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                        
+
                       </h3>
                         <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                         <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
@@ -226,7 +267,7 @@
                         <button id="download-table">Download Table Data</button>
                         <div class="download-link"></div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                       <table class="table table-bordered table-striped">
                         <thead>
                           <th>First Name</th>

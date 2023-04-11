@@ -32,7 +32,7 @@ function AddItem(_name, _uid, _email, _phone) {
   trow.appendChild(td4);
   trow.appendChild(td6);
   td6.appendChild(td6_cb);
-  
+
   tbody.appendChild(trow);
 }
 
@@ -45,7 +45,7 @@ function addAllItems(TheAdmin) {
       midName: element.midName == '' ? '-' : element.midName,
       lastName: element.lastName
     }, element.uid, element.email, element.phone);
-  }); 
+  });
 }
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
@@ -128,7 +128,7 @@ function updateCounter(n) {
   //Test if ready for reload
   if (totalNosOfCheckedCB() == n) {
     alert("Successfully archived all selected admins!");
-    //location.reload();
+    location.reload();
   }
 }
 
@@ -154,7 +154,7 @@ function multiArchive() {
   if(cbs_tnc == 0) {
     alert("Nothing to archive");
   } else {
-    alert("Archving Started");
+    alert("Archiving Started");
     document.querySelector(".arch-status").style.display = "block";
     document.querySelector(".as-total").innerHTML = cbs_tnc;
     for(var i = 0; i < cbs.length; i++) {

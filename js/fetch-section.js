@@ -6,13 +6,21 @@ function AddItem(_section, _scount) {
   let trow = document.createElement("tr"); //change trow to tr
   let td1 = document.createElement("td");
   let td2 = document.createElement("td");
+  let td3 = document.createElement("td");
+  let td3_cb = document.createElement("input");
+
 
   // set the text content of each td element to the corresponding argument
   td1.textContent = _section;
   td2.textContent = _scount;
-  
+  td3_cb.setAttribute("type", "checkbox");
+  td3_cb.setAttribute('class', 'cb-arc');
+
   trow.appendChild(td1);
   trow.appendChild(td2);
+  trow.appendChild(td3);
+
+  td3.appendChild(td3_cb);
 
   tbody.appendChild(trow);
 }
@@ -55,13 +63,13 @@ import {
 const db = getFirestore();
 
 async function getSections() {
-  //For section  
+  //For section
     const dbRef = collection(db, 'sections');
     const qs = await getDocs(dbRef);
-    
+
   //For Student Count
     const dbRef2 = collection(db, 'users');
-    
+
 
     var sections = [];
     var numberOfStudents = [];
@@ -76,7 +84,7 @@ async function getSections() {
         */
     });
     //Count students
-    for (var l = 0; l < sections.length; l++) {  
+    for (var l = 0; l < sections.length; l++) {
       const q2 = query(dbRef2, where('section', '==', sections[l].section));
       const qs2 = await getCountFromServer(q2);
       numberOfStudents.push(qs2.data());
@@ -87,6 +95,46 @@ async function getSections() {
 
     addAllSection(sections, numberOfStudents);
 }
+
+
+
+//Multi-Archive
+function multiArchive() {
+  let cbs = document.querySelectorAll(".cb-arc");
+  let cbs_tnc = totalNosOfCheckedCB();
+  console.log(cbs_tnc);
+
+  if(cbs_tnc == 0) {
+    alert("Nothing to archive");
+  } else {
+    alert("Archving Started");
+    document.querySelector(".arch-status").style.display = "block";
+    document.querySelector(".as-total").innerHTML = cbs_tnc;
+    for(var i = 0; i < cbs.length; i++) {
+      if(cbs[i].checked == true) {
+        archiveStudent(cbs[i].value);
+      }
+    }
+  }
+}
+
+//Select all
+function selectAllCB() {
+  var a = document.querySelectorAll(".cb-arc");
+  for(var i = 0; i < a.length; i++) {
+    a[i].checked = true;
+  }
+}
+function deselectAllCB() {
+  var a = document.querySelectorAll(".cb-arc");
+  for(var i = 0; i < a.length; i++) {
+    a[i].checked = false;
+  }
+}
+document.querySelector("#select-all").addEventListener("click", selectAllCB);
+document.querySelector("#deselect-all").addEventListener("click", deselectAllCB);
+
+document.querySelector("#archive").addEventListener("click", multiArchive);
 
 
 window.onload = getSections;

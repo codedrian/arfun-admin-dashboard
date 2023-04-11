@@ -73,6 +73,7 @@
           font-weight: 300;
           border-radius: 3px;
           margin:4px;
+          font-size:14px;
           /* display: flex; */
           /* left:5%; */
         }
@@ -307,9 +308,9 @@
             </div>
 
         <div class="buttons">
-            <button id="submitSectionSort">Show all the quiz score of section</button>
-            <button id="submitReportSort">Sort Data by Quiz</button>
-            <button id="loadNt">Load Haven't answered</button>
+            <button id="submitSectionSort">Show data by Section</button>
+            <button id="submitReportSort">Sort Data by Quiz Name & Section</button>
+            <button id="loadNt">Load Haven't Answered</button>
             <button id="resetSectionSort">Reset</button>
             <button id="closeSectionSort">Close</button>
         </div>

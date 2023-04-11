@@ -127,10 +127,10 @@
                 <div class="col-md-12">
                   <div class="card">
                     <div class="card-header section-header">
-                      <h4>
+                      <h3>
                         Section List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      </h4>
+                      </h3>
                       <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->

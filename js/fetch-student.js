@@ -27,7 +27,7 @@
       td6_cb.setAttribute("type","checkbox");
       td6_cb.setAttribute("value", _email);
       td6_cb.setAttribute("class", "cb-arc");
-      
+
 
       trow.setAttribute("data-email", _email);
       trow.appendChild(td1);
@@ -55,7 +55,7 @@
         }, element.email, element.idNum, element.section, element.schoolyear);
       });
     }
-    
+
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
     const firebaseConfig = {
@@ -87,7 +87,7 @@
     async function GetAllDataOnece() {
       const dbRef = collection(db, 'users');
       const q = query(dbRef, where('role', '==', 'student'));
-      
+
 
       const querySnapshot = await getDocs(q);
 
@@ -119,7 +119,7 @@
       var students = [];
       querySnapshot.forEach((doc) => {
         if(role == "teacher") {
-          //Filter Archived students 
+          //Filter Archived students
           if(doc.data().isArchived == "false") {
             //After checking for archived, check for section
               if(doc.data().section == uidDataSection) {
@@ -128,7 +128,7 @@
             }
           }
         } else if (role == "admin") {
-          //Filter Archived students 
+          //Filter Archived students
           if(doc.data().isArchived == "false") {
                 console.log(doc.data());
                 students.push(doc.data());
@@ -155,7 +155,7 @@
         //console.log(doc.id);
         studentData = doc.id;
       });
-    
+
       console.log(studentData);
 
       //Start updating the data
@@ -183,7 +183,7 @@ function updateCounter(n) {
 function totalNosOfCheckedCB() {
   let cbs = document.querySelectorAll(".cb-arc");
   let counter = 0;
-  
+
   for (var i = 0; i < cbs.length; i++) {
     if (cbs[i].checked == true) {
       counter++;
@@ -201,7 +201,7 @@ function multiArchive() {
   if(cbs_tnc == 0) {
     alert("Nothing to archive");
   } else {
-    alert("Archving Started");
+    alert("Archiving Started");
     document.querySelector(".arch-status").style.display = "block";
     document.querySelector(".as-total").innerHTML = cbs_tnc;
     for(var i = 0; i < cbs.length; i++) {
@@ -254,7 +254,7 @@ document.querySelector("#archive-all").addEventListener("click", async () => {
       //console.log(doc.id);
       studentData = doc.id;
     });
-  
+
     console.log(studentData);
 
     //Start updating the data
@@ -269,7 +269,7 @@ document.querySelector("#archive-all").addEventListener("click", async () => {
   location.reload();
 
 })
-    
+
     window.onload = GetAllDataOnece;
 
     /*
@@ -287,7 +287,7 @@ document.querySelector("#archive-all").addEventListener("click", async () => {
       });
     }
     */
-      
+
 
     //Add Sort Student
     if (document.body.contains(document.getElementById("sort-data"))) {
@@ -306,7 +306,7 @@ document.querySelector("#archive-all").addEventListener("click", async () => {
         document.querySelector("#tbody1").innerHTML = "";
         GetAllDataOnece();
       });
-      document.querySelector("#submitSectionSort").addEventListener("click", 
+      document.querySelector("#submitSectionSort").addEventListener("click",
         async function() {
           const trmother = document.querySelector("#tbody1");
           trmother.innerHTML = "";

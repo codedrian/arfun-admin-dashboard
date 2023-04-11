@@ -21,17 +21,16 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
     <style>
-        #download-table{
+        .admin-header button{
             position:relative;
-            padding:10px;
+            padding:5px;
             background:rgb(3, 20, 97);
             border:none;
             border-radius:10px;
             color:white;
             font-size:18px;
-            left:35%;
         }
-        #download-table:hover{
+        .admin-header button:hover{
             background:blue;
         }
 
@@ -195,7 +194,6 @@
                                                                     Admins List
                                                                     <!-- <a href="index.php"
                                                                         class="btn btn-danger float-end">Back</a> -->
-                            
                                                                 </h3>
                                                                 <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                                                                 <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->

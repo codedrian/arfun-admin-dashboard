@@ -11757,24 +11757,29 @@ body {
     }
 }
 
+/* 
 
-
-    .admin-header, .teach-header,  .archive-header,
+    .teach-header,  .archive-header,
      .addStud-header {
       display:flex;
       justify-content:space-between;
       align-items: center;
       padding-top: 0;
       
-    }
-
-    /* .admin-header #download-table, .teach-header #download-table{
-      left:34%;
     } */
+
+ 
 /* 
     .archive-header #sort-data{
       left:-1%;
     } */
+
+    .admin-header {
+      display:inline-block;
+      gap: .3rem;
+      align-items: center;
+    }
+
 
     .student-header {
       display:inline-block;
@@ -11822,9 +11827,8 @@ body {
    
 
 /*table responsive*/
-
 @media (max-width: 500px){
-  
+
   .table thead{
     display: none;
   }
@@ -11847,7 +11851,7 @@ body {
 
 
   .table td::before{
-    content: attr("");
+    content: attr("data-th");
     position: absolute;
     left:0;
     width: 50%;
@@ -11865,7 +11869,7 @@ body {
     align-items: center;
     gap: 0.3em;
   }
-
+/* 
   .admin-header #download-table
   {
      justify-content: center;
@@ -11873,7 +11877,7 @@ body {
      margin-bottom: 5px;
      left: 0;
      font-size: 18px;
-  } 
+  }  */
 
   .student-header{
      margin-top:10%;
@@ -11891,13 +11895,26 @@ body {
     left:10%;
   }
 
+  /*Admin Header */
+
+  .admin-header button{
+    width:70%;
+    font-size: 18px;
+    margin:5px;
+  }
+
+  .admin-header h3{
+    text-align: center;
+    font-size: 30px;
+  }
+
   /* add teacher header */
 
   .teach-header button{
-   justify-content: center;
-    width:70%;
+    /* justify-content: center; */
+    /* width:70%; */
     font-size: 18px;
-    margin:50px;
+    margin:5px;
   }
 
   .teach-header h3{
@@ -11907,7 +11924,6 @@ body {
 
  /* Student List header*/
   .student-header button{
-     justify-content: center;
      margin-bottom: 4px;
      left: 0;
      font-size: 18px;
@@ -11919,21 +11935,6 @@ body {
     margin-bottom: 10px;
   }
 
-   /* .student-header #sort-data{
-     justify-content: center;
-     width:70%;
-     margin-bottom: 4px;
-     left: 0;
-     font-size: 18px;
-  } 
-
-   .student-header #archive-all{
-     justify-content: center;
-     width:70%;
-     margin-bottom: 4px;
-     left: 0;
-     font-size: 18px;
-  }  */
 
   /*quiz-header */
   .quiz-header #download-table{
@@ -11961,7 +11962,6 @@ body {
 
 /*archive header */
  .archive-header button{
-  justify-content: center;
   width:40%;
   margin-bottom: 4px;
   font-size: 18px;

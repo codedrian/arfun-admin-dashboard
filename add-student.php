@@ -120,7 +120,7 @@
   text-align: left;
   white-space: nowrap;
   padding: 8px;
-  min-width: 150px; /* Add min-width for columns */
+  min-width: 150px; Add min-width for columns
   box-sizing: border-box;
   word-break: break-word;
 }

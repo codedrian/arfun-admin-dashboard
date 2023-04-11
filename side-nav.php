@@ -37,6 +37,11 @@
                             <span>Archive (Teacher Accounts)</span>
                             </a>';
 
+                            echo '<a class="nav-link collapsed" href="archive-admin.php">
+                            <i class="fas fa-archive"></i>
+                            <span>Archive (Admin Accounts)</span>
+                            </a>';
+
                             
                     }
                     ?>

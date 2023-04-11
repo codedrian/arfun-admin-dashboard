@@ -9,7 +9,7 @@ function AddItem(_name, _email, _idnum, _section, _schoolyear) {
   let td1_2 = document.createElement("td");
   let td2 = document.createElement("td");
   //let td3 = document.createElement("td");
-  let td4 = document.createElement("td");
+  // let td4 = document.createElement("td");
   //let td5 = document.createElement("td");
   let td6 = document.createElement("td");
   let td6_cb = document.createElement("input");
@@ -20,7 +20,7 @@ function AddItem(_name, _email, _idnum, _section, _schoolyear) {
   td1_2.textContent = _name.lastName;
   td2.textContent = _email;
   //td3.textContent = _idnum;
-  td4.textContent = _section;
+  // td4.textContent = _section;
   //td5.textContent = _schoolyear;
   //td6.textContent = 'Unarchive';
   //td6.addEventListener("click", unArchiveStudent, false);
@@ -34,7 +34,7 @@ function AddItem(_name, _email, _idnum, _section, _schoolyear) {
   trow.appendChild(td1_2);
   trow.appendChild(td2);
   //trow.appendChild(td3);
-  trow.appendChild(td4);
+  // trow.appendChild(td4);
   //trow.appendChild(td5);
   trow.appendChild(td6);
   td6.appendChild(td6_cb);

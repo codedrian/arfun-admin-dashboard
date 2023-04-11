@@ -240,6 +240,7 @@ table td:last-child{
                           <th>Last Name</th>
                           <th>Email</th>
                           <th>Section</th>
+                          <!-- <th>Unarchive<th> -->
 
                         </thead>
                         <tbody id="tbody1"></tbody>

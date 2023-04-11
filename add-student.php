@@ -100,6 +100,9 @@
     display: none;
   }
 
+
+
+
   </style>
 </head>
 
@@ -237,7 +240,7 @@
                           <th>Learner Reference Number</th>
                           <th>Section</th>
                           <th>School Year</th>
-                          <th>Archive</th>
+                        
 
                         </thead>
                         <tbody id="tbody1"></tbody>

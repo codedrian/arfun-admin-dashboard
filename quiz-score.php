@@ -29,13 +29,13 @@
             border-radius:10px;
             color:white;
             font-size:18px;
-        } 
+        }
 
         #sort-data:hover{
           background:blue;
         }
 
-        
+
         #download-table{
             position:relative;
             left:50%;
@@ -86,20 +86,20 @@
         display: flex;
         justify-content: center;
         padding: 20px;
-        
+
         }
 
         .window .selects{
         display: flex;
         justify-content:center;
-        
+
         }
           /* .window #resetSectionSort{
             position:relative;
             left:30%;
             margin-top:10px;
           }
-          
+
           .window #closeSectionSort{
             position:relative;
             left:30%;
@@ -107,25 +107,25 @@
           } */
 
          /* end of Floating Window */
-        
+
           #myBtn {
           display: none;
           position: fixed;
-          bottom: 20px; 
-          right: 30px; 
-          z-index: 99; 
+          bottom: 20px;
+          right: 30px;
+          z-index: 99;
           border: none;
-          outline: none; 
-          background-color:rgb(3, 20, 97) ; 
-          color: white; 
-          cursor: pointer; 
-          padding: 15px; 
+          outline: none;
+          background-color:rgb(3, 20, 97) ;
+          color: white;
+          cursor: pointer;
+          padding: 15px;
           border-radius: 10px;
-          font-size: 18px; 
+          font-size: 18px;
           }
 
         #myBtn:hover {
-        background-color: blue; 
+        background-color: blue;
         }
     </style>
 </head>
@@ -142,7 +142,7 @@
         <!-- Navbar Se -->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-               
+
             </div>
         </form>
         <!-- Navbar-->
@@ -197,18 +197,18 @@
                                             <div class="container mt-3">
                                             <div class="">
                                                 <div class="col-md-12">
-                                              
+
                                                     <div class="card">
                                                         <div class="quiz-header">
                                                             <h3>Quiz Scores
-                                                            
+
                                                             </h3>
                                                             <button id="sort-data">Sort Data</button>
                                                             <button id="download-table">Download Table Data</button>
                                                             <div class="download-link"></div>
                                                         </div>
                                                         <div class="card-body">
-                                                        <span>Note: Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>
+                                                        <span>Note: Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span><br><br>
                                                             <table class="table table-striped">
 
                                                                 <thead>
@@ -225,10 +225,10 @@
 
                                                                 </thead>
                                                                 <tbody id="tbody1"></tbody>
-                                                            </table>
+                                                            </table><br><br>
 
                                                             <h3>Have Not Answered Yet</h3>
-                                                           
+
                                                             <table class="table table-striped">
 
                                                                 <thead>
@@ -244,7 +244,7 @@
                                                                 <tbody id="tbody2"></tbody>
                                                             </table>
                                                         </div>
-                                                    
+
                                                         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
                                                         <script>
@@ -265,14 +265,14 @@
                                                             // When the user clicks on the button, scroll to the top of the document
                                                             function topFunction() {
                                                             document.body.scrollTop = 0;
-                                                            document.documentElement.scrollTop = 0; 
+                                                            document.documentElement.scrollTop = 0;
                                                         }
                                                         </script>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
-                                            
+
                                         </div>
 
                                     </div>
@@ -297,7 +297,7 @@
 
     <div class="floating-window">
         <div class="window">
-                                                        
+
             <div class="selects">
                 <select name="section" id="section">
                     <option>Select a section</option>
@@ -770,14 +770,14 @@
             return new Promise(async (resolve, reject) => {
                 try {
                     let sectionSortData;
-                    let sd = document.getElementById("sessionDataContainer").dataset.session; 
-                    sd = JSON.parse(sd); 
+                    let sd = document.getElementById("sessionDataContainer").dataset.session;
+                    sd = JSON.parse(sd);
                     console.log(sd.role);
                     if (sd.role == "admin") {
                         // const sec_sel = document.querySelector("#section");
                         // if (document.body.contains(sec_sel)){
-                            
-                        // } 
+
+                        // }
                         sectionSortData = document.querySelector("#section").value;
                     } else if (sd.role == "teacher") {
                         sectionSortData = document.querySelector("#section-sdc").getAttribute("data-session-section");
@@ -852,7 +852,7 @@
                 });
         }
 
-        
+
 
         //Add Sort Student
     document.querySelector("#sort-data").addEventListener("click",
@@ -919,10 +919,10 @@
         }
 
         async function getQuizSelection() {
-        //For section  
+        //For section
         const dbRef = collection(db, 'quizzes');
         const qs = await getDocs(dbRef);
-    
+
         var quiz = [];
         //console.log(qs);
         qs.forEach(async (doc) => {
@@ -941,7 +941,7 @@
     <script src="js/get-section.js" type="module"></script>
     <script src="js/getCurrentUserData.js" type="module"></script>
     <script src="js/convertTableToExcel.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

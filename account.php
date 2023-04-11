@@ -43,10 +43,10 @@ include('authentication.php');
 .floating-window > .window {
     position: fixed;
     top: 50%;
-    left: 57%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 350px;
-    height: 250px;
+    height: 225px;
     background-color: #198754;
     z-index: 11;
     border-radius: 4px;
@@ -159,11 +159,12 @@ include('authentication.php');
                 </h4>
               </div>
               <div id="main-form" class="add-body">
-                <div class="col-xs-4">
+                <!-- <div class="col-xs-4">
                   <p>Profile Picture</p>
                   <img width="100px" src="" class="dp">
                   <button id="upload-btn" disabled>Upload Photo</button>
-                </div><br>
+                </div><br> -->
+                <p>Profile Picture</p>
                 <div class="col-xs-4">
                   <label for="firstName">First Name</label>
                   <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName"

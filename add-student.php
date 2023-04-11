@@ -100,46 +100,6 @@
     display: none;
   }
 
-.table-responsive table {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table-responsive thead, .table-responsive tbody, .table-responsive th, .table-responsive td, .table-responsive tr {
-  display: table-row;
-}
-
-.table-responsive th, .table-responsive td {
-  width: auto;
-  display: table-cell;
-  vertical-align: top;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-  text-align: left;
-  white-space: nowrap;
-  padding: 8px;
-  min-width: 150px; Add min-width for columns
-  box-sizing: border-box;
-  word-break: break-word;
-}
-
-.table-responsive th::before {
-  content: attr(data-th);
-  position: absolute;
-  left: 0;
-  top: -32px;
-  background-color: #f8f9fa;
-  font-weight: bold;
-  text-align: left;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  width: 100%;
-  padding: 8px;
-}
-
-
   </style>
 </head>
 

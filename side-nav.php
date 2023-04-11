@@ -34,12 +34,12 @@
 
                             echo '<a class="nav-link collapsed" href="archive-teacher.php">
                             <i class="fas fa-archive"></i>
-                            <span>Archive (Teacher Accounts)</span>
+                            <span>Archive (Teacher)</span>
                             </a>';
 
                             echo '<a class="nav-link collapsed" href="archive-admin.php">
                             <i class="fas fa-archive"></i>
-                            <span>Archive (Admin Accounts)</span>
+                            <span>Archive (Admin)</span>
                             </a>';
 
                             
@@ -61,7 +61,7 @@
 
                         echo '<a class="nav-link collapsed" href="archive.php">
                         <i class="fas fa-archive"></i>
-                        <span>Archive (Student Accounts)</span>
+                        <span>Archive (Student)</span>
                         </a>';
 
                         // echo '<a class="nav-link collapsed" href="archive-teacher.php">

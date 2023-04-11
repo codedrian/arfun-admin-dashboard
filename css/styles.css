@@ -11439,6 +11439,7 @@ body {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   position: relative;
+  
 }
 
 
@@ -11774,17 +11775,17 @@ body {
       left:-1%;
     } */
 
-    .admin-header {
+    /* .admin-header {
       display:inline-block;
       gap: .3rem;
       align-items: center;
-    }
+    } */
 
-
+/* 
     .student-header {
-      display:inline-block;
-      /* justify-content:space-between; */
-      gap: .3rem;
+      display:flex;
+      justify-content:space-between;
+      gap: .5rem;
       align-items: center;
      
     }
@@ -11814,16 +11815,74 @@ body {
       gap: .3rem;
       align-items: center;
       margin-bottom: 5px;
-    }
+    } */
 
 
     /* .teach-header button{
       left:8%;
     } */
 
-   
+    .archive-header #unarchive, #select-all, #deselect-all,
+    #sort-data{
+      display:inline-block;
+      position:relative;
+      margin-bottom:5px;
+      padding:5px;
+      background:rgb(3, 20, 97);
+      border:none;
+      border-radius:5px;
+      color:white;
+      font-size:18px;
+      font-weight:bold;
+      width:160px;
+      font-family: "Roboto", sans-serif;
+      box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+      -webkit-transition-duration:0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-property: box-shadow, transform;
+      transition-property:box-shadow, transform
+    } 
+
+.archive-header #unarchive{
+    width:230px;
+}
+
+.archive-header button:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform:scale(1.1);
+}
+
+/* .admin-header h3{
+    text-align:center;
+    font-size:45px;
+    font-weight:bold;
+    margin-bottom:20px;
+} */
+  
+.archive-header h3{
+  text-align:center;
+  font-size:35px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
 
 
+
+@media (max-width:500px){
+  .archive-header #archive, #select-all,
+  #deselect-all, #archive-all{
+  /* left:24%; 
+  margin-bottom:5px; */
+  }
+
+  .archive-header h3{
+      text-align:center;
+      font-size:30px;
+      font-weight:bold;
+      margin-top:80px;
+  }
+}
    
 
 /*table responsive*/
@@ -11861,148 +11920,6 @@ body {
     text-align: left;
   }
 
-  /* Responsive table Header & buttons*/
-
-  .admin-header, .teach-header, .student-header, .quiz-header,
-  .addStud-header{
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3em;
-  }
-/* 
-  .admin-header #download-table
-  {
-     justify-content: center;
-     width:70%;
-     margin-bottom: 5px;
-     left: 0;
-     font-size: 18px;
-  }  */
-
-  .student-header{
-     margin-top:10%;
-  }
-
-  .quiz-header{
-    margin-top: 30%;
-  }
-
-  .archive-header{
-    margin-top:10%;
-  } */
-
-  /* .addStud-header{
-    left:10%;
-  }
-
-  /*Admin Header */
-
-  .admin-header button{
-    width:70%;
-    font-size: 18px;
-    margin:5px;
-  }
-
-  .admin-header h3{
-    text-align: center;
-    font-size: 30px;
-  }
-
-  /* add teacher header */
-
-  .teach-header button{
-    /* justify-content: center; */
-    /* width:70%; */
-    font-size: 18px;
-    margin:5px;
-  }
-
-  .teach-header h3{
-    text-align: center;
-    font-size: 30px;
-  }
-
- /* Student List header*/
-  .student-header button{
-     margin-bottom: 4px;
-     left: 0;
-     font-size: 18px;
-  } 
-
-  .student-header h3{
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-
-
-  /*quiz-header */
-  .quiz-header #download-table{
-    justify-content: center;
-    margin-bottom: 5px;
-    left: 0;
-    font-size: 18px;
-   
- } 
-  .quiz-header #sort-data{
-    justify-content: center;
-    margin-bottom: 5px;
-    left: 0;
-    font-size: 18px;
-    width:57%;
-
- } 
-
- .quiz-header h3{
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-
-/*archive header */
- .archive-header button{
-  width:40%;
-  margin-bottom: 4px;
-  font-size: 18px;
-} 
-
-.archive-header h3{
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-/*add Student Header */
-
-.addStud-header button{
-  justify-content: center;
-  /* width:70%; */
-  margin-bottom: 4px;
-  font-size: 18px;
-}
-
-.addStud-header h3{
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-/* .addStud-header #download-table{
-  justify-content: center;
-  width:70%;
-  margin-bottom: 4px;
-  font-size: 18px;
-
- }
-
- .addStud-header #archive-all{
-  justify-content: center;
-  width:70%;
-  margin-bottom: 4px;
-  left: 0;
-  font-size: 18px;
- } */
 
   .card #myBtn{
     display: block;

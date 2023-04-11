@@ -21,19 +21,67 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
     <style>
-        .admin-header button{
+        .admin-header #archive, #select-all,
+        #deselect-all, #archive-all, #download-table{
+            display:inline-block;
             position:relative;
+            margin-bottom:5px;
             padding:5px;
             background:rgb(3, 20, 97);
             border:none;
-            border-radius:10px;
+            border-radius:5px;
             color:white;
             font-size:18px;
-        }
-        .admin-header button:hover{
-            background:blue;
+            font-weight:bold;
+            width:160px;
+            font-family: "Roboto", sans-serif;
+            box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+            -webkit-transition-duration:0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: box-shadow, transform;
+            transition-property:box-shadow, transform;
         }
 
+        .admin-header #download-table{
+           width:230px;
+        }
+
+        .admin-header button:hover{
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            -webkit-transform: scale(1.1);
+            transform:scale(1.1);
+        }
+
+        .admin-header h3{
+            text-align:center;
+            font-size:45px;
+            font-weight:bold;
+            margin-bottom:20px;
+        }
+
+        .form-body h3{
+            font-weight:bold;
+        }
+
+        @media (max-width:500px){
+            .admin-header #archive, #select-all,
+            #deselect-all, #archive-all{
+            left:24%;
+            margin-bottom:5px;
+            }
+
+            .admin-header #download-table{
+                left:17%;
+                margin-bottom:5px;
+                width:200px;
+            }
+
+            .admin-header h3{
+                text-align:center;
+                font-size:30px;
+                font-weight:bold;
+            }
+        }
         #myBtn {
         display: none;
         position: fixed;

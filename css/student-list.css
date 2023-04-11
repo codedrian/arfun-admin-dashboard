@@ -1,100 +1,68 @@
-.student-header button{
-  position:relative;
-  padding:5px;
-  background:rgb(3, 20, 97);
-  border:none;
-  border-radius:10px;
-  color:white;
-  font-size:18px;
-  }
+.student-header #archive, #select-all,
+#deselect-all, #archive-all, #sort-data, #download-table{
+    display:inline-block;
+    position:relative;
+    margin-bottom:5px;
+    padding:5px;
+    background:rgb(3, 20, 97);
+    border:none;
+    border-radius:5px;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    width:160px;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+    -webkit-transition-duration:0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property:box-shadow, transform
+}
 
+  .student-header #download-table{
+    width:230px;
+  }
+  
   .student-header button:hover{
-    background-color: blue;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform:scale(1.1);
   }
 
-/* #archive-all{
-    position:relative;
-      left:50%;
-      padding:10px;
-      background:rgb(3, 20, 97);
-      border:none;
-      border-radius:10px;
-      color:white;
-      font-size:18px;
+
+  .student-header h3{
+      text-align:center;
+      font-size:45px;
+      font-weight:bold;
   }
 
-  #archive-all:hover{
-    background:blue;
+  .form-body h3{
+      font-weight:bold;
   }
 
-  #sort-data{
-    position:relative;
-      left:50%;
-      padding:10px;
-      background:rgb(3, 20, 97);
-      border:none;
-      border-radius:10px;
-      color:white;
-      font-size:18px;
-  } 
-
-  #sort-data:hover{
-    background:blue;
-  }
-
-  
-  #download-table{
-      position:relative;
-      left:50%;
-      padding:5px;
-      background:rgb(3, 20, 97);
-      border:none;
-      border-radius:2px;
-      color:white;
-      font-size:18px;
-  }
-  #download-table:hover{
-      background:blue;
-  }
-
-  
-    #archive-all{
-      position:relative;
-        left:50%;
-        padding:10px;
-        background:rgb(3, 20, 97);
-        border:none;
-        border-radius:10px;
-        color:white;
-        font-size:18px;
+  @media (max-width:500px){
+    /* .student-header #archive, #select-all,
+    #deselect-all, #archive-all, #sort-data, #donwload-table{
+        left:19%;
+        margin-bottom:5px;
     }
 
-    #archive-all:hover{
-      background:blue;
+    .student-header #download-table{  
+      left:19%;
+      margin-bottom:5px;  
+      width:200px;
+  } */
+    .student-header h3{
+        text-align:center;
+        font-size:30px;
+        font-weight:bold;
+        margin-top:80px;
     }
-
-  
-
-    #download-table{
-        position:relative;
-        left:50%;
-        padding:10px;
-        background:rgb(3, 20, 97);
-        border:none;
-        border-radius:10px;
-        color:white;
-        font-size:18px;
-    }
-    #download-table:hover{
-        background:blue;
-    } */
-
-
-  
+}
     .window .sel{
       display: flex;
       justify-content: center;
-          margin:7px;
+      margin:7px;
     }
 
     /* #submitSectionSort{
@@ -119,16 +87,35 @@
     } */
 
     .window button{
-      background: rgb(3, 20, 97);
+      /* background: rgb(3, 20, 97);
       border: none;
       color: white;
       font-weight: 300;
       border-radius: 3px;
-      margin: 4px;
+      margin: 4px; */
+      display:inline-block;
+      position:relative;
+      margin-right: 5px;
+      padding:5px;
+      background:rgb(3, 20, 97);
+      border:none;
+      border-radius:5px;
+      color:white;
+      font-size:18px;
+      font-weight:bold;
+      width:160px;
+      font-family: "Roboto", sans-serif;
+      box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+      -webkit-transition-duration:0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-property: box-shadow, transform;
+      transition-property:box-shadow, transform;
     }
 
     .window button:hover{
-      background:blue;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      -webkit-transform: scale(1.1);
+      transform:scale(1.1);
     }
 
     .window .buttons{

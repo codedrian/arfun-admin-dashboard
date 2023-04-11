@@ -81,34 +81,33 @@
 } */
 
 
-.archive-header button{
-position:relative;
-padding:5px;
-background:rgb(3, 20, 97);
-border:none;
-border-radius:10px;
-color:white;
-font-size:18px;
-margin-bottom: 5px;
-} 
 
-.archive-header button:hover{
-  background:blue;
-}
 
 .window button{
-  position: relative;
-  background: rgb(3, 20, 97);
-  border: none;
-  color: white;
-  font-weight: 300;
-  border-radius: 3px;
-  margin: 4px;
+  display:inline-block;
+  position:relative;
+  margin-right: 5px;
+  padding:5px;
+  background:rgb(3, 20, 97);
+  border:none;
+  border-radius:5px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  width:160px;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+  -webkit-transition-duration:0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property:box-shadow, transform;
 
 }
 
 .window button:hover{
-    background:blue;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform:scale(1.1);
   }
 
 .window .buttons{
@@ -138,10 +137,10 @@ font-size: 18px;
 background-color: blue; 
 }
 
-table td:last-child:hover{
+/* table td:last-child:hover{
   background-color:lightblue;
   border-radius: 10px;
-}
+} */
 
 table td:last-child{
   cursor:pointer;

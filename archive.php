@@ -65,8 +65,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px;
-    height: 200px;
+    width: 450px;
+    height: 250px;
     background-color: #198754;
     z-index: 11;
     border-radius: 4px;
@@ -90,36 +90,33 @@ color:white;
 font-size:18px;
 margin-bottom: 5px;
 }
-/* #sort-data{
-position:relative;
-left:78%;
-padding:10px;
-background:rgb(3, 20, 97);
-border:none;
-border-radius:10px;
-color:white;
-font-size:18px;
-width:100px;
-margin-bottom: 5px;
-}  */
 
-#sort-data:hover{
-  background:blue;
-}
 
 .window button{
-  position: relative;
-  background: rgb(3, 20, 97);
-  border: none;
-  color: white;
-  font-weight: 300;
-  border-radius: 3px;
-  margin: 4px;
+  display:inline-block;
+  position:relative;
+  margin-right: 5px;
+  padding:5px;
+  background:rgb(3, 20, 97);
+  border:none;
+  border-radius:5px;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  width:160px;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+  -webkit-transition-duration:0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property:box-shadow, transform;
 
 }
 
 .window button:hover{
-    background:blue;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform:scale(1.1);
   }
 
 .window .buttons{
@@ -129,6 +126,25 @@ justify-content: center;
 padding: 20px;
 }
 
+@media (max-width:500px){
+  .floating-window {
+    display: flex;
+}
+.floating-window > .window {
+  display:fixed;
+  align-items:center;
+  width:325px;
+  
+}
+.window button{
+  font-size:14px;
+}
+.window .selects{
+ left:40%;
+}
+
+
+}
 #myBtn {
 display: none;
 position: fixed;
@@ -315,12 +331,13 @@ table td:last-child{
 
   <div class="floating-window">
     <div class="window">
-
+<div class="selects">
       <select name="section" id="section">
         <option>Select a section</option>
       </select>
 
       <input type="number" required placeholder="School Year" id="school-year">
+      </div>
       <div class="buttons">
           <button id="submitSectionSort">Sort Data (Section Only)</button>
           <button id="submitSySort">Sort Data (School Year Only)</button>

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Arfun | Admin</title>
+    <title>Arfun | quiz</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/quiz-edit.css" rel="stylesheet" />
@@ -20,8 +20,82 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
     <style>
-         #sort-data{
-          position:relative;
+        .quiz-header #sort-data, #download-table{
+            position:relative;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:5px;
+            color:white;
+            font-size:18px;
+            font-weight:bold;
+            width:160px;
+            font-family: "Roboto", sans-serif;
+            box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+            -webkit-transition-duration:0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: box-shadow, transform;
+            transition-property:box-shadow, transform
+        }
+
+        .quiz-header #download-table{
+            width:230px;
+        }
+
+        .quiz-header button:hover{
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            -webkit-transform: scale(1.1);
+            transform:scale(1.1);
+        }
+
+
+        .quiz-header h3{
+            text-align:center;
+            font-size:45px;
+            font-weight:bold;
+            margin-bottom:20px;
+        }
+        
+
+        @media (max-width:500px){
+            .quiz-header #sort-data{
+            left:24%;
+            margin-bottom:5px;
+            
+            }
+
+            .quiz-header #download-table{
+                left:16%;
+                margin-bottom:5px;
+                width:200px;
+            }
+
+            .quiz-header h3{
+                text-align:center;
+                font-size:30px;
+                font-weight:bold;
+                margin-top:80px;
+            }
+
+            .floating-window {
+                display: flex;
+            }
+            .floating-window > .window {
+            display:fixed;
+            align-items:center;
+            width:325px;
+            
+            }
+            .window button{
+            font-size:14px;
+            }
+            .window .selects{
+            left:40%;
+            }
+        }
+     
+         /* #sort-data{
+            position:relative;
             left:50%;
             padding:5px;
             background:rgb(3, 20, 97);
@@ -48,7 +122,7 @@
         }
         #download-table:hover{
             background:blue;
-        }
+        } */
 
         /* .window #section{
             ;
@@ -66,26 +140,36 @@
 
         /* start of Floating Window */
         .window button{
-          position: relative;
-          background: rgb(3, 20, 97);
-          border: none;
-          color: white;
-          font-weight: 300;
-          border-radius: 3px;
-          margin:4px;
-          font-size:14px;
-          /* display: flex; */
-          /* left:5%; */
+            display:inline-block;
+            position:relative;
+            margin-right: 5px;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:5px;
+            color:white;
+            font-size:14px;
+            font-weight:bold;
+            width:160px;
+            font-family: "Roboto", sans-serif;
+            box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+            -webkit-transition-duration:0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: box-shadow, transform;
+            transition-property:box-shadow, transform;
         }
 
         .window button:hover{
-            background:blue;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            -webkit-transform: scale(1.1);
+            transform:scale(1.1);
           }
 
         .window .buttons{
-        display: flex;
-        justify-content: center;
-        padding: 20px;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            padding: 20px;
         
         }
 
@@ -94,17 +178,43 @@
         justify-content:center;
         
         }
-          /* .window #resetSectionSort{
-            position:relative;
-            left:30%;
-            margin-top:10px;
-          }
-          
-          .window #closeSectionSort{
-            position:relative;
-            left:30%;
-            margin-top:10px;
-          } */
+
+        @media (max-width:500px){
+        .floating-window {
+        display: flex;
+        }
+        .floating-window > .window {
+        display:fixed;
+        align-items:center;
+        width:325px;
+
+        }
+        .window button{
+        font-size:14px;
+        }
+        .window .selects{
+        left:40%;
+        }
+    }
+        @media (max-width:500px){
+        .quiz-header #archive, #select-all,
+        #deselect-all, #archive-all{
+        left:24%;
+        margin-bottom:5px;
+        }
+
+        .quiz-header #download-table{
+            left:17%;
+            margin-bottom:5px;
+            width:200px;
+        }
+
+        .quiz-header h3{
+            text-align:center;
+            font-size:30px;
+            font-weight:bold;
+        }
+        }
 
          /* end of Floating Window */
         
@@ -563,7 +673,7 @@
                                 students: studentsRef,
                                 names: names
                             });
-                    } else if (sd.role == "admin") {
+                    } else if (sd.role == "quiz") {
                         const sectionSortData = document.querySelector("#section").value;
                         const querySnapshot = await getDocs(collection(db, "quizScores"));
 
@@ -691,7 +801,7 @@
                             students: studentsRef,
                             names: names
                         });
-                    } else if (sd.role == "admin") {
+                    } else if (sd.role == "quiz") {
                         const sectionSortData = document.querySelector("#section").value;
                         const querySnapshot = await getDocs(collection(db, "quizScores"));
                         const quizSortData = document.querySelector("#quiz-number").value;
@@ -773,7 +883,7 @@
                     let sd = document.getElementById("sessionDataContainer").dataset.session; 
                     sd = JSON.parse(sd); 
                     console.log(sd.role);
-                    if (sd.role == "admin") {
+                    if (sd.role == "quiz") {
                         // const sec_sel = document.querySelector("#section");
                         // if (document.body.contains(sec_sel)){
                             
@@ -865,7 +975,7 @@
         document.querySelector(".floating-window").style.display = 'none';
       }
     );
-    if (sessionData.role == "admin") {
+    if (sessionData.role == "quiz") {
         const sss = document.querySelector("#submitSectionSort");
         const ss = document.querySelector("#section");
         ss.style.display = "block";

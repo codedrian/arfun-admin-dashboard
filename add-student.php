@@ -21,45 +21,48 @@
 
   <style>
 
-.addStud-header button{
-  position: relative;
-  display: inline-block;
-  padding: 5px;
-  background: rgb(3, 20, 97);
-  border:none;
-  border-radius: 10px;
-  color:white;
-  font-size:18px;
+.addStud-header  #archive, #select-all,
+#deselect-all, #archive-all, #download-table{
+    display:inline-block;
+    position:relative;
+    margin-bottom:5px;
+    padding:5px;
+    background:rgb(3, 20, 97);
+    border:none;
+    border-radius:5px;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    width:160px;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+    -webkit-transition-duration:0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property:box-shadow, transform;
 }
 
-/*
-  #archive-all{
-  position: relative;
-  display: inline-block;
-  padding: 8px 15px;
-  background: rgb(3, 20, 97);
-  border:none;
-  border-radius: 10px;
-  color:white;
-  font-size:18px;
-  }
+.addStud-header #download-table{
+    width:230px;
+}
 
-  #archive-all:hover{
-    background:blue;
-  }
-  #download-table{
-  position: relative;
-  display: inline-block;
-  padding: 8px 15px;
-  background: rgb(3, 20, 97);
-  border:none;
-  border-radius: 10px;
-  color:white;
-  font-size:18px;
-  }
-  #download-table:hover{
-      background:blue;
-  } */
+.addStud-header button:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform:scale(1.1);
+}
+
+.addStud-header h3{
+    text-align:center;
+    font-size:45px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.form-body h3{
+    font-weight:bold;
+}
+
 
   #myBtn {
   display: none;
@@ -100,7 +103,7 @@
     display: none;
   }
 
-.table-responsive table {
+/* .table-responsive table {
   display: table;
   width: 100%;
   border-collapse: collapse;
@@ -137,7 +140,7 @@
   border-bottom: 1px solid #ddd;
   width: 100%;
   padding: 8px;
-}
+} */
 
 
   </style>

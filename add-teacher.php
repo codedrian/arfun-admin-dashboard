@@ -21,70 +21,108 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <style>
 
-        .teach-header button{
+        .teach-header #archive, #select-all,
+        #deselect-all, #archive-all, #download-table{
+            display:inline-block;
             position:relative;
+            margin-bottom:5px;
             padding:5px;
             background:rgb(3, 20, 97);
             border:none;
-            border-radius:10px;
+            border-radius:5px;
             color:white;
             font-size:18px;
+            font-weight:bold;
+            width:160px;
+            font-family: "Roboto", sans-serif;
+            box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+            -webkit-transition-duration:0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: box-shadow, transform;
+            transition-property:box-shadow, transform
         }
+
+        .teach-header #download-table{
+            width:230px;
+        }
+
 
         .teach-header button:hover{
-            background-color:blue;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            -webkit-transform: scale(1.1);
+            transform:scale(1.1);
         }
-        /* #download-table{
-            position:relative;
-            padding:10px;
-            background:rgb(3, 20, 97);
-            border:none;
-            border-radius:10px;
-            color:white;
-            font-size:18px;
+
+        .teach-header h3{
+            text-align:center;
+            font-size:45px;
+            font-weight:bold;
+            margin-bottom:20px;
         }
-        #download-table:hover{
-            background:blue;
-        } */
+
+        .form-body h3{
+            font-weight:bold;
+        }
+
+        @media (max-width:500px){
+            .teach-header #archive, #select-all,
+            #deselect-all, #archive-all{
+                left:24%;
+                margin-bottom:5px;
+            }
+
+            .teach-header #download-table{
+                left:17%;
+                margin-bottom:5px;
+                width:200px;
+            }
+
+            .teach-header h3{
+                text-align:center;
+                font-size:30px;
+                font-weight:bold;
+            }
+        }
+
 
         .table-responsive table {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-}
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+        }
 
-.table-responsive thead, .table-responsive tbody, .table-responsive th, .table-responsive td, .table-responsive tr {
-  display: table-row;
-}
+        .table-responsive thead, .table-responsive tbody, .table-responsive th, .table-responsive td, .table-responsive tr {
+        display: table-row;
+        }
 
-.table-responsive th, .table-responsive td {
-  width: auto;
-  display: table-cell;
-  vertical-align: top;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-  text-align: left;
-  white-space: nowrap;
-  padding: 8px;
-  min-width: 150px; Add min-width for columns
-  box-sizing: border-box;
-  word-break: break-word;
-}
+        .table-responsive th, .table-responsive td {
+        width: auto;
+        display: table-cell;
+        vertical-align: top;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        text-align: left;
+        white-space: nowrap;
+        padding: 8px;
+        min-width: 150px; Add min-width for columns
+        box-sizing: border-box;
+        word-break: break-word;
+        }
 
-.table-responsive th::before {
-  content: attr(data-th);
-  position: absolute;
-  left: 0;
-  top: -32px;
-  background-color: #f8f9fa;
-  font-weight: bold;
-  text-align: left;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  width: 100%;
-  padding: 8px;
-}
+        .table-responsive th::before {
+        content: attr(data-th);
+        position: absolute;
+        left: 0;
+        top: -32px;
+        background-color: #f8f9fa;
+        font-weight: bold;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+        padding: 8px;
+        }
 
         #myBtn {
         display: none;

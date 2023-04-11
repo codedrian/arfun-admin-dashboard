@@ -54,7 +54,16 @@
         #myBtn:hover {
         background-color: blue; 
         }
-      
+        
+        .arch-status {
+            position: fixed;
+            bottom: 3%;
+            right: 3%;
+            padding: 1em;
+            background-color: #bababa;
+            color: black;
+            display: none;
+        }
     </style>
 
 </head>
@@ -188,6 +197,10 @@
                                                                         class="btn btn-danger float-end">Back</a> -->
                             
                                                                 </h3>
+                                                                <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                                                                <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                                                                <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                                                                <button id="archive-all">Archive All</button>
                                                                 <button id="download-table">Download Table Data</button>
                                                                 <div class="download-link"></div>
 
@@ -256,6 +269,12 @@
                 </div>
             </footer>
         </div>
+    </div>
+
+    <!-- Add archiving status -->
+    <div class="arch-status">
+        <p>Unarchiving started!</p>
+        <span class="as">Unarchived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
     </div>
 
     <script>

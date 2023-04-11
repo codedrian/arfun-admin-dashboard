@@ -8,9 +8,9 @@ function AddItem(_name, _email, _idnum, _section, _schoolyear) {
   let td1_1 = document.createElement("td");
   let td1_2 = document.createElement("td");
   let td2 = document.createElement("td");
-  let td3 = document.createElement("td");
+  //let td3 = document.createElement("td");
   let td4 = document.createElement("td");
-  let td5 = document.createElement("td");
+  //let td5 = document.createElement("td");
   let td6 = document.createElement("td");
   let td6_cb = document.createElement("input");
 
@@ -19,9 +19,9 @@ function AddItem(_name, _email, _idnum, _section, _schoolyear) {
   td1_1.textContent = _name.midName;
   td1_2.textContent = _name.lastName;
   td2.textContent = _email;
-  td3.textContent = _idnum;
+  //td3.textContent = _idnum;
   td4.textContent = _section;
-  td5.textContent = _schoolyear;
+  //td5.textContent = _schoolyear;
   //td6.textContent = 'Unarchive';
   //td6.addEventListener("click", unArchiveStudent, false);
   td6_cb.setAttribute("type","checkbox");
@@ -33,9 +33,9 @@ function AddItem(_name, _email, _idnum, _section, _schoolyear) {
   trow.appendChild(td1_1);
   trow.appendChild(td1_2);
   trow.appendChild(td2);
-  trow.appendChild(td3);
+  //trow.appendChild(td3);
   trow.appendChild(td4);
-  trow.appendChild(td5);
+  //trow.appendChild(td5);
   trow.appendChild(td6);
   td6.appendChild(td6_cb);
 
@@ -84,7 +84,7 @@ const db = getFirestore();
 
 async function GetAllDataOnece() {
   const dbRef = collection(db, 'users');
-  const q = query(dbRef, where('role', '==', 'student'));
+  const q = query(dbRef, where('role', '==', 'admin'));
   
 
   const querySnapshot = await getDocs(q);
@@ -116,31 +116,19 @@ async function GetAllDataOnece() {
   */
   var students = [];
   querySnapshot.forEach((doc) => {
-    if(role == "teacher") {
-      if (doc.data().role == "student") {
-        //Filter Archived students 
-        if(doc.data().isArchived == "true") {
-          //After checking for archived, check for section
-            if(doc.data().section == uidDataSection) {
-              console.log(doc.data());
-              students.push(doc.data());
-          }
+        if (doc.data().role == "admin") {
+            //Filter Archived students 
+            if(doc.data().isArchived == "true") {
+                console.log(doc.data());
+                students.push(doc.data());
+            }
         }
-      }
-    } else if (role == "admin") {
-      if (doc.data().role == "student") {
-        //Filter Archived students 
-        if(doc.data().isArchived == "true") {
-          console.log(doc.data());
-          students.push(doc.data());
-        }
-      }
-    }
-  });
+    });
 
   addAllItems(students);
 }
-
+//Counter
+var counter_asd = 0;
 //Archive students
 async function unArchiveStudent(e) {
     //var a = e.currentTarget.parentElement.getAttribute("data-email");
@@ -163,23 +151,23 @@ async function unArchiveStudent(e) {
     await updateDoc(docRef, {
       isArchived: "false",
     }).then(() => {
-      console.log("Student with email" + e + " successfully unarchived!");
+      console.log("Admin with email" + e + " successfully unarchived!");
       counter_asd++;
       updateCounter(counter_asd);
     });
 }
 
-function updateCounter(n) {
-  let ap = document.querySelector(".as-proc");
-  ap.innerHTML = n;
-
-  //Test if ready for reload
-  if (totalNosOfCheckedCB() == n) {
-    alert("Successfully archived all selected students!");
-    location.reload();
-  }
-}
 window.onload = GetAllDataOnece;
+function updateCounter(n) {
+    let ap = document.querySelector(".as-proc");
+    ap.innerHTML = n;
+  
+    //Test if ready for reload
+    if (totalNosOfCheckedCB() == n) {
+      alert("Successfully archived all selected students!");
+      location.reload();
+    }
+  }
 
 function totalNosOfCheckedCB() {
   let cbs = document.querySelectorAll(".cb-arc");
@@ -197,7 +185,7 @@ function totalNosOfCheckedCB() {
 function multiUnArchive() {
   let cbs = document.querySelectorAll(".cb-arc");
   let cbs_tnc = totalNosOfCheckedCB();
-
+  
   console.log(cbs_tnc);
 
   if(cbs_tnc == 0) {

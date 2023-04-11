@@ -96,6 +96,8 @@ async function GetAllDataOnece() {
   addAllItems(students);
 }
 
+//Counter
+var counter_asd = 0;
 //Archive students
 async function archiveStudent(e) {
   //alert("Archiving Started");
@@ -120,9 +122,21 @@ async function archiveStudent(e) {
     isArchived: "true",
   }).then(() => {
     console.log("Teacher with email " + e + " successfully archived!");
+    counter_asd++;
+    updateCounter(counter_asd);
   });
 }
 
+function updateCounter(n) {
+  let ap = document.querySelector(".as-proc");
+  ap.innerHTML = n;
+
+  //Test if ready for reload
+  if (totalNosOfCheckedCB() == n) {
+    alert("Successfully archived all selected teachers!");
+    location.reload();
+  }
+}
 function totalNosOfCheckedCB() {
   let cbs = document.querySelectorAll(".cb-arc");
   let counter = 0;
@@ -139,8 +153,6 @@ function totalNosOfCheckedCB() {
 function multiArchive() {
   let cbs = document.querySelectorAll(".cb-arc");
   let cbs_tnc = totalNosOfCheckedCB();
-  let cbs_tnc_con = 1;
-  let ap = document.querySelector(".as-proc");
   console.log(cbs_tnc);
 
   if(cbs_tnc == 0) {
@@ -152,11 +164,8 @@ function multiArchive() {
     for(var i = 0; i < cbs.length; i++) {
       if(cbs[i].checked == true) {
         archiveStudent(cbs[i].value);
-        ap.innerHTML = cbs_tnc_con++;
       }
     }
-    alert("Successfully archived all selected teachers!");
-    location.reload();
   }
 }
 

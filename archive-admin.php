@@ -16,81 +16,140 @@
   <title>Arfun | Student</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
+  <!-- <link href="css/quiz-edit.css" rel="stylesheet" /> -->
   <!-- <link href="css/student.css" rel="stylesheet" /> -->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
   <style>
 
-.addStud-header button{
-  position: relative;
-  display: inline-block;
-  padding: 5px;
-  background: rgb(3, 20, 97);
-  border:none;
-  border-radius: 10px;
-  color:white;
-  font-size:18px;
+.base {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    /* background-color: #198754;
+    color: white; */
+    padding: 20px;
+    border-radius: 5px;
 }
 
-/*
-  #archive-all{
-  position: relative;
-  display: inline-block;
-  padding: 8px 15px;
-  background: rgb(3, 20, 97);
-  border:none;
-  border-radius: 10px;
-  color:white;
-  font-size:18px;
-  }
+.base h4, h2{
+    text-align: center;
+}
+.base span{
+    background: darkgreen;
+    font-size: x-large;
+    width: 20%;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    border-radius: 4px;
+}
 
-  #archive-all:hover{
+.base span:hover{
+    background:#198754 ;
+}
+.floating-window {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+    display: none;
+}
+.floating-window > .window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 200px;
+    background-color: #198754;
+    z-index: 11;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+/* @media (max-width:500){
+  .floating-window{
+   flex-direction: column;
+   align-items:center;
+  }
+} */
+
+
+#sort-data{
+position:relative;
+left:78%;
+padding:10px;
+background:rgb(3, 20, 97);
+border:none;
+border-radius:10px;
+color:white;
+font-size:18px;
+width:100px;
+margin-bottom: 5px;
+} 
+
+#sort-data:hover{
+  background:blue;
+}
+
+.window button{
+  position: relative;
+  background: rgb(3, 20, 97);
+  border: none;
+  color: white;
+  font-weight: 300;
+  border-radius: 3px;
+  margin: 4px;
+
+}
+
+.window button:hover{
     background:blue;
   }
-  #download-table{
-  position: relative;
-  display: inline-block;
-  padding: 8px 15px;
-  background: rgb(3, 20, 97);
-  border:none;
-  border-radius: 10px;
-  color:white;
-  font-size:18px;
-  }
-  #download-table:hover{
-      background:blue;
-  } */
 
-  #myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color:rgb(3, 20, 97) ;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 18px;
-  }
+.window .buttons{
+display: flex;
+flex: 1;
+justify-content: center;
+padding: 20px;
+}
 
-  #myBtn:hover {
-  background-color: blue;
-  }
+#myBtn {
+display: none;
+position: fixed;
+bottom: 20px; 
+right: 30px; 
+z-index: 99; 
+border: none;
+outline: none; 
+background-color:rgb(3, 20, 97) ; 
+color: white; 
+cursor: pointer; 
+padding: 15px; 
+border-radius: 10px;
+font-size: 18px; 
+}
 
-  /* table td:last-child:hover{
+#myBtn:hover {
+background-color: blue; 
+}
+
+table td:last-child:hover{
   background-color:lightblue;
   border-radius: 10px;
-  } */
+}
 
-  table td:last-child{
-    cursor:pointer;
-  }
+table td:last-child{
+  cursor:pointer;
+}
 
-  .arch-status {
+.arch-status {
     position: fixed;
     bottom: 3%;
     right: 3%;
@@ -99,51 +158,12 @@
     color: black;
     display: none;
   }
+</style>
 
-.table-responsive table {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table-responsive thead, .table-responsive tbody, .table-responsive th, .table-responsive td, .table-responsive tr {
-  display: table-row;
-}
-
-.table-responsive th, .table-responsive td {
-  width: auto;
-  display: table-cell;
-  vertical-align: top;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-  text-align: left;
-  white-space: nowrap;
-  padding: 8px;
-  min-width: 150px; /* Add min-width for columns */
-  box-sizing: border-box;
-  word-break: break-word;
-}
-
-.table-responsive th::before {
-  content: attr(data-th);
-  position: absolute;
-  left: 0;
-  top: -32px;
-  background-color: #f8f9fa;
-  font-weight: bold;
-  text-align: left;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  width: 100%;
-  padding: 8px;
-}
-
-
-  </style>
 </head>
 
 <body class="sb-nav-fixed">
+
   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="index.php">
@@ -192,55 +212,6 @@
               </div>
             </div>
 
-          <div class="form-body">
-            <div class="card w-50 p-3">
-              <div class="card-header">
-                <h3>
-                  Add Student
-                  <!-- <a href="index.php" class="btn btn-danger float-end btn-sm">Back</a> -->
-                </h3>
-              </div>
-              <form id="main-form" class="add-body" data-type="student">
-                <div class="col-xs-4">
-                  <label for="firstName"></label>
-                  <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName"
-                    required>
-                </div>
-
-                <div class="col-xs-4">
-                  <label for="midName"></label>
-                  <input type="text" class="form-control" id="midName" placeholder="Middle name" name="midName"
-                    required>
-                </div>
-
-                <div class="col-xs-4">
-                  <label for="lastName"></label>
-                  <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName"
-                    required>
-                </div>
-                <div class="form-group col-xs-4">
-                  <label for=""></label>
-                  <input type="text" class="form-control " id="email" aria-describedby="emailHelp" placeholder="Email"
-                    name="email" required>
-                </div>
-                <div class="form-group col-xs-4">
-                  <label for=""></label>
-                  <input type="text" class="form-control" id="idnum" placeholder="Learner Reference Number" name="idNum"
-                    required>
-                </div>
-                <div class="form-group col-xs-4">
-                  <label for=""></label>
-                  <select class="form-control" id="section" name="section" required>
-                      <option value="0">Select a Section</option>
-                  </select>
-                </div>
-
-                <button type="button" class="btn btn-primary registerbtn mt-4 btn-sm" name="register_button"
-                  id="submitData">Submit</button>
-              </form>
-            </div>
-            </div>
-
             <?php
 
             if (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
@@ -253,36 +224,32 @@
               <div class="">
                 <div class="col-md-12">
                   <div class="card">
-                    <div class="addStud-header">
-                      <h3>
+                    <div class="archive-header">
+                      <h4>
                         Students List
-                        <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-
-                      </h3>
-                        <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                       <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                       </h4>
+                        <button id="unarchive">Unarchive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                         <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                         <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="archive-all">Archive All</button>
-
-                        <button id="download-table">Download Table Data</button>
-                        <div class="download-link"></div>
+                      
+                      <button id="sort-data">Sort Data</button>
                     </div>
-                    <div class="card-body table-responsive">
+                    <div class="card-body">
                       <table class="table table-bordered table-striped">
                         <thead>
                           <th>First Name</th>
                           <th>Middle Name</th>
                           <th>Last Name</th>
                           <th>Email</th>
-                          <th>Learner Reference Number</th>
                           <th>Section</th>
-                          <th>School Year</th>
-                          <th>Archive</th>
 
                         </thead>
                         <tbody id="tbody1"></tbody>
                       </table>
                     </div>
+
+
                     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
                     <script>
@@ -303,16 +270,16 @@
                         // When the user clicks on the button, scroll to the top of the document
                         function topFunction() {
                         document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
+                        document.documentElement.scrollTop = 0; 
                     }
                     </script>
                   </div>
                 </div>
               </div>
+              </div>
             </div>
-
             <!-- Student list table ends here... -->
-            <br>
+           
           </div>
 
       </main>
@@ -331,8 +298,26 @@
 
   <!-- Add archiving status -->
   <div class="arch-status">
-    <p>Archiving started!</p>
-    <span class="as">Archived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
+    <p>Unarchiving started!</p>
+    <span class="as">Unarchived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
+  </div>
+
+  <div class="floating-window">
+    <div class="window">
+
+      <select name="section" id="section">
+        <option>Select a section</option>
+      </select>
+
+      <input type="number" required placeholder="School Year" id="school-year">
+      <div class="buttons">
+          <button id="submitSectionSort">Sort Data (Section Only)</button>
+          <button id="submitSySort">Sort Data (School Year Only)</button>
+          <button id="submitBothSort">Sort Data (Both)</button>
+          <button id="resetSectionSort">Reset</button>
+          <button id="closeSectionSort">Close</button>
+      </div>              
+    </div>
   </div>
 
   <script>
@@ -345,10 +330,9 @@
     sessionData = JSON.parse(sessionData);
   </script>
 
-  <script type="module" src="js/fetch-student.js"></script>
+  <script type="module" src="js/archive-admin.js"></script>
   <script src="js/get-section.js" type="module"></script>
   <script src="js/getCurrentUserData.js" type="module"></script>
-  <script src="js/convertTableToExcel.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>

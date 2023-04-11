@@ -151,10 +151,23 @@ async function unArchiveStudent(e) {
       isArchived: "false",
     }).then(() => {
       console.log("Teacher with email" + e + " successfully unarchived!");
+      counter_asd++;
+      updateCounter(counter_asd);
     });
 }
 
 window.onload = GetAllDataOnece;
+
+function updateCounter(n) {
+  let ap = document.querySelector(".as-proc");
+  ap.innerHTML = n;
+
+  //Test if ready for reload
+  if (totalNosOfCheckedCB() == n) {
+    alert("Successfully archived all selected teachers!");
+    location.reload();
+  }
+}
 
 function totalNosOfCheckedCB() {
   let cbs = document.querySelectorAll(".cb-arc");
@@ -172,8 +185,7 @@ function totalNosOfCheckedCB() {
 function multiUnArchive() {
   let cbs = document.querySelectorAll(".cb-arc");
   let cbs_tnc = totalNosOfCheckedCB();
-  let cbs_tnc_con = 1;
-  let ap = document.querySelector(".as-proc");
+
   console.log(cbs_tnc);
 
   if(cbs_tnc == 0) {
@@ -185,11 +197,8 @@ function multiUnArchive() {
     for(var i = 0; i < cbs.length; i++) {
       if(cbs[i].checked == true) {
         unArchiveStudent(cbs[i].value);
-        ap.innerHTML = cbs_tnc_con++;
       }
     }
-    alert("Successfully unarchived all selected teachers!");
-    setTimeout(function() {location.reload()}, 1000);
   }
 }
 

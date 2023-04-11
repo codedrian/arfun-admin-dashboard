@@ -158,7 +158,7 @@ function multiArchive() {
   if(cbs_tnc == 0) {
     alert("Nothing to archive");
   } else {
-    alert("Archving Started");
+    alert("Archiving Started");
     document.querySelector(".arch-status").style.display = "block";
     document.querySelector(".as-total").innerHTML = cbs_tnc;
     for(var i = 0; i < cbs.length; i++) {

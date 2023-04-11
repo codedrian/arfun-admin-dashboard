@@ -33,21 +33,21 @@
     #myBtn {
         display: none;
         position: fixed;
-        bottom: 20px; 
-        right: 30px; 
-        z-index: 99; 
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
         border: none;
-        outline: none; 
-        background-color:rgb(3, 20, 97) ; 
-        color: white; 
-        cursor: pointer; 
-        padding: 15px; 
+        outline: none;
+        background-color:rgb(3, 20, 97) ;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
         border-radius: 10px;
-        font-size: 18px; 
+        font-size: 18px;
         }
 
         #myBtn:hover {
-        background-color: blue; 
+        background-color: blue;
         }
 
   .arch-status {
@@ -129,7 +129,7 @@
                         Students List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       </h3>
-                      
+
                       <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
@@ -137,7 +137,7 @@
                       <button id="sort-data">Sort Data</button>
                       <button id="download-table">Download Table Data</button>
                       <div class="download-link"></div>
-                    
+
                     </div>
 
                     <div class="card-body">
@@ -150,7 +150,7 @@
                           <th>Learner Reference Number</th>
                           <th>Section</th>
                           <th>School Year</th>
-                          <th>Archive</th>
+
 
                         </thead>
                         <tbody id="tbody1"></tbody>
@@ -176,14 +176,14 @@
                         // When the user clicks on the button, scroll to the top of the document
                         function topFunction() {
                         document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0; 
+                        document.documentElement.scrollTop = 0;
                     }
                     </script>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <!-- Student list table ends here... -->
           </div>
 
@@ -215,11 +215,11 @@
           <button id="resetSectionSort">Reset</button>
           <button id="closeSectionSort">Close</button>
       </div>
-      
+
     </div>
   </div>
 
-  
+
 
   <script>
     var sessionData = <?php echo json_encode($_SESSION);?>;
@@ -231,7 +231,7 @@
     <p>Archiving started!</p>
     <span class="as">Archived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
   </div>
-  
+
   <script type="module" src="js/fetch-student.js"></script>
   <script src="js/get-section.js" type="module"></script>
   <script src="js/getCurrentUserData.js" type="module"></script>

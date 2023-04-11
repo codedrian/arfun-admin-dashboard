@@ -1,0 +1,161 @@
+.section-header button{
+  position:relative;
+  padding:5px;
+  background:rgb(3, 20, 97);
+  border:none;
+  border-radius:10px;
+  color:white;
+  font-size:18px;
+  }
+
+  .section-header button:hover{
+    background-color: blue;
+  }
+
+/* #archive-all{
+    position:relative;
+      left:50%;
+      padding:10px;
+      background:rgb(3, 20, 97);
+      border:none;
+      border-radius:10px;
+      color:white;
+      font-size:18px;
+  }
+
+  #archive-all:hover{
+    background:blue;
+  }
+
+  #sort-data{
+    position:relative;
+      left:50%;
+      padding:10px;
+      background:rgb(3, 20, 97);
+      border:none;
+      border-radius:10px;
+      color:white;
+      font-size:18px;
+  }
+
+  #sort-data:hover{
+    background:blue;
+  }
+
+
+  #download-table{
+      position:relative;
+      left:50%;
+      padding:5px;
+      background:rgb(3, 20, 97);
+      border:none;
+      border-radius:2px;
+      color:white;
+      font-size:18px;
+  }
+  #download-table:hover{
+      background:blue;
+  }
+
+
+    #archive-all{
+      position:relative;
+        left:50%;
+        padding:10px;
+        background:rgb(3, 20, 97);
+        border:none;
+        border-radius:10px;
+        color:white;
+        font-size:18px;
+    }
+
+    #archive-all:hover{
+      background:blue;
+    }
+
+
+
+    #download-table{
+        position:relative;
+        left:50%;
+        padding:10px;
+        background:rgb(3, 20, 97);
+        border:none;
+        border-radius:10px;
+        color:white;
+        font-size:18px;
+    }
+    #download-table:hover{
+        background:blue;
+    } */
+
+
+
+    .window .sel{
+      display: flex;
+      justify-content: center;
+          margin:7px;
+    }
+
+    /* #submitSectionSort{
+      position: relative;
+      margin: 10px;
+      left:15%;
+
+    }
+
+    #resetSectionSort{
+      position: relative;
+      left:27%;
+      display: block;
+      margin:10px;
+    }
+
+    #closeSectionSort{
+      position: relative;
+      left:50%;
+      top:-34%;
+      margin:10px;
+    } */
+
+    .window button{
+      background: rgb(3, 20, 97);
+      border: none;
+      color: white;
+      font-weight: 300;
+      border-radius: 3px;
+      margin: 4px;
+    }
+
+    .window button:hover{
+      background:blue;
+    }
+
+    .window .buttons{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+
+      }
+
+
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color:rgb(3, 20, 97) ;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 18px;
+        }
+
+      #myBtn:hover {
+      background-color: blue;
+      }

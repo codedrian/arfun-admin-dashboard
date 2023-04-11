@@ -1,3 +1,4 @@
+
 <?php
   include('authentication.php');
   ?>
@@ -103,7 +104,7 @@
     display: none;
   }
 
-/* .table-responsive table {
+.table-responsive table {
   display: table;
   width: 100%;
   border-collapse: collapse;
@@ -120,7 +121,7 @@
   border: none;
   border-bottom: 1px solid #ddd;
   position: relative;
-  text-align: left;
+  /* text-align: left;
   white-space: nowrap;
   padding: 8px;
   min-width: 150px; Add min-width for columns
@@ -280,7 +281,7 @@
                           <th>Learner Reference Number</th>
                           <th>Section</th>
                           <th>School Year</th>
-                          <th>Archive</th>
+                        
 
                         </thead>
                         <tbody id="tbody1"></tbody>

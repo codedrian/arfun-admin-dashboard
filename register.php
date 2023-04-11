@@ -85,23 +85,23 @@
         #myBtn {
         display: none;
         position: fixed;
-        bottom: 20px; 
-        right: 30px; 
-        z-index: 99; 
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
         border: none;
-        outline: none; 
-        background-color:rgb(3, 20, 97) ; 
-        color: white; 
-        cursor: pointer; 
-        padding: 15px; 
+        outline: none;
+        background-color:rgb(3, 20, 97) ;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
         border-radius: 10px;
-        font-size: 18px; 
+        font-size: 18px;
         }
 
         #myBtn:hover {
-        background-color: blue; 
+        background-color: blue;
         }
-        
+
         .arch-status {
             position: fixed;
             bottom: 3%;
@@ -186,7 +186,7 @@
                                             ?>
 
                                         <div class="form-body">
-                                        
+
                                             <div class="card w-50 p-3">
                                                 <div class="card-header">
                                                     <h3>
@@ -217,7 +217,7 @@
                                                         <input type="text" class="form-control" id="email"
                                                             placeholder="Email" name="email" required>
                                                     </div>
-                            
+
                                                      <div class="form-group col-xs-4">
                                                         <label for=""></label>
                                                         <input type="text" class="form-control" id="phone"
@@ -227,7 +227,7 @@
                                                     <button type="button"
                                                         class="btn btn-primary registerbtn mt-4 btn-sm"
                                                         name="register_button" id="submitData">Submit</button>
-                                                </form> 
+                                                </form>
                                             </div>
                                         </div>
 
@@ -250,7 +250,7 @@
                                                                 <button id="download-table">Download Table Data</button>
                                                                 <div class="download-link"></div>
 
-                                                                    
+
                                                             </div>
                                                             <div class="card-body">
                                                                 <table class="table table-bordered table-striped">
@@ -265,12 +265,12 @@
                                                                         <tbody id="tbody1">
                                                                     </tbody>
 
-                        
+
                                                                 </table>
                                                             </div>
-                                                            
+
                                                             <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-                        
+
                                                                 <script>
                                                                 // Get the button:
                                                                 let mybutton = document.getElementById("myBtn");
@@ -289,10 +289,10 @@
                                                                 // When the user clicks on the button, scroll to the top of the document
                                                                 function topFunction() {
                                                                 document.body.scrollTop = 0;
-                                                                document.documentElement.scrollTop = 0; 
+                                                                document.documentElement.scrollTop = 0;
                                                             }
                                                             </script>
-                                                          
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -300,10 +300,10 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
-                       
+
                     </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

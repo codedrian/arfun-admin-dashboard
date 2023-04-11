@@ -11700,6 +11700,7 @@ body {
 .nav-link span{
   margin-left: 15px;
   color: #fff;
+  font-size: 15px;
 }
 .nav-link a{
   color: #345baf;
@@ -11982,7 +11983,7 @@ body {
 }
 
 .addStud-header h3{
-   text-align: center;
+  text-align: center;
   font-size: 30px;
   margin-bottom: 10px;
 }

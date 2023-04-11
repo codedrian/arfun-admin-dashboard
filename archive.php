@@ -235,7 +235,7 @@ table td:last-child{
                   <div class="card">
                     <div class="archive-header">
                       <h3>
-                        Archived Accounts
+                        Archived Accounts (Students)
                        <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                        </h3>
                         <button id="unarchive">Unarchive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->

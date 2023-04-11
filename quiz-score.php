@@ -23,7 +23,7 @@
          #sort-data{
           position:relative;
             left:50%;
-            padding:10px;
+            padding:5px;
             background:rgb(3, 20, 97);
             border:none;
             border-radius:10px;
@@ -39,7 +39,7 @@
         #download-table{
             position:relative;
             left:50%;
-            padding:10px;
+            padding:5px;
             background:rgb(3, 20, 97);
             border:none;
             border-radius:10px;
@@ -59,6 +59,10 @@
             left:11%;
         } */
 
+        .card-body span{
+            font-size:22px;
+            font-weight: 600;
+        }
 
         /* start of Floating Window */
         .window button{
@@ -195,7 +199,7 @@
                                               
                                                     <div class="card">
                                                         <div class="quiz-header">
-                                                            <h3>Quizzes Scores
+                                                            <h3>Quiz Scores
                                                             
                                                             </h3>
                                                             <button id="sort-data">Sort Data</button>
@@ -203,7 +207,7 @@
                                                             <div class="download-link"></div>
                                                         </div>
                                                         <div class="card-body">
-                                                        <span>Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>
+                                                        <span>Note: Load table on <b>Sort Data</b> by selecting the quiz you want to check.</span>
                                                             <table class="table table-striped">
 
                                                                 <thead>

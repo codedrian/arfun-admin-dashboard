@@ -24,7 +24,7 @@
 .addStud-header button{
   position: relative;
   display: inline-block;
-  padding: 8px 15px;
+  padding: 5px;
   background: rgb(3, 20, 97);
   border:none;
   border-radius: 10px;

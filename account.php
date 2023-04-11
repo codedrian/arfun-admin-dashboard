@@ -95,6 +95,11 @@ include('authentication.php');
     border-radius: 3px;
     margin:3px;
 }
+
+.add-body{
+  color:#fff;
+  text-align:center;
+}
   </style>
 </head>
 

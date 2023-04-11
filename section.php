@@ -16,7 +16,7 @@
   <title>Arfun | Student</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
-  <!-- <link href="css/student.css" rel="stylesheet" /> -->
+  <link href="css/section-list.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
   <style>
@@ -24,21 +24,21 @@
   #myBtn {
         display: none;
         position: fixed;
-        bottom: 20px; 
-        right: 30px; 
-        z-index: 99; 
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
         border: none;
-        outline: none; 
-        background-color:rgb(3, 20, 97) ; 
-        color: white; 
-        cursor: pointer; 
-        padding: 15px; 
+        outline: none;
+        background-color:rgb(3, 20, 97) ;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
         border-radius: 10px;
-        font-size: 18px; 
+        font-size: 18px;
         }
 
         #myBtn:hover {
-        background-color: blue; 
+        background-color: blue;
         }
 
   </style>
@@ -126,11 +126,18 @@
               <div class="">
                 <div class="col-md-12">
                   <div class="card">
-                    <div class="card-header">
+                    <div class="card-header section-header">
                       <h4>
                         Section List
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       </h4>
+                      <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                      <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                      <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                      <button id="archive-all">Archive All</button>
+                      <button id="download-table">Download Table Data</button>
+                      <div class="download-link"></div>
+
                     </div>
                     <div class="card-body">
                       <table class="table table-bordered table-striped">
@@ -177,11 +184,11 @@
   </div>
 
 
-            
-            
+
+
             <!-- Student list table ends here... -->
-      
-          
+
+
 
       </main>
       <footer class="py-4 bg-light mt-auto">

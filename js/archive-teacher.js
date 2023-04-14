@@ -85,7 +85,7 @@ const db = getFirestore();
 async function GetAllDataOnece() {
   const dbRef = collection(db, 'users');
   const q = query(dbRef, where('role', '==', 'teacher'));
-  
+
 
   const querySnapshot = await getDocs(q);
 
@@ -117,7 +117,7 @@ async function GetAllDataOnece() {
   var students = [];
   querySnapshot.forEach((doc) => {
         if (doc.data().role == "teacher") {
-            //Filter Archived students 
+            //Filter Archived students
             if(doc.data().isArchived == "true") {
                 console.log(doc.data());
                 students.push(doc.data());
@@ -142,7 +142,7 @@ async function unArchiveStudent(e) {
       //console.log(doc.id);
       studentData = doc.id;
     });
-  
+
     console.log(studentData);
 
     //Start updating the data
@@ -172,7 +172,7 @@ function updateCounter(n) {
 function totalNosOfCheckedCB() {
   let cbs = document.querySelectorAll(".cb-arc");
   let counter = 0;
-  
+
   for (var i = 0; i < cbs.length; i++) {
     if (cbs[i].checked == true) {
       counter++;
@@ -191,7 +191,7 @@ function multiUnArchive() {
   if(cbs_tnc == 0) {
     alert("Nothing to unarchive");
   } else {
-    alert("Unarchving Started");
+    alert("Unarchiving Started");
     document.querySelector(".arch-status").style.display = "block";
     document.querySelector(".as-total").innerHTML = cbs_tnc;
     for(var i = 0; i < cbs.length; i++) {
@@ -199,6 +199,7 @@ function multiUnArchive() {
         unArchiveStudent(cbs[i].value);
       }
     }
+    location.reload();
   }
 }
 
@@ -236,7 +237,7 @@ function() {
   document.querySelector("#tbody1").innerHTML = "";
   GetAllDataOnece();
 });
-document.querySelector("#submitSectionSort").addEventListener("click", 
+document.querySelector("#submitSectionSort").addEventListener("click",
   async function() {
     const trmother = document.querySelector("#tbody1");
     trmother.innerHTML = "";
@@ -261,7 +262,7 @@ document.querySelector("#submitSectionSort").addEventListener("click",
   }
 );
 
-document.querySelector("#submitSySort").addEventListener("click", 
+document.querySelector("#submitSySort").addEventListener("click",
   async function() {
     const trmother = document.querySelector("#tbody1");
     trmother.innerHTML = "";
@@ -290,13 +291,13 @@ document.querySelector("#submitSySort").addEventListener("click",
   }
 );
 
-document.querySelector("#submitBothSort").addEventListener("click", 
+document.querySelector("#submitBothSort").addEventListener("click",
   async function() {
     const trmother = document.querySelector("#tbody1");
     trmother.innerHTML = "";
     const a = document.querySelector("#school-year");
     const b = document.querySelector("#section");
-    
+
     if(a.value == undefined || a.value == 0) {
       alert("Invalid input.");
     } else {

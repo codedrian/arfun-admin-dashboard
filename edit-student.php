@@ -1,10 +1,11 @@
+<?php
+    include('authentication.php');
+    include('locationguard.php');
+    ?>
 <?php include('includes/header.php'); ?>
 
 <div class="container">
-    <?php
-    include('locationguard.php');
-    include('authentication.php');
-    ?>
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">

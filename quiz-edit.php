@@ -16,73 +16,11 @@
     <title>Arfun | Create Quiz</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/quiz-edit.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
-    <style>
-        #quizzes .view-quiz{
-            display:flex;
-            position:relative;
-            left:90%;
-            margin:20px 0 0 0;
-        }
-        
-        #quizzes a:link, a:visited{
-            background-color: #06357A;
-            color: white;
-            padding: 8px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size:18px;
-            border-radius:10px;
-        }
-
-        #quizzes a:hover, a:active {
-        background-color: blue;
-        }
-
-        @media (max-width:500px){
-            #quizzes {
-                flex-direction:column;
-                align-items:flex start;
-            }
-
-            #quizzes .view-quiz{
-                justify-content: center;
-                flex-direction: column;
-                width:30%;
-                padding-top: 0;
-                margin-top:30%;
-                margin-bottom:0;
-                left:9%;
-            }
-        }
-
-        #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px; 
-        right: 30px; 
-        z-index: 99; 
-        border: none;
-        outline: none; 
-        background-color:rgb(3, 20, 97) ; 
-        color: white; 
-        cursor: pointer; 
-        padding: 15px; 
-        border-radius: 10px;
-        font-size: 18px; 
-        }
-
-        #myBtn:hover {
-        background-color: blue; 
-        }
-
-    </style>
-    </head>
+</head>
 
 <body class="sb-nav-fixed">
-
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.php">
@@ -93,12 +31,7 @@
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <!-- <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-                    aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                        class="fas fa-search"></i></button>
-            </div> -->
+            
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -106,13 +39,11 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i> <span id="dispName">User</span></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
+                    
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="account.php">Edit Account</a>
-                        <a class="dropdown-item" href="logout.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -123,15 +54,10 @@
         ?>
         <div id="layoutSidenav_content">
             <main>
-
-            <div id="quizzes">
-                    <a href="quiz-edit.php" class="view-quiz">Quizzes</a>
-                    </div>
-
                 <div class="container-fluid px-4">
                     <div class="container mt-3 d-flex justify-content-center">
-                    
-                        <form class="w-100" id="main-form">
+                        <form class="w-100" id="main-form" data-quiz-id="">
+                            <h1>Edit Quiz</h1>
                             <div class="rounded-3 my-4 p-4 bg-light border border-2 shadow ">
                                 <div class="rowd-flex flex-column">
                                     <div class="col">
@@ -166,6 +92,19 @@
                                     </div>
                                 </a>
                             </div>
+                            <div class="add-question">
+                                <a class="btn btn-outline-danger w-100 p-2 shadow-sm my-4 rounded-3"
+                                    id="deleteQuiz" role="button">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-plus me-1" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg>
+                                        <span class="fw-bold">Delete Quiz</span>
+                                    </div>
+                                </a>
+                            </div>
                             <div class="d-flex justify-content-end align-items-center">
                                 <button role="button" type="submit" class="btn btn-warning">
                                     <div class="d-flex align-items-center justify-content-center">
@@ -184,6 +123,36 @@
                             </div>
                         </form>
                     </div>
+        
+                    <div class="w-100 base">
+                  
+                            <h2>Quizzes</h2>
+                            <h4>Note: Click Quiz Name To Edit</h4>
+                    </div>
+               
+                    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+                    <script>
+                        // Get the button:
+                        let mybutton = document.getElementById("myBtn");
+
+                        // When the user scrolls down 20px from the top of the document, show the button
+                        window.onscroll = function() {scrollFunction()};
+
+                        function scrollFunction() {
+                        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                            mybutton.style.display = "block";
+                        } else {
+                            mybutton.style.display = "none";
+                        }
+                        }
+
+                        // When the user clicks on the button, scroll to the top of the document
+                        function topFunction() {
+                        document.body.scrollTop = 0;
+                        document.documentElement.scrollTop = 0;
+                    }
+                    </script>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -201,30 +170,6 @@
             </footer>
         </div>
     </div>
-    
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-			<script>
-				// Get the button:
-				let mybutton = document.getElementById("myBtn");
-
-				// When the user scrolls down 20px from the top of the document, show the button
-				window.onscroll = function() {scrollFunction()};
-
-				function scrollFunction() {
-				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-					mybutton.style.display = "block";
-				} else {
-					mybutton.style.display = "none";
-				}
-				}
-
-				// When the user clicks on the button, scroll to the top of the document
-				function topFunction() {
-				document.body.scrollTop = 0;
-				document.documentElement.scrollTop = 0; 
-			}
-			</script>
 
     <script>
         var sessionData = <?php echo json_encode($_SESSION);?>;
@@ -235,7 +180,6 @@
         var sessionData = document.getElementById("sessionDataContainer").dataset.session;
         sessionData = JSON.parse(sessionData);
     </script>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
@@ -251,10 +195,10 @@
     <script src="./js/frb-config.js"></script>
     <script src="./js/quiztemplates.js"></script>
     <script src="./js/mkquiz.js"></script>
-    <script src="./js/mkquiz-sub.js" type="module"></script>
-    <script src="./js/getCurrentUserData.js" type="module"></script>
+    <script src="./js/mkquiz-sub.js"></script>
+    <script src="./js/quiz-edit.js" type="module"></script>
     <script src="js/getCurrentUserData.js" type="module"></script>
-    
+    <script src="js/get-section.js"></script>
 </body>
 
 </html>

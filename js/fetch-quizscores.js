@@ -75,20 +75,23 @@ async function GetAllDataOnece() {
     querySnapshot.forEach(async doc => {
 
         var dbRef = collection(db, 'users');
-
+        var a = document.querySelector("#section-sdc").getAttribute("data-session-section");
         var q = query(dbRef, where('uid', '==', doc.data().uid));
         var qSnapshot = await getDocs(q);
-        if (qSnapshot.docs[0]) {
-            var user = qSnapshot.docs[0].data();
-
-            console.log(user)
-
-            students.push(doc.data());
-            names.push({
-                firstName: user.firstName,
-                midName: user.midName,
-                lastName: user.lastName
-            })
+        console.log(qSnapshot);
+        if (qSnapshot.data() == a) {
+            if (qSnapshot.docs[0]) {
+                var user = qSnapshot.docs[0].data();
+    
+                console.log(user)
+    
+                students.push(doc.data());
+                names.push({
+                    firstName: user.firstName,
+                    midName: user.midName,
+                    lastName: user.lastName
+                });
+            }
         }
     });
 
@@ -112,3 +115,5 @@ async function GetAllDataOnece() {
 
 
 window.onload = GetAllDataOnece;
+
+

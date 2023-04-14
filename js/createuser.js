@@ -1,5 +1,6 @@
 function createUser(payload) {
-  return fetch("https://arfun-quiz.vercel.app/api/createuser", {
+  //return fetch("https://arfun-quiz.vercel.app/api/createuser", 
+  return fetch("https://arfun-server.vercel.app/api/createuser", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -47,15 +48,26 @@ if (registerBtn != null) {
     if(midName.value){
       payload['midName'] = midName.value;
     }
+    var year = new Date().getFullYear();
 
-    if (type == "admin" || type == "teacher") {
+    if (type == "admin") {
       phone = document.querySelector('[name="phone"]');
       phone.setAttribute("disabled", "");
+      payload["isArchived"] = "false";
       payload["phone"] = phone.value;
     } else if (type == "student") {
       idNum = document.querySelector('[name="idNum"]');
       idNum.setAttribute("disabled", "");
       payload["idNum"] = idNum.value;
+      payload["isArchived"] = "false";
+      payload["schoolyear"] = String(year);
+      payload["section"] = section.value;
+    } else if (type == "teacher") {
+      phone = document.querySelector('[name="phone"]');
+      phone.setAttribute("disabled", "");
+      payload["phone"] = phone.value;
+      payload["section"] = section.value;
+      payload["isArchived"] = "false";
     }
 
     console.log(payload);
@@ -110,3 +122,5 @@ if (registerBtn != null) {
       });
   });
 }
+
+

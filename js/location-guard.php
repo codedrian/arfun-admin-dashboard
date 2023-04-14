@@ -10,7 +10,7 @@ function checkLocation($location, $checkList)
 
     // check link if accessible
     if (!in_array($location, $checkList)) {
-        // redirect 
+        // redirect
         echo json_encode(["state" => true, "location" => $_SESSION['oldLoc']]);
 
     } else {
@@ -25,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['location'])) {
     $role = $_SESSION['role'];
 
     // $adminExPaths = array("lesson.php", "create-quiz.php");
-    $adminExPaths = array("index.php", "register.php", "student-list.php", "add-teacher.php", "user-list.php");
+    $adminExPaths = array("index.php", "register.php", "student-list.php", "add-teacher.php", "user-list.php", "archive.php", "section.php", "account.php", "archive-teacher.php", "archive-admin.php", "archive-section.php");
     // $teacherExPaths = array("register.php", "add-teacher.php", "user-list.php");
-    $teacherExPaths = array("index.php", "add-student.php", "lesson.php", "create-quiz.php");
+    $teacherExPaths = array("index.php", "add-student.php", "lesson.php", "create-quiz.php", "quiz-edit.php", "archive.php", "quiz-nt.php", "account.php");
 
     if ($role == 'admin') {
         checkLocation($location, $adminExPaths);

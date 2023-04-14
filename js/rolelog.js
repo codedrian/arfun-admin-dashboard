@@ -44,7 +44,7 @@ window.addEventListener("DOMContentLoaded", () => {
       password: inpPass.value,
     });
 
-    fetch("https://arfun-quiz.vercel.app/api/login", {
+    fetch("https://arfun-server.vercel.app/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,3 +1,6 @@
+<?php
+    include('authentication.php');
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,12 +19,103 @@
     <!-- <link href="css/register.css" rel="stylesheet" /> -->
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+    <style>
+        .admin-header #archive, #select-all,
+        #deselect-all, #archive-all, #download-table{
+            display:inline-block;
+            position:relative;
+            margin-bottom:5px;
+            padding:5px;
+            background:rgb(3, 20, 97);
+            border:none;
+            border-radius:5px;
+            color:white;
+            font-size:18px;
+            font-weight:bold;
+            width:160px;
+            font-family: "Roboto", sans-serif;
+            box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+            -webkit-transition-duration:0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: box-shadow, transform;
+            transition-property:box-shadow, transform;
+        }
+
+        .admin-header #download-table{
+           width:230px;
+        }
+
+        .admin-header button:hover{
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            -webkit-transform: scale(1.1);
+            transform:scale(1.1);
+        }
+
+        .admin-header h3{
+            text-align:center;
+            font-size:45px;
+            font-weight:bold;
+            margin-bottom:20px;
+        }
+
+        .form-body h3{
+            font-weight:bold;
+        }
+
+        @media (max-width:500px){
+            .admin-header #archive, #select-all,
+            #deselect-all, #archive-all{
+            left:24%;
+            margin-bottom:5px;
+            }
+
+            .admin-header #download-table{
+                left:17%;
+                margin-bottom:5px;
+                width:200px;
+            }
+
+            .admin-header h3{
+                text-align:center;
+                font-size:30px;
+                font-weight:bold;
+            }
+        }
+        #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color:rgb(3, 20, 97) ;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 18px;
+        }
+
+        #myBtn:hover {
+        background-color: blue;
+        }
+
+        .arch-status {
+            position: fixed;
+            bottom: 3%;
+            right: 3%;
+            padding: 1em;
+            background-color: #bababa;
+            color: black;
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body class="sb-nav-fixed">
-    <?php
-    include('authentication.php');
-    ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.php">
@@ -43,14 +137,15 @@
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i> <span id="dispName">User</span></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="account.php">Edit Account</a>
+                    <a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -90,11 +185,13 @@
                                             }
                                             ?>
 
+                                        <div class="form-body">
+
                                             <div class="card w-50 p-3">
                                                 <div class="card-header">
-                                                    <h4>
-                                                        Add Admins
-                                                    </h4>
+                                                    <h3>
+                                                        Add Admin
+                                                    </h3>
                                                 </div>
                                                 <form id="main-form" class="add-body" data-type="admin">
                                                     <div class="col-xs-4">
@@ -120,8 +217,8 @@
                                                         <input type="text" class="form-control" id="email"
                                                             placeholder="Email" name="email" required>
                                                     </div>
-                            
- <div class="form-group col-xs-4">
+
+                                                     <div class="form-group col-xs-4">
                                                         <label for=""></label>
                                                         <input type="text" class="form-control" id="phone"
                                                             placeholder="Phone" name="phone" required>
@@ -132,6 +229,7 @@
                                                         name="register_button" id="submitData">Submit</button>
                                                 </form>
                                             </div>
+                                        </div>
 
 
 
@@ -139,12 +237,20 @@
                                                 <div class="">
                                                     <div class="col-md-12">
                                                         <div class="card">
-                                                            <div class="card-header">
-                                                                <h4>
-                                                                    Admin List
+                                                            <div class="admin-header">
+                                                                <h3>
+                                                                    Admins List
                                                                     <!-- <a href="index.php"
                                                                         class="btn btn-danger float-end">Back</a> -->
-                                                                </h4>
+                                                                </h3>
+                                                                <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                                                                <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                                                                <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                                                                <button id="archive-all">Archive All</button>
+                                                                <button id="download-table">Download Table Data</button>
+                                                                <div class="download-link"></div>
+
+
                                                             </div>
                                                             <div class="card-body">
                                                                 <table class="table table-bordered table-striped">
@@ -152,13 +258,41 @@
                                                                         <th>First name</th>
                                                                         <th>Middle name</th>
                                                                         <th>Last name</th>
-                                                                        <th>User ID</th>
+                                                                        <!-- <th>User ID</th> -->
                                                                         <th>Email</th>
                                                                         <th>Phone</th>
-                                                                                                                 </thead>
-                                                                    <tbody id="tbody1"></tbody>
+                                                                    </thead>
+                                                                        <tbody id="tbody1">
+                                                                    </tbody>
+
+
                                                                 </table>
                                                             </div>
+
+                                                            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+                                                                <script>
+                                                                // Get the button:
+                                                                let mybutton = document.getElementById("myBtn");
+
+                                                                // When the user scrolls down 20px from the top of the document, show the button
+                                                                window.onscroll = function() {scrollFunction()};
+
+                                                                function scrollFunction() {
+                                                                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                                                                    mybutton.style.display = "block";
+                                                                } else {
+                                                                    mybutton.style.display = "none";
+                                                                }
+                                                                }
+
+                                                                // When the user clicks on the button, scroll to the top of the document
+                                                                function topFunction() {
+                                                                document.body.scrollTop = 0;
+                                                                document.documentElement.scrollTop = 0;
+                                                            }
+                                                            </script>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -166,6 +300,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -182,10 +317,30 @@
         </div>
     </div>
 
+    <!-- Add archiving status -->
+    <div class="arch-status">
+        <p>Unarchiving started!</p>
+        <span class="as">Unarchived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
+    </div>
+
+    <script>
+        var sessionData = <?php echo json_encode($_SESSION);?>;
+    </script>
+    <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+    <div id="section-sdc" data-session-section=""></div>
+    <script>
+        var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+        sessionData = JSON.parse(sessionData);
+    </script>
+
+    <script src="js/getCurrentUserData.js" type="module"></script>
+
+
     <script src="./js/fetch-admin.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/convertTableToExcel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script>

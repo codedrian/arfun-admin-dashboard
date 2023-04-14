@@ -1,3 +1,6 @@
+<?php
+    include('authentication.php');
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,9 +21,7 @@
 </head>
 
 <body class="sb-nav-fixed">
-	<?php
-    include('authentication.php');
-    ?>
+
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
 		<a class="navbar-brand ps-3" href="index.php">
@@ -42,14 +43,15 @@
 		<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-					aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+					aria-expanded="false"><i class="fas fa-user fa-fw"></i> <span id="dispName">User</span></a>
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 					<!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
 					<li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
 					<li>
 						<hr class="dropdown-divider" />
 					</li>
-					<li><a class="dropdown-item" href="logout.php">Logout</a></li>
+					<li><a class="dropdown-item" href="account.php">Edit Account</a>
+						<a class="dropdown-item" href="logout.php">Logout</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -59,14 +61,16 @@
         include('side-nav.php');
         ?>
 		<div id="layoutSidenav_content">
-			
+		
+		
 			<div class="upload-area pt-5">
-				<h4>Note: The files to be uploaded must be in PDF.</h4>
-				<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>    Upload</button>
-				<div class="progress-container">
-					<div class="progress"></div>
-				</div>
-				<div class="percent">0%</div>
+				<div class="wrapper">
+					<h4>Note: The files to be uploaded must be in PDF.</h4>
+					<button class="upload "><i class="fas fa-upload fa-lg ml-5"></i>    Upload</button>
+					<div class="progress-container">
+						<div class="progress"></div>
+					</div>
+					<div class="percent">0%</div>
 				<div class="controls">
 					<svg class="pause" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
 						<path d="M0 0h24v24H0V0z" fill="none" />
@@ -83,7 +87,11 @@
 					</svg>
 				</div>
 				<input type="file" class="hidden-upload-btn" style="display: none;">
+				<br><br>
+				<input type="text" placeholder="Add description before selecting the file" class="text-description">
+				</div>
 			</div>
+		
 			<div class="all-files">
 				<h2 class="white">Videos</h2>
 				<ul id="video"></ul>
@@ -95,16 +103,40 @@
 			<div class="expand-container" data-value="0">
 				<ul>
 					<li onclick="openFile(this)">Open</li>
-					<li onclick="downloadFile(this)">Download</li>
+					<li id="file-desc">Description</li>
+					<!-- <li onclick="downloadFile(this)">Download</li> -->
 					<li onclick="deleteFile(this)">Delete</li>
 				</ul>
 				<!-- Preloader image -->
 				<img class="loader" src="https://aux.iconspalace.com/uploads/11080764221104328263.png" alt="">
 			</div>
+		
+			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
+			<script>
+				// Get the button:
+				let mybutton = document.getElementById("myBtn");
+
+				// When the user scrolls down 20px from the top of the document, show the button
+				window.onscroll = function() {scrollFunction()};
+
+				function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					mybutton.style.display = "block";
+				} else {
+					mybutton.style.display = "none";
+				}
+				}
+
+				// When the user clicks on the button, scroll to the top of the document
+				function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0; 
+			}
+			</script>
 			<!-- firebase sdk -->
 			<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-			<!-- <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"></script> -->
+			<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js" type="module"></script>
 			<script src="script.js"></script>
 
 			<footer class="py-4 bg-light mt-auto">
@@ -124,10 +156,29 @@
 		</div>
 	</div>
 
+	<div class="description">
+		<div class="window">
+			<p>Description: <span id="item-desc"></span><br></p>
+			<button id="close-desc">Close</button>
+		</div>
+	</div>
+
+	<script>
+        var sessionData = <?php echo json_encode($_SESSION);?>;
+    </script>
+    <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
+    <div id="section-sdc" data-session-section=""></div>
+    <script>
+        var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+        sessionData = JSON.parse(sessionData);
+    </script>
+
 	<script src="./js/lesson.js"></script>
+	<script src="js/getCurrentUserData.js" type="module"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<!-- <script src="js/scripts.js"></script> -->
+	<script type="module" src="js/getDesc.js"></script>
+	<script src="js/scripts.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 	<script src="assets/demo/chart-area-demo.js"></script>
 	<script src="assets/demo/chart-bar-demo.js"></script>

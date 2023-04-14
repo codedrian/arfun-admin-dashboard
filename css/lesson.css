@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
 h2.title{
     background-color: #06357A;
-    border: 5px solid rgb(4, 110, 78);
+    /* border: 5px solid rgb(4, 110, 78); */
     position: relative;
     text-align: center;
     max-width: 100%;
@@ -11,17 +11,33 @@ h2.title{
     color: white;
 }
 #layoutSidenav_content .upload-area{
-    text-align: left;
-    max-width: 100%;
-    margin: 30px 30px -10px 30px;
-    padding: 10px;   
+    display:block;
+    width: 100%;
+    /* margin:40px; */
+    /* padding: 10px;    */
     text-align: center;
-    /* max-height: 20%; */
-    /* line-height: 40px; */
-    background: #ADD8E6; 
-    border: 5px solid rgb(4, 110, 78);/*  */  
-    border-radius: 10px;
+    top:0;
+    
+    /* border-radius: 10px; */
+    position:relative;
 }
+
+.upload-area .wrapper{
+       background: rgb(4, 110, 78);
+       margin-left:30px;
+       margin-right: 30px;
+       margin-top:30px;
+       padding:10px; 
+       border-radius: 10px;
+       height: 100%;
+       width: 95%;
+}
+
+.upload-area input{
+    width:50%;
+    height: 25%;
+}
+
 .upload{
     /*background-color: green; /* rgba(0, 153, 255) 
     border: 3px solid green; */
@@ -39,6 +55,7 @@ h2.title{
 .upload:active{
     border-color: white;
 }
+
 .progress-container{
     display: inline-block;
     width: 64%;
@@ -59,14 +76,15 @@ h2.title{
 .percent{
     display: inline-block;
     margin-left: 20px;
+    color: white;
 }
 .controls{
     float: right;
     margin-right: 45px;
 }
 .pause, .resume, .cancel{
-    background-color: green;
-    fill: white;
+    background-color: lightgreen;
+    fill: rgb(4, 110, 78);
     padding: 5px;
     margin: 2px;
     margin-top: 18px;
@@ -100,6 +118,7 @@ h2.black{              /* para sa video*/
     color: white;
     font-size: 1px;
 }
+
 .all-files ul{
     position: relative;
     left: -15px;
@@ -136,7 +155,7 @@ h2.black{              /* para sa video*/
     border: 1px solid rgba(0, 153, 255, 0.2);
     background-color: #06357A;
     position: absolute;
-    height: 75px;
+    height: 78px;
     display: none;
 }
 .expand-container ul li{
@@ -161,3 +180,98 @@ h2.black{              /* para sa video*/
 @keyframes rotate{
     to{transform: rotate(360deg);}
 }
+
+
+/* .text-description{
+    width: 40%;
+    height: 5%;
+} */
+
+.description {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+    display: none;
+}
+.description > .window {
+    position: fixed;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 150px;
+    background-color: #198754;
+    z-index: 11;
+    color: white;
+    font-weight: 400;
+    border-radius: 20px;
+}
+
+.description #close-desc{
+    position: relative;
+    top: 35%;
+    left: 85%;
+    border: none;
+    border-radius: 3px;
+    background: #06357A;
+    color: white;
+}
+
+.description #close-desc:hover{
+    background: blue;
+}
+
+h4{
+    color: white;
+    font-weight: 500;
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none; 
+    background-color:rgb(3, 20, 97) ; 
+    color: white; 
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 10px;
+    font-size: 18px; 
+    }
+
+    #myBtn:hover {
+    background-color: blue; 
+    }
+
+    /* .wrapper .upload-area{
+        display:flex;
+        position:relative;
+        left:50%;
+        margin:20px 0 0 0;
+        margin:40px;
+        padding: 10px;   
+        text-align: center;
+
+        
+        border-radius: 10px;
+    }
+
+    @media (max-width:500px){
+        .wrapper {
+            flex-direction:column;
+            align-items:flex start;
+        }
+
+        .wrapper .upload-area{
+            justify-content: center;
+            flex-direction: column;
+            margin-top:60%;
+        }
+    } */

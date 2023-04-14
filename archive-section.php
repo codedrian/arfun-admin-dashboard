@@ -5,9 +5,7 @@
 <html lang="en">
 
 <head>
-  <?php
-  include('locationguard.php');
-  ?>
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,21 +14,12 @@
   <title>Arfun | Student</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/quiz-edit.css">
-  <link href="css/student-list.css" rel="stylesheet" />
+  <link href="css/section-list.css" rel="stylesheet" />
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
   <style>
-      /* table td:last-child:hover{
-      background-color:lightblue;
-      border-radius: 10px;
-    }
 
-    table td:last-child{
-      cursor:pointer;
-    } */
-
-    #myBtn {
+  #myBtn {
         display: none;
         position: fixed;
         bottom: 20px;
@@ -50,16 +39,6 @@
         background-color: blue;
         }
 
-  .arch-status {
-    position: fixed;
-    bottom: 3%;
-    right: 3%;
-    padding: 1em;
-    background-color: #bababa;
-    color: black;
-    display: none;
-    z-index: 50;
-  }
   </style>
 </head>
 
@@ -113,6 +92,8 @@
               </div>
             </div>
 
+
+      </div>
             <?php
 
             if (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
@@ -122,35 +103,25 @@
 
             <!-- Student list table starts here... -->
             <div class="container mt-3">
+              <div class="">
                 <div class="col-md-12">
                   <div class="card">
-                    <div class="student-header">
+                    <div class="card-header section-header">
                       <h3>
-                        Students List
+                        Archived Accounts (Sections)
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       </h3>
-
-                      <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="archive-all">Archive All</button>
-                      <button id="sort-data">Sort Data</button>
-                      <button id="download-table">Download Table Data</button>
-                      <div class="download-link"></div>
+                      <button id="unarchive">Unarchive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                       <button id="sort-data">Sort Data</button>
 
                     </div>
-
                     <div class="card-body">
                       <table class="table table-bordered table-striped">
                         <thead>
-                          <th>First Name</th>
-                          <th>Middle Name</th>
-                          <th>Last Name</th>
-                          <th>Email</th>
-                          <th>Learner Reference Number</th>
                           <th>Section</th>
-                          <th>School Year</th>
-
+                          <th>Number of Students</th>
 
                         </thead>
                         <tbody id="tbody1"></tbody>
@@ -159,33 +130,43 @@
                     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
                     <script>
-                        // Get the button:
-                        let mybutton = document.getElementById("myBtn");
+                          // Get the button:
+                          let mybutton = document.getElementById("myBtn");
 
-                        // When the user scrolls down 20px from the top of the document, show the button
-                        window.onscroll = function() {scrollFunction()};
+                          // When the user scrolls down 20px from the top of the document, show the button
+                          window.onscroll = function() {scrollFunction()};
 
-                        function scrollFunction() {
-                        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                            mybutton.style.display = "block";
-                        } else {
-                            mybutton.style.display = "none";
-                        }
-                        }
+                          function scrollFunction() {
+                          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                              mybutton.style.display = "block";
+                          } else {
+                              mybutton.style.display = "none";
+                          }
+                          }
 
-                        // When the user clicks on the button, scroll to the top of the document
-                        function topFunction() {
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
-                    }
-                    </script>
+                          // When the user clicks on the button, scroll to the top of the document
+                          function topFunction() {
+                          document.body.scrollTop = 0;
+                          document.documentElement.scrollTop = 0;
+                      }
+                      </script>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Student list table ends here... -->
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+            <!-- Student list table ends here... -->
+
+
 
       </main>
       <footer class="py-4 bg-light mt-auto">
@@ -201,41 +182,20 @@
     </div>
   </div>
 
-  <div class="floating-window">
-    <div class="window">
-
-      <div class="sel">
-      <select name="section" id="section">
-        <option>Select a section</option>
-      </select>
-      </div>
-
-      <div class="buttons">
-          <button id="submitSectionSort">Sort Data</button>
-          <button id="resetSectionSort">Reset</button>
-          <button id="closeSectionSort">Close</button>
-      </div>
-
-    </div>
-  </div>
-
-
-
   <script>
     var sessionData = <?php echo json_encode($_SESSION);?>;
   </script>
   <div id="sessionDataContainer" data-session="<?php echo htmlentities(json_encode($_SESSION)); ?>"></div>
-  <div id="section-sdc" data-session-section=""></div>
-  <!-- Add archiving status -->
-  <div class="arch-status">
-    <p>Archiving started!</p>
-    <span class="as">Archived <span class="as-proc">0</span> out of <span class="as-total">?</span></span>
-  </div>
 
-  <script type="module" src="js/fetch-student.js"></script>
+  <script>
+    var sessionData = document.getElementById("sessionDataContainer").dataset.session;
+    sessionData = JSON.parse(sessionData);
+  </script>
+
+  <!-- <script type="module" src="js/fetch-section.js"></script> -->
   <script src="js/get-section.js" type="module"></script>
   <script src="js/getCurrentUserData.js" type="module"></script>
-  <script src="js/convertTableToExcel.js"></script>
+  <script src="js/createsection.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>
@@ -243,7 +203,6 @@
   <script src="assets/demo/chart-area-demo.js"></script>
   <script src="assets/demo/chart-bar-demo.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-  <script src="js/createuser.js"></script>
 </body>
 
 </html>

@@ -31,7 +31,7 @@ upload.onclick = function () {
 // also store files path in localstorage or in database for further use
 if(!localStorage.getItem("uploaded-metadata")){
     var metadata = '[]';
-    localStorage.setItem('uploaded-metadata', metadata)
+    localStorage.setItem('uploaded-metadata', metadata);
 }
 
 // get selected file and upload function
@@ -42,6 +42,10 @@ hiddenBtn.onchange = function () {
     var name = file.name.split('.').shift() + Math.floor(Math.random() * 10) + 10 + '.' + file.name.split('.').pop();
     var type = file.type.split('/')[0];
     var path = type + '/' + name;
+    //Get the description value
+    var fDesc = document.querySelector(".text-description").value;
+    //Upload section data
+    var sdc = document.getElementById("section-sdc").getAttribute("data-session-section");
 
     // now upload
     var storageRef = firebase.storage().ref(path);
@@ -84,7 +88,11 @@ hiddenBtn.onchange = function () {
                     db.collection(lessonCollectionName)
                         .add({
                             filename: name,
-                            fileUrl: url
+                            filePath: path,
+                            fileUrl: url,
+                            //Added File Description
+                            fileDesc: fDesc,
+                            section: sdc,
                         });
                 })
                 .catch(function(err) {
@@ -92,14 +100,15 @@ hiddenBtn.onchange = function () {
                 });
 
             // on successful upload
-            var metadata = JSON.parse(localStorage.getItem('uploaded-metadata'));
-            metadata.unshift(path);
-            localStorage.setItem("uploaded-metadata", JSON.stringify(metadata));
+            //var metadata = JSON.parse(localStorage.getItem('uploaded-metadata'));
+            //metadata.unshift(path);
+            //localStorage.setItem("uploaded-metadata", JSON.stringify(metadata));
             percent.innerHTML = 'DONE';
             upload.disabled = false;
             hiddenBtn.value = null;
-            // also refresh list on new upload
-            showFilesList();
+            // also refresh list/page on new upload
+            setTimeout(showFilesList, 3000);
+            
         }
     )
 }
@@ -108,43 +117,60 @@ var expandContainer = document.getElementsByClassName('expand-container')[0];
 var expandContainerUl = document.querySelector('.expand-container ul');
 var loader = document.getElementsByClassName('loader')[0];
 
-window.onload = showFilesList;
+window.onload = function() {setTimeout(showFilesList, 3000);};
 // make a function to show all files list
 function showFilesList(){
-    // get data from localstorage
-    var data = JSON.parse(localStorage.getItem('uploaded-metadata'));
+    var a = document.querySelector("#section-sdc").getAttribute("data-session-section");
     // refresh all files on function reload
     document.getElementById('video').innerHTML = '';
     document.getElementById('audio').innerHTML = '';
     document.getElementById('image').innerHTML = '';
-    for(var i = 0; i < data.length; i++){
-        var folder_name = data[i].split('/')[0];
-        var file_name = data[i].split('/')[1];
-        var path = data[i];
-        if(folder_name == 'video'){
-            document.getElementById('video').innerHTML += `
-            <li data-name="${path}">
-                <span>${file_name}</span>
-                <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
-            </li>
-            `;
-        }else if(folder_name == 'audio'){
-            document.getElementById('audio').innerHTML += `
-            <li data-name="${path}">
-                <span>${file_name}</span>
-                <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
-            </li>
-            `;
-        }else{
-            document.getElementById('image').innerHTML += `
-            <li data-name="${path}">
-                <span>${file_name}</span>
-                <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
-            </li>
-            `;
-        }
+    console.log(a);
+        //Get list of files from the server
+        db.collection(lessonCollectionName)
+        //.where('filename', '==', file_name)
+        .get()
+        .then(function(sp) {
+            sp.forEach((doc) => {
+                //console.log(doc.data());
+                var dfn = doc.data().filename;
+                var dfpth = doc.data().filePath;
+                var dffldr = doc.data().filePath.split('/')[0];
+                //console.log(dfn);
+                //Check if matches with currently logged in user
+                if(doc.data().section == a) {
+                    //If match
+                    if(dffldr == 'video'){
+                        document.getElementById('video').innerHTML += `
+                        <li data-name="${dfpth}">
+                            <span>${dfn}</span>
+                            <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
+                        </li>
+                        `;
+                    }else if(dffldr == 'audio'){
+                        document.getElementById('audio').innerHTML += `
+                        <li data-name="${dfpth}">
+                            <span>${dfn}</span>
+                            <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
+                        </li>
+                        `;
+                    }else{
+                        document.getElementById('image').innerHTML += `
+                        <li data-name="${dfpth}">
+                            <span>${dfn}</span>
+                            <svg onclick="expand(this)" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
+                        </li>
+                        `;
+                    }
+                } else {
+                    console.log("Will not print: " + dfn);
+                }
+            });
+        })
+    //}
+        
     }
-}
+//}
 
 // now make expand function to open more info
 function expand(v){
@@ -200,6 +226,7 @@ function openFile(v){
     .catch((error) => {
         // if any error
         console.log(error);
+        location.reload();
     })
 }
 
@@ -236,6 +263,7 @@ function downloadFile(v){
     .catch((error) => {
         // if any error
         console.log(error);
+        location.reload();
     })
 }
 
@@ -273,5 +301,6 @@ function deleteFile(v){
         shrink();
     }).catch((error) => {
         console.log(error);
+        location.reload();
     })
 }

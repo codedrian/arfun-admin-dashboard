@@ -111,12 +111,10 @@
                         Archived Accounts (Sections)
                         <!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
                       </h3>
-                      <button id="archive">Archive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
-                      <button id="archive-all">Archive All</button>
-                      <button id="download-table">Download Table Data</button>
-                      <div class="download-link"></div>
+                      <button id="unarchive">Unarchive Selected</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="select-all">Select All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                        <button id="deselect-all">Deselect All</button><!-- <a href="index.php" class="btn btn-danger float-end">Back</a> -->
+                       <button id="sort-data">Sort Data</button>
 
                     </div>
                     <div class="card-body">

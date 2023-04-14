@@ -32,17 +32,22 @@
                             <span> Students </span>
                             </a>';
 
-                            echo '<a class="nav-link collapsed" href="archive-teacher.php">
-                            <i class="fas fa-archive"></i>
-                            <span>Archive (Teacher)</span>
-                            </a>';
-
                             echo '<a class="nav-link collapsed" href="archive-admin.php">
                             <i class="fas fa-archive"></i>
                             <span>Archive (Admin)</span>
                             </a>';
 
-                            
+                            echo '<a class="nav-link collapsed" href="archive-teacher.php">
+                            <i class="fas fa-archive"></i>
+                            <span>Archive (Teacher)</span>
+                            </a>';
+
+                            echo '<a class="nav-link collapsed" href="archive-section.php">
+                            <i class="fas fa-archive"></i>
+                            <span>Archive (Section )</span>
+                            </a>';
+
+
                     }
                     ?>
                     <!-- Both teacher and admin can access this -->
@@ -53,7 +58,7 @@
 
                     <?php
                     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-                       
+
                         echo '<a class="nav-link collapsed" href="quiz-score.php">
                         <i class="fas fa-file-text fa-lg"></i>
                         <span> Quiz Scores</span>
@@ -75,24 +80,24 @@
 
                     <?php
                     if (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
-                        
-                        echo '<a class="nav-link collapsed" 
+
+                        echo '<a class="nav-link collapsed"
                         href="add-student.php">
                         <i class="fas fa-users fa-lg"></i>
                         <span>Student</span>
                         </a>
 
-                        <a class="nav-link collapsed" 
+                        <a class="nav-link collapsed"
                         href="lesson.php">
                         <i class="fas fa-book-open fa-lg"></i>
                         <span>Lesson</span>
                         </a>
-                        
+
                         <a class="nav-link collapsed" href="create-quiz.php">
                             <i class="fas fa-file-text fa-lg"></i>
                             <span>Create Quiz</span>
                         </a>
-                        
+
                         <a class="nav-link collapsed" href="quiz-score.php">
                             <i class="fas fa-users fa-lg"></i>
                             <span> Quiz Scores</span>
@@ -101,7 +106,7 @@
                     }
                     ?>
 
-                   
+
 
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                         data-bs-parent="#sidenavAccordion">
